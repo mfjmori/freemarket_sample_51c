@@ -65,4 +65,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'pry-rails'
 gem 'kaminari'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
