@@ -29,6 +29,8 @@
 - has_many :likes, dependent::destory
 - has_many :comments, dependent::destory
 - has_many :items, dependent::destory
+- has_many :messages
+- has_many :buy_order
 
 
 ## buy_ordersテーブル
@@ -44,6 +46,8 @@
 ### Association
 - has_many :messages
 - belongs_to :item
+- belongs_to :saler, class_naem "User"
+- belongs_to :buyer, class_naem "User"
 
 
 ## itemsテーブル
@@ -121,6 +125,8 @@
 
 ### Association
 - belong_to :buy_order
+- belong_to :user
+
 
 
 ## imagesテーブル
