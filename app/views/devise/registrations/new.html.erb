@@ -1,5 +1,49 @@
-<h2>Sign up</h2>
-
+<main class="single__container">
+  <header class="single__header">
+      <h1>
+        <a href="/">
+          <img src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340" alt="mercari" class="img__single__header">
+        </a>
+      </h1>
+  </header>
+    <main class="single__main">
+      <section class="l__signle__container">
+        <h2 class="l__single__head">新規会員登録</h2>
+        <div class="l__single__inner">
+          <div class="l__single__content">
+              <a href="/" class="btn-default btn-mail">メールアドレスで登録</a>
+            <button id="facebook-login" class="btn-default btn-sns btn-sns-facebook">
+              <i class="fab fa-facebook-square"></i>Facebookで登録
+            </button>
+            <button id="google-login" class="btn-default btn-sns btn-sns-google">
+            <i><%= embedded_svg("Google.svg", class: "good-svg") %></i>Googleで登録</button>
+            
+          </div>
+          </div>
+        </section>
+      </main>
+      <footer class="single-footer">
+          <nav>
+            <ul class="clearfix">
+              <li>
+                <a href="https://www.mercari.com/jp/privacy/">プライバシーポリシー</a>
+              </li>
+              <li>
+                <a href="https://www.mercari.com/jp/tos/">メルカリ利用規約</a>
+              </li>
+                              <li>
+                  <a href="https://www.mercari.com/jp/tokutei/">特定商取引に関する表記</a>
+                </li>
+                          </ul>
+          </nav>
+          <a href="https://www.mercari.com/jp/" class="single-footer-logo">
+            <img src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3160895340" alt="mercari" width="80" height="65">
+          </a>
+          <p>
+            <small>© 2019 Mercari</small>
+          </p>
+        </footer>
+</main>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -27,3 +71,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
