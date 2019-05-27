@@ -1,35 +1,33 @@
-
 ## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|sring|null: false, foreign_key: true|
-|email|sring|null: false, foreign_key: true|
-|password|sring|null: false, foreign_key: true|
+|nickname|sring|null: false,|
 |self_introduction|text||
-|first_name|sring|null: false, foreign_key: true|
-|last_name|sring|null: false, foreign_key: true|
-|first_name_kana|sring|null: false, foreign_key: true|
-|last_name_kana|sring|null: false, foreign_key: true|
-|post_code|integer|null: false, foreign_key: true|
-|prefecture|sring|null: false, foreign_key: true|
-|municipality|sring|null: false, foreign_key: true|
-|house_number|integer|null: false, foreign_key: true|
-|phone_numb|integer|null: false, foreign_key: true|
-|point|integer|null: false, foreign_key: true|
-|sum_sales|integer|null: false, foreign_key: true|
-|cord_numder|integer|null: false, foreign_key: true|
-|limit_month|integer|null: false, foreign_key: true|
-|limit_year|integer|null: false, foreign_key: true|
-|security_code|integer|null: false, foreign_key: true|
+|first_name|sring|null: false|
+|last_name|sring|null: false|
+|first_name_kana|sring|null: false|
+|last_name_kana|sring|null: false|
+|post_code|string|null: false|
+|prefecture|sring|null: false|
+|municipality|sring|null: false|
+|house_number|string|null: false|
+|phone_number|integer||
+|building_name|string||
+|point|integer|null: false,default: 0|
+|sum_sales|integer|null: false, default: 0|
+|card_numder|integer||
+|limit_month|integer||
+|limit_year|integer||
+|security_code|integer||
 
 
 
 ### Association
-- has_many :user_revews
-- has_many :buy_orders
-- has_many :likes
-- has_many :comments
+- has_many :user_revews, dependent::destory
+- has_many :likes, dependent::destory
+- has_many :comments, dependent::destory
+- has_many :items, dependent::destory
 
 
 ## buy_ordersテーブル
@@ -39,42 +37,40 @@
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
-|reserve|integer|null: false, foreign_key: true|
+|receive_completed|boolearn|default: false,null: false|
 
 
 ### Association
-- belongs_to :users
-- belongs_to :messages
-- belongs_to :items
+- has_many :messages
+- belongs_to :item
 
 
 ## itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
-|descripton|text||
+|name|string|null: false|
+|descripton|text|null: false|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
-|brand|string|null: false, foreign_key: true|
+|brand|string||
 |categories_id|references|null: false, foreign_key: true|
-|size|integer|null: false, foreign_key: true|
-<!-- type -->
-|condition||null: false, foreign_key: true|
-|price|integer|null: false, foreign_key: true|
-|postage|integer|null: false, foreign_key: true|
-<!-- type -->
-|shipping_method||null: false, foreign_key: true|
-|region|string|null: false, foreign_key: true|
-<!-- type -->
-|shipping_date|string|null: false, foreign_key: true|
+|size|string|null: false|
+|condition|integer|null: false|
+|price|integer|null: false|
+|postage|integer|null: false|
+|shipping_method|integer|null: false|
+|region|string|null: false|
+|shipping_date|integer|null: false|
 
 ### Association
-- belongs_to :comments
-- belongs_to :likes
-- has_many :immages
-- has_many :categories
-- has_one:buy_orders
+- belongs_to :saler, class_naem "User"
+- belongs_to :buyer, class_naem "User"
+- belongs_to :categorie
+- has_many :images, dependent::destory
+- has_many :likes, dependent::destory
+- has_many :comments, dependent::destory
+- has_one :buy_order
 
 
 ## commentsテーブル
@@ -83,25 +79,23 @@
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
-|text|text||
+|text|text|null: false|
 
 ### Association
-- belongs_to :users
-- belongs_to :comments
+- belongs_to :user
+- belongs_to :item
 
 
 ## likesテーブル
-<!-- true or false
- :boolean, default: false, null: false
--->
+
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 
 
 
@@ -110,11 +104,11 @@
 |Column|Type|Options|
 |------|----|-------|
 
-|rate||foreign_key: true|
+|rate|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user_revews
+- belongs_to :user
 
 
 ## messagesテーブル
@@ -125,7 +119,7 @@
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :buy_orders
+- belong_to :buy_order
 
 
 ## imagesテーブル
@@ -133,21 +127,20 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
-|image|integer| foreign_key: true|
+|image|string|null: false|
 
 ### Association
-- belongs_to :items
+- belongs_to :item
 
 
 ## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
+|name|string|null: false|
 |parent_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :items
-
-
-
+- has_many :items
+- belongs_to :parent, class_name: :Category
+- has_many :children, class_name: :Category, foregin_key::parent_id
