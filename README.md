@@ -30,7 +30,6 @@
 - has_many :buy_orders
 - has_many :likes
 - has_many :comments
-- has_many :items,through::buy_orders
 
 
 ## buy_ordersテーブル
@@ -46,8 +45,7 @@
 ### Association
 - belongs_to :users
 - belongs_to :messages
-<!--  -->
--  :items
+- belongs_to :items
 
 
 ## itemsテーブル
@@ -76,9 +74,7 @@
 - belongs_to :likes
 - has_many :immages
 - has_many :categories
-<!--  -->
--  :buy_orders
--  :users,through::users
+- has_one:buy_orders
 
 
 ## commentsテーブル
