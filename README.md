@@ -3,18 +3,6 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|sring|null: false,|
-|self_introduction|text||
-|first_name|sring|null: false|
-|last_name|sring|null: false|
-|first_name_kana|sring|null: false|
-|last_name_kana|sring|null: false|
-|post_code|string|null: false|
-|prefecture|sring|null: false|
-|municipality|sring|null: false|
-|house_number|string|null: false|
-|phone_number|integer||
-|building_name|string||
 |point|integer|null: false,default: 0|
 |sum_sales|integer|null: false, default: 0|
 |card_numder|integer||
@@ -32,7 +20,7 @@
 - has_many :messages
 - has_many :buy_order
 - has_one :profile
-
+- has_one :address
 
 ## profilesテーブル
 
@@ -43,6 +31,26 @@
 
 ### Association
 - belongs_to :user
+
+
+## addressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|first_name|sring|null: false|
+|last_name|sring|null: false|
+|first_name_kana|sring|null: false|
+|last_name_kana|sring|null: false|
+|post_code|string|null: false|
+|prefecture|sring|null: false|
+|municipality|sring|null: false|
+|house_number|string|null: false|
+|phone_number|integer||
+|building_name|string|
+
+### Association
+- belongs_to :user
+
 
 
 ## buy_ordersテーブル
