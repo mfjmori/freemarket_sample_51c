@@ -31,6 +31,18 @@
 - has_many :items, dependent::destory
 - has_many :messages
 - has_many :buy_order
+- has_one :profile
+
+
+## profilesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|nickname|sring|null: false,|
+|self_introduction|text||
+
+### Association
+- belongs_to :user
 
 
 ## buy_ordersテーブル
