@@ -3,6 +3,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|nickname|sring|null: false,|
 |point|integer|null: false,default: 0|
 |sum_sales|integer|null: false, default: 0|
 |card_numder|integer||
@@ -22,11 +23,15 @@
 - has_one :profile
 - has_one :address
 
+
 ## profilesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|sring|null: false,|
+|first_name|sring|null: false|
+|last_name|sring|null: false|
+|first_name_kana|sring|null: false|
+|last_name_kana|sring|null: false|
 |self_introduction|text||
 
 ### Association
@@ -37,10 +42,6 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|first_name|sring|null: false|
-|last_name|sring|null: false|
-|first_name_kana|sring|null: false|
-|last_name_kana|sring|null: false|
 |post_code|string|null: false|
 |prefecture|sring|null: false|
 |municipality|sring|null: false|
