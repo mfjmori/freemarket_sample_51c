@@ -1,9 +1,25 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
+# ブランチをデプロイするための環境変数,自動デプロイするときにコマンドで環境変数を設定する
+set :branch, ENV['BRANCH'] || "master"
+set :application, "freemarket_sample_51c"
+set :repo_url, "git@github.com:mfjmori/freemarket_sample_51c.git"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+set :rbenv_type, :user
+set :rbenv_ruby, '2.5.1'
+set :ssh_options, auth_methods: ['publickey'],
+                  keys: ['~/.ssh/10s3029H.pem']
+set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
+set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
+set :keep_releases, 5
 
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+end
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
