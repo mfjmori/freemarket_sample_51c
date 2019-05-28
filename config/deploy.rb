@@ -1,7 +1,5 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
-# ブランチをデプロイするための環境変数,自動デプロイするときにコマンドで環境変数を設定する
-set :branch, ENV['BRANCH'] || "master"
 set :application, "freemarket_sample_51c"
 set :repo_url, "git@github.com:mfjmori/freemarket_sample_51c.git"
 
