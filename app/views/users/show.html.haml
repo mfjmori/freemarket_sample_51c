@@ -1,0 +1,158 @@
+%main
+  .container
+    .content
+      %h2 本人情報の登録
+      %form.form
+        .content__form
+          %div
+            %p.info
+              お客さまの本人情報をご登録ください。
+              %br/
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p.info-icon
+              %a{:href => ""}
+                本人確認書類のアップロードについて
+                %i.fas.fa-chevron-right
+          .content__form__list
+            %label お名前
+            %p.content__form__list-normal 名前
+          .content__form__list
+            %label お名前カナ
+            %p.content__form__list-normal ナマエ
+          .content__form__list
+            %label 生年月日
+            %p.content__form__list-normal 2019/5/27
+          .content__form__list
+            %label
+              郵便番号
+              %span.arbitrary 任意
+            %input{:placeholder => "例 1234567", :type => "text"}/
+          .content__form__list
+            %label
+              都道府県
+              %span.arbitrary 任意
+            .select__form
+              %select
+                %option --
+                %option 北海道
+                %option 青森県
+                %option 岩手県
+                %option 宮城県
+                %option 秋田県
+                %option 山形県
+                %option 福島県
+              %i#down.fas.fa-chevron-down
+          .content__form__list
+            %label
+              市区町村
+              %span.arbitrary 任意
+            %input{:placeholder => "例 横浜市緑区", :type => "text"}/
+          .content__form__list
+            %label
+              番地
+              %span.arbitrary 任意
+            %input{:placeholder => "例 青山1-1-1", :type => "text"}/
+          .content__form__list
+            %label
+              建物名
+              %span.arbitrary 任意
+            %input{:placeholder => "例 柳ビル103", :type => "text"}/
+          %button.form-btn{:type => "submit"} 登録する
+          .content__form__btm
+            %a{:href => ""}
+              本人情報の登録について
+              %i.fas.fa-chevron-right
+    .side
+      %ul.side__mypage
+        %li.side__mypage-top
+          %a{:href => ""}
+            マイページ
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            お知らせ
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            やることリスト
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            いいね！一覧
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            出品する
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            出品した商品-出品中
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            出品した商品-取引中
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            出品した商品-売却済み
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            購入した商品-取引中
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            購入した商品-過去の取引
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            ニュース一覧
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            ニュース一覧
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            ガイド
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            お問い合わせ
+            %i.fas.fa-chevron-right
+      %ul.side__mypage
+        %h3 メルペイ
+        %li
+          %a{:href => ""}
+            売上・振込申請
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            ポイント
+            %i.fas.fa-chevron-right
+      %ul.side__mypage
+        %h3 設定
+        %li
+          %a{:href => ""}
+            プロフィール
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            発送元・お届け先住所変更
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            支払い方法
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            メール/パスワード
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            電話番号の確認
+            %i.fas.fa-chevron-right
+        %li
+          %a{:href => ""}
+            ログアウト
+            %i.fas.fa-chevron-right
