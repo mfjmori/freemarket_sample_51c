@@ -1,0 +1,68 @@
+%main
+  .container
+    .content
+      %h2 本人情報の登録
+      %form.form
+        .content__form
+          %div
+            %p.info
+              お客さまの本人情報をご登録ください。
+              %br/
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p.info-icon
+              %a{href: ""}
+                本人確認書類のアップロードについて
+                %i.fas.fa-chevron-right
+          .content__form__list
+            %label お名前
+            %p.content__form__list-normal 名前
+          .content__form__list
+            %label お名前カナ
+            %p.content__form__list-normal ナマエ
+          .content__form__list
+            %label 生年月日
+            %p.content__form__list-normal 2019/5/27
+          .content__form__list
+            %label
+              郵便番号
+              %span.arbitrary 任意
+            %input{placeholder: "例 1234567", type: "text"}/
+          .content__form__list
+            %label
+              都道府県
+              %span.arbitrary 任意
+            .select__form
+              %select
+                -# 例え
+                %option --
+                %option 北海道
+                %option 青森県
+                %option 岩手県
+                %option 宮城県
+                %option 秋田県
+                %option 山形県
+                %option 福島県
+              %i#down.fas.fa-chevron-down
+          .content__form__list
+            %label
+              市区町村
+              %span.arbitrary 任意
+            %input{placeholder: "例 横浜市緑区", type: "text"}/
+          .content__form__list
+            %label
+              番地
+              %span.arbitrary 任意
+            %input{placeholder: "例 青山1-1-1", type: "text"}/
+          .content__form__list
+            %label
+              建物名
+              %span.arbitrary 任意
+            %input{placeholder: "例 柳ビル103", type: "text"}/
+          %button.form-btn{type: "submit"} 登録する
+          .content__form__btm
+            %a{href: ""}
+              本人情報の登録について
+              %i.fas.fa-chevron-right
+    .side
+      = render "users/side"
+      
