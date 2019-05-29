@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :mypages
+  get "logout" => "mypages#logout"
   resources :items
 end
 
