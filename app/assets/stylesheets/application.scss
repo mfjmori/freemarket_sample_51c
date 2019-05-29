@@ -11,6 +11,7 @@ body{
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+
 .camera{
   position: fixed;
   color:white;
@@ -34,5 +35,8 @@ body{
     font-size: 50px;
   }
 }
+
+
+@import "./mypages";
 
 
