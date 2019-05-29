@@ -1,0 +1,20 @@
+%main
+  .container
+    .content
+      .user-icon
+        = link_to '#', class: 'user-icon__link' do
+          %figure.user-icon__link__image
+            = image_tag "//static.mercdn.net/thumb/members/710038589.jpg?1552921963"
+          %h2.user-icon__link__name
+            名前
+          .user-icon__link__number
+            .user-icon__link__number__reviews
+              評価
+              %span
+                2
+            .user-icon__link__number__items
+              出品数
+              %span
+                2
+    .side
+      = render "mypages/side"
