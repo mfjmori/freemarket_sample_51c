@@ -1,27 +1,26 @@
 %main
   .container
     .content
-      .user-icon
-        = link_to '#', class: 'user-icon__link' do
-          %figure.user-icon__link__image
+      .maypage-user-icon
+        = link_to '#', class: 'user-detail-link' do
+          %figure.user-detail-link__image
             = image_tag "//static.mercdn.net/thumb/members/710038589.jpg?1552921963"
-          %h2.user-icon__link__name
+          %h2.user-detail-link__name
             名前
-          .user-icon__link__number
-            .user-icon__link__number__reviews
+          .user-detail-link__number
+            .user-detail-link__number__reviews
               評価
               %span
                 2
-            .user-icon__link__number__items
+            .user-detail-link__number__items
               出品数
               %span
                 2
       .tab-container
-        %ul.tab-container__tabs
-          %li.tab-container__tabs__tab.tab-container__tabs__tab--notification.tab-container__tabs__tab--active
+        %ul.notification-todo-tabs
+          %li.notification-todo-tabs__tab.notification-todo-tabs__tab--notification.notification-todo-tabs__tab--active
             お知らせ
-          %li.tab-container__tabs__tab.tab-container__tabs__tab--todo
+          %li.notification-todo-tabs__tab.notification-todo-tabs__tab--todo
             やることリスト
-
     .side
       = render "mypages/side"
