@@ -5,13 +5,11 @@ body{
 }
 
 @import "reset";
-
 @import "items.index";
 @import "header";
 @import "footer";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
 
 .camera{
   position: fixed;
@@ -36,4 +34,5 @@ body{
     font-size: 50px;
   }
 }
+
 
