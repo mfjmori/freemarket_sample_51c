@@ -1,0 +1,137 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.main{
+  background: #f5f5f5;
+  min-height:100%;
+  a:link { 
+    color: #0099e8;
+    text-decoration: none;
+  }
+  a:visited { 
+    color: #0099e8;
+    text-decoration: none;
+  }
+  a:hover { 
+    color: #0099e8;
+    opacity: 0.6;
+    text-decoration: underline;
+  }
+  a:active { 
+    color: none; 
+  }
+}
+
+.first-section{
+  background-size: cover;
+  min-height:390px;
+  margin-bottom:95px;
+
+  &__third-view{
+    position:relative;
+    background-image:url("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg");
+    background-size: cover;
+    height:390px;
+
+    &__main{
+      margin-left: 19%;
+      margin-top: 3%;
+
+
+      &__title{
+        font-size: 60px;
+        font-weight: bold;
+        line-height: 65px;
+
+      }
+
+      &__text{
+        margin-top:18px;
+        font-size: 17px;
+        line-height: 32px;
+        
+      }
+
+      &__apple{
+        margin-top:19px;
+        margin-right: 20px;
+        float: left;
+      }
+
+      &__google{
+        height:440px;
+        margin-top:19px;
+      }
+    }
+
+    &__phone{
+      width:440px;
+      position:absolute;
+      margin-left:48%;
+      top:0; 
+    }
+  }
+}
+
+
+.secound-section{
+  min-height:2000px;
+  margin-bottom:10px;
+
+  h1{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__block{
+    width:1000px;
+    height:442px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:22px;
+    position:relative;
+
+    &__title{
+      font-size: 22px;
+      color: #0099e8;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__items{
+
+
+      &__item{
+        width:213px;
+        height:400px;
+        margin-left:20px;
+        margin-top:20px;
+        float:left;
+
+        &__image{
+          width:213px;
+          height:220px;
+          background-color: aquamarine;
+        }
+
+        &__name{
+          width:213px;
+          height:110px;
+          background-color: #fff;
+        }
+      }
+      &__all{
+        margin-top: 10px;
+        float:right;
+        color: #0099e8;
+        font-size:14px;
+      }
+    }
+  }
+}
+
+

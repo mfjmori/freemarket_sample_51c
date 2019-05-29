@@ -6,13 +6,247 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-    
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $('.slider').bxSlider();
+      });
+    </script>
   </head>
 
   <body>
+    <div class = "header">
+      <div class = "header__box">
+        <div class ="header__box__top">
+          <div class ="header__box__top__mainicon">
+            <%= link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340'), root_path, class: 'get'%>
+          </div>
+          <div class = "header__box__top__form">
+            <%= form_tag('/items', method: :post) do %>
+              <div class = "header__box__top__form__tag">
+                <input size = "88" name="text" placeholder="何かお探しですか？" class = "header__box__top__form__tag__main" >
+                <button  type="submit" class = "header__box__top__form__submit"><i class="fas fa-search"></i>
+                </button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        
+        <div class = "header__box__bottom">
+          <div class = "header__box__bottom__futoji">
+            <a href ="" style="text-decoration:none">
+            <i class="fas fa-list-ul header__box__bottom__futoji__icon"></i>
+             カテゴリーから探す
+             </a>
+          </div>
+          <div class = "header__box__bottom__futoji">
+            <a href ="" style="text-decoration:none">
+            <i class="fas fa-tag header__box__bottom__futoji__icon"></i>
+              ブランドから探す
+            </a>
+          </div>
+
+          <% if user_signed_in? %>
+            <div class = "header__box__bottom__hosoji">
+              <div class = "header__box__bottom__hosoji__bottan">
+                <a href ="">
+                <i class="far fa-bell header__box__bottom__hosoji__bottan__icon"></i>
+                <div class = "header__box__bottom__hosoji__bottan__font">
+                  お知らせ
+                </div>
+                </a>
+              </div>
+              <div class = "header__box__bottom__hosoji__bottan">
+                <a href ="">
+                <i class="fas fa-check header__box__bottom__hosoji__bottan__icon"></i>
+                <div class = "header__box__bottom__hosoji__bottan__font">
+                やることリスト
+                </div>
+                </a>
+              </div>
+              <div class = "header__box__bottom__hosoji__bottan">
+                <a href ="">
+                <img src="//static.mercdn.net/images/member_photo_noimage_thumb.png" class ="header__box__bottom__hosoji__bottan__mypage" alt= "マイページ">
+                <div class = "header__box__bottom__hosoji__bottan__font">
+                マイページ
+                </div>
+                </a>
+              </div>
+            </div>
+            <% else %>
+            <div class = "header__box__bottom__button">
+              <div class = "header__box__bottom__button__new">
+                <%= link_to "新規会員登録",new_user_registration_path, class: 'get', style: "text-decoration:none"%>
+              </div>
+              <div class = "header__box__bottom__button__signin">
+                <%= link_to "ログイン",new_user_session_path , class: 'get', style: "text-decoration:none"%>
+              </div>
+            </div>
+          <%end %>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
     <%= yield %>
+
+    <div class ="footer">
+      <div class = "footer__top">
+        <div class ="footer__top__text">
+          <div class ="footer__top__text__small">スマホでかんたんフリマアプリ</div>
+          <div class ="footer__top__text__big">今すぐ無料ダウンロード！</div>
+        </div>
+        <div class = "footer__top__logo">
+          <img src="//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?3160895340" width="68">
+        </div>
+        <div class = "footer__top__app">
+            <%= link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'%>
+        </div>
+        <div class = "footer__top__google">
+            <%= link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'%>
+        </div>
+        <div class = "footer__top__phone">
+          <img src="//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?3160895340" width="300" height="260">
+        </div>
+      </div>
+      <div class ="footer__bottom">
+        <div  class ="footer__bottom__company">
+          <h1>メルカリについて
+          </h1>
+          <ul>
+            <li>
+              <%= link_to "会社概要（運営会社）","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "採用情報","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "プレスリリース","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "公式ブログ","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "メルカリロゴ用ガイドライン","" , class: 'get'%>
+            </li>
+          </ul>
+        </div>
+
+
+        <div  class ="footer__bottom__guide">
+          <h1>ヘルプ＆ガイド
+          </h1>
+          <ul>
+            <li>
+              <%= link_to "メルカリガイド","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "らくらくメルカリ便","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "ゆうゆうメルカリ便","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "大型メルカリ便","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "車体取引便","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "メルカリあんしん・あんぜん宣言！","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "偽ブランド品撲滅への取り組み","" , class: 'get'%>
+            </li>
+            <li>
+               <%= link_to "メルカリボックス","" , class: 'get'%>
+            </li>
+          </ul>
+        </div>
+
+        <div  class ="footer__bottom__privacy">
+          <h1>プライバシーと利用規約
+          </h1>
+          <ul>
+            <li>
+              <%= link_to "プライバシーポリシー","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "メルカリ利用規約","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to raw("あんしんスマホサポート制度に関<br>する利用特約"),"" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "コンプライアンスポリシー","" , class: 'get'%>
+            </li>
+          </ul>
+        </div>
+
+        <div  class ="footer__bottom__data">
+          <ul>
+            <li>
+              <%= link_to raw("個人データの安全管理に係る基本<br>方針"),"" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "特定商取引に関する表記","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "資金決済法に基づく表示","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "法令順守と犯罪抑止のために","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "返品・返金ポリシー","" , class: 'get'%>
+            </li>
+          </ul>
+        </div>
+
+        <div class = "footer__bottom__country">
+        <h1>国
+        </h1>
+          <ul>
+            <li>
+              <%= link_to "日本","" , class: 'get'%>
+            </li>
+            <li>
+              <%= link_to "United States","" , class: 'get'%>
+            </li>
+          </ul>
+        </div>
+        <a href = "https://twitter.com/mercari_jp">
+          <i class="fab fa-twitter footer__bottom__tw-icon"></i>
+        </a>
+        <a href = "https://www.facebook.com/mercarijp" alt ="フェイスブック">
+          <i class="fab fa-facebook-square footer__bottom__fb-icon"></i>
+        </a>
+        <div class = "footer__bottom__logo">
+          <%= link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3160895340'), root_path, class: 'get',width:"124",height:"33"%>
+        </div>
+
+        <div class = "footer__bottom__log">
+          © 2019 Mercari
+        </div>
+        <a href = new_item_path>
+        <div class = "camera">
+          <div class = "camera__font">
+            出品
+          </div>
+          <div class ="camera__icon">
+            <i class="fa fa-camera"></i>
+          </div>
+        </div>
+        </a>
+        <div>
+      </div>
+    </div>
   </body>
 </html>
