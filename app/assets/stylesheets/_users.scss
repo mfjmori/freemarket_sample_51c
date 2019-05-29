@@ -90,6 +90,64 @@ main {
           }
         }
       }
+      .list-container {
+        .notification-lists {
+          .notification-list {
+            min-height: 80px;
+            padding: 16px;
+            box-sizing: border-box;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            &__link {
+              text-decoration: none;
+              &__image {
+                height: 48px;
+                width: 48px;
+                margin: 0;
+                float: left;
+                img {
+                  height: 48px;
+                  width: 48px;
+                }
+              }
+              &__body {
+                margin: 0 40px 0 68px;
+                font-size: 14px;
+                color: #333;
+                &__time {
+                  color: #888;
+                  i.fa-clock {
+                    font-size: 16px;
+                    margin-right: 8px;
+                  }
+                }
+                i.fa-chevron-right {
+                  position: absolute;
+                  top: 50%;
+                  right: 16px;
+                  transform: translate(0, -50%);
+                }
+              }
+            }
+          }
+          .notification-index-list {
+            height: 88px;
+            padding: 16px;
+            box-sizing: border-box;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            &__link {
+              display: block;
+              font-size: 14px;
+              line-height: 56px;
+              background-color: #eee;
+              text-align: center;
+              text-decoration: none;
+              color: #333;
+            }
+          }
+        }
+      }
     }
   }
 }

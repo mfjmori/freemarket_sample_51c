@@ -22,5 +22,70 @@
             お知らせ
           %li.notification-todo-tabs__tab.notification-todo-tabs__tab--todo
             やることリスト
+      .list-container
+        %ul.notification-lists
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  《明後日まで！》からあげクンとマチカフェコーヒーが半額になるクーポン配信中
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    3時間前
+                %i.fas.fa-chevron-right
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  《みずほ銀行にも対応！》メルペイのお支払いで20%ポイント還元中！
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    1日前
+                %i.fas.fa-chevron-right
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  事務局から個別メッセージ「Googleログイン通知」
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    2日前
+                %i.fas.fa-chevron-right
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  《まだ間に合う！》友達を招待したら"必ず"ポイントがもらえるキャンペーン開催中！
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    3日前
+                %i.fas.fa-chevron-right
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  7日後、20%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    3日前
+                %i.fas.fa-chevron-right
+          %li.notification-index-list
+            = link_to '#', class: 'notification-index-list__link' do
+              一覧を見る
     .side
       = render "mypages/side"
