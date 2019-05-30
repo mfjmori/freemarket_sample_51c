@@ -35,6 +35,12 @@ html{
                 color: #0099e8;
                 text-decoration: none;
               }
+              a:hover {
+                text-decoration: underline;
+                font-size: 14px;
+                line-height: 1;
+                opacity: 0.7;
+              }
             }
           }
           &__list {
@@ -101,10 +107,16 @@ html{
           &__btm {
             margin: 40px 0 0;
             text-align: right;
-              a {
-                color: #0099e8;
-                text-decoration: none;
-              }
+            a {
+              color: #0099e8;
+              text-decoration: none;
+            }
+            a:hover {
+              text-decoration: underline;
+              font-size: 14px;
+              line-height: 1;
+              opacity: 0.7;
+            }
           }
         }
         &__profile {
@@ -174,227 +186,6 @@ html{
               background-color: #ea352d;
               border: 1px solid #ea352d;
               color: #fff;
-            }
-          }
-        }
-        &__card {
-          border-top: 1px solid #f5f5f5;
-          padding: 64px;
-          .content-a {
-            h3 {
-              font-weight: bold;
-            }
-            .content__card-index {
-              margin: 0 auto;
-              max-width: 320px;
-            }
-            .content__card-show {
-              margin: 0 auto;
-              max-width: 320px;
-              ul {
-                padding: 24px 0;
-                position: relative;
-                li {
-                  figure {
-                    margin: 0;
-                    img {
-                      width: 45px;
-                      height: 20px;
-                    }
-                  }
-                  .show-num {
-                    margin: 8px 0 0;
-                    font-size: 12px;
-                  }
-                  .show-day {
-                    margin: 8px 0 0;
-                    font-size: 12px;
-                  }
-                  .show-button {
-                    position:absolute;
-                    top: 20px;
-                    right: 0;
-                    button {
-                      background: #fff;
-                      border-radius: 3px;
-                      border: 1px solid #ea352d;
-                      color: #ea352d;
-                      cursor: pointer;
-                    }
-                  }
-                }
-              }
-            }
-          }
-          .content-b {
-            border-bottom: 1px solid #eee;
-            .content__card-btn {
-              padding: 24px 0;
-              max-width: 320px;
-              margin: 0 auto;
-              button {
-                margin-bottom: 8px;
-                padding: 0;
-                a {
-                  display: inline-block;
-                  vertical-align: middle;
-                }
-                line-height: 48px;
-                width: 100%;
-                font-size: 14px;
-                color: #fff;
-                cursor: pointer;
-                background: #ea352d;
-                border: 1px solid #ea352d;
-              }
-            }
-          }
-          &-link {
-            text-align: right;
-            margin: 40px 0 0 0;
-          a {
-            text-decoration: none;
-            font-size: 14px;
-            line-height: 1;
-            }
-          }
-        }
-        &__input {
-          line-height: 1;
-          border-top: 1px solid #f5f5f5;
-          padding: 64px;
-          &__info {
-            max-width: 320px;
-            margin: 0 auto;
-            label {
-              font-size: 14px;
-            }
-            .required {
-              background: #ea352d;
-              margin: 0 0 0 8px;
-              padding: 4px 4px;
-              border-radius: 2px;
-              color: #fff;
-              font-size: 12px;
-              vertical-align: top;
-            max-width: 320px;
-            margin: 0 auto;
-            }
-            &-num {
-              input { 
-                width: 100%;
-                margin: 8px 0 0;
-                height: 48px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                line-height: 1.5;
-                text-indent: 1em;
-              }
-              ul {
-                li {
-                  float: left;
-                  img {
-                    width: 45px;
-                    height: 20px;
-                    margin: 8px 0 0 0;
-                  }
-                }
-              }
-            }
-            &-limit {
-              margin: 80px 0 0 0;
-              position: relative;
-              .limit-moth {
-                width: 50%;
-                select {
-                  width: 70%;
-                  margin: 8px 0 0;
-                  height: 48px;
-                  border-radius: 4px;
-                  border: 1px solid #ccc;
-                  line-height: 1.5;
-                  text-indent: 1em;
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  appearance: none;
-                  cursor: pointer;
-                  background-color: #fff;
-                }
-                #down {
-                  position: absolute;
-                  font-size: 18px;
-                  left: 80px;
-                  line-height: 66px;
-                  color: #888;
-                }
-                span {
-                  margin: 0 8px;
-                  font-size: 14px;
-                }
-              }
-              .limit-year {
-                width: 50%;
-                select {
-                  width: 70%;
-                  margin: 8px 0 0;
-                  height: 48px;
-                  border-radius: 4px;
-                  border: 1px solid #ccc;
-                  line-height: 1.5;
-                  text-indent: 1em;
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  appearance: none;
-                  cursor: pointer;
-                  background-color: #fff;
-                }
-                #down {
-                  position: absolute;
-                  font-size: 18px;
-                  left: 80px;
-                  line-height: 66px;
-                  color: #888;
-                }
-                span {
-                  margin: 0 8px;
-                  font-size: 14px;
-                }
-              }
-            }
-            &-security {
-              margin: 40px 0 0 0;
-              input {
-                width: 100%;
-                margin: 8px 0 0;
-                height: 48px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                line-height: 1.5;
-                text-indent: 1em;
-              }
-              .sec_info {
-                margin: 8px 0 0 0;
-                width: 100%;
-                p {
-                  text-align: right;
-                  color: #0099e8;
-                  font-size: 14px;
-                }
-              }
-            }
-            &-btn {
-              max-width: 320px;
-              margin: 40px 0 0 0;
-              button {
-                width: 100%;
-                padding: 0;
-                line-height: 48px;
-                font-size: 14px;
-                cursor: pointer;
-                background-color: #ea352d;
-                border: 1px solid #ea352d;
-                color: #fff;
-              }
             }
           }
         }
