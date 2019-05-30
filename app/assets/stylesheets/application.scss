@@ -1,14 +1,9 @@
-body{
-  min-height:100%;
-  flex-direction: column;
-  display: flex;
-}
 
 @import "reset";
-
+@import "common";
 @import "items.index";
 @import "header";
 @import "footer";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
+@import "mypages"
