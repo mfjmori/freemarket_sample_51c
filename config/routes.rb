@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'               
   resources :users
-  resources :mypages,only: :index
+  resources :mypages,only: [:index, :show]
   get "logout" => "mypages#logout"
-  resources :items
+  resources :items do
+    resources :buy_orders
+  end
 end
