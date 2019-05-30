@@ -1,0 +1,43 @@
+.header
+  .header__box
+    .header__box__top
+      .header__box__top__mainicon
+        = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340'), root_path, class: 'get'
+      .header__box__top__form
+        = form_tag('/items', method: :post) do
+          .header__box__top__form__tag
+            %input.header__box__top__form__tag__main{name: "text", placeholder: "何かお探しですか？", size: "88"}/
+            %button.header__box__top__form__submit{type: "submit"}
+              %i.fas.fa-search
+    .header__box__bottom
+      .header__box__bottom__futoji
+        %a{href: "", style: "text-decoration:none"}
+          %i.fas.fa-list-ul.header__box__bottom__futoji__icon
+          カテゴリーから探す
+      .header__box__bottom__futoji
+        %a{href: "", style: "text-decoration:none"}
+          %i.fas.fa-tag.header__box__bottom__futoji__icon
+          ブランドから探す
+      - if user_signed_in?
+        .header__box__bottom__hosoji
+          .header__box__bottom__hosoji__bottan
+            %a{href: ""}
+              %i.far.fa-bell.header__box__bottom__hosoji__bottan__icon
+              .header__box__bottom__hosoji__bottan__font
+                お知らせ
+          .header__box__bottom__hosoji__bottan
+            %a{href: ""}
+              %i.fas.fa-check.header__box__bottom__hosoji__bottan__icon
+              .header__box__bottom__hosoji__bottan__font
+                やることリスト
+          .header__box__bottom__hosoji__bottan
+            %a{href: ""}
+              %img.header__box__bottom__hosoji__bottan__mypage{alt: "マイページ", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}/
+              .header__box__bottom__hosoji__bottan__font
+                マイページ
+      - else
+        .header__box__bottom__button
+          .header__box__bottom__button__new
+            = link_to "新規会員登録",new_user_registration_path, class: 'get', style: "text-decoration:none"
+          .header__box__bottom__button__signin
+            = link_to "ログイン",new_user_session_path , class: 'get', style: "text-decoration:none"
