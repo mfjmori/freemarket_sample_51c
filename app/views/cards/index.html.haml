@@ -4,11 +4,11 @@
       %h2 支払い方法
       %form.form
         .content__card
-          %section.content-a
-            .content__card-index
+          %section.content__card-a
+            .content__card-a-index
               %h3 クレジットカード一覧
             -# - if カードがあるとき
-            .content__card-show
+            .content__card-a-show
               %ul
                 %li
                   %figure
@@ -20,13 +20,14 @@
                   .show-button
                     %button
                       削除する
-          %section.content-b
+          %section.content__card-b
             -# - if カードがないとき
-            .content__card-btn
+            .content__card-b-btn
               %button 
                 %i.far.fa-credit-card クレジットカードを追加する
           .content__card-link
-            %a{href: ""}
+            
+            = link_to do
               支払い方法について
               %i.fas.fa-chevron-right
     .side

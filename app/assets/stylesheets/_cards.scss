@@ -21,15 +21,15 @@ html{
         &__card {
           border-top: 1px solid #f5f5f5;
           padding: 64px;
-          .content-a {
+          &-a {
             h3 {
               font-weight: bold;
             }
-            .content__card-index {
+            &-index {
               margin: 0 auto;
               max-width: 320px;
             }
-            .content__card-show {
+            &-show {
               margin: 0 auto;
               max-width: 320px;
               ul {
@@ -67,9 +67,9 @@ html{
               }
             }
           }
-          .content-b {
+          &-b {
             border-bottom: 1px solid #eee;
-            .content__card-btn {
+            &-btn {
               padding: 24px 0;
               max-width: 320px;
               margin: 0 auto;
