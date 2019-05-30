@@ -15,7 +15,5 @@ class MypagesController < ApplicationController
   end
   def logout
   end
-  def card
-  end
   
 end

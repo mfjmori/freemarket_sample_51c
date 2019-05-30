@@ -13,5 +13,8 @@ class UsersController < ApplicationController
     end
     def show
     end
-
+    def cardadd
+    end
+    def cardappend
+    end
 end

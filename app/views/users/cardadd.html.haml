@@ -1,0 +1,33 @@
+%main
+  .container
+    .content
+      %h2 支払い方法
+      %form.form
+        .content__card
+          %section.content-a
+            .content__card-index
+              %h3 クレジットカード一覧
+            -# - if
+            .content__card-show
+              %ul
+                %li
+                  %figure
+                    = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3856598694"
+                  .show-num
+                    1111222233334444
+                  .show-day
+                    05 / 30
+                  .show-button
+                    %button
+                      削除する
+          %section.content-b
+            -# - else
+            .content__card-btn
+              %button 
+                %i.far.fa-credit-card クレジットカードを追加する
+          .content__card-link
+            %a{href: ""}
+              支払い方法について
+              %i.fas.fa-chevron-right
+    .side
+      = render "mypages/side"
