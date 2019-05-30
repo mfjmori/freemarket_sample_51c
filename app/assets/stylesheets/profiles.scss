@@ -43,6 +43,43 @@ main {
           }
         }
       }
+      .review-box {
+        height: 50px;
+        padding-top: 14px;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        &__icon {
+          i {
+            font-size: 24px;
+            float: left;
+          }
+          &__number {
+            width: 60px;
+            font-size: 18px;
+            padding: 0 0 0 14px;
+            margin: 0 30px 0 0;
+            float: right;
+            text-align: center;
+          }
+        }
+        &__icon--good {
+          i {
+            color: #EE5185;
+          }
+        }
+        &__icon--normal {
+          i {
+            color: #FBA832;
+          }
+        }
+        &__icon--bad {
+          i {
+            color: #6AB5D7;
+          }
+        }
+      }
     }
   }
 }
