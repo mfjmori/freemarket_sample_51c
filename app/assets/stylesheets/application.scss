@@ -1,8 +1,9 @@
 
+@import "reset";
+@import "common";
+@import "items.index";
+@import "header";
+@import "footer";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-@import "font-awesome";
-@import "reset";
-@import "./mypages";
-
+@import "mypages"
