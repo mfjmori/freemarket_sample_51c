@@ -30,30 +30,30 @@
           .buy-page__body__main-content__item__total__price
             %p
               ¥ 1,900
-        -# .buy-page__body__main-content__item__announce
-        -#   %p
-        -#     配送先と支払い方法の入力を完了してください。
-        -# .buy-page__body__main-content__item__button
-        -#   = link_to "購入する", "", class: 'get'
-
-
         .buy-page__body__main-content__item__announce
           %p
-            この商品はゆうゆうメルカリ便を利用しているた
-            %br
-            め、アプリからのみ購入できます。   
-        .buy-page__body__main-content__item__button2
-          購入する
-        .buy-page__body__main-content__item__app-text
-          %p
-            アプリをお持ちでない方は以下よりインストール
-            %br
-            してご利用いただけます。
-        .buy-page__body__main-content__item__app
-          .buy-page__body__main-content__item__app__apple
-            = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'
-          .buy-page__body__main-content__item__app__google
-            = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'
+            配送先と支払い方法の入力を完了してください。
+        .buy-page__body__main-content__item__button
+          = link_to "購入する", "", class: 'get'
+
+-# ゆうゆうメルカリ便を使用する場合は以下を使用
+        -# .buy-page__body__main-content__item__announce
+        -#   %p
+        -#     この商品はゆうゆうメルカリ便を利用しているた
+        -#     %br
+        -#     め、アプリからのみ購入できます。   
+        -# .buy-page__body__main-content__item__button2
+        -#   購入する
+        -# .buy-page__body__main-content__item__app-text
+        -#   %p
+        -#     アプリをお持ちでない方は以下よりインストール
+        -#     %br
+        -#     してご利用いただけます。
+        -# .buy-page__body__main-content__item__app
+        -#   .buy-page__body__main-content__item__app__apple
+        -#     = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'
+        -#   .buy-page__body__main-content__item__app__google
+        -#     = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'
 
     .buy-page__body__secound-content
       .buy-page__body__secound-content__address
