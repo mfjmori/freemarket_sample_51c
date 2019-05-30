@@ -17,4 +17,6 @@ class UsersController < ApplicationController
     end
     def cardappend
     end
+    def logout
+    end
 end
