@@ -7,7 +7,7 @@
           %section.content-a
             .content__card-index
               %h3 クレジットカード一覧
-            -# - if
+            -# - if カードがあるとき
             .content__card-show
               %ul
                 %li
@@ -21,7 +21,7 @@
                     %button
                       削除する
           %section.content-b
-            -# - else
+            -# - if カードがないとき
             .content__card-btn
               %button 
                 %i.far.fa-credit-card クレジットカードを追加する
