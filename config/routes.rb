@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :mypages,only: [:index, :show]
   get "logout" => "mypages#logout"
   resources :items do
-    resources :buy_orders
+    resources :buy_orders, only: :new
   end
 end
