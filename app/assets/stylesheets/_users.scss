@@ -130,6 +130,9 @@ main {
                 }
               }
             }
+            &:hover {
+              background-color: #fafafa;
+            }
           }
           .notification-index-list {
             height: 88px;
@@ -146,6 +149,58 @@ main {
               text-align: center;
               text-decoration: none;
               color: #333;
+              &:hover {
+                background: #fafafa;
+              }
+            }
+          }
+        }
+        .buy-item-lists {
+          .buy-item-list {
+            min-height: 80px;
+            padding: 16px;
+            box-sizing: border-box;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+            &__link {
+              text-decoration: none;
+              &__image {
+                height: 48px;
+                width: 48px;
+                margin: 0;
+                float: left;
+                img {
+                  height: 48px;
+                  width: 48px;
+                  object-fit: cover;
+                }
+              }
+              &__body {
+                margin: 0 40px 0 68px;
+                font-size: 14px;
+                color: #333;
+                &__status {
+                  display: inline-block;
+                  font-size: 12px;
+                  font-weight: 600;
+                  color: #fff;
+                  background-color: #888;
+                  margin: 8px 0 0;
+                  padding: 5px 6px;
+                  border-radius: 2px;
+                  line-height: 12px;
+                }
+                i.fa-chevron-right {
+                  position: absolute;
+                  top: 50%;
+                  right: 16px;
+                  transform: translate(0, -50%);
+                }
+              }
+            }
+            &:hover {
+              background-color: #fafafa;
             }
           }
         }

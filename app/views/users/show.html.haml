@@ -95,5 +95,28 @@
             取引中
           %li.buy-item-tabs__tab.buy-item-tabs__tab--old
             過去の取引
+      .list-container
+        %ul.buy-item-lists
+          %li.buy-item-list
+            = link_to '#', class: 'buy-item-list__link' do
+              %figure.buy-item-list__link__image
+                = image_tag '//static.mercdn.net/thumb/photos/m38463463224_1.jpg?1530974582'
+              .buy-item-list__link__body
+                .buy-item-list__link__body__text
+                  シックスパッド（アブズフィット）
+                .buy-item-list__link__body__status
+                  取引中
+                %i.fas.fa-chevron-right
+          %li.buy-item-list
+            = link_to '#', class: 'buy-item-list__link' do
+              %figure.buy-item-list__link__image
+                = image_tag '//static.mercdn.net/thumb/photos/m44589494282_1.jpg?1529818795'
+              .buy-item-list__link__body
+                .buy-item-list__link__body__text
+                  【未使用】パタゴニアマウンテンパーカー
+                .buy-item-list__link__body__status
+                  取引中
+                %i.fas.fa-chevron-right
+
     .side
       = render "mypages/side"
