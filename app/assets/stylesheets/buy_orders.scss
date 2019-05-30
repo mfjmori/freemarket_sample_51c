@@ -158,6 +158,16 @@
           color: none; 
         }
       }
+
+      &__button2{
+        margin: 16px 0 0;
+        background: #ccc;
+        color: rgb(51, 51, 51);
+        display: inline-block;
+        width: 320px;
+        line-height: 48px;
+        font-size: 14px;
+      }
     }
   }
 
