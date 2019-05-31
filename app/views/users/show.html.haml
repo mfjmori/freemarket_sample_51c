@@ -87,13 +87,13 @@
           %li.notification-index-list
             = link_to '#', class: 'notification-index-list__link' do
               一覧を見る
-      -# 
-        %ul.notification-lists
-          %li.notification-list__none
-            現在、お知らせはありません。
+        -#
+          %li.notification-list-none
+            現在、お知らせはありません
+      -#
         %ul.todo-lists
-          %li.todo-list__none
-            現在、やることはありません。
+          %li.todo-list-none
+            現在、やることはありません
       .buy-item-container
         %h2.tab-head
           購入した商品
@@ -103,27 +103,43 @@
           %li.buy-item-tabs__tab.buy-item-tabs__tab--old
             過去の取引
       .list-container
-        %ul.buy-item-lists
-          %li.buy-item-list
-            = link_to '#', class: 'buy-item-list__link' do
-              %figure.buy-item-list__link__image
+        %ul.buy-item-now-lists
+          %li.buy-item-now-list
+            = link_to '#', class: 'buy-item-now-list__link' do
+              %figure.buy-item-now-list__link__image
                 = image_tag '//static.mercdn.net/thumb/photos/m38463463224_1.jpg?1530974582'
-              .buy-item-list__link__body
-                .buy-item-list__link__body__text
+              .buy-item-now-list__link__body
+                .buy-item-now-list__link__body__text
                   シックスパッド（アブズフィット）
-                .buy-item-list__link__body__status
+                .buy-item-now-list__link__body__status
                   取引中
                 %i.fas.fa-chevron-right
-          %li.buy-item-list
-            = link_to '#', class: 'buy-item-list__link' do
-              %figure.buy-item-list__link__image
+          %li.buy-item-now-list
+            = link_to '#', class: 'buy-item-now-list__link' do
+              %figure.buy-item-now-list__link__image
                 = image_tag '//static.mercdn.net/thumb/photos/m44589494282_1.jpg?1529818795'
-              .buy-item-list__link__body
-                .buy-item-list__link__body__text
+              .buy-item-now-list__link__body
+                .buy-item-now-list__link__body__text
                   【未使用】パタゴニアマウンテンパーカー
-                .buy-item-list__link__body__status
+                .buy-item-now-list__link__body__status
                   取引中
                 %i.fas.fa-chevron-right
-
+        -# 
+          %li.buy-item-now-list-none
+            取引中の商品がありません
+      -# 
+        %ul.buy-item-old-lists
+          %li.buy-item-old-list
+            = link_to '#', class: 'buy-item-old-list__link' do
+              %figure.buy-item-old-list__link__image
+                = image_tag '//static.mercdn.net/thumb/photos/m38463463224_1.jpg?1530974582'
+              .buy-item-old-list__link__body
+                .buy-item-old-list__link__body__text
+                  シックスパッド（アブズフィット）
+                .buy-item-old-list__link__body__status
+                  取引完了
+                %i.fas.fa-chevron-right
+          %li.buy-item-old-list-none
+            過去に取引した商品がありません
     .side
       = render "mypages/side"
