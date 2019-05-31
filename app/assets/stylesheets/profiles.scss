@@ -3,6 +3,7 @@ main {
     .content-mypage-detail {
       width: 700px;
       margin: 40px auto;
+      background-color: #fff;
       .profile-box {
         padding-top: 50px;
         background: url("https://www.mercari.com/jp/assets/img/user/user_bg.jpg?72826626");
@@ -46,7 +47,6 @@ main {
       .review-box {
         height: 50px;
         padding-top: 14px;
-        background-color: #fff;
         display: flex;
         justify-content: center;
         box-sizing: border-box;
@@ -84,14 +84,12 @@ main {
         height: 140px;
         box-sizing: border-box;
         padding: 30px 50px 60px;
-        background-color: #fff;
         border-top: 2px solid #f5f5f5;
         font-size: 16px;
       }
       .social-media-box {
         padding: 56px 48px;
         box-sizing: border-box;
-        background-color: #fff;
         &__lists {
           height: 52px;
           margin-top: 16px;
@@ -130,6 +128,64 @@ main {
             i {
               color: #00c137;
               font-size: 51px;
+            }
+          }
+        }
+      }
+      .item-box-container {
+        .item-box-head {
+          font-size: 22px;
+          margin: 24px 0 8px;
+          font-weight: 700;
+          color: #333;
+        }
+        .item-box-content {
+          display: flex;
+          flex-wrap: wrap;
+          .item-box {
+            height: 330px;
+            width: 220px;
+            margin: 0 0 20px 20px;
+            &__link {
+              text-decoration: none;
+              color: #333;
+              &__photo {
+                margin: 0;
+                img {
+                  height: 220px;
+                  width: 220px;
+                  object-fit: cover;
+                }
+              }
+              &__body {
+                height: 110px;
+                width: 220px;
+                padding: 16px;
+                box-sizing: border-box;
+                &__name {
+                  font-size: 16px;
+                }
+                &__number {
+                  display: flex;
+                  height: 16px;
+                  margin-top: 8px;
+                  line-height: 16px;
+                  &__price {
+                    margin-right: auto;
+                    font-weight: bold;
+                  }
+                  i {
+                    color: #ccc;
+                    margin-right: 2px;
+                  }
+                }
+                &__tax {
+                  font-size: 10px;
+                }
+              }
+            }
+            &:nth-of-type(3n + 1) {
+              margin: 0 0 20px 0;
             }
           }
         }
