@@ -1,10 +1,14 @@
 
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "font-awesome";
 @import "reset";
 @import "./mixin";
-@import "./users";
+@import "common";
+@import "items.index";
+@import "header";
+@import "footer";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "./mypages";
+@import "./cards";
+@import "buy_orders";
+@import "./users";
 @import "./profiles";
-
