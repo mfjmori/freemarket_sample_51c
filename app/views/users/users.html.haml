@@ -1,0 +1,145 @@
+%main
+  .container
+    .content-mypage
+      .maypage-user-icon
+        = link_to '1/profiles', class: 'user-detail-link' do
+          %figure.user-detail-link__image
+            = image_tag "//static.mercdn.net/thumb/members/710038589.jpg?1552921963"
+          %h2.user-detail-link__name
+            名前
+          .user-detail-link__number
+            .user-detail-link__number__reviews
+              評価
+              %span
+                2
+            .user-detail-link__number__items
+              出品数
+              %span
+                2
+      .tab-container
+        %ul.notification-todo-tabs
+          %li.notification-todo-tabs__tab.notification-todo-tabs__tab--notification.notification-todo-tabs__tab--active
+            お知らせ
+          %li.notification-todo-tabs__tab.notification-todo-tabs__tab--todo
+            やることリスト
+      .list-container
+        %ul.notification-lists
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  《明後日まで！》からあげクンとマチカフェコーヒーが半額になるクーポン配信中
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    3時間前
+                %i.fas.fa-chevron-right
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  《みずほ銀行にも対応！》メルペイのお支払いで20%ポイント還元中！
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    1日前
+                %i.fas.fa-chevron-right
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  事務局から個別メッセージ「Googleログイン通知」
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    2日前
+                %i.fas.fa-chevron-right
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  《まだ間に合う！》友達を招待したら"必ず"ポイントがもらえるキャンペーン開催中！
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    3日前
+                %i.fas.fa-chevron-right
+          %li.notification-list
+            = link_to '#', class: 'notification-list__link' do
+              %figure.notification-list__link__image
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png'
+              .notification-list__link__body
+                .notification-list__link__body__text
+                  7日後、20%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                .notification-list__link__body__time
+                  %i.far.fa-clock
+                  %span
+                    3日前
+                %i.fas.fa-chevron-right
+          %li.notification-index-list
+            = link_to '#', class: 'notification-index-list__link' do
+              一覧を見る
+        -#
+          %li.notification-list-none
+            現在、お知らせはありません
+      -#
+        %ul.todo-lists
+          %li.todo-list-none
+            現在、やることはありません
+      .buy-item-container
+        %h2.tab-head
+          購入した商品
+        %ul.buy-item-tabs
+          %li.buy-item-tabs__tab.buy-item-tabs__tab--now.buy-item-tabs__tab--active
+            取引中
+          %li.buy-item-tabs__tab.buy-item-tabs__tab--old
+            過去の取引
+      .list-container
+        %ul.buy-item-now-lists
+          %li.buy-item-now-list
+            = link_to '#', class: 'buy-item-now-list__link' do
+              %figure.buy-item-now-list__link__image
+                = image_tag '//static.mercdn.net/thumb/photos/m38463463224_1.jpg?1530974582'
+              .buy-item-now-list__link__body
+                .buy-item-now-list__link__body__text
+                  シックスパッド（アブズフィット）
+                .buy-item-now-list__link__body__status
+                  取引中
+                %i.fas.fa-chevron-right
+          %li.buy-item-now-list
+            = link_to '#', class: 'buy-item-now-list__link' do
+              %figure.buy-item-now-list__link__image
+                = image_tag '//static.mercdn.net/thumb/photos/m44589494282_1.jpg?1529818795'
+              .buy-item-now-list__link__body
+                .buy-item-now-list__link__body__text
+                  【未使用】パタゴニアマウンテンパーカー
+                .buy-item-now-list__link__body__status
+                  取引中
+                %i.fas.fa-chevron-right
+        -# 
+          %li.buy-item-now-list-none
+            取引中の商品がありません
+      -# 
+        %ul.buy-item-old-lists
+          %li.buy-item-old-list
+            = link_to '#', class: 'buy-item-old-list__link' do
+              %figure.buy-item-old-list__link__image
+                = image_tag '//static.mercdn.net/thumb/photos/m38463463224_1.jpg?1530974582'
+              .buy-item-old-list__link__body
+                .buy-item-old-list__link__body__text
+                  シックスパッド（アブズフィット）
+                .buy-item-old-list__link__body__status
+                  取引完了
+                %i.fas.fa-chevron-right
+          %li.buy-item-old-list-none
+            過去に取引した商品がありません
+    .side
+      = render "mypages/side"
