@@ -10,12 +10,6 @@ main {
         &__link {
           text-decoration: none;
           color: #333;
-          &:hover {
-            .profile-box__link__name {
-              text-decoration: underline;
-              text-decoration-color: #0099e8;
-            }
-          }
           img {
             display: block;
             margin: 0 auto;
@@ -26,6 +20,10 @@ main {
             font-size: 18px;
             font-weight: 400;
             margin: 8px 0 16px;
+            &:hover {
+              text-decoration: underline;
+              text-decoration-color: #0099e8;
+            }
           }
           &__number {
             height: 14px;
