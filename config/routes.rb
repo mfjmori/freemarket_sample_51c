@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root 'items#index'
   devise_for :users
-  resources :users, only: [:edit] do
-    resource :profiles, only: [:edit]
+  resources :users, only: [:show, :edit] do
+    resource :profiles, only: [:show, :edit]
     resource :addresses, only: [:edit]
   end
   resources :cards, only: [:index, :new, :create]
