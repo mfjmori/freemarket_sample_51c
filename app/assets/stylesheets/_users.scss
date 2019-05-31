@@ -46,14 +46,16 @@ main {
             &__reviews {
               display: inline-block;
               span {
-                font-weight: bold; 
+                font-weight: bold;
+                margin-left: 8px;
               } 
             }
             &__items {
               display: inline-block;
               margin: 0 0 0 16px;
               span {
-                font-weight: bold; 
+                font-weight: bold;
+                margin-left: 8px;
               } 
             }
           }
@@ -130,6 +132,9 @@ main {
             &:hover {
               background-color: #fafafa;
             }
+            &__none {
+              @include list-none;
+            }
           }
           .notification-index-list {
             height: 88px;
@@ -149,6 +154,13 @@ main {
               &:hover {
                 background: #fafafa;
               }
+            }
+          }
+        }
+        .todo-lists {
+          .todo-list {
+            &__none {
+              @include list-none;
             }
           }
         }

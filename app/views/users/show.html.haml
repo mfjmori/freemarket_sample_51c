@@ -2,7 +2,7 @@
   .container
     .content-mypage
       .maypage-user-icon
-        = link_to '#', class: 'user-detail-link' do
+        = link_to '1/profiles', class: 'user-detail-link' do
           %figure.user-detail-link__image
             = image_tag "//static.mercdn.net/thumb/members/710038589.jpg?1552921963"
           %h2.user-detail-link__name
@@ -87,6 +87,13 @@
           %li.notification-index-list
             = link_to '#', class: 'notification-index-list__link' do
               一覧を見る
+      -# 
+        %ul.notification-lists
+          %li.notification-list__none
+            現在、お知らせはありません。
+        %ul.todo-lists
+          %li.todo-list__none
+            現在、やることはありません。
       .buy-item-container
         %h2.tab-head
           購入した商品
@@ -117,5 +124,6 @@
                 .buy-item-list__link__body__status
                   取引中
                 %i.fas.fa-chevron-right
+
     .side
       = render "mypages/side"
