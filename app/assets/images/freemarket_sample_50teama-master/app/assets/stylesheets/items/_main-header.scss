@@ -1,0 +1,325 @@
+//----------------------------共通
+
+.user-profile__avatar img{
+  border-radius:50%;
+}
+
+.header__search-bar {
+  @include input-default;
+  padding: 0;
+  background: $gray-lv1;
+  height: 40px;
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  &__search{
+    display: block;
+    width:calc(100% - 40px);
+    height: 100%;
+    padding-left: 10px;
+    background-color:$gray-lv1;
+    border: none;
+    position: absolute;
+  }
+  .search-btn{
+    @include btn-reset;
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 100%;
+    background:$gray-lv3;
+    top:0;
+    right:0;
+  }
+}
+.icon-search{
+  z-index:100;
+  color: $white;
+  position: relative;
+  float: right;
+  top: 6px;
+  right: -95%;
+}
+.header__nav{
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-content: space-between;
+
+  &::selection{
+    background-color: #b3d4fc;
+    color: $white;
+    text-shadow: none;
+  }
+
+  &__list{
+    display: inline-block;
+    margin: 0 0.83em;
+    font-weight: bold;
+    font-size: 0.9em;
+    line-height: 30px;
+    text-align: center;
+    min-width: 150px;
+
+
+    &::before{
+      color: $base-red;
+      font-size: 12px;
+      margin-right: 4px;
+    }
+
+    &:hover{
+      @include blue-link;
+    }
+  }
+}
+
+.header__user-btn{
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px;
+  &__sign-in{
+    margin-left: 10px;
+    background: $base-red;
+    color: white;
+    border-radius:3px;
+    a {
+      padding: 0 10px;
+      line-height: 32px;
+      display: block;
+    }
+  }
+  &__registration{
+    margin-left: 10px;
+    border: solid 1px $link-blue;
+    color: $link-blue;
+    border-radius:3px;
+    &:hover{
+      background: $link-blue;
+      color: $white;
+      transition: background-color 0.3s linear;
+    }
+    a {
+      padding: 0 10px;
+      line-height: 32px;
+      display: block;
+    }
+  }
+}//.header__user-btn end
+
+//-----------------------------------------スマホのみ
+@media screen and (max-width: 768px) {
+  .visible-pc{
+    display: none;
+  } // 768pxまではpc版のコンテンツが見えない
+
+  .sp-header{
+    width: 100%;
+    position: relative;
+    background-color: $white;
+
+    &__content{
+      padding: 6px 10px 0;
+      position: relative;
+        &__logo{
+          width: 134px;
+          padding-top: 5px;
+          display: inline-block;
+          position: relative;
+          }
+        }
+    &__user-nav{
+      @include clearfix;
+      float: right;
+      display: flex;
+      justify-content: space-around;
+
+      &__list{
+        display: inline-block;
+        color: $gray-lv2;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        margin: 5px;
+      }
+    }
+    &__nav-box{
+      margin: 10px auto;
+      width: 100%;
+    }
+  } // .sp-header end
+}
+
+//-------------------------------------------pcのみ
+
+@media screen and (min-width: 768px) {
+  .visible-sp{
+    display: none;
+  } // 768pxからはスマホ版のコンテンツが見えない
+
+  .pc-header{
+    @include clearfix;
+    width: 100%;
+    height: 100px;
+    background-color: $white;
+    &__inner{
+      width: 700px;
+      margin: 5px auto;
+    }
+    &__top-content{
+      @include clearfix;
+      width: 700px;
+      padding: 8px;
+      display: flex;
+
+      &__logo{
+        position: relative;
+        float: left;
+        margin-right: 30px;
+      }
+      .header__search-bar {
+        margin-left: 45px;
+        flex: 1;
+        display: flex;
+
+        &__search{
+          @include input-default;
+          background: $gray-lv1;
+          height: 100%;
+          position: absolute;
+          width: 100%;
+        }
+      }
+    }  // __top-content end
+
+    .pc-header__nav__box{
+      @include clearfix;
+    }
+
+    &__nav{
+      width:700px;
+      display: flex;
+      &__list-l{
+        float:left;
+        position: relative;
+        z-index: 1;
+        .category-show {
+          display: inline-block;
+          margin: 0 0.83em;
+          font-weight: bold;
+          font-size: 0.9em;
+          line-height: 30px;
+          text-align: center;
+          min-width: 150px;
+          &::before{
+            color: $base-red;
+            font-size: 12px;
+            margin-right: 4px;
+          }
+        }
+        .category-list {
+          position: absolute;
+          top: 0px;
+          padding-top: 30px;
+          left: 0.83em;
+          display: flex;
+          &__parent {
+            display: none;
+            background-color: $white;
+            width: 200px;
+            &:hover {
+              display: block;
+            }
+            a {
+              padding: 0 16px;
+              display: block;
+              line-height: 44px;
+              font-size: 14px;
+              width: 100%;
+            }
+          }
+          &__child {
+            display: none;
+            background-color: $white;
+            width: 250px;
+            a {
+              padding: 0 12px;
+              display: block;
+              line-height: 30px;
+              font-size: 14px;
+              width: 100%;
+            }
+          }
+          &__grandchild {
+            display: none;
+            background-color: $white;
+            width: 280px;
+            a {
+              padding: 0 12px;
+              display: block;
+              line-height: 30px;
+              font-size: 14px;
+              width: 100%;
+              &:hover {
+                background-color: $gray-lv1;
+              }
+            }
+          }
+        }
+      } // .pc-header__nav-box__list-l end
+
+      &__list-r{
+        position: relative;
+
+        .pc-header__user-nav{
+          display: flex;
+          justify-content: space-between;
+          padding: 0 11px;
+          cursor: pointer;
+          #notification-list__root{
+            height: 50px;
+          }
+          &__list{
+            margin: 0 0.4em;
+            line-height: 30px;
+            display: inline-block;
+
+            .todo-list{
+              min-width: 120px;
+            }
+            &::before{
+              color: $gray-lv3;
+              font-weight: bold;
+              display: inline-block;
+              margin-right: 5px;
+            }
+            &:hover{
+              @include blue-link
+            }
+          }
+        } //.pc-hrader__user-nav end
+
+      } //.pc-header__nav-box__list-r end
+    } //pc hrader の nav ここまで
+  } //pc-header end
+} // visible-pcここまで
+
+@media screen and (min-width: 1068px){
+  .pc-header__inner{
+    width: 1020px;
+    .pc-header__top-content, .pc-header__nav-box{
+      width: 1020px;
+      position: relative;
+      margin: inherit auto;
+    }
+  }
+  .pc-header__user-nav{
+    float: right;
+    position: absolute;
+    right: 0;
+    &__list{
+      min-width: 100px;
+    }
+  }
+}

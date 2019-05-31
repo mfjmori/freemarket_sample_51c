@@ -1,0 +1,19 @@
+.item-box__container
+  - items.each do |item|
+    %section.item-box
+      = link_to item_path(id: item.id) do
+        = image_tag item.images[0].image.to_s, class: 'item-box__photo'
+        -if item.status == "soldout"
+          .soldout
+        .visible-small-and-sp-only
+          %p= "¥ #{item.price}"
+        .item-box__info
+          .item-box__gradient
+          %h3.item-box__info__name
+            = item.name
+          .item-box__bottom
+            %p.item-box__bottom__price
+              ¥
+              = item.price
+            %p.item-box__bottom__like.icon-like 1
+            %p.item-box__bottom__tax (税込)

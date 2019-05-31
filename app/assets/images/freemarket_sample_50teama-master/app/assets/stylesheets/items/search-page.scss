@@ -1,0 +1,236 @@
+.search-page{
+  .search-container{
+    position: relative;
+    width: 1020px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+
+    .search-content-l{
+      width: 280px;
+      .not-visible-in-full-width{
+        display: none;
+      }
+      h4[class*="icon-"]::before{
+        color: $gray-lv3;
+        margin-right: 5px;
+      }
+
+      .select-box{
+        position: relative;
+        &__inner{
+          @include select-default;
+          background-color: $white;
+          width: 100%;
+          margin:0 0 5px 0;
+        }
+
+        .icon-chevron-down::after{
+          position: absolute;
+          color: $gray-lv3;
+          top: 35px;
+          right:20px;
+        }
+      }
+
+      .text-field{
+        @include input-default;
+        margin-bottom: 5px;
+      }
+
+
+      .search-option{
+        background-color: $white;
+        margin-top: 30px;
+        padding: 10px;
+
+        &__header{
+          font-size: 1em;
+          font-weight:700;
+        }
+        .options{
+          &__header{
+            font-size: 1em;
+            font-weight:700;
+            margin:20px 0 5px;
+          }
+          &__price{
+            display: flex;
+            &__range{
+              display: block;
+              width: 30px;
+              height: 48px;
+              line-height: 48px;
+              text-align: center;
+            }
+          }
+          .check-box{
+            display: flex;
+            flex-wrap:wrap;
+            label {
+              width: 50%;
+              padding: 5px 0;
+              line-height: 1.1em;
+            }
+          }
+          .btn-box{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            &__clear, &__search{
+              @include btn-reset;
+              @include btn-default;
+              width: 45%;
+            }
+            &__clear{
+              @include btn-gray;
+            }
+            &__search{
+              @include btn-red;
+            }
+          }
+        } //end options
+      }
+    }// end .search-content-l
+    .search-content-r{
+      width: 700px;
+      margin: 0 auto;
+        .result{
+        &__header{
+          font-size: 1.3em;
+          &--bold {
+            font-size: 1.3em;
+            font-weight: bold;
+          }
+        }
+        &__message{
+          margin-top: 20px;
+        }
+        .new-items{
+          font-size: 1.3em;
+          font-weight: 900;
+          margin-top: 20px;
+        }
+      }
+    } // end .search-content-r
+  } // end .search-container
+
+//-----------------------------------------------メディアクエリ
+  @media screen and (max-width: 1068px) {
+    //幅1068px以下のページに適応されるscss
+    .search-container{
+      width: 700px;
+      display: block;
+
+      .search-content-l{
+        width: 100%;
+
+        .visible-in-full-width{
+          display: none;
+        }
+
+        .not-visible-in-full-width{
+          display: block;
+
+          .nav{
+            width: 100%;
+            display: flex;
+            background:$white;
+            border:$table-border;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+
+            &__content{
+              width: 50%;
+              border:$table-border;
+              padding: 20px;
+              .icon-sort, .icon-search-plus{
+                color: $gray-lv2plus;
+                font-size: 1.2em;
+                padding-bottom: 5px;
+              }
+              .select-box__tablet{
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-color: $white;
+                border-width: 0px;
+                text-align: center;
+                outline: 0;
+                padding-left:60px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }// end serch-container
+   @media screen and (max-width: 768px) {
+    .search-container{
+      margin: 40px 0;
+      width: 100%;
+      .search-content-r{
+        width: 100%;
+        padding: 40px 20px;
+
+      }
+    }
+  }
+
+// -----------------------------------------------ここからJSのcss
+  #tablet-size{
+    .options{
+      background: $white;
+      padding: 20px;
+      &__header{
+        font-size: 1em;
+        font-weight:700;
+        margin:20px 0 5px;
+      }
+      &__price{
+        display: flex;
+        &__range{
+          display: block;
+          width: 30px;
+          height: 48px;
+          line-height: 48px;
+          text-align: center;
+        }
+      }
+      .check-box{
+        display: flex;
+        flex-wrap:wrap;
+        label {
+          width: 50%;
+          padding: 5px 0;
+          line-height: 1.1em;
+        }
+      }
+      .btn-box{
+        display: flex;
+        width: 100%;
+        background: $white;
+        justify-content: space-between;
+        padding: 20px;
+        border-top:$table-border;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        margin: 0;
+        &__clear, &__search{
+          @include btn-reset;
+          @include btn-default;
+          width: 45%;
+        }
+        &__clear{
+          @include btn-gray;
+        }
+        &__search{
+          @include btn-red;
+        }
+      }
+    } //end options
+  } //end #tablet-size
+} // end .search-page

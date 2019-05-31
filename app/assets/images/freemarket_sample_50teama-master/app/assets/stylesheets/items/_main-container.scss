@@ -1,0 +1,57 @@
+@media screen and (min-width: 0px) {
+  .pick-up-container{
+    width: 90%;
+  } // 0pxより大きいとpick-up-containerの幅90%
+}
+@media screen and (min-width: 768px) {
+  .pick-up-container{
+    width: 700px;
+  } // 768pxより大きいとpick-up-containerの幅が700px
+}
+ @media screen and (min-width: 1068px) {
+  .pick-up-container{
+    width: 940px;
+  } // 1068pxより大きいとpick-up-containerの幅が940px
+ }
+
+.pick-up-container{
+  padding: 20px 0;
+  background-color: $gray-lv1;
+  flex-wrap: wrap;
+  margin: 0 auto;
+    &__header{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+}
+
+.item-boxes{
+  margin-bottom: 60px;
+  &__header{
+    font-size: 1.6em;
+    color: $link-blue;
+    font-weight: bold;
+    margin-bottom: 5px;
+
+      &:hover {
+        opacity: 0.8;
+        color: $link-blue;
+        text-decoration: underline solid;
+      }
+  }
+    &__view-all{
+      position: relative;
+      color: $link-blue;
+      bottom:10px;
+      float: right;
+      margin-right: 25px;
+
+      &:hover {
+        opacity: 0.8;
+        color: $link-blue;
+        text-decoration: underline solid;
+      }
+    }
+  }

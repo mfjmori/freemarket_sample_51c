@@ -1,0 +1,176 @@
+.single-wrapper
+  = render "/shared/single-header"
+  .single-container
+    .item-wrapper
+      %h2.title 商品の情報を入力
+      .item-new
+        %section.form-section.media-min
+          .input-part
+            %h3.input-part__title 出品画像
+            %span.input-part__require 必須
+            %p.input-part__details 最大10枚までアップロードできます
+          .image-upload-part
+            = form_with model: @item, html: {class: "dropzone input-part__dropbox", id: "item-dropzone"}, local: true do |f|
+              - if @item.errors.any?
+                - @item.errors.full_messages.each do |message|
+                  = message
+              -# .input-part__dropbox.dz-default.dz-message#file_drop_area
+              .fallback
+                = f.file_field :images, multiple: true
+              .dz-message.needsclick
+                %p ドラッグアンドドロップ
+                %p またはクリックしてファイルをアップロード
+              -# .media-min__append--icon.dz-message.needsclick
+              -#   %pre.media-min__hidden ドラッグアンドドロップ
+              -#   %pre.media-min__hidden またはクリックしてファイルをアップロード
+              -# 一つのフォームにまとめるとdropzone化したフォーム内のレイアウトを自由にできないため送信用のデータを隠して配置する
+              -# item-dropzone.js内のjQueryで２つ目のフォームから入力した値を移植している。
+              -# submitボタンを使ってしまうのもうまくいかないのでIDをつけた要素をトリガーにdropzone送信発火させる
+              -# TODO: カテゴリの値を移植する
+              = f.hidden_field :name, id: "hidden-item-name"
+              = f.text_area :detail, id: "hidden-item-detail"
+              = f.hidden_field :parent_category_id, id: "hidden-item-parent_category_id", value: "1"
+              = f.hidden_field :child_category_id, id: "hidden-item-child_category_id"
+              = f.hidden_field :grandchild_category_id, id: "hidden-item-grandchild_category_id"
+              = f.hidden_field :condition, id: "hidden-item-condition"
+              = f.hidden_field :delivery_cost, id: "hidden-item-delivery_cost"
+              = f.hidden_field :delivery_method, id: "hidden-item-delivery_method"
+              = f.hidden_field :delivery_prefecture, id: "hidden-item-delivery_prefecture"
+              = f.hidden_field :delivery_day, id: "hidden-item-delivery_day"
+              = f.hidden_field :price, id: "hidden-item-price"
+      = form_with model: @item, html: {class: "item-new parsley", id: "item-new-visible"}, local: true do |i|
+        %section.form-section
+          .input-part
+            = i.label "商品名", class: "input-part__title"
+            %span.input-part__require 必須
+            = i.text_field :name, class: "input-part__input", id: "form-item-name", placeholder: "商品名（必須 40文字まで)", value: "", required: true, "data-parsley-error-message" => "商品名を入力してください"
+          .input-part.space
+            = i.label "商品の説明", class: "input-part__title"
+            %span.input-part__require 必須
+            = i.text_area :detail, class: "input-part__textarea textarea-default", id: "form-item-detail", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", required: true, "data-parsley-error-message" => "商品説明を入力してください"
+        %section.form-section
+          .flex-container
+            .flex-container__left
+              %h3.sell-sub-head 商品の詳細
+            .flex-container__right#categories_container
+              .input-part
+                = i.label "カテゴリー", class: "input-part__title"
+                %span.input-part__require 必須
+                - parents = @categories[0..12]
+              .relative
+                .icon-select
+                = i.collection_select :parent_category_id, parents, :id, :name, {include_blank: true}, class: "input-part__select parent-category", id: "form-item-parent_category_id", required: true, "data-parsley-error-message" => "カテゴリーを選んでください"
+              - parents.each do |parent|
+                .relative--hidden{id: "#{parent.id}-children-item"}
+                  .icon-select
+                  = i.collection_select :child_category_id, parent.children, :id, :name, {include_blank: true}, disabled:"disabled", class: "input-part__select child-category", id: "form-item-child_category_id"
+              - parents.each do |parent|
+                - parent.children.each do |child|
+                  .relative--hidden{id: "#{child.id}-grandchildren-item"}
+                    .icon-select
+                    = i.collection_select :grandchild_category_id, child.children, :id, :name, {include_blank: true}, disabled:"disabled", class: "input-part__select grandchild-category", id: "form-item-grandchild_category_id"
+              -# .space.hidden
+              -# .input-part
+              -#   = i.label "サイズ", class: "input-part__title"
+              -#   %span.input-part__require 必須
+              -# .relative
+              -#   .icon-select
+              -#     -# TODO: 特定カテゴリ展開時のみ表示させる、連動した条件バリデーション。
+              -#     -# = i.select :category_id, [["XXS以下", "153"], ["XS(SS)", "154"], ["S", "2"], ["M", "3"], ["L", "4"], ["XL(LL)", "5"], ["2XL(3L)", "155"], ["4XL(5L)以上", "157"], ["FREE SIZE", "7"]], {include_blank: true}, class: "input-part__select"
+              -# .space.hidden
+              -# .input-part
+              -#   = i.label "ブランド", class: "input-part__title"
+              -#   %span.input-part__option 任意
+              -#   -# TODO: 特定カテゴリ展開時のみ表示させる。
+              -#   -# = i.text_field :category_id, class: "input-part__input", placeholder: "例）シャネル", value: ""
+              .input-part.space
+                = i.label "商品の状態", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = i.select :condition, Item.conditions_i18n.keys.map {|k| [Item.conditions_i18n[k], k]}, {include_blank: true}, class: "input-part__select", id: "form-item-condition", required: true, "data-parsley-error-message" => "商品の状態を選んでください"
+        %section.form-section
+          .flex-container.media-min--clear
+            .flex-container__left
+              %h3.sell-sub-head 配送について
+              =link_to "?", "#", class:"form-question"
+            .flex-container__right
+              .input-part
+                = i.label "配送料の負担", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = i.select :delivery_cost, Item.delivery_costs_i18n.keys.map {|k| [Item.delivery_costs_i18n[k], k]}, {include_blank: true}, class: "input-part__select", id: "form-item-delivery_cost", required: true, "data-parsley-error-message" => "配送料の負担を選んでください"
+              .input-part.space
+                = i.label "発送の方法", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = i.select :delivery_method, Item.delivery_methods_i18n.keys.map {|k| [Item.delivery_methods_i18n[k], k]}, {include_blank: true}, class: "input-part__select", id: "form-item-delivery_method", required: true, "data-parsley-error-message" => "発送の方法を選んでください"
+              .input-part.space
+                = i.label "発送元の地域", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = i.select :delivery_prefecture, Item.delivery_prefectures_i18n.keys.map {|k| [Item.delivery_prefectures_i18n[k], k]}, {include_blank: true}, class: "input-part__select", id: "form-item-delivery_prefecture", required: true, "data-parsley-error-message" => "発送元の地域を選んでください"
+              .input-part.space
+                = i.label "発送までの日数", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = i.select :delivery_day, Item.delivery_days_i18n.keys.map {|k| [Item.delivery_days_i18n[k], k]}, {include_blank: true}, class: "input-part__select", id: "form-item-delivery_day", required: true, "data-parsley-error-message" => "発送までの日数を選んでください"
+        %section.form-section
+          .flex-container
+            .flex-container__left
+              %h3.sell-sub-head 販売価格(300〜9,999,999)
+              = link_to "?", "#", class:"form-question"
+            .flex-container__right
+              .input-part
+                %ul.input-part__price
+                  %li.input-part__price--bace.flex-container
+                    .input-part__price--bace--left
+                      = i.label "価格", class: "input-part__title"
+                      %span.input-part__require 必須
+                    .input-part__price--bace--right
+                      %p.yen ¥
+                      = i.text_field :price, class: "input-part__input", id: "form-item-price", placeholder: "例）300", value: "", maxlength: "7", required: true, "data-parsley-error-message" => "価格を入力してください", "data-parsley-type" => "digits"
+                  %li.input-part__price--fee.border-top.flex-container
+                    .input-part__price--fee--left 販売手数料 (10%)
+                    .input-part__price--fee--right.input-part__price--fee--output -
+                  %li.input-part__price--total.border-top.flex-container
+                    .input-part__price--total--left 販売利益
+                    .input-part__price--fee--right.input-part__price--total--output -
+
+          .modal-overlay
+            #modal-window.modal__inner.modal.is-show.is-animate.sell-draft
+              %div
+                %h3.modal-head 出品が完了しました
+                .sell-modal-body
+                  あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+                  = link_to "続けて出品する", "/items/new", class: "submit-btn--red"
+                  %p.text-center
+                    = link_to "商品ページへ行ってシェアする", " /items/#{@item.id}", class: ".text-center"
+
+        %section.form-section
+          %p.notes
+            = link_to "禁止されている出品", "#", class:"notes__link"
+            = link_to "行為", "#"
+            を必ずご確認ください。
+          %p.notes
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売", "#", class:"notes__link"
+            は犯罪であり処罰される可能性があります。
+          %p.notes
+            また、出品をもちまして
+            = link_to "加盟店規約", "#", class:"notes__link"
+            に同意したことになります。
+          -# TODO: 全てのformアイテムのバリデーションを実施してからモーダルを出したい。
+          -# 現状では押せば無関係に表示される。
+          %p.submit-btn--red#submit-button#modal-open 出品する
+          -# TIPS: 以下のボタンを使うとform|i|が実施されてしまうため画像が送れない
+          -# このフォームではあくまでform|f|を実施しなければならないが、この位置には設置できない。
+          -# = i.submit "出品する", class: "submit-btn--red", id: "submit-button modal-open"
+          -# = button_tag "出品する", class: "submit-btn--red", id: "submit-button modal-open"
+          = link_to "もどる", root_path, class: "submit-btn--gray"
+        .overlay
+  = render partial: "/shared/single-footer"

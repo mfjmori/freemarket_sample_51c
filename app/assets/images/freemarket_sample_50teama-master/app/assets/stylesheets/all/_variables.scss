@@ -1,0 +1,361 @@
+@mixin clearfix {
+  &::after {
+  content: “”;
+  display: block;
+  clear: both;
+  }
+ } //clearfix
+
+ // 1行フォームのテンプレート
+ @mixin input-default {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid $gray-lv2;
+  border-radius: 4px;
+  background: #fff;
+  color: $gray-lv4;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 100%;
+  &:focus {
+    border: 1px solid $link-blue;
+    outline: none;
+  }
+ }
+
+ // selectボタンのテンプレート
+ @mixin select-default{
+  appearance: none;
+  -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none;    /* ベンダープレフィックス(Firefox用) */
+  position: relative;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid $gray-lv2;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 8px;
+  cursor: pointer;
+  .icon-select::before {
+    @include font-awesome-base;
+    content: ‘\f078’;
+    position: absolute;
+    top: 23px;
+    right: 20px;
+    font-size: 18px;
+    color: $gray-lv3;
+  }
+ }
+
+ // textareaのテンプレート
+ @mixin textarea-default{
+  width:100%;
+  display: block;
+  margin-top: 8px;
+  height: 48px;
+  padding: 10px;
+  border: 1px solid $gray-lv2;
+  background: $white;
+  line-height: 1.5;
+  font-size: 16px;
+  min-height: 104px;
+  height: 144px;
+ }
+
+ // 青いはてなマーク
+ @mixin form-question{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $link-blue;
+  color: $white;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+ }
+
+ //fontawesomeを使用するときのcss
+ @mixin font-awesome-base{
+  font-family: "Font Awesome 5 Free";
+  font-weight:900;
+ }
+
+ //ホバーすると青くなるリンクのホバー時のアクション &:hover{}内で使ってください
+ @mixin blue-link{
+  opacity: 0.8;
+  color: $link-blue;
+ }
+
+ // ボタンのテンプレート。
+ @mixin btn-default{
+  display: block;
+  width: 100%;
+  color: $white;
+  text-align: center;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+ }
+
+ // 赤色ボタンならこちらbtn-default+btn-red。組み合わせてください。
+ @mixin btn-red{
+  background-color: $base-red;
+  border: 1px solid $base-red;
+ }
+
+ // グレーのボタン
+ @mixin btn-gray{
+  background-color: $gray-lv2plus;
+  border: 1px solid $gray-lv2plus;
+ }
+
+ //button タグのCSSをリセットするCss
+ @mixin btn-reset{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+ }
+
+//button タグのCSSをリセットするCss
+@mixin btn-reset{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  appearance: none;
+}
+
+
+ @mixin selection{
+  background-color: $link-blue-light;
+  color: $white;
+  text-shadow: none;
+ } // 何かを選択している時の表示
+ // &::selection{
+ //   この中で使ってください。
+ // }
+
+ // ピックアップされているカテゴリーの青いヘッダー
+ @mixin blue-header {
+  font-size: 1.6em;
+  color: $link-blue;
+  font-weight: bold;
+  margin-bottom:20px;
+
+    &:hover {
+      opacity: 0.8;
+      color: $link-blue;
+      text-decoration: underline solid;
+    }
+ }
+
+ //１カラムのページのコンテナ
+ @mixin single-container-base {
+  background: $white;
+  width: 700px;
+  margin: 0 auto 41px;
+ }
+
+ @mixin single-container-header{
+  padding: 37px 16px 38px;
+  font-weight: 700;
+  font-size: 22px;
+ }
+
+ @mixin green-balloon{
+  position: relative;
+  left:50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  margin: 1.5em auto;
+  padding: 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: $white;
+  font-size: 14px;
+  background: $blue-green;
+  border-radius:3px;
+  &::before {
+    content: “”;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top: 15px solid $blue-green;
+  }
+ }//売上金●円をお持ちです。などの緑の吹き出し
+
+
+
+// ピックアップされているカテゴリーの青いヘッダー
+@mixin blue-header {
+  font-size: 1.6em;
+  color: $link-blue;
+  font-weight: bold;
+  margin-bottom:20px;
+
+    &:hover {
+      opacity: 0.8;
+      color: $link-blue;
+      text-decoration: underline solid;
+    }
+}
+
+//１カラムのページのコンテナ
+@mixin single-container-base {
+  background: $white;
+  width: 700px;
+  margin: 0 auto 41px;
+}
+
+@mixin single-container-header{
+  padding: 37px 16px 38px;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+@mixin green-balloon{
+  position: relative;
+  left:50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  margin: 1.5em auto;
+  padding: 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: $white;
+  font-size: 14px;
+  background: $blue-green;
+  border-radius:3px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top: 15px solid $blue-green;
+  }
+}//売上金●円をお持ちです。などの緑の吹き出し
+
+
+ // 以下user関連のページで用いるmixin
+ @mixin link-btn {
+  display: flex;
+  height: 50px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 50px;
+  position: relative;
+ }
+
+ @mixin btn-mail {
+  background: $gray-lv1plus;
+  color: $black;
+  transition: 0.7s;
+  &:hover {
+    opacity: 0.7;
+  }
+  &__left {
+    position: absolute;
+    left: 17px;
+  }
+  &__right {
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    a {
+      display:block;
+    }
+  }
+ }
+
+ @mixin btn-facebook {
+  background: #385185;
+  color: $white;
+  width: 100%;
+  &__left {
+    position: absolute;
+    left: 17px;
+  }
+  &__right {
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    a {
+      display: block;
+    }
+  }
+ }
+
+ @mixin btn-google {
+  border: 1px solid $gray-lv2plus;
+  margin-top: 16px;
+  line-height: 48px;
+  width: 100%;
+  &__left {
+    position: absolute;
+    top: 28%;
+    left: 16px;
+    img {
+      display: block;
+    }
+  }
+  &__right {
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    a {
+      display: block;
+    }
+  }
+ }
+
+ @mixin select-box {
+  margin-top: 8px;
+  position: relative;
+  select {
+    @include input-default;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
+  span {
+    margin: 0 8px;
+  }
+  .icon-chevron-bottom {
+    position: absolute;
+    right: 15px;
+    top: 35%;
+    z-index: 2;
+    &:after {
+      font-family: 'Font Awesome 5 Free';
+      content: '\f078';
+      font-weight: 900;
+      color: $gray-lv3;
+      font-size: 18px;
+    }
+  }
+}
+// user関連のページで用いるmixinここまで

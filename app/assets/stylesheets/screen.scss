@@ -1,0 +1,500 @@
+$breakpoint-pc: 1024px; /* 変数宣言 */
+
+$breakpoint-tablet: 768px; /* 変数宣言 */
+
+
+// @media screen and (min-width:$breakpoint-tablet) and (max-width:$breakpoint-pc) {
+//   .devise__header {
+//     height: 128px;
+//     display: block;
+//     text-align: center;
+//      a{
+//     display: inline-block;
+//     width: 185px;
+//     height: 49px;
+//     line-height: 49px;
+    
+//     }
+//     h1{
+//     display: inline-block;
+//     margin-top: 40px;
+// }
+//     .img__devise__header{
+//     width: 185px;
+//     height: 49px;
+//     vertical-align: middle;
+//     }
+// }
+// }
+// @media screen and (max-width:$breakpoint-tablet) {
+  
+//     .devise__header {
+// height: 128px;
+//     display: block;
+//     text-align: center;
+//     h1{
+//     display: inline-block;
+//     margin: 11px 0 12px;
+// }
+//     .img__devise__header{
+//     display: inline-block;
+//     width: 120px;
+//     height: 33px;
+//     margin: 0 8px 0 0;
+//     line-height: 33px;
+//     }
+// }
+
+
+
+
+
+
+// *, ::before, ::after {
+//     -webkit-box-sizing: inherit;
+//     box-sizing: inherit;
+// }
+// * {
+//     background-repeat: no-repeat;
+//     margin: 0;
+//     padding: 0;
+// }
+// * {
+//     font-size: inherit;
+//     line-height: inherit;
+// }
+// *, ::before, ::after {
+//     border-style: solid;
+//     border-width: 0;
+// }
+
+// body {
+//     position: relative;
+//     min-height: 100%;
+//     background: #f5f5f5;
+//     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+//     font-size: 14px;
+//     color: #333;
+//     line-height: 1;
+// }
+// main{
+//     display: block;
+// }
+// header {
+//     display: block;
+// }
+// div {
+//     display: block;
+// }
+// nav {
+//     display: block;
+// }
+// ::selection {
+//     background-color: #b3d4fc;
+//     color: #fff;
+//     text-shadow: none;
+// }
+// a:-webkit-any-link {
+//     color: -webkit-link;
+//     cursor: pointer;
+//     text-decoration:none;
+    
+// }
+// nav ol, nav ul {
+//     list-style: none;
+// }
+
+// .devise__header {
+//     height: 128px;
+//     display: block;
+//     text-align: center;
+//      a{
+//     display: inline-block;
+//     width: 185px;
+//     height: 49px;
+//     line-height: 49px;
+    
+//     }
+//     h1{
+//     display: inline-block;
+//     margin-top: 40px;
+// }
+//     .img__devise__header{
+//     width: 185px;
+//     height: 49px;
+//     vertical-align: middle;
+//     }
+// }
+
+// .l__devise__head{
+//     padding: 32px 16px;
+//     font-size: 22px;
+//     line-height: 1.5;
+//     text-align: center;
+//     display: block;
+//     font-weight: bold;
+// }
+
+// .l__devise__container {
+  
+//     background: #fff;
+//     .l__devise__inner {
+//         padding: 64px;
+//         border-top: 1px solid #f5f5f5;
+//       .l__devise__content{
+//     max-width: 320px;
+//     margin: 0 auto;
+//             }
+//             a {
+//                 color:black;
+//             }
+//       }
+//         }
+
+
+// .btn-mail {
+//     position: relative;
+//     background: #eee;
+//     color:inherit;
+//     }
+// .fa-envelope:before {
+//     content: '\e01c';
+// }
+// .btn-sns-facebook {
+//     margin: 16px 0 0;
+//     background: #385185;
+//     color: #fff;
+// }
+// .icon-facebook:before {
+//     content: '\e013';
+// }
+
+// .btn-sns {
+//     position: relative;
+// }
+// .fa-facebook-square {
+//     color: #fff;
+//     background: #385185;
+//     font-size: 30px;
+// }
+// .btn-sns i {
+//     position: absolute;
+//     top: 50%;
+//     left: 16px;
+//     -webkit-transform: translate(0, -50%);
+//     transform: translate(0, -50%);
+// }
+// .btn-mail .icon-mail {
+//     position: absolute;
+//     top: 50%;
+//     left: 16px;
+//     -webkit-transform: translate(0, -50%);
+//     transform: translate(0, -50%);
+//     color: #ccc;
+//     font-size: 16px;
+//         }
+// .btn-default {
+//     display: block;
+//     width: 100%;
+//     line-height: 48px;
+//     font-size: 14px;
+//     border: 1px solid transparent;
+//     -webkit-transition: all ease-out .3s;
+//     transition: all ease-out .3s;
+//     cursor: pointer;
+//     text-align: center;
+//  }
+//  .btn-sns-google {
+//     margin: 16px 0 0;
+//     background: #fff url('/images/Google.svg') no-repeat 3px top;
+//     border: #979797 solid 1px;
+//     color: #333;
+// }
+// .good-svg{
+//  position: relative;
+//   width: 20px;
+//   height: 20px;
+//   display:block;
+//     color: #333;
+// }
+//  button {
+//     -webkit-appearance: button;
+//     overflow: visible;
+// }
+// i[class^='icon-'], i[class*='icon-'] {
+//     display: inline-block;
+//     font-family: 'icon-font';
+//     speak: none;
+//     font-style: normal;
+//     font-weight: 400;
+//     font-variant: normal;
+//     text-transform: none;
+//     line-height: 1;
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+// }
+
+// .devise-footer {
+//     width: 456px;
+//     height: 220px;
+//     margin: 0 auto;
+// }
+// .devise-footer {
+
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     z-index: 1;
+//     height: 250px;
+//     padding: 40px 0;
+//     text-align: center;
+    
+//     ul {
+
+//     display: block;
+//     list-style-type: disc;
+//     margin-block-start: 1em;
+//     margin-block-end: 1em;
+//     margin-inline-start: 0px;
+//     margin-inline-end: 0px;
+    
+//     list-style: none;
+//     li {
+//   display: inline-block;
+//   width: 32%;
+//   font-size:12px;
+// }
+// .devise-footer-logo {
+//     width: 80px;
+//     height: 65px;
+//     margin: 40px auto 0;
+// }
+
+// }
+// a {
+//     display: block;
+//     color: #333;
+// }
+// p{
+//     margin-top:8px;
+//     small{
+//         font-size: 13px;
+//     }
+// }
+// }
+// .clearfix:after {
+//     content: '';
+//     display: block;
+//     clear: both;
+// }
+// .devise-footer-logo {
+//     width: 80px;
+//     height: 65px;
+//     margin: 40px auto 0;
+// }
+
+// ///会員情報入力css
+// form{
+//     display: block;
+//     margin-top: 0em;
+// }
+// // input {
+// //     border: 0;
+// //     outline: 0;
+// //     font-family: inherit;
+// //     -webkit-appearance: none;
+// //     -moz-appearance: none;
+// //     -webkit-appearance: textfield;
+// //     background-color: white;
+// //     -webkit-rtl-ordering: logical;
+// //     cursor: text;
+// //     padding: 1px;
+// //     border-width: 2px;
+// //     border-style: inset;
+// //     border-color: initial;
+// //     border-image: initial;
+// //     text-rendering: auto;
+// //     color: initial;
+// //     letter-spacing: normal;
+// //     word-spacing: normal;
+// //     text-transform: none;
+// //     text-indent: 0px;
+// //     text-shadow: none;
+// //     display: inline-block;
+// //     text-align: start;
+// //     margin: 0em;
+// //     font: 400 11px system-ui;
+// //         -webkit-writing-mode: horizontal-tb !important;
+// // }
+
+// .progress-bar{
+//     padding: 40px 0 0 44px;
+//     border: 0;
+//     display: inline-block;
+//     vertical-align: top;
+
+// }
+
+
+// .signup-bar,.progress-bar {
+//     padding: 16px 0;
+//     border-top: 1px solid #eee;
+// }
+// .progress-bar {
+//   font-size: 0;
+//     text-align: center;
+//    display: inline-block;
+//     vertical-align: top;
+//     font-size: 0;
+//     text-align: center;
+//     ol {
+//     margin: 0;
+// }
+//  li {
+//     position: relative;
+//     z-index: 1;
+//     display: inline-block;
+//     min-width: 40px;
+//     margin: 0 5% 0 0;
+//     font-size: 12px;
+//     color: #888;
+// }
+// .clearfix:after {
+//     content: '';
+//     display: block;
+//     clear: both;
+// }
+// }
+// .progress-bar li.active {
+//     font-weight: 600;
+//     color: #ea352d;
+// }
+// .progress-bar li.active .after {
+//     background: #ea352d;
+// }
+// .progress-status,.after,.before {
+//     width: 12px;
+//     height: 12px;
+//     margin: 8px auto 0;
+//     background: #ccc;
+//     border-radius: 50%;
+    
+// }
+// .progress-status:before ,.before:before{
+//     right: 50%;
+// }
+// .progress-status:before, .progress-status:after , .after:after,.before:before {
+//     position: absolute;
+//     bottom: 5px;
+//     z-index: -1;
+//     display: block;
+//     content: '';
+//     width: 100%;
+//     height: 2px;
+//     background: #ccc;
+// }
+
+// .l__devise__container {
+//     width: 700px;
+//     margin: 0 auto;
+//     background: #fff;
+//     .new_user{
+//     width:700px;
+//     padding-top:40px;
+//     border-top: 1px solid #f5f5f5;
+//       .l__devise__content{
+//     max-width: 320px;
+//     margin: 0 auto;
+
+//             }
+//         }
+// }
+//     .input-default {
+//     width: 320px-18px;
+//     margin-top: 8px ;
+//     height: 46px;
+//     border-radius: 4px;
+//     border: 1px solid #ccc; 
+//     background: #fff;
+//     line-height: 1.5;
+//     font-size: 16px;
+//     padding-left:16px;
+
+//     }
+
+// .field{
+//     margin-top:40px;
+    
+// }
+// .form-group-label{
+//     font-weight: 600;
+// }
+// .form-require {
+//     background: #ea352d;
+//     margin: 0 0 0 8px;
+//     padding: 2px 4px;
+//     border-radius: 2px;
+//     color: #fff;
+//     font-size: 12px;
+//     vertical-align: top;
+// }
+// .l-single-text {
+//     margin: 8px 0 0;
+//     line-height: 1.5;
+// }
+// .form-info-text {
+//     margin: 8px 0 0;
+//     color: #888;
+//     line-height: 1.5;
+// }
+// .l-single-text {
+//     margin: 8px 0 0;
+//     padding: 0;
+//     text-align:center;
+// }
+// .text-right {
+//     margin: 40px 0 0;
+//     text-align: right;
+//     color: #0099e8;
+// }
+// .select-default {
+//     position: relative;
+//     z-index: 2;
+//     height: 48px;
+//     padding: 0 16px;
+//     border-radius: 4px;
+//     border: 1px solid #ccc;
+//     background: 0;
+//     font-size: 16px;
+//     line-height: 1.5;
+//     cursor: pointer;
+//     width: 90%;
+// }
+// .birthday-select-wrap .select-wrap .select-default {
+//     padding: 0 10px;
+//      margin-top: 8px ;
+// }
+// .birthday-select-wrap .select-wrap {
+//     display: inline-block;
+//     width: calc(30% - 17px);
+// }
+// .form-group .select-wrap {
+//     margin: 8px 0 0;
+// }
+// .birthday-select-wrap .select-wrap+span {
+//     margin: 0 2px;
+// }
+// .btn-red {
+//     background: #ea352d;
+//     border: 1px solid #ea352d;
+//     color: #fff;
+//     margin-top:40px;
+// }
+// a {
+//     color: #0099e8;
+//     text-decoration: none;
+// }
+// .fa-chevron-right:before {
+//     content: '\e005';
+// }
+// }

@@ -1,0 +1,40 @@
+.breadcrumb-container{
+  border-top: 1px solid $gray-lv1plus;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: $white;
+  height: 50px;
+  width:100%;
+  .breadcrumb{
+    &__list{
+      font-size: 14px;
+      line-height: 50px;
+      padding-left: 16px;
+      a:hover {
+        text-decoration: underline;
+        opacity: .7;
+      }
+      .icon-arrow-r {
+        margin: 0 8px;
+        font-size: 9px;
+        color: $gray-lv3;
+      }
+      .current {
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .breadcrumb{
+    width: 700px;
+    margin: 0 auto;
+  }
+}//タブレットサイズ以上の時の表示
+
+@media screen and (min-width: 1068px){
+  .breadcrumb{
+    width: 1020px;
+    margin: 0 auto;
+  }
+}//タブレットサイズ以上の時の表示

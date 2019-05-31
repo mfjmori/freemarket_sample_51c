@@ -1,0 +1,58 @@
+.single-wrapper
+  %header.single-header-flex
+    .single-header-flex__left
+      =link_to root_path do
+        = image_tag 'logo.svg', height:'49px'
+    %nav.single-header-flex__right
+      %ol.progress-bar
+        %li.progress-bar__progress--through
+          %p.progress-bar__progress__text 会員情報
+          .progress-bar__progress__status
+        %li.progress-bar__progress--through
+          %p.progress-bar__progress__text 電話番号認証
+          .progress-bar__progress__status
+        %li.progress-bar__progress--through
+          %p.progress-bar__progress__text お届け先住所入力
+          .progress-bar__progress__status
+        %li.progress-bar__progress--active
+          %p.progress-bar__progress__text 支払い方法
+          .progress-bar__progress__status
+        %li.progress-bar__progress
+          %p.progress-bar__progress__text 完了
+          .progress-bar__progress__status
+  .single-container
+    .registration
+      .panel
+        .panel__head 支払い方法
+        .panel__inner
+          = form_for(:session, url: {controller: "users", action: "new", url: "complete"}, html: {method: 'GET' ,class: "charge-form"})  do |f|
+            .content
+              .form-group
+                = f.label "カード番号", class:"form-group__label"
+                %span.form-group__require 必須
+                = f.text_field :number ,class:"form-group__input number",name:"number", id:"payment-card-number", placeholder: "半角数字のみ", maxlength: "16"
+                .form-group__card-logos
+                  = image_tag 'visa_logo.png', height:'20px'
+                  = image_tag 'mastercard_logo.png', height:'20px'
+                  = image_tag 'saison_logo.png', height:'20px'
+              .form-group
+                = f.label "有効期限", class:"form-group__label"
+                %span.form-group__require 必須
+                .form-group__expiration-wrap
+                  = f.select :exp_month,[["--",""],["1","01"],["2","02"],["3","03"],["4","04"],["5","05"],["6","06"],["7","07"],["8","08"],["9","09"],["10","10"],["11","11"],["12","12"]],{}, {class:"exp-month" ,id:"payment-card-exp-month", name:"exp_month"}
+                  .icon-chevron-bottom
+                  %span 月
+                .form-group__expiration-wrap
+                  = f.select :exp_year ,[["--",""],["19","2019"],["20","2020"],["21","2021"],["22","2022"],["23","2023"],["24","2024"],["25","2025"],["26","2026"],["27","2027"],["28","2028"],["29","2029"]],{},{class:"exp-year", id:"payment-card-exp-year", name:"exp-year"}
+                  %span 年
+                  .icon-chevron-bottom
+              .form-group
+                = f.label "セキュリティコード", class:"form-group__label"
+                %span.form-group__require 必須
+                = f.text_field :cvc, class:"form-group__input" ,id:"payment-card-cvc", name:"cvc", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4"
+                .form-group__card-info
+                  .icon-question-circle
+                  =link_to "カード裏面の番号とは？", src:"#", class:"icon-chevron-right"
+              = f.submit "次へ進む", class:"registration-next-btn card-registration-btn"
+              %input.payjp-token{ type: "hidden", name: "payjpToken", value: "" }
+  = render partial: "/shared/single-footer"

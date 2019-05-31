@@ -1,0 +1,162 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザ情報
+      item: 商品情報
+    attributes:
+      user:
+        prefecture: 都道府県
+      item:
+        delivery_prefecture: 発送元の地域
+        condition: 商品の状態
+        delivery_cost: 配送料の負担
+        delivery_method: 発送の方法
+        delivery_day: 発送までの日数
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m/%d"
+      long: "%Y年%m月%d日(%a)"
+
+    day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
+    abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
+
+    month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%y/%m/%d %H:%M"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
+    am: "午前"
+    pm: "午後"
+  enums:
+    user:
+      prefecture:
+        hokkaido: 北海道
+        aomori: 青森県
+        iwate: 岩手県
+        miyagi: 宮城県
+        akita: 秋田県
+        yamagata: 山形県
+        fukushima: 福島県
+        ibaraki: 茨城県
+        tochigi: 栃木県
+        gunma: 群馬県
+        saitama: 埼玉県
+        chiba: 千葉県
+        tokyo: 東京都
+        kanagawa: 神奈川県
+        nigata: 新潟県
+        toyama: 富山県
+        ishikawa: 石川県
+        fukui: 福井県
+        yamanashi: 山梨県
+        nagano: 長野県
+        gifu: 岐阜県
+        sizuoka: 静岡県
+        aichi: 愛知県
+        mie: 三重県
+        shiga: 滋賀県
+        kyoto: 京都府
+        osaka: 大阪府
+        hyogo: 兵庫県
+        nara: 奈良県
+        wakayama: 和歌山県
+        tottori: 鳥取県
+        shimane: 島根県
+        okayama: 岡山県
+        hiroshima: 広島県
+        yamaguchi: 山口県
+        tokushima: 徳島県
+        kagawa: 香川県
+        ehime: 愛媛県
+        kochi: 高知県
+        fukuoka: 福岡県
+        saga: 佐賀県
+        nagasaki: 長崎県
+        kumamoto: 熊本県
+        oita: 大分県
+        miyazaki: 宮崎県
+        kagoshima: 鹿児島県
+        okinawa: 沖縄県
+    item:
+      delivery_prefecture:
+        hokkaido: 北海道
+        aomori: 青森県
+        iwate: 岩手県
+        miyagi: 宮城県
+        akita: 秋田県
+        yamagata: 山形県
+        fukushima: 福島県
+        ibaraki: 茨城県
+        tochigi: 栃木県
+        gunma: 群馬県
+        saitama: 埼玉県
+        chiba: 千葉県
+        tokyo: 東京都
+        kanagawa: 神奈川県
+        nigata: 新潟県
+        toyama: 富山県
+        ishikawa: 石川県
+        fukui: 福井県
+        yamanashi: 山梨県
+        nagano: 長野県
+        gifu: 岐阜県
+        sizuoka: 静岡県
+        aichi: 愛知県
+        mie: 三重県
+        shiga: 滋賀県
+        kyoto: 京都府
+        osaka: 大阪府
+        hyogo: 兵庫県
+        nara: 奈良県
+        wakayama: 和歌山県
+        tottori: 鳥取県
+        shimane: 島根県
+        okayama: 岡山県
+        hiroshima: 広島県
+        yamaguchi: 山口県
+        tokushima: 徳島県
+        kagawa: 香川県
+        ehime: 愛媛県
+        kochi: 高知県
+        fukuoka: 福岡県
+        saga: 佐賀県
+        nagasaki: 長崎県
+        kumamoto: 熊本県
+        oita: 大分県
+        miyazaki: 宮崎県
+        kagoshima: 鹿児島県
+        okinawa: 沖縄県
+        undicided: 未定
+      condition:
+        new_one: 新品、未使用
+        almost_new: 未使用に近い
+        no_scratchies: 目立った傷や汚れなし
+        little_worn: やや傷や汚れあり
+        worn: 傷や汚れあり
+        bad: 全体的に状態が悪い
+      delivery_cost:
+        exhibitr_barden: 送料込み(出品者負担)
+        buyer_barden: 着払い(購入者負担)
+      delivery_method:
+        undicided: 未定
+        mercari: らくらくメルカリ便
+        u_mail: ゆうメール
+        letter_pack: レターパック
+        usealy: 普通郵便(定形、定形外)
+        yamato: クロネコヤマト
+        u_pack: ゆうパック
+        click_post: クリックポスト
+        u_packet: ゆうパケット
+      delivery_day:
+        a_day: 1~2日で発送
+        a_couple_of_days: 2~3日で発送
+        a_week: 4~7日で発送

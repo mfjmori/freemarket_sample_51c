@@ -1,0 +1,373 @@
+.single-container {
+  .sign-up {
+    .panel {
+      background: $white;
+      width: 700px;
+      margin: 0 auto 41px;
+      &__head {
+        padding: 37px 16px 38px;
+        font-weight: 700;
+        font-size: 22px;
+        border-bottom: 1px solid $gray-lv1;
+      }
+      &__inner {
+        padding: 64px;
+        .error_message {
+          color:$base-red;
+          transform:translateY(-25px);
+          font-weight: bold;
+        }
+        .mail-registration {
+          @include link-btn;
+          @include btn-mail;
+          width: 320px;
+        }
+        .facebook-registration {
+          @include link-btn;
+          @include btn-facebook;
+          width: 320px;
+          margin-top: 16px;
+        }
+        .google-registration {
+          @include link-btn;
+          @include btn-google;
+          width: 320px;
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+  .sign-in {
+    .panel {
+      background: $white;
+      max-width: 456px;
+      margin: 0 auto;
+      &__head {
+        padding: 40px 64px;
+        border-bottom: 1px solid $gray-lv1plus;
+        &__registration-link-btn {
+          background: $link-blue;
+          margin-top: 8px;
+          line-height: 42px;
+          color: $white;
+          a {
+            display: block;
+          }
+        }
+      }
+      &__inner {
+        .error_message {
+          color:$base-red;
+          transform:translateY(20px);
+          font-weight: bold;
+        }
+        .sns-login {
+          padding: 32px 64px;
+          &__facebook {
+            @include link-btn;
+            @include btn-facebook;
+          }
+          &__google {
+            @include link-btn;
+            @include btn-google;
+          }
+        }
+        .login-form {
+          padding: 24px 64px 32px;
+          &__email {
+            @include input-default;
+          }
+          &__password {
+            @include input-default;
+            margin-top: 24px;
+          }
+          &__submit {
+            margin-top: 24px;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            background: $base-red;
+            border: 1px solid $base-red;
+            color: $white;
+            cursor: pointer;
+          }
+          &__forget-password {
+            display: block;
+            margin-top: 40px;
+            text-align: left;
+            color: $link-blue;
+            &:hover {
+              text-decoration: underline $link-blue;
+              opacity: 0.7;
+            }
+          }
+        }
+        .g-recaptcha {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  .registration,.identification{
+    .panel {
+      background: $white;
+      width: 700px;
+      margin: 0 auto;
+      &__head {
+        padding: 38px 16px;
+        font-weight: 700;
+        font-size: 22px;
+        border-bottom: 2px solid $gray-lv1;
+        &--small-padding {
+          @extend .panel__head;
+          padding: 13px 4% !important;
+          font-size: 24px;
+        }
+      }
+      &__inner {
+        padding: 64px;
+        .content {
+          max-width: 320px;
+          margin: 0 auto;
+          .form-group {
+            margin-top: 40px;
+            text-align:left;
+            &:first-child {
+              margin-top: 0;
+            }
+            &__label {
+              font-weight: 600;
+            }
+            &__require {
+              background: $base-red;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: $white;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            &__optional {
+              background: $gray-lv2;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: $white;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            &__input {
+              @include input-default;
+              width: 100%;
+              margin: 8px 0 0;
+            }
+            &__card-logos {
+              display: flex;
+              padding-top: 5px;
+              width: 120px;
+              justify-content: space-between;
+            }
+            &__head {
+              font-size: 14px;
+              font-weight: 700;
+            }
+            &__left-text {
+              margin-top: 8px;
+              line-height: 21px;
+            }
+            &__center-text {
+              margin-top: 8px;
+              line-height: 21px;
+              text-align:center;
+              a {
+                color: $link-blue;
+                &:hover {
+                  text-decoration: underline $link-blue;
+                  opacity: 0.7;
+                }
+              }
+            }
+            &__birthday-select-wrap {
+              display: flex;
+              &__left {
+                @include select-box;
+                width: 200px;
+                select {
+                  width: 140px;
+                  margin-top: 10px;
+                }
+              }
+              &__right {
+                margin-top: 14px;
+                .chevron-box {
+                  height: 58px;
+                  width: 10px;
+                  position: relative;
+                  .icon-chevron-bottom {
+                    position: absolute;
+                    right: 80px;
+                    top: 35%;
+                    z-index: 2;
+                    &:after {
+                      font-family: "Font Awesome 5 Free";
+                      content: '\f078';
+                      font-weight: 900;
+                      color: $gray-lv3;
+                      font-size: 18px;
+                    }
+                  }
+                }
+              }
+            }
+            &__prefecture-select-wrap {
+              @include select-box;
+            }
+            &__expiration-wrap {
+              @include select-box;
+              select {
+                width: 140px;
+              }
+              .icon-chevron-bottom {
+                left: 110px;
+              }
+            }
+            &__info-link {
+              text-align: right;
+              display: block;
+              margin-top: 40px;
+              color: $link-blue;
+              &:hover {
+                text-decoration: underline $link-blue;
+                opacity: 0.7;
+              }
+              &:after {
+                font-family: "Font Awesome 5 Free";
+                content: '\f054';
+                font-weight: 900;
+              }
+            }
+            &__card-info {
+              display: flex;
+              justify-content: flex-end;
+              margin-top: 10px;
+              color: $link-blue;
+              a:hover {
+                text-decoration: underline $link-blue;
+                opacity: 0.7;
+              }
+              .icon-question-circle:before {
+                font-family: "Font Awesome 5 Free";
+                content: '\f059';
+                font-weight: 900;
+              }
+            }
+            .g-recaptcha {
+              margin-top: 20px;
+            }
+          }
+          .form-info-text {
+            margin: 8px 0 0;
+            line-height: 1.5;
+            color: $gray-lv3;
+          }
+          .registration-next-btn {
+            margin-top: 40px;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            background: $base-red;
+            border: 1px solid $base-red;
+            color: $white;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .identification {
+    text-align: center;
+    margin: 40px 0;
+    .panel {
+      &__head {
+        padding: 8px 24px;
+      }
+      &__inner {
+        .content {
+          max-width: initial;
+          margin: 0;
+          .form-group {
+            &__info-link {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1068px) {
+    .identification {
+      .panel {
+        width: 700px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .sign-up {
+      .panel {
+        width: 100%;
+        &__head {
+          padding: 29px 8px;
+          font-size: 18px;
+        }
+        &__inner {
+          padding: 40px;
+        }
+      }
+    }
+    .sign-in {
+      .panel {
+        &__head {
+          padding: 24px 32px;
+        }
+        &__inner {
+          .sns-login {
+            padding: 24px 32px;
+          }
+          .login-form {
+            padding: 24px 32px;
+          }
+        }
+      }
+    }
+    .registration {
+      .panel {
+        width: 100%;
+        &__head {
+          padding: 24px 8px;
+          font-size: 18px;
+          line-height: 27px;
+        }
+        &__inner {
+          padding: 40px;
+        }
+      }
+    }
+    .identification {
+      margin: 24px 0;
+      .panel {
+        width: 100%;
+        &__head {
+          font-size: 18px;
+          padding: 12px 4%;
+        }
+        &__inner {
+          padding: 40px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,151 @@
+.single-wrapper.item-edit-page
+  = render "/shared/single-header"
+  .single-container
+    .item-wrapper
+      %h2.title 商品の情報を入力
+      = form_with model: @item, html: {class: "item-new", multipart: true, method: "PATCH"}, local: true do |f|
+        - if @item.errors.any?
+          - @item.errors.full_messages.each do |message|
+            = message
+        %section.form-section.media-min
+          .input-part
+            %h3.input-part__title 出品画像
+            %span.input-part__require 必須
+            %p.input-part__details 最大10枚までアップロードできます
+            -# TODO: ドラッグ&ドロップ、フォームの見た目動作
+            -# いま=> アップロードformLv2、普通のフォーム10個展開、同時アップロード
+
+            .image-upload-part#img_prev
+              - @item.images.each_with_index do |image, i|
+                = render partial: 'shared/upload-images', locals:{image: image, f: f, i: i}
+
+            = f.label :image, class: "input-part__dropbox", id: "drop_zone" do
+              .media-min__append--icon
+                = f.file_field :image, class: 'hidden image-uploader', multiple: true
+                .media-min__hidden
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+
+        %section.form-section
+          .input-part
+            = f.label "商品名", class: "input-part__title"
+            %span.input-part__require 必須
+            = f.text_field :name, class: "input-part__input", placeholder: "商品名（必須 40文字まで)"
+          .input-part.space
+            = f.label "商品の説明", class: "input-part__title"
+            %span.input-part__require 必須
+            = f.text_area :detail, class: "input-part__textarea textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+        %section.form-section
+          .flex-container
+            .flex-container__left
+              %h3.sell-sub-head 商品の詳細
+            .flex-container__right
+              .input-part
+                = f.label "カテゴリー", class: "input-part__title"
+                %span.input-part__require 必須
+                - parents = @categories[0..12]
+              .relative
+                .icon-select
+                = f.collection_select :parent_category_id, parents, :id, :name, {include_blank: true}, class: "input-part__select parent-category"
+              - parents.each do |parent|
+                .relative--hidden{id: "#{parent.id}-children-item"}
+                  .icon-select
+                  = f.collection_select :child_category_id, parent.children, :id, :name, {include_blank: true}, disabled:"disabled", class: "input-part__select child-category"
+              - parents.each do |parent|
+                - parent.children.each do |child|
+                  .relative--hidden{id: "#{child.id}-grandchildren-item"}
+                    .icon-select
+                    = f.collection_select :grandchild_category_id, child.children, :id, :name, {include_blank: true}, disabled:"disabled", class: "input-part__select grandchild-category"
+              -# .space.hidden
+              -# .input-part
+              -#   = f.label "サイズ", class: "input-part__title"
+              -#   %span.input-part__require 必須
+              -# .relative
+              -#   .icon-select
+              -#     -# TODO: 特定カテゴリ展開時のみ表示させる、連動した条件バリデーション。
+              -#     -# = f.select :category_id, [["XXS以下", "153"], ["XS(SS)", "154"], ["S", "2"], ["M", "3"], ["L", "4"], ["XL(LL)", "5"], ["2XL(3L)", "155"], ["4XL(5L)以上", "157"], ["FREE SIZE", "7"]], {include_blank: true}, class: "input-part__select"
+              -# .space.hidden
+              -# .input-part
+              -#   = f.label "ブランド", class: "input-part__title"
+              -#   %span.input-part__option 任意
+              -#   -# TODO: 特定カテゴリ展開時のみ表示させる。
+              -#   -# = f.text_field :category_id, class: "input-part__input", placeholder: "例）シャネル", value: ""
+              .input-part.space
+                = f.label "商品の状態", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = f.select :condition, Item.conditions_i18n.keys.map {|k| [Item.conditions_i18n[k], k]}, {include_blank: true}, class: "input-part__select"
+        %section.form-section
+          .flex-container.media-min--clear
+            .flex-container__left
+              %h3.sell-sub-head 配送について
+              =link_to "?", "#", class:"form-question"
+            .flex-container__right
+              .input-part
+                = f.label "配送料の負担", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = f.select :delivery_cost, Item.delivery_costs_i18n.keys.map {|k| [Item.delivery_costs_i18n[k], k]}, {include_blank: true}, class: "input-part__select"
+              .space.hidden
+              .input-part.space
+                = f.label "発送の方法", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = f.select :delivery_method, Item.delivery_methods_i18n.keys.map {|k| [Item.delivery_methods_i18n[k], k]}, {include_blank: true}, class: "input-part__select"
+              .input-part.space
+                = f.label "発送元の地域", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = f.select :delivery_prefecture, Item.delivery_prefectures_i18n.keys.map {|k| [Item.delivery_prefectures_i18n[k], k]}, {include_blank: true}, class: "input-part__select"
+              .input-part.space
+                = f.label "発送までの日数", class: "input-part__title"
+                %span.input-part__require 必須
+              .relative
+                .icon-select
+                  = f.select :delivery_day, Item.delivery_days_i18n.keys.map {|k| [Item.delivery_days_i18n[k], k]}, {include_blank: true}, class: "input-part__select"
+        %section.form-section
+          .flex-container
+            .flex-container__left
+              %h3.sell-sub-head 販売価格(300〜9,999,999)
+              = link_to "?", "#", class:"form-question"
+            .flex-container__right
+              .input-part
+                %ul.input-part__price
+                  %li.input-part__price--bace.flex-container
+                    .input-part__price--bace--left
+                      = f.label "価格", class: "input-part__title"
+                      %span.input-part__require 必須
+                    .input-part__price--bace--right
+                      %p.yen ¥
+                      = f.text_field :price, class: "input-part__input", placeholder: "例）300", maxlength: "7"
+                  %li.input-part__price--fee.border-top.flex-container
+                    .input-part__price--fee--left 販売手数料 (10%)
+                    .input-part__price--fee--right.input-part__price--fee--output= @item.price / 10
+
+                  %li.input-part__price--total.border-top.flex-container
+                    .input-part__price--total--left 販売利益
+                    .input-part__price--fee--right.input-part__price--total--output= @item.price - (@item.price / 10)
+
+        %section.form-section
+          %p.notes
+            = link_to "禁止されている出品", "#", class:"notes__link"
+            = link_to "行為", "#"
+            を必ずご確認ください。
+          %p.notes
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売", "#", class:"notes__link"
+            は犯罪であり処罰される可能性があります。
+          %p.notes
+            また、出品をもちまして
+            = link_to "加盟店規約", "#", class:"notes__link"
+            に同意したことになります。
+
+          = f.submit "変更する", class: "submit-btn--red"
+          = link_to "キャンセル", item_path(params[:id]), class: "submit-btn--gray"
+        .overlay
+  = render partial: "/shared/single-footer"

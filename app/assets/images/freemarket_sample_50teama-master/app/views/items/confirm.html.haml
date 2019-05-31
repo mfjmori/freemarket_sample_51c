@@ -1,0 +1,62 @@
+.single-wrapper.buy-confirm-page
+  = render 'shared/single-header'
+  %main.single-container
+    .panel
+      %section.panel__head 購入内容の確認
+      .panel__inner
+        %section.buy-content
+          .item-info
+            %h3.item-info__image
+              =image_tag  (@item.images[0].image.url), alt: '商品画像', class: "confirm-image"
+            %p.item-info__name
+              = @item.name
+            %p.item-info__price
+              ="¥#{@item.price}"
+              %span.item-info__price__shipping
+                = @item.delivery_cost_i18n
+                -# ポイントがある場合とない場合で表示が切り替わります。余裕があれば追加
+                -# %ul.buy-accordion.not-have
+                -#   %li.buy-accordion__inner
+                -#     .buy-accordion__accordion__toggle
+                -#       %p ポイントはありません
+            %ul.buy-price
+              %li.buy-price__inner
+                .buy-price__inner__cell 支払い金額
+                .buy-price__inner__cell
+                  %span{data: {price: @item.price}}
+                    = "¥#{@item.price}"
+              %p
+                =link_to "購入する", pay_user_card_path(current_user.id), class: "buy-confirm-btn"
+        %hr.line
+        %section.buy-content
+          .user-info
+            %h3.user-info__header 配送先
+            %adress.user-info__text
+              %p
+                = "〒#{current_user.postal_code.to_s.insert(3, '-')}"
+                %br
+                = "#{current_user.prefecture_i18n} #{current_user.city}"
+                %br
+                = current_user.address
+                %br
+                = current_user.building
+                %br
+                =current_user.name
+
+              %p.link-to-change.icon-arrow-r
+                =link_to "変更する", edit_path(url:"identification")
+
+          -# 支払い情報がnillだとグレーのボタンとなり購入できないが、とりあえず無視する
+          %hr.line
+          .card-info
+            %h3.card-info__header 支払い方法
+            %p.card-info__num
+              = "**** **** **** #{@card.last4}"
+            %p.card-info__date
+              = "#{@card.exp_month} / #{@card.exp_year}"
+
+            %p.link-to-change.icon-arrow-r
+              -# =link_to "変更する", user_card_path(user_id:'mypage',id:'show')
+              =link_to "変更する", user_cards_path(user_id:"mypage")
+
+  = render 'shared/single-footer'

@@ -1,0 +1,409 @@
+.space{
+  margin-top:40px;
+}
+.hidden, #hidden-item-detail{
+  display: none;
+}
+.relative{
+  position: relative;
+  .icon-select::before {
+    position: absolute;
+    top:32px;
+    right:22px;
+    font-size: 18px;
+    color: $gray-lv2plus;
+  }
+  &--hidden{
+    @extend .relative;
+    display:none;
+    .icon-select::before {
+      position: absolute;
+      top:23px;
+      right:22px;
+      font-size: 18px;
+      color: $gray-lv2plus;
+    }
+  }
+}
+.item-wrapper {
+  background-color: $white;
+  margin: 0 auto;
+  width: 700px;
+  .title {
+    display: block;
+    font-size: 22px;
+    padding: 37px 16px;
+    font-weight: bold;
+    border-bottom: 1px solid $gray-lv1;
+  }
+// form
+  .item-new {
+    text-align: left;
+    .form-section{
+      padding: 40px;
+      border-bottom: 1px solid $gray-lv1;
+      }
+      .input-part{
+        &__title{
+          display: block;
+          float: left;
+          font-size: 16px;
+          font-weight: bolder;
+          margin-bottom: 8px;
+        }
+        &__details{
+          clear: both;
+          margin-bottom: 10px;
+        }
+        &__require{
+          background: $base-red;
+          margin-left: 10px;
+          padding: 2px 4px;
+          font-size: 12px;
+          vertical-align: top;
+          color: $white;
+          font-weight: bold;
+          border-radius: 2px;
+        }
+        &__option{
+          background: $gray-lv2plus;
+          margin-left: 10px;
+          padding: 2px 4px;
+          font-size: 12px;
+          vertical-align: top;
+          color: $white;
+          font-weight: bold;
+          border-radius: 2px;
+
+        }
+        &__details{
+          overflow:hidden;
+        }
+
+        &__input{
+          @include input-default;
+        }
+        &__textarea{
+          @include textarea-default;
+        }
+        &__select{
+          @include select-default;
+          width:100%;
+          clear: both;
+          position: relative;
+        }
+        &__price{
+          &--bace{
+            line-height: 48px;
+            height: 72px;
+            padding-bottom: 24px;
+            .input-part__title{
+              font-size: 14px;
+            }
+            &--right{
+              width:50%;
+              .yen{
+                display: block;
+                float: left;
+                padding-left:20px;
+              }
+              .input-part__input{
+                width:160px;
+                float: right;
+              }
+            }
+          }
+          &--fee{
+            padding: 24px 0;
+            font-size: 14px;
+            border-top: 1px solid $gray-lv2;
+            &--right{
+              width:160px;
+            }
+            &--output{
+              text-align: right;
+            }
+          }
+          &--total{
+            font-size: 16px;
+            font-weight: bold;
+            padding: 24px 0;
+            border-top: 1px solid $gray-lv2;
+            &--right{
+              width: 160px;
+            }
+            &--output{
+              text-align: right;
+              font-size: 28px;
+            }
+          }
+        }
+      }
+      .input-part__dropbox{
+        background: $gray-lv1;
+        border: 1px dashed $gray-lv2;
+        min-height: 177px;
+        line-height: 1.5;
+        text-align: center;
+        flex-grow: 1;
+        display: table;
+        width: 100%;
+        .hidden{
+          visibility:hidden;
+          display: none;
+        }
+        .media-min__append--icon{
+          display: table-cell;
+          vertical-align: middle;
+        }
+      } // end input-part__dropbox
+      .image-upload-part{
+        display: flex;
+        flex-wrap: wrap;
+        .input-part__dropbox{
+          background: $gray-lv1;
+          border: 1px dashed $gray-lv2;
+          min-height: 177px;
+          line-height: 1.5;
+          text-align: center;
+          flex-grow: 1;
+          // display: table;
+          display: flex;
+          flex-direction: row;
+          .hidden{
+            visibility:hidden;
+            display: none;
+          }
+          .media-min__append--icon{
+            white-space: pre-wrap;
+            display: table-cell;
+            vertical-align: middle;
+          }
+        } // end input-part__dropbox
+      .upload-item, .dz-preview.dz-image-preview{
+        position: relative;
+        display: inline-block;
+        width: 18%;
+        margin: 0 2% 2% 0;
+        border: $table-border;
+        background-color: $gray-lv1;
+        &__photo, .dz-image{
+          width: 111.5px;
+          height: 111.5px;
+          // 画像アップロードできたらコメントアウトを外す
+          background: rgb(143, 143, 245);
+        }
+        .dz-message.needsclick{
+          overflow: hidden;
+        }
+        .dz-details, .dz-progress, .dz-error-message{
+          display: none;
+        }
+        .dz-success-mark {
+          display: none;
+        }
+        .dz-error-mark {
+          display: none;
+        }
+        &__nav{
+          font-size: 14px;
+          color: $link-blue;
+          display: flex;
+          &__edit, &__delete, .dz-remove{
+            width: 50%;
+            text-align: center;
+            padding: 20px 0;
+            border: $table-border;
+          }
+        }
+      }
+    } // end image-upload-part
+    .flex-container{
+      display: flex;
+      justify-content: space-between;
+      &__left{
+        .sell-sub-head{
+          color: $gray-lv3;
+          font-weight: bold;
+          font-size: 14px;
+          float: left;
+        }
+        .form-question{
+          @include form-question;
+        }
+      }
+      &__right{
+        width: 400px;
+      }
+    }
+    .notes{
+      line-height: 1.5;
+      &__link{
+        color: $link-blue;
+      }
+    }
+    .submit-btn--red{
+      @include btn-default;
+      @include btn-red;
+      margin: 40px 0 0;
+    }
+
+    .submit-btn--gray{
+      @include btn-default;
+      @include btn-gray;
+      width: 45%;
+      margin: 24px auto 0;
+    }
+  }
+}
+
+.modal__inner {
+  max-width: none;
+  margin: 20px auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: all ease-out .3s;
+  transform: translate(0, -10px);
+  .is-show {
+    display: block;
+  }
+  .is-animate {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  .modal-head {
+    font-size: 16px;
+    text-align: center;
+    line-height: 80px;
+  }
+  .sell-modal-body {
+    border-top: 1px solid $gray-lv1plus;
+    padding: 40px;
+    font-size: 14px;
+    p {
+      margin: 8px 0 0;
+    }
+  }
+  .submit-btn--red {
+    margin: 40px auto 0;
+    background: $base-red;
+    border: 1px solid $base-red;
+    color: $white;
+  }
+  a {
+    cursor: pointer;
+    color: $link-blue;
+    text-decoration: none;
+  }
+  .text-center {
+    text-align: center;
+  }
+}
+
+//メディアクエリ
+@media screen and (max-width: 768px) {
+  .modal__inner {
+    position: relative;
+    overflow: hidden;
+    width: 95%;
+    max-width: 375px;
+    margin: 8px auto;
+    background: $white;
+  }
+
+  .item-wrapper{
+    width:100%;
+    .title {
+      padding:24px 8px;
+      font-size: 18px;
+    }
+    .media-min{
+      padding: 40px 12.5px!important;
+      //textをfontawesomeに変更
+      &__hidden{
+        display: none;
+      }
+      &__append{
+        .sell-form__image--dropbox{
+          position: relative;
+        }
+        &--icon::before{
+          @include font-awesome-base;
+          content: '\f030';
+          font-size: 16px;
+        }
+      }
+      &--clear{
+        display: inline!important;
+      }
+    }
+    .flex-container{
+      display: inherit!important;
+      .flex-container__left{
+        .sell-sub-head{
+          float: none!important;
+        }
+        .form-question{
+          clear: both!important;
+        }
+      }
+      .flex-container__right{
+        width:100%!important;
+        margin-top:40px;
+        .input-part__price--bace,.input-part__price--fee,.input-part__price--total{
+          display: flex;
+          justify-content: space-between;
+        }
+        .input-part__title,.yen{
+          font-size:14px;
+        }
+        .input-part__require{
+          font-size:12px;
+        }
+      }
+    }
+    .input-part__price--bace{
+      &--left{
+        float: left!important;
+      }
+      &--right{
+        float: right!important;
+        width: 50%!important;
+        .yen{
+          text-align: right!important;
+        }
+        .input-part__input{
+          width:80%!important;
+          float: right;
+          text-align: right;
+        }
+      }
+    }
+    .input-part__price {
+      .border-top{
+        margin-bottom: 10px;
+      }
+      .input-part__price--fee--left,.input-part__price--total--left{
+        float: left;
+      }
+      .input-part__price--fee--right,.input-part__price--fee--right{
+        float: right;
+      }
+    }
+  }
+}

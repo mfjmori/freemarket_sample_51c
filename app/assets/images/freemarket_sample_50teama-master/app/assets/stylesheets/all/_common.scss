@@ -1,0 +1,56 @@
+html {
+  box-sizing: border-box;
+  *,*:before,*:after {
+    box-sizing: inherit;
+  }
+} //全ての要素にbox-sizing: border-box;を設定
+
+body {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  position: relative;
+  min-height: 100%;
+  background: $gray-lv1;
+  font-size: 14px;
+  color: $gray-lv4;
+  line-height: 1;
+} // メルカリ（本家）のbodyについていたcssを全て追記
+
+a{
+  text-decoration: none;
+  &:link{
+    color: inherit;
+  }
+  &:hover{
+    color: inherit;
+  }
+  &:visited{
+    color: inherit;
+  }
+} //a タグの下線・デフォルトの色を消す
+
+li{
+  text-decoration: none;
+} //liタグの・を消す
+
+
+* {
+  font-size: inherit;
+  line-height: inherit;
+} //親要素の指定を引き継ぐ
+
+.text-center{
+  text-align: center;
+}  //文章を中央に寄せる items/headerで使用
+
+// 出品ステータスに伴う表示に使用予定
+.mypage-item-status.awaiting {
+  background: $link-blue;  // 出品中
+}
+
+.mypage-item-status.action-required {
+  background: $base-red;  // 公開停止中
+}
+
+.mypage-item-status.action-required {
+  background: $gray-lv3; // 売却済
+}

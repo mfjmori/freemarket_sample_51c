@@ -1,0 +1,37 @@
+- breadcrumb :card
+%wrapper.card-page
+  =render 'shared/header'
+  = render 'shared/breadcrumb'
+
+  .two-column-container
+    .two-column-container__r
+      .panel
+        %h2.panel__head 支払い方法
+        %section.panel__inner
+          %h3.panel__inner__head クレジットカード一覧
+          - if @card.present?
+            .card-info
+              - case
+                -when @card.brand == "Visa" 
+                  =image_tag 'visa_logo.png', width:"49", height:"20", alt:"visa"
+                -when @card.brand == "MasterCard"
+                  =image_tag 'mastercard_logo.png', width:"49", height:"20", alt:"visa"
+              %p.card-info__num 
+                = "**** **** **** #{@card.last4}"
+              %p.card-info__date
+                = "#{@card.exp_month} / #{@card.exp_year}"
+              %button.card-info__delete-btn
+                = link_to '削除する', card_delete_user_card_path(user_id:'mypage', id:'1')
+              -# = button_to "削除", { :action => "destroy", :id => @card.id }, :confirm => "本当に削除しますか?", :method => :delete
+              -# サーバーサイドが整ったらコメントアウトを外す
+          - else
+            .card-info
+              %button.card-info__add-btn
+                =link_to new_user_card_path do
+                  .icon-card
+                  %p クレジットカードを追加する
+
+        .bottom-info
+          %p.bottom-info__link.icon-arrow-r=link_to "支払い方法について" , '#'
+    = render 'shared/mypage-nav'
+=render 'shared/footer-sell-btn'

@@ -1,0 +1,39 @@
+.wrapper.index-page
+  = render 'shared/header'
+
+  %main
+    %section.slick
+      %figure.slick-list.slide01=image_tag "slider-01.png", alt: "スライダーの画像", class: "slick-list__image"
+      %figure.slick-list.slide02=image_tag "slider-02.png", alt: "スライダーの画像", class: "slick-list__image"
+      %figure.slick-list.slide03=image_tag "slider-03.png", alt: "スライダーの画像", class: "slick-list__image"
+
+  %section.pick-up-container
+    %h2.pick-up-container__header ピックアップカテゴリー
+    %section.item-boxes
+      %h3.item-boxes__header.text-center
+        = link_to 'レディース 新着アイテム', src: '#'
+      = render 'shared/items-box', items: @ladies_items
+      .item-boxes__view-all
+        =link_to '全ての商品を見る', src:'#'
+    %section.item-boxes
+      %h3.item-boxes__header.text-center
+        = link_to 'メンズ 新着アイテム', src: '#'
+      = render 'shared/items-box', items: @mens_items
+      .item-boxes__view-all
+        =link_to '全ての商品を見る', src:'#'
+    %section.item-boxes
+      %h3.item-boxes__header.text-center
+        = link_to 'ベビー・キッズ 新着アイテム', src: '#'
+      = render 'shared/items-box', items: @kids_items
+      .item-boxes__view-all
+        =link_to '全ての商品を見る', src:'#'
+    %section.item-boxes
+      %h3.item-boxes__header.text-center
+        = link_to 'コスメ・香水・美容 新着アイテム', src: '#'
+      = render 'shared/items-box', items: @cosme_items
+      .item-boxes__view-all
+        =link_to '全ての商品を見る', src:'#'
+
+  = render 'shared/aside'
+  = render 'shared/footer'
+  = render 'shared/footer-sell-btn'

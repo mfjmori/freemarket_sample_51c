@@ -1,0 +1,159 @@
+.card-create-page{
+  .two-column-container{
+    .two-column-container__r{
+      margin-top: 40px;
+      .panel{
+        &__head{
+          text-align: center;
+          padding: 0 16px 38px;
+          font-weight: 700;
+          font-size: 22px;
+          border-bottom: 1px solid $gray-lv1;
+        }
+        .content {
+          max-width: 320px;
+          margin: 40px auto;
+          .form-group {
+            margin-top: 40px;
+            text-align:left;
+            &:first-child {
+              margin-top: 0;
+            }
+            &__label {
+              font-weight: 600;
+            }
+            &__require {
+              background: $base-red;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: $white;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            &__optional {
+              background: $gray-lv2;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: $white;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            &__input {
+              @include input-default;
+              width: 100%;
+              margin: 8px 0 0;
+            }
+            &__card-logos {
+              display: flex;
+              padding-top: 5px;
+              width: 120px;
+              justify-content: space-between;
+            }
+            &__head {
+              font-size: 14px;
+              font-weight: 700;
+            }
+            &__left-text {
+              margin-top: 8px;
+              line-height: 21px;
+            }
+            &__center-text {
+              margin-top: 8px;
+              line-height: 21px;
+              text-align:center;
+              a {
+                color: $link-blue;
+                &:hover {
+                  text-decoration: underline $link-blue;
+                  opacity: 0.7;
+                }
+              }
+            }
+
+            &__expiration-wrap {
+              @include select-box;
+              select {
+                width: 140px;
+              }
+              .icon-chevron-bottom {
+                left: 110px;
+              }
+            }
+            &__info-link {
+              text-align: right;
+              display: block;
+              margin-top: 40px;
+              color: $link-blue;
+              &:hover {
+                text-decoration: underline $link-blue;
+                opacity: 0.7;
+              }
+              &:after {
+                font-family: "Font Awesome 5 Free";
+                content: '\f054';
+                font-weight: 900;
+              }
+            }
+            &__card-info {
+              display: flex;
+              justify-content: flex-end;
+              margin-top: 10px;
+              color: $link-blue;
+              a:hover {
+                text-decoration: underline $link-blue;
+                opacity: 0.7;
+              }
+              .icon-question-circle:before {
+                font-family: "Font Awesome 5 Free";
+                content: '\f059';
+                font-weight: 900;
+              }
+            }
+          }
+          .form-info-text {
+            margin: 8px 0 0;
+            line-height: 1.5;
+            color: $gray-lv3;
+          }
+          .card-registration-btn{
+            @include btn-default;
+            @include btn-red;
+            margin-top: 30px;
+          }
+        } // end content
+      } // end panel
+    }
+  }
+}
+
+@media screen and (min-width: 1068px){
+.card-create-page{
+  .two-column-container{
+    display: flex;
+    width: 1020px;
+    margin: 0 auto;
+    flex-direction:row-reverse;
+    justify-content: space-between;
+
+      .two-column-container__r{
+        width: 700px;
+        max-height:750px; //他ページで使用する際にはここを打ち消してください
+      }
+      .mypage-nav{
+        width: 280px;
+        margin-right: 25px
+      }
+    }
+  }
+}//幅1068px以上のページに適応されるscss
+
+@media screen and (max-width: 768px) {
+  .two-column-container__r{
+    width: 100%;
+  }
+  .mypage-nav{
+    width: 100%;
+  }
+}//幅768px以下のページに適応されるscss

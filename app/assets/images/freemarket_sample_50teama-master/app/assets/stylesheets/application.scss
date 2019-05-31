@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ *= require_self
+ *= require dropzone/dropzone
+ */
+
+ //---------------------------all 全ページ共通のcss
+
+ @import 'all/reset.scss'; //リセットcss 原則変更しない
+ @import 'all/colors.scss'; //カラーパレット ここにない色は追記して下さい
+ @import 'all/variables.scss'; //変数 @mixinはここ
+ @import 'all/common.scss'; // 多くの要素に共通のcss, 汎用クラスのcss
+ @import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Patua+One");
+ @import 'all/icons.scss'; //アイコン一覧
+
+
+//-----------------------------items
+@import 'items/main-header.scss';
+@import 'items/main-container.scss';
+@import 'items/item-box.scss';
+@import 'items/main-aside.scss';
+@import 'items/main-footer.scss';
+@import 'items/buy-confirm.scss'; //商品購入確認ページ
+@import 'items/show-detail.scss'; //商品詳細情報ページ
+@import 'items/new-and-edit.scss';
+@import 'items/modal-window.scss'; //商品削除のモーダルウィンドウ
+@import 'items/search-page.scss';
+
+//----------------------------shared 色々なページで使いまわせるもの
+
+@import 'shared/single-wrapper.scss'; //商品取引ページなどの上下の部分
+@import 'shared/breadcrumb.scss'; //パンくずリスト
+@import 'shared/two-column-page.scss'; //左カラムにナビを含む２カラムのページ
+@import 'shared/mypage-tab-container.scss';
+@import 'shared/mypage-nav.scss';
+@import 'shared/drop-down-list.scss';
+@import 'shared/item-box-small.scss';
+
+//-------------------------------users
+
+@import 'users.scss';
+@import 'users/logout.scss';
+@import 'users/show.scss';
+@import 'users/edit-profiele.scss';
+
+//--------------------------------cards
+@import 'cards/show-cards.scss';
+@import 'cards-create.scss';
+
+//--------------------------------carousel
+
+@import 'carousel/slick.scss';
+@import 'carousel/slick-theme.scss';
+
+
+//--------------------------------parsley
+// フォーム入力中のリアルタイムバリデーション
+
+@import 'parsley/parsley.scss';

@@ -1,0 +1,8 @@
+.upload-item
+  = image_tag image.image.url, class: "upload-item__photo"
+  .upload-item__nav
+    .upload-item__nav__edit
+      %p 編集
+    = f.label :remove_image[i], class: "upload-item__nav__delete" do
+      = f.check_box :remove_image[i], class: "hidden delete-check-box check-box"
+      %p 削除

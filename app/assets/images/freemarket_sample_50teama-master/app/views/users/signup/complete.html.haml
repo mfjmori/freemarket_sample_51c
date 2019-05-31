@@ -1,0 +1,35 @@
+.single-wrapper
+  %header.single-header-flex
+    .single-header-flex__left
+      =link_to root_path do
+        = image_tag 'logo.svg', height:'49px'
+    %nav.single-header-flex__right
+      %ol.progress-bar
+        %li.progress-bar__progress--through
+          %p.progress-bar__progress__text 会員情報
+          .progress-bar__progress__status
+        %li.progress-bar__progress--through
+          %p.progress-bar__progress__text 電話番号認証
+          .progress-bar__progress__status
+        %li.progress-bar__progress--through
+          %p.progress-bar__progress__text お届け先住所入力
+          .progress-bar__progress__status
+        %li.progress-bar__progress--through
+          %p.progress-bar__progress__text 支払い方法
+          .progress-bar__progress__status
+        %li.progress-bar__progress--active
+          %p.progress-bar__progress__text 完了
+          .progress-bar__progress__status
+  .single-container
+    .registration
+      .panel
+        .panel__head 会員登録完了
+        .panel__inner
+          .content
+            .form-group
+              %p.form-group__center-text
+                ありがとうございます。
+                %br
+                会員登録が完了しました。
+            = link_to "登録完了",root_path, class:"registration-next-btn"
+  = render partial: "/shared/single-footer"

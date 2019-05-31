@@ -1,0 +1,14 @@
+- parents = @categories[0..12]
+.category-list
+  %ul.category-list__parent
+    - parents.each do |parent|
+      %li= link_to parent.name, category_path(id: parent.id), data: {parent: parent.id}
+  - parents.each do |parent|
+    %ul.category-list__child{id: "#{parent.id}-children"}
+      - parent.children.each do |child|
+        %li= link_to child.name, category_path(id: child.id), data: {child: child.id}
+  - parents.each do |parent|
+    - parent.children.each do |child|
+      %ul.category-list__grandchild{id: "#{child.id}-grandchildren"}
+        - child.children.each do |grandchild|
+          %li= link_to grandchild.name, category_path(id: grandchild.id)

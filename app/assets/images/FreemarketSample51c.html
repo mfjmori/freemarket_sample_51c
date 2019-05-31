@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://localhost:3000/users/sign_in -->
+<html data-livestyle-extension="available"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>FreemarketSample51c</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="wovY5xBQuSGHzWDu0e5WvaBnQ0mW0xskuTkkQZ+5o5+7hBjGf5hI4XoRYVgjJqZnRuFE52lG6sc6Vrm6j6iEhA==">
+
+<link rel="stylesheet" media="all" href="./FreemarketSample51c_files/application.self-62546d8b167b5268540c384c402bd68ddcbb36c293e7cdc81d755e554a56c234.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="./FreemarketSample51c_files/application.self-62546d8b167b5268540c384c402bd68ddcbb36c293e7cdc81d755e554a56c234.css" data-turbolinks-track="reload">
+<script src="./FreemarketSample51c_files/rails-ujs.self-2b8935521e2301b06b45bd42e623eb0c0acf76c3a6ba383b7429c6a2884f8c23.js" data-turbolinks-track="reload"></script>
+<script src="./FreemarketSample51c_files/activestorage.self-1ed4604ac2170045f1ffca4edb81a75246661555e4f9cf682bb8a21825e32e1c.js" data-turbolinks-track="reload"></script>
+<script src="./FreemarketSample51c_files/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js" data-turbolinks-track="reload"></script>
+<script src="./FreemarketSample51c_files/action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js" data-turbolinks-track="reload"></script>
+<script src="./FreemarketSample51c_files/cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js" data-turbolinks-track="reload"></script>
+<script src="./FreemarketSample51c_files/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="reload"></script>
+<script src="./FreemarketSample51c_files/user_steps.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="reload"></script>
+<script src="./FreemarketSample51c_files/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="reload"></script>
+<script src="./FreemarketSample51c_files/application.self-d9c1df0d36a69bf8167ebb20070284ed3c5f931e7f6efe185b0936aad00629a6.js" data-turbolinks-track="reload"></script>
+</head>
+<body class="vsc-initialized" data-__gyazo-extension-added-paste-support="true">
+
+<main class="devise__container">
+<header class="devise__header">
+<h1>
+<a href="http://localhost:3000/">
+<img alt="mercari" class="img__devise__header" src="./FreemarketSample51c_files/logo.svg">
+</a>
+</h1>
+</header>
+</main>
+<main class="devise__main">
+<section class="l__devise__login">
+<div class="l__devise__login-no-account">
+<p>アカウントをお持ちでない方はこちら</p>
+<a class="l__devise__login-no-account-button" href="http://localhost:3000/users">新規会員登録
+</a></div>
+<div class="l__devise__inner__login">
+<div class="l__devise__link__black"></div>
+<button class="btn-default btn-sns btn-sns-facebook" id="facebook-login"><i class="fab fa-facebook-square"></i>Facebookで登録
+</button>
+<button class="btn-default btn-sns btn-sns-google" id="google-login"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" class="good-svg"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"></path></defs><clippath id="b"><use xlink:href="#a" overflow="visible"></use></clippath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"></path><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"></path><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"></path><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"></path></svg></i>Googleで登録
+</button>
+</div>
+<div class="l__devise__inner__login">
+<form class="new_user" id="new_user" action="http://localhost:3000/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="wovY5xBQuSGHzWDu0e5WvaBnQ0mW0xskuTkkQZ+5o5+7hBjGf5hI4XoRYVgjJqZnRuFE52lG6sc6Vrm6j6iEhA=="><div class="l__devise__field">
+<br>
+<input autofocus="autofocus" autocomplete="nickname" placeholder="メールアドレス" class="input-default" type="email" value="" name="user[email]" id="user_email">
+</div>
+</form></div>
+</section>
+<footer class="devise__footer">
+<nav>
+<ul class="clearfix">
+<li>
+<a href="https://www.mercari.com/jp/privacy/">プライバシーポリシー</a>
+</li>
+<li>
+<a href="https://www.mercari.com/jp/tos/">メルカリ利用規約</a>
+</li>
+<li>
+<a href="https://www.mercari.com/jp/tokutei/">特定商取引に関する表記</a>
+</li>
+</ul>
+</nav>
+<a class="devise__footer__logo" href="https://www.mercari.com/jp/">
+<img alt="mercari" height="65" src="./FreemarketSample51c_files/logo-gray.svg" width="80">
+</a>
+<p>
+<small>© 2019 Mercari</small>
+</p>
+</footer>
+
+</main>
+
+
+
+
+</body></html>

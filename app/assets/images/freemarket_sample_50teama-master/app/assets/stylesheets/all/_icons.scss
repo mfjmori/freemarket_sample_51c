@@ -1,0 +1,200 @@
+.icon-arrow-l::before {
+  @include font-awesome-base;
+  content: '\f053';
+}
+
+.icon-arrow-right::before {
+  @include font-awesome-base;
+  content: '\f054';
+}
+
+.icon-arrow-r::after {
+  @include font-awesome-base;
+  content: '\f054';
+}
+
+
+.icon-bad::before {
+  @include font-awesome-base;
+  content: '\f119';
+}
+
+.icon-bell::before {
+  @include font-awesome-base;
+  content: '\f0f3';
+}
+
+.icon-camera::before {
+  @include font-awesome-base;
+  content: '\f030';
+}
+
+.icon-card::before {
+  @include font-awesome-base;
+  content: '\f09d';
+}
+
+.icon-cart::before {
+  @include font-awesome-base;
+  content: '\f07a';
+}
+
+.icon-check::before {
+  @include font-awesome-base;
+  content: '\f00c';
+}
+
+.icon-chevron-down::after {
+  @include font-awesome-base;
+  content: '\f078';
+}
+
+.icon-clock::before {
+  @include font-awesome-base;
+  content: '\f017';
+}
+
+.icon-coins::before {
+  @include font-awesome-base;
+  content: '\f51e';
+}
+
+.icon-good::before {
+  @include font-awesome-base;
+  content: '\f118';
+}
+
+.icon-like::before {
+  @include font-awesome-base;
+  font-weight:400;
+  content: '\f004';
+}
+.icon-list::before {
+  @include font-awesome-base;
+  content: '\f03a';
+  margin-right: 4px;
+}
+
+
+.icon-lock::before {
+  @include font-awesome-base;
+  content: '\f023';
+}
+
+.icon-normal::before {
+  @include font-awesome-base;
+  content: '\f11a';
+}
+
+.icon-plus::before {
+  @include font-awesome-base;
+  content: '\f067';
+}
+
+.icon-ruler::before {
+  @include font-awesome-base;
+  content: '\f547';
+}
+
+.icon-search::after {
+  @include font-awesome-base;
+  content: '\f002';
+}
+
+.icon-search-plus::after {
+  @include font-awesome-base;
+  content: '\f00e';
+}
+.icon-select::before {
+  @include font-awesome-base;
+  content: '\f078';
+}
+
+.icon-sort::before{
+  @include font-awesome-base;
+  content: '\f162';
+}
+.icon-star::before {
+  @include font-awesome-base;
+  content: '\f005';
+}
+
+.icon-tag::before {
+  @include font-awesome-base;
+  content: '\f078';
+}
+
+.icon-truck::before {
+  @include font-awesome-base;
+  content: '\f0d1';
+}
+
+.icon-facebook::before {
+  @include font-awesome-base;
+  font-family: "Font Awesome 5 Brands";
+  content: '\f082';
+  color: $facebook;
+}
+
+.icon-twitter::before{
+  @include font-awesome-base;
+  font-family: "Font Awesome 5 Brands";
+  content: '\f081';
+  font-weight: 400;
+  color: $twitter;
+}
+
+.icon-line::before{
+  @include font-awesome-base;
+  font-family: "Font Awesome 5 Brands";
+  content: '\f3c0';
+  font-weight: 400;
+  color: $line;
+}
+
+.icon-facebook::before {
+  @include font-awesome-base;
+  font-family: "Font Awesome 5 Brands";
+  content: '\f082';
+  color: $facebook;
+}
+
+.icon-twitter::before{
+  @include font-awesome-base;
+  font-family: "Font Awesome 5 Brands";
+  content: '\f081';
+  font-weight: 400;
+  color: $twitter;
+}
+
+.icon-line::before{
+  @include font-awesome-base;
+  font-family: "Font Awesome 5 Brands";
+  content: '\f3c0';
+  font-weight: 400;
+  color: $line;
+}
+
+.icon-pinterest::before{
+  font-family: "Font Awesome 5 Brands";
+  content: '\f0d3';
+  color: $pinterest;
+}
+
+.icon-select::before {
+  @include font-awesome-base;
+  content: '\f078';
+}
+
+.icon-envelope:before {
+  font-family: "Font Awesome 5 free";
+  content: "\f0e0";
+  font-size: 20px;
+  color: $gray-lv2;
+}
+
+.icon-facebook-square:before {
+  font-family: "Font Awesome 5 Brands";
+  content: "\f082";
+  font-size: 30px;
+}

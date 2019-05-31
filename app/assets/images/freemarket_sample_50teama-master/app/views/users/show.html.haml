@@ -1,0 +1,31 @@
+- breadcrumb :user
+= render "shared/header"
+= render '/shared/breadcrumb'
+
+%main.l-container.clearfix
+  .l-content
+    %section.mypage-user-icon
+      -# TODO: ユーザープロフ編集ページへ、適したパスに修正
+      = link_to "", {controller: "users", action: "show"} do
+        %figure
+          -# TODO: ユーザーそれぞれの画像パスへ変更
+          = image_tag "avatar.jpg", size: "60x60"
+          %img{:alt => "", :height => "60", :src => "#", :width => "60"}/
+        %h2.bold
+          = current_user.name
+        .mypage-number
+          %div
+            評価
+            %span.bold 0
+          %div
+            出品数
+            %span.bold
+              = current_user.items.count
+
+    = render "shared/notification-todo"
+    = render "shared/transaction-now-old"
+
+  = render "shared/mypage-nav"
+= render "shared/aside"
+= render "shared/footer"
+=render 'shared/footer-sell-btn'

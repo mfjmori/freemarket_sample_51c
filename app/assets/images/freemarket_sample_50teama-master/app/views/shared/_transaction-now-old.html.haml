@@ -1,0 +1,37 @@
+%section.mypage-tab-container.transaction-now-old
+  %h2.mypage-tab-head 購入した商品
+  %ul.mypage-tabs
+    -# TODO:.activeをjsでつけ変えることで表示を変える
+    %li.active
+      %h3
+        -# TODO: notificaation-todoと同様
+        = link_to "取引中", user_path(anchor: "mypage-tab__transaction-now"), data: {toggle: "tab"}
+    %li
+      %h3
+        -# TODO: notificaation-todoと同様
+        = link_to "過去の取引", user_path(anchor: "mypage-tab__transaction-old"), data: {toggle: "tab"}
+  .tab-content
+    -# TODO:.activeをjsでつけ変えることで表示を変える
+    %ul#mypage-tab__transaction-now.mypage-item-list.tab-pane.active
+      -# TODO: - if hoges.length == 0
+      %li.mypage-item-not-found.bold 取引中の商品がありません
+
+      -# TODO: 最低要件はダミー表示コピーで実現する
+      -# このリストの表示がソースコピペ元のnotificationとどう違うかは不明。
+      -# - else
+      -# - hoges.foreach do |hoge|、あるいは render partial: hoges, locals {hoge: hoge}
+      -# %li
+      -#   = link_to "#", class: mypage-item-link
+      -#     %figure
+      -#       = image_tag "mercari_profile.png", size: "48x48"
+      -#     .mypage-item-body
+      -#       .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+      -#       %time
+      -#         %i.icon-time
+      -#         %span 11 時間前
+      -#     %i.icon-arrow-right
+      -# %li.mypage-go-list
+      -#   TODO: viewに適したパスに直す
+      -#   = link_to "一覧を見る", {controller: "users", action: "show"}
+    %ul#mypage-tab__transaction-old.mypage-item-list.tab-pane
+      %li.mypage-item-not-found.bold 過去に取引した商品がありません

@@ -1,0 +1,37 @@
+.logout-btn{
+  @include btn-default;
+  @include btn-red;
+  margin: 0 auto;
+  max-width: 320px;
+  a {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1068px){
+  .two-column-in-full-width{
+    display: flex;
+    width: 1020px;
+    margin: 0 auto;
+    flex-direction:row-reverse;
+    justify-content: space-between;
+
+    .logout-btn__container{
+      width: 700px;
+      max-height:154px;
+    }
+    .mypage-nav{
+      width: 280px;
+      margin-right: 25px
+    }
+  }
+}//幅1068px以上のページに適応されるscss
+
+@media screen and (max-width: 768px) {
+  .logout-btn__container{
+    width: 100%;
+  }
+  .mypage-nav{
+    width: 100%;
+  }
+}//幅768px以下のページに適応されるscss

@@ -1,0 +1,70 @@
+- breadcrumb :identification
+= render "/shared/header"
+= render '/shared/breadcrumb'
+
+%main.two-column-container
+  .single-container
+    .identification
+      .panel
+        .panel__head 本人情報の登録
+        .panel__inner
+          = form_with model: current_user do |f|
+            - if current_user.errors.any?
+              - current_user.errors.full_messages.each do |message|
+                = message
+            .content
+              .form-group
+                %p{class:"form-group__left-text"}
+                  お客さまの本人情報をご登録ください。
+                  %br
+                  登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+                .form-group__info-link
+                  =link_to "本人確認書類のアップロードについて", src:"#", class:"icon-chevron-right"
+              .form-group
+                %p.form-group__label お名前
+                %p.form-group__left-text
+                  = current_user.last_name
+                  = current_user.first_name
+              .form-group
+                %p.form-group__label お名前カナ
+                %p.form-group__left-text
+                  = current_user.last_name_kana
+                  = current_user.first_name_kana
+              .form-group
+                %p.form-group__label 生年月日
+                %p.form-group__left-text
+                  = current_user.birthday.strftime("%Y/%m/%d")
+              .form-group
+                = f.label "郵便番号（ハイフンなし）", class:"form-group__label"
+                %span{class:"form-group__optional"} 任意
+                = f.text_field :postal_code, class:"form-group__input", placeholder: "例) 1234567"
+              .form-group
+                = f.label "都道府県", class:"form-group__label"
+                %span{class:"form-group__optional"} 必須
+                .form-group__prefecture-select-wrap
+                  = f.select :prefecture, User.prefectures.keys, {include_blank: true}
+                  .icon-chevron-bottom
+              .form-group
+                = f.label "市区町村", class:"form-group__label"
+                %span{class:"form-group__optional"} 必須
+                = f.text_field :city, class:"form-group__input", placeholder: "例) 横浜市緑区"
+              .form-group
+                = f.label "番地", class:"form-group__label"
+                %span{class:"form-group__optional"} 必須
+                = f.text_field :address, class:"form-group__input", placeholder: "例) 青山1-1-1"
+              .form-group
+                = f.label "建物名", class:"form-group__label"
+                %span{class:"form-group__optional"} 任意
+                = f.text_field :building, class:"form-group__input", placeholder: "例) 柏ビル103"
+              .form-group
+                = f.label "電話", class:"form-group__label"
+                %span{class:"form-group__optional"} 任意
+                = f.text_field :phone, class:"form-group__input", placeholder: "例) 09012345678"
+              = f.submit "登録する", class:"registration-next-btn"
+              .form-group
+                .form-group__info-link
+                  =link_to "本人情報の登録について", src:"#", class:"icon-chevron-right"
+  = render '/shared/mypage-nav'
+= render 'shared/aside'
+= render 'shared/footer'
+=render 'shared/footer-sell-btn'

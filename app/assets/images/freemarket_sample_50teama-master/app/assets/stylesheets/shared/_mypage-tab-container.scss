@@ -1,0 +1,133 @@
+img {
+  vertical-align: middle;
+}
+
+.tab-content {
+  .tab-pane.active {
+    display: block;
+  }
+  .tab-pane {
+    display: none;
+  }
+}
+
+.mypage-item-link {
+  display: flex;
+  flex-direction: row;
+  display: block;
+  min-height: 80px;
+  padding: 16px;
+  color: $gray-lv4;
+  // できれば.mypage-go-listのホバーと機能をまとめたい
+  &:hover {
+    background-color: #f9f9f9;
+  }
+  li {
+    position: relative;
+    border-bottom: 1px solid $gray-lv1plus;
+    &:first-child {
+      border-bottom: 1px solid $gray-lv1plus;
+    }
+    &:last-child {
+      border: 0;
+    }
+  }
+  figure {
+    margin: 0px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+    .mypage-item-list img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+    }
+  }
+  .icon-arrow-r {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    font-style: normal;
+    vertical-align: middle;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+  time {
+    display: inline-block;
+    color: $gray-lv3;
+    span {
+      vertical-align: middle;
+    }
+    .icon-clock::before {
+      font-weight: 400;
+      font-style: normal;
+      font-size: 16px;
+      vertical-align: middle;
+      margin: 0 8px 0 0;
+    }
+  }
+  .mypage-item-body {
+    margin: 0 40px 0 68px;
+    .mypage-item-text {
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      max-height: 4.4em;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+    }
+  }
+}
+
+.mypage-item-list {
+  li {
+    position: relative;
+    border-bottom: 1px solid $gray-lv1plus;
+    &:first-child {
+      border-bottom: 1px solid $gray-lv1plus;
+    }
+    &:last-child {
+      border: 0;
+    }
+  }
+}
+.mypage-go-list {
+  padding: 16px;
+  a {
+    display: block;
+    height: 56px;
+    margin: 0 auto;
+    background: $gray-lv1plus;
+    color: $gray-lv4;
+    line-height: 56px;
+    text-align: center;
+    // できれば.mypage-item-linkのホバーと機能をまとめたい
+    &:hover {
+      background-color: #f9f9f9;
+    }
+  }
+}
+
+// リストが存在しない場合
+.mypage-item-not-found {
+  border: 0;
+  padding: 160px 0 60px;
+  background: image-url("logo-gray-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+  text-align: center;
+  font-size: 16px;
+  color: $gray-lv2;
+  .bold {
+    font-weight: 600;
+  }
+}

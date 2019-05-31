@@ -1,0 +1,43 @@
+.search-page{
+  .item-box__container{
+    width: 100%;
+    .item-box{
+      width: calc(25% - 20px);
+      img{
+        width: 100%;
+        height: auto;
+      }
+      &__info__name{
+        font-size: 1em;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .item-box__container{
+      .item-box{
+        width: calc(33% - 5px);
+        margin:5px 5px 0 0;
+        background-color: transparent;
+        position: relative;
+
+        img{
+          width: 100%;
+          height: auto;
+        }
+        .visible-small-and-sp-only{
+          display: block;
+          color: $white;
+          padding: 5px 10px;
+          background-color: rgba(0,0,0, 0.2);
+          position: absolute;
+          bottom:10px;
+          border-radius:0 6px 6px 0/ 0 6px 6px 0;
+        }
+
+        .item-box__info{
+          display: none;
+        }
+      }
+    }
+  }//幅768px以下のページに適応されるscss
+}

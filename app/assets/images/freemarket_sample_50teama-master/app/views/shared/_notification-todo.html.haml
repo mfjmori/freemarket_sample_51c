@@ -1,0 +1,51 @@
+-# NOTE: 当初設計では運営からのお知らせデータが存在しない、ダミー作成 ⇨余裕できたらデータテーブルごと追加で実装
+%section.mypage-tab-container.notification-todo
+  %ul.mypage-tabs
+    -# TODO: .activeをjsでつけ変えることで表示を変える
+    %li.active
+      %h3
+        -# TODO: 後回し、ページ内リンクを生成したいがうまくいかず、遷移を伴ってしまう。
+        -# オリジナルではページ内リンクが設定されているものの、実際にはページ内の移動さえ起こらない、原理不明
+        = link_to "お知らせ", user_path(anchor: "mypage-tab__notification")
+    %li
+      %h3
+        -# TODO: 後回し、なぜかactiveでないこちらは遷移が発生しない、この動きをactiveにも実現したい。
+        = link_to "やることリスト", user_path(anchor: "mypage-tab__todo")
+  .tab-content
+    -# TODO:.activeをjsでつけ変えることで表示を変える
+    %ul#mypage-tab__notification.mypage-item-list.tab-pane.active
+
+      -# TODO: - if hoges.length == 0
+      -# %li.mypage-item-not-found.bold お知らせの商品がありません
+      -# TODO: 最低要件はダミー表示コピーで実現する
+      -# - else
+      -# - hoges.foreach do |hoge|、あるいは render partial: hoges, locals {hoge: hoge}
+      %li
+        -# オリジナルは「ニュース一覧」へリンクする。作成優先度最低レベル。
+        = link_to "#", class: "mypage-item-link" do
+          %figure
+            = image_tag "mercari_profile.png", size: "48x48"
+          .mypage-item-body
+            .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+            %time
+              %i.icon-clock
+              %span 11 時間前
+          %i.icon-arrow-r
+
+      %li
+        = link_to "#", class: "mypage-item-link" do
+          %figure
+            = image_tag "mercari_profile.png", size: "48x48"
+          .mypage-item-body
+            .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+            %time
+              %i.icon-clock
+              %span 11 時間前
+          %i.icon-arrow-r
+
+      %li.mypage-go-list
+        -# TODO: viewに適したパスに直す
+        = link_to "一覧を見る", {controller: "users", action: "show"}
+
+    %ul#mypage-tab__todo.mypage-item-list.tab-pane
+      %li.mypage-item-not-found.bold 現在、やることリストはありません

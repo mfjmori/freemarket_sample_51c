@@ -1,0 +1,231 @@
+.single-wrapper {
+  text-align: center;
+  position: relative;
+  padding-bottom: 220px;
+  min-height: 100vh;
+  .single-header {
+    padding-top: 41px;
+    margin-right: 8px;
+    height: 128px;
+    &__logo:hover {
+      opacity: 0.7;
+    }
+  }
+  .single-footer {
+    height: 220px;
+    width: 456px;
+    padding: 40px 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin:auto;
+    &__menu {
+      display: flex;
+      font-size: 12px;
+      justify-content: center;
+      height: 12px;
+      &__privacy:hover, &__terms:hover, &__notation:hover {
+        text-decoration: underline;
+        opacity: 0.7;
+      }
+      &__terms {
+        margin-left: 16px;
+      }
+      &__notation {
+        margin-left: 16px;
+      }
+    }
+    &__logo {
+      margin-top: 40px;
+      img:hover {
+        opacity: 0.7;
+      }
+    }
+    &__small-text {
+      small {
+        font-size: 12px;
+      }
+      margin-top: 7px;
+    }
+  }
+  .single-header-flex {
+    display: flex;
+    justify-content: center;
+    height: 128px;
+    &__left {
+      margin: 41px 2px 0 0;
+      a {
+        display: inline-block;
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        margin-right: 8px;
+        img {
+          width: 185px;
+          height: 49px;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+    &__right {
+      padding: 40px 0 0 44px;
+      .progress-bar {
+        display: flex;
+        &__progress {
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 60px;
+          margin-right: 40px;
+          font-size: 12px;
+          &__text {
+            font-size: 12px;
+            color: $gray-lv3;
+          }
+          &__status {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            background: $gray-lv2;
+            margin: 8px auto 0;
+            &:before, &:after {
+              display: block;
+              content: '';
+              z-index: -1;
+              position: absolute;
+              bottom: 5px;
+              width: 100%;
+              height: 2px;
+              background: $gray-lv2;
+            }
+            &:before {
+              right: 50%;
+            }
+            &:after {
+              left: 50%;
+            }
+          }
+          &:first-child {
+            .progress-bar__progress__status {
+              &:before {
+                content: none;
+              }
+            }
+          }
+          &:last-child {
+            margin-right: 0;
+            .progress-bar__progress__status {
+              &:after {
+                content: none;
+              }
+            }
+          }
+          &--active {
+            @extend .progress-bar__progress;
+            .progress-bar__progress__text {
+              font-weight: 600;
+              color: $base-red;
+            }
+            .progress-bar__progress__status {
+              background: $base-red;
+              &:before {
+                background: $base-red;
+              }
+            }
+          }
+          &--through {
+            @extend .progress-bar__progress;
+            .progress-bar__progress__status {
+              background: $base-red;
+              &:before,&:after {
+                background: $base-red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//メディアクエリ
+@media screen and (max-width: 768px) {
+  .single-wrapper {
+    padding-bottom: 250px;
+    .single-header {
+      padding: 0;
+      margin: 0;
+      height: 56px;
+      &__logo {
+        padding: 12px 8px 12px 0;
+        display: block;
+        img {
+          height: 32.5px;
+        }
+      }
+    }
+    .single-footer {
+      width: 456px;
+      bottom: 30px;
+      &__menu {
+        display: inline;
+        font-size: 12px;
+        text-align: center;
+        height: 12px;
+        &__privacy:hover, &__terms:hover, &__notation:hover {
+          a {
+            display: block;
+          }
+        }
+        &__terms {
+          margin: 16px 0 0;
+        }
+        &__notation {
+          margin: 16px 0 0;
+        }
+      }
+      &__logo {
+        margin-top: 40px;
+      }
+      &__small-text {
+        margin-top: 7px;
+      }
+    }
+    .single-header-flex {
+      display: inline-block;
+      justify-content: center;
+      height: auto;
+      width: 100%;
+      padding: 0;
+      &__left {
+        margin: 0;
+        width: 100%;
+        border-bottom: 1px solid $gray-lv1plus;
+        a {
+          width: 120px;
+          height: 33px;
+          line-height: 33px;
+          margin: 12px 8px 12px 0;
+          img {
+            width: 120px;
+            height: 32.5px;
+          }
+        }
+      }
+      &__right {
+        margin: 0 auto;
+        padding: 16px 0;
+        .progress-bar {
+          display: flex;
+          justify-content: center;
+          &__progress {
+            margin-right: 28px;
+          }
+        }
+      }
+    }
+  }
+}

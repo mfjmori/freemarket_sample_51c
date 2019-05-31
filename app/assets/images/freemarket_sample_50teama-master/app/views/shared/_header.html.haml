@@ -1,0 +1,152 @@
+%header.sp-header.visible-sp
+  .sp-header__content
+    %h1.sp-header__content__logo
+      = link_to root_path do
+        = image_tag "logo.svg", alt: 'mercari', size:"134x36"
+
+    - if user_signed_in?
+      .sp-header__user-nav
+        %ul.sp-header__user-nav
+          %li.sp-header__user-nav__list.icon-bell
+            = link_to '', src: '#', class: 'sp-header__user-icon'
+
+          %li.sp-header__user-nav__list.icon-check
+            = link_to '', src: '#', class: 'sp-header__user-icon'
+
+          %li.sp-header__user-nav__list
+            = link_to user_path(id: 'mypage'), class: 'sp-header-user-icon user-profile__avatar' do
+              = image_tag 'avatar.jpg', alt: 'プロフィール写真', width: 32
+
+      .header__search-bar
+        = form_with url: search_items_path(:keyword), method: :get, local: true do |f|
+          = f.text_field :keyword, { placeholder: "何をお探しですか？", class: "header__search-bar__search"}
+          = f.submit class: "search-btn", value: ""
+        %p.icon-search
+
+      %ul.header__nav
+        %li.header__nav__list.icon-list
+          = link_to 'カテゴリー一覧', src: '#'
+
+        %li.header__nav__list.icon-tag
+          = link_to 'ブランドから探す', src: '#'
+    - else
+      %ul.header__user-btn
+        %li.header__user-btn__sign-in
+          =link_to 'ログイン', new_user_session_path
+        %li.header__user-btn__registration
+          =link_to '新規会員登録', new_user_path
+
+%header.pc-header.visible-pc
+  .pc-header__inner
+    .pc-header__top-content
+      %h1.pc-header__top-content__logo
+        = link_to root_path do
+          = image_tag "logo.svg", alt: 'mercari', width: 134, height: 36
+
+      .header__search-bar
+        = form_with url: search_items_path(:keyword), method: :get, local: true do |f|
+          = f.text_field :keyword, { placeholder: "何をお探しですか？", class: "header__search-bar__search"}
+          = f.submit class: "search-btn", value: ""
+        %p.icon-search
+
+    .pc-header__nav__box
+      .pc-header__nav__list-l
+        %ul.header__nav
+          %li.header__nav__list.category-show.icon-list カテゴリーから探す
+          = render 'shared/category-list'
+          %li.header__nav__list.bland-list.icon-tag ブランドから探す
+
+      .pc-header__nav__list-r
+        - if user_signed_in?
+          %ul.pc-header__user-nav
+            %li.pc-header__user-nav__list#notification-list__root.icon-bell= link_to 'お知らせ', src: '#'
+            %ul#notification-list.user-box
+              %li.pc-header__notification-list__link
+                .merucari-avatar
+                %figure
+                  =image_tag 'mercari_profile.png', alt: "icon"
+                .notification-box.icon-arrow-r
+                  %p.notification-box__message お知らせ１
+                  %p.notification-box__date-passed.icon-clock 1日前
+              %li.pc-header__notification-list__link
+                .merucari-avatar
+                %figure
+                  =image_tag 'mercari_profile.png', alt: "icon"
+                .notification-box.icon-arrow-r
+                  %p.notification-box__message お知らせ１
+                  %p.notification-box__date-passed.icon-clock 1日前
+              %li.pc-header__notification-list__link
+                %figure
+                  =image_tag 'mercari_profile.png', alt: "icon"
+                .notification-box.icon-arrow-r
+                  %p.notification-box__message お知らせ１
+                  %p.notification-box__date-passed.icon-clock 1日前
+              %li.pc-header__notification-list__link
+                %figure
+                  =image_tag 'mercari_profile.png', alt: "icon"
+                .notification-box.icon-arrow-r
+                  %p.notification-box__message お知らせ１
+                  %p.notification-box__date-passed.icon-clock 1日前
+
+
+            %li.pc-header__user-nav__list#todo-list__root.icon-check= link_to 'やることリスト', src: '#'
+            .user-box#todo-list.todo-list
+              .todo-list__icon__not-found
+              %p.todo-list__message 現在、やることリストはありません
+
+            %li.pc-header__user-nav__list#mypage-box__root
+              = link_to user_path(id: 'mypage'), class: 'user-profile__avatar' do
+                = image_tag 'avatar.jpg', alt: 'プロフィール写真', width: 32
+                %span{style: "display:inline-block; height: 40px;"} マイページ
+            #mypage-box
+              .mypage-box
+                .mypage-box__bg-image
+                  %figure
+                    = image_tag 'avatar.jpg', alt: 'プロフィール写真', width: 60
+                .mypage-box__upper-info
+                  %p.user-name= current_user.name
+
+                  %ul.review-list
+                    %li
+                      = link_to '出品数： **', src: '#'
+                    %li
+                      = link_to '評価： **', src: '#'
+
+                  %ul.currency
+                    %li.currency__money
+                      = link_to '売上金', href:'#' do
+                        %ul.currency__inner__list
+                          %li 売上金
+                          %li.icon-arrow-r ¥ 0,000
+
+                    %li.currency__point
+                      = link_to 'ポイント', href:'#' do
+                        %ul.currency__inner__list
+                          %li ポイント
+                          %li.icon-arrow-r 0 P
+
+                %ul.mypage-list
+                  %li.mypage-list__item.icon-arrow-r
+                    = link_to '#' do
+                      %p いいね！一覧
+                  %li.mypage-list__item.icon-arrow-r
+                    = link_to '#' do
+                      %p 出品した商品 - 出品中
+                  %li.mypage-list__item.icon-arrow-r
+                    = link_to '#' do
+                      %p 出品した商品 - 取引中
+                  %li.mypage-list__item.icon-arrow-r
+                    = link_to '#' do
+                      %p 出品した商品 - 売却済
+                  %li.mypage-list__item.icon-arrow-r
+                    = link_to '#' do
+                      %p 購入した商品 - 取引中
+                  %li.mypage-list__item.icon-arrow-r
+                    = link_to '#' do
+                      %p 購入した商品 - 過去の取引
+        - else
+          %ul.header__user-btn
+            %li.header__user-btn__sign-in
+              =link_to 'ログイン', new_user_session_path
+            %li.header__user-btn__registration
+              =link_to '新規会員登録', new_user_path

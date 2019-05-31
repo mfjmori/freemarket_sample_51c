@@ -1,0 +1,29 @@
+- breadcrumb :profile
+.edit-page
+  =render 'shared/header'
+  = render 'shared/breadcrumb'
+
+  %main.two-column-container
+    .two-column-container__r
+      .sign-up
+        .panel
+          .panel__head プロフィール
+          .panel__inner__prof-page
+            .user-info
+              .user-info__box
+                =form_with model: current_user do |f|
+                  .upper-info
+                    %figure=image_tag "avatar.jpg", alt: "ユーザーアイコン", size: "60x60", class: ".upper-info__avatar"
+                    %p= f.text_field :name, class: "upper-info__nickname"
+                  .bottom-info
+                    %p= f.text_area :profile, class: "bottom-info__profile"
+                    %p= f.submit "変更する", class: "bottom-info__edit-btn"
+
+    = render 'shared/mypage-nav'
+
+.footer_sell_btn
+  = link_to '', href:'#' do
+    %p.footer_sell_btn__litter 出品
+    %p.icon-camera
+  -# ↑このボタンはリファクタリング対象
+=render 'shared/footer-sell-btn'

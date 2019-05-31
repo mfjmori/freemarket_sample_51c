@@ -1,0 +1,244 @@
+.item-detail-page{
+  .single-container{
+    @include single-container-base;
+    margin: 40px auto;
+    padding: 24px 16px;
+    width: 100%;
+    .panel{
+      &__head{
+        @include single-container-header;
+        padding: 16px;
+        text-align: center;
+      }
+      .item-info {
+        clear:both;
+        &__photo{
+          display: block;
+          width: 300px;
+          height: 360px;
+          margin: 0 auto;
+          background-color:$gray-lv1;
+          position: relative;
+          .soldout::before{
+            content: "";
+            top: 0;
+            left: 0;
+            border-bottom: 120px solid transparent;
+            border-left: 120px solid $base-red;
+            position: absolute;
+          }
+          .soldout::after{
+            content: "SOLD";
+            font-size: 23px;
+            font-weight: bold;
+            display: block;
+            top: 30px;
+            transform: rotate(-45deg);
+            color: #fff;
+            left: 10px;
+            position: absolute;
+            letter-spacing: 2px;
+          }
+        }
+        &__price{
+          margin-top: 24px;
+          font-size: 50px;
+          font-weight:700;
+          text-align: center;
+          &__tax{
+            font-size:0.2em;
+            font-weight:normal;
+          }
+          &__shipping{
+            font-size:0.3em;
+            font-weight:normal;
+          }
+        }//&__price end
+      }//.item-info end
+
+        .detail-info{
+          border:$table-border; //colors.scssに仮置きで設定中
+          width: 340px;
+          margin: 0 auto;
+
+          th{
+            border:$table-border;
+            background-color:$gray-lv1;
+            height: 40px;
+            padding: 5px;
+          }
+          td{
+            border:$table-border;
+            padding: 10px;
+            .detail_link{
+              color:$link-blue;
+            }
+            .detail-info__ratings{
+              display: flex;
+              font-style: normal;
+              * {
+                margin:5px;
+              }
+              .icon-good{
+                color: $good;
+                margin-left: 0px;
+              }
+              .icon-normal{
+                color: $normal;
+              }
+              .icon-bad{
+                color: $bad;
+              }
+            }
+          }
+        }
+      }
+    }
+    .item-info__description{
+      margin-top: 30px;
+
+    }
+    .sold-out-btn {
+      @include btn-default;
+      @include btn-gray;
+      font-size: 24px;
+      font-weight: normal;
+      margin:10px 0 20px;
+      cursor: not-allowed;
+    }
+    .buy-btn{
+      @include btn-default;
+      @include btn-red;
+      font-size: 24px;
+      font-weight: normal;
+      margin-bottom:20px;
+      a {
+        display: block;
+      }
+    }
+    .sales-message{
+      @include green-balloon;
+    }
+
+  .like-report{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    &__btn{
+      appearance: none;
+      border: none;
+      outline: none;
+      display: inline-block;
+      max-height: 35px;
+      line-height: 1.4em;
+      padding: 7px;
+      background-color: $gray-lv1;
+      border-radius: 50px;
+      margin-right: 20px;
+    }
+    .icon-like:before{
+      color: $gray-lv2;
+      margin-right: 5px;
+    }
+    .trial-to-safe{
+      display: block;
+      text-align: right;
+      color: $link-blue;
+      padding-top: 2px;
+      flex: 2;
+      &:hover{
+        @include blue-link;
+      }
+    }
+  }
+  .other-item{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    color: $link-blue;
+    &__previous{
+      width: 50%;
+    }
+    &__next{
+      width: 50%;
+      text-align: right;
+    }
+  }
+
+  .sns-wrapper{
+    background-color: $white;
+    margin: 40px auto;
+    padding: 24px 40px;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-size: 44px;
+    &__icon{
+      margin: 0 5px;
+    }
+  }
+  .pick-up-container{
+    &__header{
+      @include blue-header;
+    }
+  }
+
+  .myItem-container{
+    @include single-container-base;
+    padding: 15px;
+    text-align: center;
+    font-size:1.2em;
+    width: 100%;
+
+    .edit-item__btn, .suspend-item__btn, .delete-item__btn{
+      @include btn-reset;
+      @include btn-default;
+      margin: 10px 0;
+
+      a {
+        display: block;
+      }
+    }
+    .edit-item__btn{
+      @include btn-red;
+    }
+    .suspend-item__btn, .delete-item__btn{
+      @include btn-gray;
+    }
+  }
+}//item-detail-page end
+
+@media screen and (min-width: 768px) {
+  .item-detail-page{
+    .single-container{
+      width: 700px;
+      .visible-sp-only{
+        display: none;
+      }
+      .item-info{
+        &__photo{
+          float: left;
+        }
+        &__price{
+          padding-top: 30px;
+          clear: both;
+        }
+      }
+      .detail-info{
+        float: right;
+        width: 320px;
+      }
+    }
+    .other-item{
+    width: 700px !important;
+    }
+    .sns-wrapper {
+      width: 700px;
+    }
+    .myItem-container {
+      width: 700px;
+    }
+  }
+
+}//幅768px以上のページに適応されるscss

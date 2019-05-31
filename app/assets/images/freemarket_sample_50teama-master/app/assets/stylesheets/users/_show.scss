@@ -1,0 +1,177 @@
+.bold {
+  font-weight: 600;
+}
+
+.mypage-user-icon {
+  position: relative;
+  height: 155px;
+  padding: 20px;
+  background: image-url("user_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  & > a {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: $gray-lv4;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  figure {
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50%;
+    img {
+      vertical-align: middle;
+    }
+  }
+  h2 {
+    margin: 8px 0 0;
+    font-size: 14px;
+    display: block;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    // TODO: この方法では<h2>ユーザーネームのテキスト上だけで下線がつく。
+    // オリジナルではこの<a>エリアに乗った時にこのh2にだけ下線がつく
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.mypage-number {
+  margin: 8px 0 0;
+  font-size: 0;
+  div {
+    display: inline-block;
+    font-size: 14px;
+    &:last-child {
+      margin: 0 0 0 16px;
+    }
+  }
+  span {
+    margin: 0 0 0 8px;
+    font-size: 16px;
+    .bold {
+      font-weight: 600;
+    }
+  }
+}
+
+.mypage-tab-head {
+  padding: 0 4%;
+  background: #fafafa;
+  font-size: 16px;
+  line-height: 72px;
+}
+
+.transaction-now-old {
+  margin: 40px 0 0;
+  background: $white;
+}
+.notification-todo {
+  margin: 0;
+  background: $white;
+}
+
+.mypage-tabs {
+  display: flex;
+  flex-direction: row;
+  border: 0;
+  background: $gray-lv1plus;
+  font-size: 0;
+  li.active {
+    background: $white;
+    a {
+      border-top: 2px solid $base-red;
+    }
+  }
+  li {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    h3 {
+      display: block;
+      font-size: 1.17em;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  a {
+    position: relative;
+    display: block;
+    color: $gray-lv4;
+    font-size: 16px;
+    line-height: 72px;
+  }
+}
+
+.l-container {
+  display: flex;
+  flex-direction: column;
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  .l-content {
+    float: right;
+  }
+  .l-side {
+    margin: 40px auto 0;
+    float: left;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mypage-user-icon {
+    height: 200px;
+  }
+  .mypage-tab-head {
+    padding: 0 16px;
+  }
+
+  .l-container {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    .l-content {
+      float: none;
+      width: 700px;
+    }
+    .mypage-nav {
+      float: none;
+      width: 700px;
+    }
+  }
+}
+
+@media screen and (min-width: 1068px) {
+  .l-container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 40px auto 0;
+    width: 1020px;
+    .l-content {
+      float: right;
+    }
+    .mypage-nav {
+      float: left;
+      width: 280px;
+      margin: 0 40px 0 0;
+    }
+  }
+}

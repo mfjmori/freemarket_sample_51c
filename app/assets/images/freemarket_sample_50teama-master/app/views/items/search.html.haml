@@ -1,0 +1,96 @@
+- breadcrumb :search
+%wrapper.search-page
+  =render 'shared/header'
+  = render 'shared/breadcrumb'
+
+  .search-container
+    .search-content-l
+      .not-visible-in-full-width
+        .nav
+          .nav__content#sort
+            %p.icon-sort
+            =form_with url:'#' do |f|
+              = f.select :sort_order, [["並び替え",""],["価格の安い順","01"],["価格の高い順","02"],["出品の古い順","03"],["出品の新しい順","04"],["いいね！の多い順","05"]], {}, class: "select-box__tablet"
+          .nav__content
+            %p.icon-search-plus#search
+            %p.nav__content__message 詳細検索
+
+
+      .visible-in-full-width
+        -# フォームの中身はカテゴリー検索を実装される方が適宜変更ください
+        =form_with url:'#' do |f|
+          = f.select :sort_order, [["並び替え",""],["価格の安い順","01"],["価格の高い順","02"],["出品の古い順","03"],["出品の新しい順","04"],["いいね！の多い順","05"]], {}, class: "select-box__inner"
+          .search-option
+            %h3.search-option__header 詳細検索
+            .options
+              %h4.options__header.icon-plus キーワードを追加する
+              = f.text_field :keyword, class:"text-field", placeholder: "今の検索キーワード"
+
+              .select-box
+                %h4.options__header.icon-list カテゴリーを選択する
+                = f.select :categories, [["すべて",""],["カテゴリー１","01"],["カテゴリー２","02"],["カテゴリー３","03"],["カテゴリー４","04"],["カテゴリー５","05"]], {}, class: "select-box__inner"
+                %p.icon-chevron-down
+
+              %h4.options__header.icon-tag ブランド名から探す
+              = f.text_field :keyword, class:"text-field", placeholder: "例）シャネル"
+
+              .select-box
+                %h4.options__header.icon-ruler サイズを指定する
+                = f.select :categories, [["すべて",""],["オプション１","01"],["オプション２","02"],["オプション３","03"],["オプション４","04"],["オプション５","05"]], {}, class: "select-box__inner"
+                %p.icon-chevron-down
+
+              .select-box
+                %h4.options__header.icon-coins 価格
+                = f.select :categories, [["すべて",""],["オプション１","01"],["オプション２","02"],["オプション３","03"],["オプション４","04"],["オプション５","05"]], {}, class: "select-box__inner"
+                %p.icon-chevron-down
+
+              .options__price
+                = f.text_field :keyword, class:"text-field", placeholder: "¥ Min"
+                %span.options__price__range ~
+                = f.text_field :keyword, class:"text-field", placeholder: "¥ Max"
+
+              %h4.options__header.icon-star 商品の状態
+              .check-box
+                - %w(すべて 状態１ 状態２).each do |condition|
+                  %label
+                    = check_box_tag 'items[condition][]', condition
+                    = condition
+
+              %h4.options__header.icon-truck 配送料の負担
+              .check-box
+                - %w(すべて 着払い 送料込み).each do |ship_from|
+                  %label
+                    = check_box_tag 'items[ship_from][]', ship_from
+                    = ship_from
+
+              %h4.options__header.icon-cart 販売状況
+              .check-box
+                - %w(すべて 販売中 売り切れ).each do |buyer_id|
+                  %label
+                    = check_box_tag 'items[buyer_id][]', buyer_id
+                    = buyer_id
+
+              .btn-box
+                = f.button "クリア", type: :reset, class: "btn-box__clear"
+                = f.submit "完了", class: "btn-box__search"
+
+    -# 右側のアイテムボックス一覧
+    .search-content-r
+      .result
+
+        -if @items.count == 0 || params[:keyword].present? == false
+          %h2.result__header="検索結果 0件"
+          %p.result__message 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
+
+          %h3.new-items 新着商品
+          = render 'shared/items-box', items: @all_items
+
+        - else
+
+          %h2.result__header="検索結果１〜#{@items.count}件"
+          .item-box__container
+            = render 'shared/items-box', items: @items
+
+  =render 'shared/aside'
+  =render 'shared/footer'
+  =render 'shared/footer-sell-btn'
