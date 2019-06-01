@@ -10,19 +10,40 @@
             %button.header__box__top__form__submit{type: "submit"}
               %i.fas.fa-search
     .header__box__bottom
-      .header__box__bottom__futoji
-        %a{href: "", style: "text-decoration:none"}
-          %i.fas.fa-list-ul.header__box__bottom__futoji__icon
-          カテゴリーから探す
+      .header__box__bottom__nav
+        %ul.header__box__bottom__nav-futoji
+          %li.header__box__bottom__nav-futoji-box
+            %a{href: "", style: "text-decoration:none"}
+              %i.fas.fa-list-ul.header__box__bottom__nav-futoji__icon
+              カテゴリーから探す
           %ul.nav
             %li
-              = link_to "メンズ"
+              %h3.person
+                = link_to "メンズ"
+              %ul
+                %li.liperson
+                  %h3.btn-person
+                    = link_to "メンズ"
+                  %ul
+                    %li
+                      %h3.btn-child
+                        = link_to "メンズ"
             %li
-              = link_to "レディース"
-      .header__box__bottom__futoji
-        %a{href: "", style: "text-decoration:none"}
-          %i.fas.fa-tag.header__box__bottom__futoji__icon
-          ブランドから探す
+              %h3
+                = link_to "レディース"
+        .header__box__bottom__nav-futoji
+          .header__box__bottom__nav-futoji-box
+            %a{href: "", style: "text-decoration:none"}
+              %i.fas.fa-tag.header__box__bottom__futoji-box__icon
+              ブランドから探す
+          %ul.nav
+            %li
+              %h3
+                = link_to "メンズ"
+              
+            %li
+              %h3
+                = link_to "レディース"
       - if user_signed_in?
         .header__box__bottom__hosoji
           .header__box__bottom__hosoji__bottan

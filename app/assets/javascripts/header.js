@@ -1,8 +1,23 @@
 $(function() {
-  $(".header__box__bottom__futoji").mouseover(function() {
-    $('ul', this).stop().show();
+  $(".nav").hide();
+  $(".header__box__bottom__nav-futoji").mouseover(function() {
+    $('.nav', this).stop().show();
     })
     .mouseout(function() {
-    $('ul', this).stop().hide();
+    $('.nav', this).stop().hide();
+  });
+  $(".btn-person").hide();
+  $("li").mouseover(function() {
+    $('.btn-person', this).stop().show();
+    })
+    .mouseout(function() {
+    $('.btn-person', this).stop().hide();
+  });
+  $(".btn-child").hide();
+  $(".liperson").mouseover(function() {
+    $('.btn-child', this).stop().show();
+    })
+    .mouseout(function() {
+    $('.btn-child', this).stop().hide();
   });
 });
