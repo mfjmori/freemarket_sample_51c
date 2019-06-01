@@ -1,7 +1,8 @@
-
 @import "reset";
+@import "./mixin";
 @import "common";
 @import "items.index";
+@import "./pulldown";
 @import "header";
 @import "footer";
 @import "font-awesome-sprockets";
@@ -10,3 +11,10 @@
 @import "./cards";
 @import "buy_orders";
 @import "items.new";
+<<<<<<< HEAD
+=======
+@import "./users-show";
+@import "./profiles-show";
+
+
+>>>>>>> c1df935ffa7fecf32ba1149a0a862f02c5574bc2
