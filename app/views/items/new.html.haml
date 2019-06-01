@@ -5,8 +5,9 @@
 .set-page
   .set-page__first
     商品の情報を入力
+    
   .set-page__secound
-    .set-page__secoud__title
+    .set-page__secound__title
       出品画像 
     .set-page__secound__mark
       必須
@@ -18,6 +19,7 @@
         ドラッグアンドドロップ
         %br/
         またはクリックしてファイルをアップロード
+
   .set-page__third
     .set-page__third__title
       商品名
@@ -71,8 +73,6 @@
         %option{:value => "3"} 傷や汚れあり
         %option{:value => "3"} 全体的に状態が悪い
       %i.fas.fa-chevron-down#select-arrow
-
-
 
   .set-page__fifth
     .set-page__fifth__title
@@ -142,6 +142,7 @@
         %option{value: "13"}自動車・オートバイ
         %option{value: "14"}その他
       %i.fas.fa-chevron-down#select-arrow
+
   .set-page__sixth
     .set-page__sixth__box
       .set-page__sixth__box__title
@@ -159,14 +160,11 @@
         ¥
       .set-page__sixth__form__box
         = form_tag('/items', method: :post) do
-          %input.set-page__sixth__form__input{name: "text", placeholder: "例) 300　", size: "18"}/
+          %input.set-page__sixth__form__box__input{name: "text", placeholder: "例) 300　", size: "18"}/
     .set-page__sixth__fee
       販売手数料 (10%)
       .set-page__sixth__fee__content
         &= "-"
-     
-  
-        
     .set-page__sixth__profit
       販売利益
       .set-page__sixth__profit__content
@@ -191,8 +189,6 @@
     .set-page__seventh__return-button
       = link_to "もどる","" , class: 'get'
 
-
-  
 .buy-page__mypage-footer
   .buy-page__mypage-footer__text
     .buy-page__mypage-footer__text__word

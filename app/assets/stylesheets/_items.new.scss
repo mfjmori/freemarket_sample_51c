@@ -5,7 +5,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    .set-page__first{
+    &__first{
       padding: 32px 16px;
       margin-left: auto;
       margin-right: auto;
@@ -15,16 +15,16 @@
       font-weight: 600;
     }
 
-    .set-page__secound{
+    &__secound{
       padding:40px;
       margin-bottom: 15px;
       border-bottom: 1px solid #eee;
-      .set-page__secoud__title{
+      &__title{
         font-size: 16px;
         float: left;
         font-weight: 600;
       }
-      .set-page__secound__mark{
+      &__mark{
         background: #ea352d;
         margin: 0 0 0 8px;
         padding: 2px 4px;
@@ -34,15 +34,15 @@
         vertical-align: top;
         display: inline-block;
       }
-      .set-page__secound__text{
+      &__text{
         margin: 8px 0 0;
         line-height: 1.5;
         font-size: 13px;
       }
-      .set-page__secound__form{
+      &__form{
         position: relative;
         width: 620px;
-        .set-page__secound__form__drop{
+        &__drop{
           width: 620px;
           height: 162px;
           min-height: 162px;
@@ -55,7 +55,7 @@
           color: black;
         }
 
-        .set-page__secound__form__text{
+        &__text{
           position: absolute;
           top: 0;
           margin-left: 170px;
@@ -68,17 +68,17 @@
       }
     }
 
-    .set-page__third{
-      padding-top: 30px;
+    &__third{
+      padding-top: 0px;
       padding-bottom: 10px;
       padding-left: 40px;
       padding-right: 40px;
-      .set-page__third__title{
+      &__title{
         font-size: 14px;
         float: left;
         font-weight: 600;
       }
-      .set-page__third__mark{
+      &__mark{
         background: #ea352d;
         margin: 0 0 0 8px;
         padding: 2px 4px;
@@ -88,7 +88,7 @@
         vertical-align: top;
         display: inline-block;
       }
-      .set-page__third__form__input{
+      &__input{
         width: 620px;
         margin-top: 2px;
         border-radius:6px;
@@ -97,15 +97,15 @@
         height:50px;
         margin-bottom:40px;
       }
-      .set-page__third__exp-title{
+      &__exp-title{
         font-size: 14px;
         font-weight: 600;
         float: left;
       }
 
-      .set-page__third__text-form{
+      &__text-form{
  
-        .set-page__third__text-form__input{
+        &__input{
           margin-top: 2px;
           display: block;
           width: 600px;
@@ -122,26 +122,26 @@
       }
     }
 
-    .set-page__fourth{
+    &__fourth{
       border-top: 1px solid #eee;
       padding-top: 40px;
       padding-bottom: 10px;
       padding-left: 40px;
       padding-right: 40px;
-      .set-page__fourth__title{
+      &__title{
         float: left;
         color: #888;
         font-weight: bold;
         font-size: 14px;
       }
-      .set-page__fourth__category{
+      &__category{
         font-size: 14px;
         float: left;
         font-weight: 600;
         margin-left: 140px;
       }
 
-      .set-page__fourth__mark{
+      &__mark{
         background: #ea352d;
         margin: 0 0 0 8px;
         padding: 2px 4px;
@@ -152,7 +152,7 @@
         display: inline-block;
       }
 
-      .set-page__fourth__pull-down{
+      &__pull-down{
         margin-left: 210px;
         position: relative;
         
@@ -181,22 +181,21 @@
           margin-left: 190px;
         }  
       }
-      .set-page__fourth__condition{
+      &__condition{
         font-size: 14px;
         float: left;
         font-weight: 600;
         margin-left: 210px;
       }
-
     }
 
-    .set-page__fifth{
+    &__fifth{
       border-top: 1px solid #eee;
       padding-top: 40px;
       padding-bottom: 10px;
       padding-left: 40px;
       padding-right: 40px;
-      .set-page__fifth__title{
+      &__title{
         float: left;
         color: #888;
         font-weight: bold;
@@ -204,7 +203,7 @@
         padding-right:0;
         margin-right:0;
 
-        .set-page__fifth__title__icon{
+        &__icon{
           display: inline-block;
           width: 14px;
           height: 14px;
@@ -232,16 +231,15 @@
           a:active { 
             color: none; 
           } 
-
         }
       }
-      .set-page__fifth__fare{
+      &__fare{
         font-size: 14px;
         float: left;
         font-weight: 600;
-        margin-left: 125px;
+        margin-left: 107px;
       }
-      .set-page__fifth__mark{
+      &__mark{
         background: #ea352d;
         margin: 0 0 0 8px;
         padding: 2px 4px;
@@ -251,7 +249,7 @@
         vertical-align: top;
         display: inline-block;
       }
-      .set-page__fifth__pull-down{
+      &__pull-down{
         margin-left: 210px;
         position: relative;
         select{
@@ -278,16 +276,15 @@
           color: #888;
           margin-left: 190px;
         }  
-
       }
-      .set-page__fifth__address{
+      &__address{
         font-size: 14px;
         float: left;
         font-weight: 600;
         margin-left: 210px;
       }
 
-      .set-page__fifth__pull-down2{
+      &__pull-down2{
         margin-left: 210px;
         position: relative;
 
@@ -316,13 +313,12 @@
           margin-left: 190px;
         }  
       }
-      .set-page__fifth__date{
+      &__date{
         font-size: 14px;
         float: left;
         font-weight: 600;
         margin-left: 210px;
       }
-
     }
 
     .set-page__sixth{
@@ -330,15 +326,15 @@
       border-top: 1px solid #eee;
       border-bottom: 1px solid #eee;
 
-      .set-page__sixth__box{
-        .set-page__sixth__box__title{
+      &__box{
+        &__title{
           color: #888;
           font-weight: bold;
           font-size: 14px;
           float: left;
         }
         
-        .set-page__sixth__box__price{
+        &__price{
           margin-top:3px;
           color: #888;
           font-weight: bold;
@@ -346,7 +342,7 @@
           float: left;
         }
 
-        .set-page__sixth__box__icon{
+        &__icon{
           margin-top:3px;
           display: block;
           width: 14px;
@@ -358,7 +354,6 @@
           font-size: 12px;
           text-align: center;
           float: left;
-          
           
           a:link { 
             color:white;
@@ -377,15 +372,14 @@
           } 
         }
       }
-      .set-page__sixth__price{
+      &__price{
         font-size: 14px;
         float: left;
         font-weight: 600;
         margin-left: 25px;
         margin-top:20px;
-
       }
-      .set-page__sixth__mark{
+      &__mark{
         background: #ea352d;
         margin: 0 8px;
         padding: 2px 4px;
@@ -397,21 +391,22 @@
         margin-top:18px;
       }
 
-      .set-page__sixth__form{
+      &__form{
         display: inline-block;
         right:0;
         margin-right:0;
         padding-right: 0; 
         border-bottom: 1px solid #eee;
-        .set-page__sixth__form__yen{
+        &__yen{
           display: block;
-          margin-left: 110px;
-          margin-top: 14px;
+          margin-left: 128px;
+          margin-top: 18px;
           float: left;
+          font-size: 12px;
         }
-        .set-page__sixth__form__box{
+        &__box{
           margin-left:150px;
-          .set-page__sixth__form__input{
+          &__input{
             margin-top: 2px;
             border-radius:6px;
             text-indent: 1em;
@@ -424,32 +419,32 @@
         }
       }
 
-      .set-page__sixth__fee{
+      &__fee{
       padding-top: 20px;
       padding-bottom: 20px;
       border-top: 1px solid #eee;
       border-bottom: 1px solid #eee;
-      margin-left: 175px;
+      margin-left: 190px;
       font-size: 14px;
 
-        .set-page__sixth__fee__content{
+        &__content{
           margin-left: 300px;
           display: inline-block;
         }
       }
 
-      .set-page__sixth__content{
+      &__content{
         text-align: right;
       }
-      .set-page__sixth__profit{
+      &__profit{
         padding-top: 20px;
         padding-bottom: 20px;
         border-top: 1px solid #eee;
-        margin-left: 174px;
+        margin-left: 190px;
         font-size: 16px;
         font-weight: bold;
 
-        .set-page__sixth__profit__content{
+        &__content{
           margin-left: 350px;
           display: inline-block;
         }
@@ -457,9 +452,9 @@
 
     }
 
-    .set-page__seventh{
+    &__seventh{
       padding:40px;
-      .set-page__seventh__text{
+      &__text{
         line-height: 1.5;
         font-size: 14px;
 
@@ -479,7 +474,7 @@
           color: none; 
         } 
       }
-      .set-page__seventh__button{
+      &__button{
         width: 100%;
         height: 48px;
         background-color: #ea352d;
@@ -507,7 +502,7 @@
           color: none; 
         } 
       }
-      .set-page__seventh__return-button{
+      &__return-button{
         width: 50%;
         height: 48px;
         background: #aaa;
