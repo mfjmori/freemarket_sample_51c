@@ -33,7 +33,7 @@
     .set-page__third__mark
       必須
     .set-page__third__text-form
-      %textarea.set-page__third__text-form__input{:rows => "5 placeholder = "}>商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。
+      %textarea.set-page__third__text-form__input{rows: "5 placeholder = "}>商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。
 
   .set-page__fourth
     .set-page__fourth__title
@@ -65,20 +65,20 @@
       必須
     .set-page__fourth__pull-down
       %select
-        %option{:value => "1"} ---
-        %option{:value => "2"} 新品・未使用
-        %option{:value => "3"} 未使用に近い
-        %option{:value => "3"} 目立った傷や汚れなし
-        %option{:value => "3"} やや傷や汚れあり
-        %option{:value => "3"} 傷や汚れあり
-        %option{:value => "3"} 全体的に状態が悪い
+        %option{value:"1"} ---
+        %option{value: "2"} 新品・未使用
+        %option{value: "3"} 未使用に近い
+        %option{value: "3"} 目立った傷や汚れなし
+        %option{value: "3"} やや傷や汚れあり
+        %option{value: "3"} 傷や汚れあり
+        %option{value: "3"} 全体的に状態が悪い
       %i.fas.fa-chevron-down#select-arrow
 
   .set-page__fifth
     .set-page__fifth__title
       配送について
       .set-page__fifth__title__icon
-        = link_to "?","" , class: 'get'
+        = link_to "?","#" , class: 'get'
     .set-page__fifth__fare
       配送料の負担
     .set-page__fifth__mark
@@ -150,7 +150,7 @@
       .set-page__sixth__box__price
         (300〜9,999,999)
       .set-page__sixth__box__icon
-        = link_to "?","" , class: 'get'
+        = link_to "?","#" , class: 'get'
     .set-page__sixth__price
       価格
     .set-page__sixth__mark
@@ -172,22 +172,22 @@
  
   .set-page__seventh
     .set-page__seventh__text
-      %span>= link_to "禁止されている出品、行為","" , class: 'get'
+      %span>= link_to "禁止されている出品、行為","#" , class: 'get'
       を必ずご確認ください。
       %br
       またブランド品でシリアルナンバー等がある場合はご記載ください。
-      %span>= link_to "偽ブランドの販売","" , class: 'get'
+      %span>= link_to "偽ブランドの販売","#" , class: 'get'
       は犯罪であ
       %br
       り処罰される可能性があります。
       %br
       また、出品をもちまして
-      %span>= link_to "加盟店規約","" , class: 'get'
+      %span>= link_to "加盟店規約","#" , class: 'get'
       に同意したことになります。
     .set-page__seventh__button
-      %span>= link_to "出品する","" , class: 'get'
+      %span>= link_to "出品する","#" , class: 'get'
     .set-page__seventh__return-button
-      %span>= link_to "もどる","" , class: 'get'
+      %span>= link_to "もどる","#" , class: 'get'
 
 .buy-page
   .buy-page__mypage-footer
