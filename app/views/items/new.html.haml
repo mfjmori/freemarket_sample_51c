@@ -1,0 +1,208 @@
+.buy-page
+  .buy-page__main-icon
+    = link_to image_tag(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3856598694"), root_path, class: 'get'
+
+.set-page
+  .set-page__first
+    商品の情報を入力
+
+  .set-page__secound
+    .set-page__secound__title
+      出品画像 
+    .set-page__secound__mark
+      必須
+    .set-page__secound__text
+      最大10枚までアップロードできます
+    .set-page__secound__form
+      %input.set-page__secound__form__drop{name: "file", type: "file", size: "68"}/
+      .set-page__secound__form__text
+        ドラッグアンドドロップ
+        %br/
+        またはクリックしてファイルをアップロード
+
+  .set-page__third
+    .set-page__third__title
+      商品名
+    .set-page__third__mark
+      必須
+    .set-page__third__form
+      = form_tag('/items', method: :post) do
+        %input.set-page__third__form__input{name: "text", placeholder: "商品名（必須40文字まで）", size: "68"}/
+    .set-page__third__exp-title
+      商品の説明 
+    .set-page__third__mark
+      必須
+    .set-page__third__text-form
+      %textarea.set-page__third__text-form__input{:rows => "5 placeholder = "}>商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。
+
+  .set-page__fourth
+    .set-page__fourth__title
+      商品の詳細
+    .set-page__fourth__category
+      カテゴリー
+    .set-page__fourth__mark
+      必須
+    .set-page__fourth__pull-down
+      %select
+        %option{value: "1"}---
+        %option{value: "2"}レディース
+        %option{value: "3"}メンズ
+        %option{value: "4"}ベビー・キッズ
+        %option{value: "5"}インテリア・住まい・小物
+        %option{value: "6"}本・音楽・ゲーム
+        %option{value: "7"}おもちゃ・ホビー・グッズ
+        %option{value: "8"}コスメ・香水・美容
+        %option{value: "9"}家電・スマホ・カメラ
+        %option{value: "10"}スポーツ・レジャー
+        %option{value: "11"}ハンドメイド
+        %option{value: "12"}チケット
+        %option{value: "13"}自動車・オートバイ
+        %option{value: "14"}その他
+      %i.fas.fa-chevron-down#select-arrow
+    .set-page__fourth__condition
+      商品の状態
+    .set-page__fourth__mark
+      必須
+    .set-page__fourth__pull-down
+      %select
+        %option{:value => "1"} ---
+        %option{:value => "2"} 新品・未使用
+        %option{:value => "3"} 未使用に近い
+        %option{:value => "3"} 目立った傷や汚れなし
+        %option{:value => "3"} やや傷や汚れあり
+        %option{:value => "3"} 傷や汚れあり
+        %option{:value => "3"} 全体的に状態が悪い
+      %i.fas.fa-chevron-down#select-arrow
+
+  .set-page__fifth
+    .set-page__fifth__title
+      配送について
+      .set-page__fifth__title__icon
+        = link_to "?","" , class: 'get'
+    .set-page__fifth__fare
+      配送料の負担
+    .set-page__fifth__mark
+      必須
+    .set-page__fifth__pull-down
+      %select
+        %option{value: "1"}---
+        %option{value: "2"}レディース
+        %option{value: "3"}メンズ
+        %option{value: "4"}ベビー・キッズ
+        %option{value: "5"}インテリア・住まい・小物
+        %option{value: "6"}本・音楽・ゲーム
+        %option{value: "7"}おもちゃ・ホビー・グッズ
+        %option{value: "8"}コスメ・香水・美容
+        %option{value: "9"}家電・スマホ・カメラ
+        %option{value: "10"}スポーツ・レジャー
+        %option{value: "11"}ハンドメイド
+        %option{value: "12"}チケット
+        %option{value: "13"}自動車・オートバイ
+        %option{value: "14"}その他
+      %i.fas.fa-chevron-down#select-arrow
+    .set-page__fifth__address
+      発送元の地域
+    .set-page__fifth__mark
+      必須
+    .set-page__fifth__pull-down2
+      %select
+        %option{value: "1"}---
+        %option{value: "2"}レディース
+        %option{value: "3"}メンズ
+        %option{value: "4"}ベビー・キッズ
+        %option{value: "5"}インテリア・住まい・小物
+        %option{value: "6"}本・音楽・ゲーム
+        %option{value: "7"}おもちゃ・ホビー・グッズ
+        %option{value: "8"}コスメ・香水・美容
+        %option{value: "9"}家電・スマホ・カメラ
+        %option{value: "10"}スポーツ・レジャー
+        %option{value: "11"}ハンドメイド
+        %option{value: "12"}チケット
+        %option{value: "13"}自動車・オートバイ
+        %option{value: "14"}その他
+      %i.fas.fa-chevron-down#select-arrow
+    .set-page__fifth__date
+      発送までの日数
+    .set-page__fifth__mark
+      必須
+    .set-page__fifth__pull-down2
+      %select
+        %option{value: "1"}---
+        %option{value: "2"}レディース
+        %option{value: "3"}メンズ
+        %option{value: "4"}ベビー・キッズ
+        %option{value: "5"}インテリア・住まい・小物
+        %option{value: "6"}本・音楽・ゲーム
+        %option{value: "7"}おもちゃ・ホビー・グッズ
+        %option{value: "8"}コスメ・香水・美容
+        %option{value: "9"}家電・スマホ・カメラ
+        %option{value: "10"}スポーツ・レジャー
+        %option{value: "11"}ハンドメイド
+        %option{value: "12"}チケット
+        %option{value: "13"}自動車・オートバイ
+        %option{value: "14"}その他
+      %i.fas.fa-chevron-down#select-arrow
+
+  .set-page__sixth
+    .set-page__sixth__box
+      .set-page__sixth__box__title
+        販売価格
+      .set-page__sixth__box__price
+        (300〜9,999,999)
+      .set-page__sixth__box__icon
+        = link_to "?","" , class: 'get'
+    .set-page__sixth__price
+      価格
+    .set-page__sixth__mark
+      必須
+    .set-page__sixth__form
+      .set-page__sixth__form__yen
+        ¥
+      .set-page__sixth__form__box
+        = form_tag('/items', method: :post) do
+          %input.set-page__sixth__form__box__input{name: "text", placeholder: "例) 300　", size: "18"}/
+    .set-page__sixth__fee
+      販売手数料 (10%)
+      .set-page__sixth__fee__content
+        &= "-"
+    .set-page__sixth__profit
+      販売利益
+      .set-page__sixth__profit__content
+        &= "-"
+ 
+  .set-page__seventh
+    .set-page__seventh__text
+      %span>= link_to "禁止されている出品、行為","" , class: 'get'
+      を必ずご確認ください。
+      %br
+      またブランド品でシリアルナンバー等がある場合はご記載ください。
+      %span>= link_to "偽ブランドの販売","" , class: 'get'
+      は犯罪であ
+      %br
+      り処罰される可能性があります。
+      %br
+      また、出品をもちまして
+      %span>= link_to "加盟店規約","" , class: 'get'
+      に同意したことになります。
+    .set-page__seventh__button
+      %span>= link_to "出品する","" , class: 'get'
+    .set-page__seventh__return-button
+      %span>= link_to "もどる","" , class: 'get'
+
+.buy-page
+  .buy-page__mypage-footer
+    .buy-page__mypage-footer__text
+      .buy-page__mypage-footer__text__word
+        %p
+          プライバシーポリシー
+      .buy-page__mypage-footer__text__word
+        %p
+          メルカリ利用規約
+      .buy-page__mypage-footer__text__word
+        %p
+          特定商取引に関わる表記
+      .buy-page__mypage-footer__logo
+        = link_to image_tag(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3856598694"), root_path, class: 'get'
+      .buy-page__mypage-footer__date
+        %p
+          © 2019 Mercari
