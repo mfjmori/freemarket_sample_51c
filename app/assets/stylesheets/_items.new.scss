@@ -42,24 +42,26 @@
     &__form{
       position: relative;
       width: 620px;
+      background: #f5f5f5;
+      border: 1px dashed #ccc;
+      min-height: 162px;
+      margin-top: 15px;
+      
       &__drop{
         width: 620px;
         height: 162px;
-        min-height: 162px;
-        background: #f5f5f5;
-        border: 1px dashed #ccc;
         font-size: 0;
         text-align: center;
-        margin-top: 15px;
         touch-action: manipulation;
         color: black;
+        visibility:hidden
       }
 
       &__text{
         position: absolute;
         top: 0;
         margin-left: 170px;
-        margin-top: 75px;
+        margin-top: 65px;
         text-align: center;
         font-size: 14px;
         margin-bottom:100px;
