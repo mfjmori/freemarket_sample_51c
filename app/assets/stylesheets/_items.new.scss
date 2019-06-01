@@ -88,14 +88,17 @@
         vertical-align: top;
         display: inline-block;
       }
-      &__input{
-        width: 620px;
-        margin-top: 2px;
-        border-radius:6px;
-        text-indent: 1em;
-        border: 1px solid #ccc;
-        height:50px;
-        margin-bottom:40px;
+      &__form{
+
+        &__input{
+          width: 620px;
+          margin-top: 2px;
+          border-radius:6px;
+          text-indent: 1em;
+          border: 1px solid #ccc;
+          height:50px;
+          margin-bottom:40px;
+        }
       }
       &__exp-title{
         font-size: 14px;
