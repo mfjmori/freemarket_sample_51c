@@ -1,0 +1,183 @@
+main {
+  .container {
+    .content-mypage {
+      float: right;
+      width: 700px;
+      margin: 0;
+      .maypage-user-icon {
+        height: 200px;
+        padding: 20px;
+        box-sizing: border-box;
+        background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?6612079");
+        position: relative;
+        .user-detail-link {
+          display: block;
+          text-decoration: none;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          left: 0;
+          transform: translate(0, -50%);
+          &__image {
+            height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            img {
+              margin: 0;
+              border-radius: 50%;
+              width: 60px;
+              height: 60px;
+            }
+          }
+          &__name {
+            margin: 8px 0 0;
+            padding: 0;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+          }
+          &__number {
+            margin: 8px 0 0;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            &__reviews {
+              display: inline-block;
+              span {
+                font-weight: bold;
+                margin-left: 8px;
+              } 
+            }
+            &__items {
+              display: inline-block;
+              margin: 0 0 0 16px;
+              span {
+                font-weight: bold;
+                margin-left: 8px;
+              } 
+            }
+          }
+          &:hover {
+            opacity: 0.7;
+            .user-detail-link__name {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .tab-container {
+        .notification-todo-tabs {
+          @include mypages-tab-two;
+        }
+      }
+      .list-container {
+        .notification-lists {
+          .notification-list {
+            min-height: 80px;
+            padding: 16px;
+            box-sizing: border-box;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+            &__link {
+              text-decoration: none;
+              &__image {
+                height: 48px;
+                width: 48px;
+                margin: 0;
+                float: left;
+                img {
+                  height: 48px;
+                  width: 48px;
+                }
+              }
+              &__body {
+                margin: 0 40px 0 68px;
+                font-size: 14px;
+                color: #333;
+                &__time {
+                  color: #888;
+                  i.fa-clock {
+                    font-size: 16px;
+                    margin-right: 8px;
+                  }
+                }
+                i.fa-chevron-right {
+                  position: absolute;
+                  top: 50%;
+                  right: 16px;
+                  transform: translate(0, -50%);
+                }
+              }
+            }
+            &:hover {
+              background-color: #fafafa;
+            }
+          }
+          .notification-index-list {
+            height: 88px;
+            padding: 16px;
+            box-sizing: border-box;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+            &__link {
+              display: block;
+              font-size: 14px;
+              line-height: 56px;
+              background-color: #eee;
+              text-align: center;
+              text-decoration: none;
+              color: #333;
+              &:hover {
+                background: #fafafa;
+              }
+            }
+          }
+          .notification-list-none {
+            @include list-none;
+          }
+        }
+        .todo-lists {
+          .todo-list-none {
+            @include list-none;
+          }
+        }
+        .buy-item-now-lists {
+          .buy-item-now-list {
+            @include buy-item-list
+          }
+          .buy-item-now-list-none {
+            @include list-none;
+          }
+        }
+        .buy-item-old-lists {
+          .buy-item-old-list {
+            @include buy-item-list
+          }
+          .buy-item-old-list-none {
+            @include list-none;
+          }
+        }
+      }
+      .buy-item-container {
+        margin-top: 40px;
+        color: #333;
+        .tab-head {
+          height: 72px;
+          line-height: 72px;
+          padding: 0 16px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+          background-color: #FAFAFA;
+        }
+        .buy-item-tabs {
+          @include mypages-tab-two;
+        }
+      }
+    }
+  }
+}
