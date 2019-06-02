@@ -16,8 +16,4 @@ class ItemsController < ApplicationController
     def show
     end
 
-    private
-    def set_item
-      params.require(:items).permit(:name, :description, :brand, :categories_id, :size, :price, :postage, :shipping_method, :region, :shipping_date, :condition)
-    end
 end
