@@ -1,0 +1,144 @@
+%head
+  :css
+    .fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, "hiragino kaku gothic pro",meiryo,"ms pgothic",sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+          .fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#1d3c78;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+          .fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+%body
+  .default-container
+    %header.pc-header
+    %nav.bread-crumbs
+    %section.item-box-container.l-signle-container
+      %h1.item-name 【最終値下げ中】ピクミン   フィギュア《4体セット》
+      .item-main-content.clearfix
+        .item-photo
+          .owl-carousel.owl-loaded.owl-drag
+            .owl-stage-outer
+              .owl-stage{:style => "left: 0px; width: 900px;"}
+                .owl-item.active{:style => "width: 300px;"}
+                  .owl-item-inner
+                    %img.owl-lazy{:alt => "ピクミン3", "data-src" => "https://static.mercdn.net/item/detail/orig/photos/m33012254570_1.jpg?1559111669", :src => "https://static.mercdn.net/item/detail/orig/photos/m33012254570_1.jpg?1559111669", :style => "opacity: 1;"}/
+            .owl-nav.disabled
+              .owl-prev prev
+              .owl-next next
+            .owl-dots
+              .owl-dot.active
+                %span
+                .owl-dot-inner
+                  %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m11620873275_1.jpg?1558798586"}/
+        %table.item-detail-table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                %a{:href => ""} Fujii Kiyoshi
+                %div
+                  .item-user-ratings
+                    %i.icon-good.fas.fa-grin
+                    %span 25
+                  .item-user-ratings
+                    %i.icon-normal.fas.fa-meh
+                    %span 1
+                  .item-user-ratings
+                    %i.icon-bad.fas.fa-frown
+                    %span 0
+            %tr
+              %th カテゴリー
+              %td
+                %a{:href => "https://www.mercari.com/jp/category/1328/"}
+                  %div おもちゃ・ホビー・グッズ
+                %a{:href => "https://www.mercari.com/jp/category/81/"}
+                  .item-detail-table-sub-category
+                    %i.icon-arrow-right
+                    フィギュア
+                %a{:href => "https://www.mercari.com/jp/category/735/"}
+                  .item-detail-table-sub-sub-category
+                    %i.icon-arrow-right
+                    ゲームキャラクター
+            %tr
+              %th ブランド
+              %td
+            %tr
+              %th 商品の状態
+              %td やや傷や汚れあり
+            %tr
+              %th 配送料の負担
+              %td 送料込み(出品者負担)
+            %tr
+              %th 配送の方法
+              %td 普通郵便(定形、定形外)
+            %tr
+              %th 配送元地域
+              %td
+                %a{:href => "https://www.mercari.com/jp/area/13/"} 東京都
+            %tr
+              %th 発送日の目安
+              %td 2~3日で発送
+      .item-price-box.text-center
+        %span.item-price.bold ¥ 1,199
+        %span.item-tax (税込)
+        %span.item-shipping-fee 送料込み
+      %a.item-buy-btn.f18-24{"data-client" => "hidden", :href => ""} 購入画面に進む
+      .item-description.f14
+        %p.item-description-inner
+          2004年発売。「青ピクミン・花・葉」「黄色ピクミン・花」「白ピクミン・つぼみ」の4体セットです。中古品としての出品ですので、神経質な方や完璧を求める方はご遠慮ください。（土台に、若干汚れあり）
+          何かご質問等ありましたら、お気軽にお問い合わせください。よろしくお願い致します。
+          ☆ 1666円→ 1333円→ 1199円に値下げしました！
+      .item-button-container.clearfix
+        .item-button-left
+          %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m11620873275", "data-toggle" => "like", :name => "like!", :type => "button"}
+            %i.icon-like-border.fal.fa-heart
+            %span いいね!
+            %span.fade-in-down{"data-num" => "like"} 4
+          %a.item-button.item-button-report.clearfix{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
+            %i.icon-flag.fal.fa-flag
+            %span 不適切な商品の報告
+          %input{:name => "like_add_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/add/m11620873275/"}/
+          %input{:name => "like_del_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/delete/m11620873275/"}/
+          %input{:name => "__csrf_value", :type => "hidden", :value => "a656cf4136c27e3f4679599ba22095169734e84c821e5d11ae7d333edd089f773920fbeee4d4eef4f0be34d88c3cdeeafabf33b64133c2b523282df0719374547"}/
+        .item-button-right
+          %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
+            %i.icon-lock.fas.fa-lock
+            %span あんしん・あんぜんへの取り組み
+    .item-detail-message
+      .message-container
+        .message-content
+          %ul.message-items
+            %li.clearfix
+              %a.message-user{:href => ""}
+                %figure
+                  %div
+                    %img{:alt => "", :src => "//static.mercdn.net/thumb/members/650412321.jpg?1399604151"}/
+                  %figcaption.bold
+                    レッドスワン
+              .message-body
+                .message-body-text 4000円は厳しいですか？
+                .message-icons.clearfix
+                  %time.message-icon-left
+                    %i.icon-time.far.fa-clock
+                    %span 86 日前
+                  .message-icon-right
+                    %form{:action => "https://www.mercari.com/jp/comment/report/m75785549618/2032693460/", :method => "POST"}
+                      %button{:type => "submit"}
+                        %i.icon-flag.far.fa-flag
+                      %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+                    .message-delete{"data-comment-id" => "2032693460", "data-modal" => "delete-comment", "data-open" => "modal"}
+                      %i.icon-delete.fas.fa-trash-alt
+                %i.icon-balloon.fas.fa-caret-left
+        .message-content
+          %form.message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
+            %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %input{:name => "item_id", :type => "hidden", :value => "m75785549618"}/
+            %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+            %textarea.textarea-default{:disabled => "disabled", :name => "body", :type => "text", :value => ""}
+            %button.message-submit.btn-default.btn-gray{:disabled => "disabled", :type => "submit"}
+              %span 売り切れのためコメントできません
+        %aside.modal{"data-clone" => "model", "data-model" => "detele-comment"}
+    %ul.nav-item-link-prev-next.clearfix
+      %li.nav-item-link-prev
+        %a{:href => "https://item.mercari.com/jp/m32360745731/"}
+          %i.icon-arrow-left.far.fa-angle-left>
+          専用ページ
+      %li.nav-item-link-next
+        %a{:href => "https://item.mercari.com/jp/m19879080798/"}
+          ホテルルーム キーリング ミッキー
+          %i.icon-arrow-right.fas.fa-angle-right
