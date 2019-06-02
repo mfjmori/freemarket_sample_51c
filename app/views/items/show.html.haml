@@ -13,10 +13,10 @@
         .item-photo
           .owl-carousel.owl-loaded.owl-drag
             .owl-stage-outer
-              .owl-stage{:style => "left: 0px; width: 900px;"}
-                .owl-item.active{:style => "width: 300px;"}
+              .owl-stage{style: "left: 0px; width: 900px;"}
+                .owl-item.active{style: "width: 300px;"}
                   .owl-item-inner
-                    %img.owl-lazy{:alt => "ピクミン3", "data-src" => "https://static.mercdn.net/item/detail/orig/photos/m33012254570_1.jpg?1559111669", :src => "https://static.mercdn.net/item/detail/orig/photos/m33012254570_1.jpg?1559111669", :style => "opacity: 1;"}/
+                    %img.owl-lazy{alt: "ピクミン3", "data-src": "https://static.mercdn.net/item/detail/orig/photos/m33012254570_1.jpg?1559111669", :src => "https://static.mercdn.net/item/detail/orig/photos/m33012254570_1.jpg?1559111669", style: "opacity: 1;"}/
             .owl-nav.disabled
               .owl-prev prev
               .owl-next next
@@ -24,13 +24,13 @@
               .owl-dot.active
                 %span
                 .owl-dot-inner
-                  %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m11620873275_1.jpg?1558798586"}/
+                  %img{src: "https://static.mercdn.net/item/detail/orig/photos/m11620873275_1.jpg?1558798586"}/
         %table.item-detail-table
           %tbody
             %tr
               %th 出品者
               %td
-                %a{:href => ""} Fujii Kiyoshi
+                %a{href: ""} Fujii Kiyoshi
                 %div
                   .item-user-ratings
                     %i.icon-good.fas.fa-grin
@@ -44,13 +44,13 @@
             %tr
               %th カテゴリー
               %td
-                %a{:href => "https://www.mercari.com/jp/category/1328/"}
+                %a{href: "https://www.mercari.com/jp/category/1328/"}
                   %div おもちゃ・ホビー・グッズ
-                %a{:href => "https://www.mercari.com/jp/category/81/"}
+                %a{href: "https://www.mercari.com/jp/category/81/"}
                   .item-detail-table-sub-category
                     %i.icon-arrow-right
                     フィギュア
-                %a{:href => "https://www.mercari.com/jp/category/735/"}
+                %a{href: "https://www.mercari.com/jp/category/735/"}
                   .item-detail-table-sub-sub-category
                     %i.icon-arrow-right
                     ゲームキャラクター
@@ -69,7 +69,7 @@
             %tr
               %th 配送元地域
               %td
-                %a{:href => "https://www.mercari.com/jp/area/13/"} 東京都
+                %a{href: "https://www.mercari.com/jp/area/13/"} 東京都
             %tr
               %th 発送日の目安
               %td 2~3日で発送
@@ -77,7 +77,7 @@
         %span.item-price.bold ¥ 1,199
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
-      %a.item-buy-btn.f18-24{"data-client" => "hidden", :href => ""} 購入画面に進む
+      %a.item-buy-btn.f18-24{"data-client": "hidden", href: ""} 購入画面に進む
       .item-description.f14
         %p.item-description-inner
           2004年発売。「青ピクミン・花・葉」「黄色ピクミン・花」「白ピクミン・つぼみ」の4体セットです。中古品としての出品ですので、神経質な方や完璧を求める方はご遠慮ください。（土台に、若干汚れあり）
@@ -85,18 +85,18 @@
           ☆ 1666円→ 1333円→ 1199円に値下げしました！
       .item-button-container.clearfix
         .item-button-left
-          %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m11620873275", "data-toggle" => "like", :name => "like!", :type => "button"}
+          %button.item-button.item-button-like{"data-ga": "element", "data-ga-category": "LIKE", "data-ga-label" : "like!", "data-id" : "m11620873275", "data-toggle": "like", name: "like!", type: "button"}
             %i.icon-like-border.fal.fa-heart
             %span いいね!
-            %span.fade-in-down{"data-num" => "like"} 4
-          %a.item-button.item-button-report.clearfix{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
+            %span.fade-in-down{"data-num": "like"} 4
+          %a.item-button.item-button-report.clearfix{"data-modal": "report-item", "data-open": "modal", href:  ""}
             %i.icon-flag.fal.fa-flag
             %span 不適切な商品の報告
-          %input{:name => "like_add_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/add/m11620873275/"}/
-          %input{:name => "like_del_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/delete/m11620873275/"}/
-          %input{:name => "__csrf_value", :type => "hidden", :value => "a656cf4136c27e3f4679599ba22095169734e84c821e5d11ae7d333edd089f773920fbeee4d4eef4f0be34d88c3cdeeafabf33b64133c2b523282df0719374547"}/
+          %input{name: "like_add_url", type:  "hidden", value:  "https://www.mercari.com/jp/like/add/m11620873275/"}/
+          %input{name: "like_del_url", type :"hidden", value: "https://www.mercari.com/jp/like/delete/m11620873275/"}/
+          %input{name: "__csrf_value", type : "hidden", value: "a656cf4136c27e3f4679599ba22095169734e84c821e5d11ae7d333edd089f773920fbeee4d4eef4f0be34d88c3cdeeafabf33b64133c2b523282df0719374547"}/
         .item-button-right
-          %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
+          %a{href: "https://www.mercari.com/jp/safe/description/", target:  "_blank"}
             %i.icon-lock.fas.fa-lock
             %span あんしん・あんぜんへの取り組み
     .item-detail-message
@@ -104,10 +104,10 @@
         .message-content
           %ul.message-items
             %li.clearfix
-              %a.message-user{:href => ""}
+              %a.message-user{href:""}
                 %figure
                   %div
-                    %img{:alt => "", :src => "//static.mercdn.net/thumb/members/650412321.jpg?1399604151"}/
+                    %img{alt: "", src: "//static.mercdn.net/thumb/members/650412321.jpg?1399604151"}/
                   %figcaption.bold
                     レッドスワン
               .message-body
@@ -117,28 +117,28 @@
                     %i.icon-time.far.fa-clock
                     %span 86 日前
                   .message-icon-right
-                    %form{:action => "https://www.mercari.com/jp/comment/report/m75785549618/2032693460/", :method => "POST"}
-                      %button{:type => "submit"}
+                    %form{action: "https://www.mercari.com/jp/comment/report/m75785549618/2032693460/",method: "POST"}
+                      %button{type: "submit"}
                         %i.icon-flag.far.fa-flag
-                      %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
-                    .message-delete{"data-comment-id" => "2032693460", "data-modal" => "delete-comment", "data-open" => "modal"}
+                      %input{name: "redirect_url_key", type:  "hidden", value:  "item_detail"}/
+                    .message-delete{"data-comment-id":  "2032693460", "data-modal": "delete-comment", "data-open":  "modal"}
                       %i.icon-delete.fas.fa-trash-alt
                 %i.icon-balloon.fas.fa-caret-left
         .message-content
-          %form.message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
+          %form.message-form{action: "https://www.mercari.com/jp/comment/add/", method: "POST"}
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %input{:name => "item_id", :type => "hidden", :value => "m75785549618"}/
-            %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
-            %textarea.textarea-default{:disabled => "disabled", :name => "body", :type => "text", :value => ""}
-            %button.message-submit.btn-default.btn-gray{:disabled => "disabled", :type => "submit"}
+            %input{name: "item_id", type:  "hidden", value : "m75785549618"}/
+            %input{name:  "redirect_url_key", type: "hidden", value: "item_detail"}/
+            %textarea.textaea-default{disabled : "disabled", name: "body", type: "text", value: ""}
+            %button.message-submit.btn-default.btn-gray{disabled: "disabled", type: "submit"}
               %span 売り切れのためコメントできません
-        %aside.modal{"data-clone" => "model", "data-model" => "detele-comment"}
+        %aside.modal{"data-clone": "model", "data-model": "detele-comment"}
     %ul.nav-item-link-prev-next.clearfix
       %li.nav-item-link-prev
-        %a{:href => "https://item.mercari.com/jp/m32360745731/"}
+        %a{href: "https://item.mercari.com/jp/m32360745731/"}
           %i.icon-arrow-left.far.fa-angle-left>
           専用ページ
       %li.nav-item-link-next
-        %a{:href => "https://item.mercari.com/jp/m19879080798/"}
+        %a{href: "https://item.mercari.com/jp/m19879080798/"}
           ホテルルーム キーリング ミッキー
           %i.icon-arrow-right.fas.fa-angle-right
