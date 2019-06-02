@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     def index
     end
+    def show
+    end
     def new
     end
     def create
@@ -13,5 +15,10 @@ class UsersController < ApplicationController
     end
     def show
     end
-    
+    def cardadd
+    end
+    def cardappend
+    end
+    def logout
+    end
 end

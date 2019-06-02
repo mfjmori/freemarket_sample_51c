@@ -1,0 +1,328 @@
+
+.buy-page{
+  height:100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width:700px;
+
+  &__main-icon{
+    width:185px;
+    height: 49px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  &__body{
+    background-color: #fff;;
+    height: 100%;
+
+  &__main-content{
+    margin-left: auto;
+    margin-right: auto;
+
+    &__title{
+      font-size: 22px;
+      padding: 32px 16px;
+      font-weight: 600;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    &__item{
+      padding-top: 24px;
+
+      &__app-text{
+        margin: 8px 0 0;
+        line-height: 1.5;
+        font-size: 14px;
+        font: sans-serif;
+      }
+
+      &__app{
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 15px;
+
+        &__apple{
+          text-align: left;
+          display: inline-block;
+          display: inline-block;
+          margin-right: 10px;
+        }
+        &__google{
+          display: inline-block;
+          text-align: left;
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+
+      &__image{
+        width: 100px;
+        height: 148px;
+        background-color: yellow;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+      }
+
+      &__name{
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 13px;
+      }
+
+      &__price-box{
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+        
+        &__price{
+          font-size: 23px;
+          font-weight: 600;
+          text-align: left;
+          display: inline-block;
+          margin-right: 10px;
+        }
+
+        &__fare{
+          font-size: 14px;
+          text-align: left;
+          display: inline-block;
+        }
+      }
+
+      &__point{
+        background: #ccc;
+        margin-top: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 320px;
+        height: 22px;
+        padding: 16px 0 16px;
+        line-height: 1.5;
+        padding-top: 19px;
+        font-size: 13px;
+      }
+
+      &__total{
+       margin-left:0px;
+       margin-right: 0;
+       
+        &__word{
+          text-align: left;
+          display: inline-block;
+          padding: 16px 0;
+          font-size: 28px;
+          font-weight: 600;
+        }
+
+        &__price{
+          padding-left: 60px;
+          text-align: left;
+          display: inline-block;
+          font-size: 23px;
+          font-weight: 600;
+        }
+      }
+      &__announce{
+        font-size: 14px;
+        color: #ea352d;
+      }
+
+      &__button{
+        margin: 16px 0 0;
+        border: 1px solid #888;
+        background: #888;
+        color: #fff;
+        display: inline-block;
+        width: 320px;
+        line-height: 48px;
+        font-size: 14px;
+
+        a:link { 
+          color: #fff;
+          text-decoration: none;
+        }
+        a:visited { 
+          color: #fff;
+          text-decoration: none;
+        }
+        a:hover { 
+          color: #fff;
+          text-decoration: none;
+        }
+        a:active { 
+          color: none; 
+        }
+      }
+
+      &__button2{
+        margin: 16px 0 0;
+        background: #ccc;
+        color: rgb(51, 51, 51);
+        display: inline-block;
+        width: 320px;
+        line-height: 48px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__secound-content{
+    margin: 40px 0 0;
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+
+    &__address{
+      padding: 24px 0 0;
+      display: block;
+      width: 320px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+
+      &__word{
+      left:0;
+      display: block;
+      width: 320px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 14px;
+      font-weight: bold;
+      }
+
+      &__input{
+      left:0;
+      display: block;
+      width: 320px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 14px;
+      }
+
+      &__chage{
+      right:0;
+      display: block;
+      width: 320px;
+      text-align: right;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 14px;
+      margin-top: 20px;
+      padding-bottom: 30px;
+
+        a:link { 
+          color: #0099e8;
+          text-decoration: none;
+        }
+        a:visited { 
+          color: #0099e8;
+          text-decoration: none;
+        }
+        a:hover { 
+          color: #0099e8;
+          text-decoration: none;
+        }
+        a:active { 
+          color: none; 
+        }
+      } 
+    }
+  }
+  &__third-content{
+
+    &__payment{
+      &__word2{
+        padding: 24px 0 0;
+        left:0;
+      display: block;
+      width: 320px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 14px;
+      font-weight: bold;
+      }
+
+      &__input{
+      left:0;
+      display: block;
+      width: 320px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 14px;
+      margin-top: 20px;
+      }
+
+      &__change{
+        right:0;
+        display: block;
+        width: 320px;
+        text-align: right;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 14px;
+        margin-top: 20px;
+        padding-bottom: 40px;
+
+        a:link { 
+          color: #0099e8;
+          text-decoration: none;
+        }
+        a:visited { 
+          color: #0099e8;
+          text-decoration: none;
+        }
+        a:hover { 
+          color: #0099e8;
+          text-decoration: none;
+        }
+        a:active { 
+          color: none; 
+        } 
+      }
+    }
+  }
+}
+
+  &__mypage-footer{
+    width:700px;
+    margin-top: 45px;
+    text-align: center;
+
+    &__text{
+      color: #333;
+      font-size: 12px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      display: inline-block;
+      
+      &__word{
+        float: left;
+        margin-right: 15px;
+      }
+    }
+    &__logo{
+      width: 80px;
+      height: 65px;
+      margin-top: 40px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__date{
+      font-size: 13px;
+      color: rgb(51, 51, 51);
+      margin-top: 10px;
+      margin-bottom:40px;
+    }
+  }
+}
+

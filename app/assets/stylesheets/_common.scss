@@ -1,0 +1,29 @@
+body{
+  min-height:100%;
+  flex-direction: column;
+  display: flex;
+}
+
+.camera{
+  position: fixed;
+  color:white;
+  background-color: #ea352d;
+  border-radius: 50%;
+  display: inline-block;
+  left: 87%;
+  bottom: 6%;
+  width: 150px;
+  height:150px;
+
+  &__font{
+    font-size: 20px;
+    display:inline-block;
+    margin-left: 54px;
+    margin-top: 25px;
+  }
+
+  &__icon{
+    margin-left: 50px;
+    font-size: 50px;
+  }
+}

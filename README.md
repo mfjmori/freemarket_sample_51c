@@ -6,10 +6,6 @@
 |nickname|sring|null: false,|
 |point|integer|null: false,default: 0|
 |sum_sales|integer|null: false, default: 0|
-|card_numder|integer||
-|limit_month|integer||
-|limit_year|integer||
-|security_code|integer||
 
 
 
