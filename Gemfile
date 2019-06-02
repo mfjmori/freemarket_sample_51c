@@ -75,5 +75,21 @@ gem 'pry-rails'
 gem 'kaminari'
 gem 'font-awesome-sass'
 
-
 gem 'haml-rails'
+gem "jquery-rails"
+gem 'erb2haml'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'payjp'
+gem 'ancestry'
+gem 'dropzonejs-rails'
+gem 'gretel'
+gem 'ransack'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+

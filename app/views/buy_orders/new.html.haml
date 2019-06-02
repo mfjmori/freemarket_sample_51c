@@ -1,0 +1,98 @@
+
+.buy-page
+  .buy-page__main-icon
+    = link_to image_tag(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3856598694"), root_path, class: 'get'
+  .buy-page__body
+    .buy-page__body__main-content
+      .buy-page__body__main-content__title
+        %p
+          購入内容の確認
+      .buy-page__body__main-content__item
+        .buy-page__body__main-content__item__image
+          %img{src:""}
+        .buy-page__body__main-content__item__name
+          %p
+            テーラードジャケット
+        .buy-page__body__main-content__item__price-box
+          .buy-page__body__main-content__item__price-box__price
+            %p
+              ¥ 1,900
+          .buy-page__body__main-content__item__price-box__fare
+            %p
+              送料込み
+        .buy-page__body__main-content__item__point
+          %p
+            ポイントはありません
+        .buy-page__body__main-content__item__total
+          .buy-page__body__main-content__item__total__word
+            %p
+              支払い金額
+          .buy-page__body__main-content__item__total__price
+            %p
+              ¥ 1,900
+        .buy-page__body__main-content__item__announce
+          %p
+            配送先と支払い方法の入力を完了してください。
+        .buy-page__body__main-content__item__button
+          = link_to "購入する", "", class: 'get'
+
+        -# ゆうゆうメルカリ便を使用する場合は以下を使用
+        -# .buy-page__body__main-content__item__announce
+        -#   %p
+        -#     この商品はゆうゆうメルカリ便を利用しているた
+        -#     %br
+        -#     め、アプリからのみ購入できます。   
+        -# .buy-page__body__main-content__item__button2
+        -#   購入する
+        -# .buy-page__body__main-content__item__app-text
+        -#   %p
+        -#     アプリをお持ちでない方は以下よりインストール
+        -#     %br
+        -#     してご利用いただけます。
+        -# .buy-page__body__main-content__item__app
+        -#   .buy-page__body__main-content__item__app__apple
+        -#     = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'
+        -#   .buy-page__body__main-content__item__app__google
+        -#     = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'
+
+    .buy-page__body__secound-content
+      .buy-page__body__secound-content__address
+        .buy-page__body__secound-content__address__word
+          %p
+            配送先
+        .buy-page__body__secound-content__address__input
+          %p
+            〒- 
+        .buy-page__body__secound-content__address__chage
+          = link_to "変更する >", "", class: 'get'
+    .buy-page__body__third-content
+      .buy-page__body__third-content__payment
+        .buy-page__body__third-content__payment__word2
+          %p
+            支払い方法
+        .buy-page__body__third-content__payment__input
+          %p
+            &= "/"
+            
+        .buy-page__body__third-content__payment__change
+          = link_to "変更する >", "", class: 'get'
+
+  .buy-page__mypage-footer
+    .buy-page__mypage-footer__text
+      .buy-page__mypage-footer__text__word
+        %p
+          プライバシーポリシー
+      .buy-page__mypage-footer__text__word
+        %p
+          メルカリ利用規約
+      .buy-page__mypage-footer__text__word
+        %p
+          特定商取引に関わる表記
+    .buy-page__mypage-footer__logo
+      = link_to image_tag(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3856598694"), root_path, class: 'get'
+    .buy-page__mypage-footer__date
+      %p
+        © 2019 Mercari
+    
+
+

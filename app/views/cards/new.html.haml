@@ -1,0 +1,55 @@
+%main
+  .container
+    .content
+      %h2 クレジットカード情報入力
+      %form.form
+        .content__input
+          .content__input__info
+            .content__input__info-num
+              %label
+                カード番号
+                %span.required
+                  必須
+              %input{placeholder: "半角数字のみ", type: "text"}
+              %ul
+                %li
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3856598694"
+                %li
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3856598694"
+                %li
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3856598694"
+                %li
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3856598694"
+                %li
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3856598694"
+                %li
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3856598694"
+                %li
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3856598694"
+            .content__input__info-limit
+              %label
+                有効期限
+                %span.required
+                  必須
+              .limit-moth
+                %select
+                %i#down.fas.fa-chevron-down
+                %span 月
+              .limit-year
+                %select
+                %i#down.fas.fa-chevron-down
+                %span 年
+            .content__input__info-security
+              %label
+                セキュリティーコード
+                %span.required
+                  必須
+              %input{placeholder: "例 カード背面4桁もしくは3桁の番号", type: "text"}
+              .sec_info
+                %p カード裏面の番号とは？
+            .content__input__info-btn
+              %button 
+                追加する
+
+    .side
+      = render "layouts/side"
