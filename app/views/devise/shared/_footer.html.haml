@@ -1,0 +1,13 @@
+%footer.devise__footer
+  %ul.devise__footer__menu
+    %li.devise__footer__menu__privacy
+      = link_to "プライバシーポリシー", src: "#"
+    %li.devise__footer__menu__terms
+      = link_to "メルカリ利用規約", src: "#"
+    %li.devise__footer__menu__notation
+      = link_to "特定商取引に関する表記", src: "#"
+  .devise__footer__logo
+    = link_to root_path :class do
+      %i>= embedded_svg("logo-gray.svg", class: "logo-svg")
+  .devise__footer__small-text
+    %small © 2019 Mercari
