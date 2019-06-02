@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
         
     end
     def new
-      @item = Item.new
     end
     def create
     end
@@ -15,5 +14,4 @@ class ItemsController < ApplicationController
     end
     def show
     end
-
 end
