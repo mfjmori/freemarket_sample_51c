@@ -91,3 +91,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'enum_help'
+gem 'rails-i18n', '~> 5.1'
+

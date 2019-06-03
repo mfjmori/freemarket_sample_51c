@@ -1,17 +1,35 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+%body
+  %main.devise__container
+    %header.devise__header
+      %h1
+        =link_to new_user_session_path do
+          = image_tag 'logo.svg', height:'49px'
+  %main.devise__main
+    %section.l__devise__login
+      .l__devise__login-no-account
+        %p アカウントをお持ちでない方はこちら
+        = link_to users_path, class:'l__devise__login-no-account-button' do
+          新規会員登録
+      .l__devise__inner__login
+        .l__devise__link__black
+        %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+          %i.fab.fa-facebook-square>
+          Facebookで登録
+        %button#google-login.btn-default.btn-sns.btn-sns-google
+          %i>= embedded_svg("Google.svg", class: "good-svg")
+          Googleで登録
+      .l__devise__inner__login
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .l__devise__field
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder:"メールアドレス",class: "input-default"
+          .l__devise__field
+            = f.email_field :password, autocomplete: "current-password",placeholder:"パスワード",class: "input-default"
+          .l__devise__field
+            = image_tag 'https://i.gyazo.com/b0d29a0c1794b33b491699e3b36c2c44.png'
+          .actions
+            = f.submit "ログイン", :class=>'btn btn-info btn-default btn-red'
+            - if devise_mapping.rememberable?
+              .field
+                = f.label :パスワードを忘れた方, class:"l__devise__right-text"
+  = render "/devise/shared/footer"
