@@ -2,8 +2,8 @@
   %main.devise__container
     %header.devise__header
       %h1
-        %a{:href => "/"}
-          %img.img__devise__header{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340"}/
+        =link_to new_user_registration_path do
+          = image_tag 'logo.svg', height:'49px'
       %nav.progress-bar.signup-bar
         %ol.clearfix
           %li.active
@@ -78,7 +78,7 @@
                 = raw sprintf(f.date_select(:password, use_month_numbers: true,start_year: 1900,end_year:(Time.now.year),include_blank: true,date_separator: '%s'), '年', '月') + '日'
             %p.l__devise__form-info-text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
             .field
-              %img#devise{:src => "https://i.gyazo.com/b0d29a0c1794b33b491699e3b36c2c44.png"}/
+              = image_tag 'https://i.gyazo.com/b0d29a0c1794b33b491699e3b36c2c44.png'
             .field
               %p.l-single-text.text-center
                 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
