@@ -1,0 +1,280 @@
+.product__details
+  %h1.product__details-name
+    トップス ブラウン BONCILIE
+  .product__details__item
+    .product__details__item__image
+      .product__details__item__image-overflow
+        .product__details__item__image-overflow-img
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+      .product__details__item__image-show
+        .product__details__item__image-show-image
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_2.jpg?1559182445"
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_3.jpg?1559182445"
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_4.jpg?1559182445"
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_5.jpg?1559182445"
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_6.jpg?1559182445"
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_7.jpg?1559182445"
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_8.jpg?1559182445"
+    %table.product__details__item__table
+      %tbody.product__details__item__table-t
+        %tr
+          %th 出品者
+          %td
+            = link_to "name" 
+            .like
+              .like-good
+                %i.fas.fa-laugh
+                230
+              .like-normal
+                %i.fas.fa-meh
+                3
+              .like-bad
+                %i.fas.fa-frown
+                0
+        %tr
+          %th カテゴリー
+          %td.font
+            = link_to "レディース"
+            %br
+            = link_to do
+              %i.fas.fa-chevron-right
+              トップス
+            %br
+            = link_to do
+              %i.fas.fa-chevron-right
+              Tシャツ/カットソー(半袖/袖なし)
+        %tr
+          %th ブランド
+          %td
+        %tr
+          %th 商品のサイズ
+          %td 
+            M
+        %tr
+          %th 商品の状態
+          %td
+            目立った傷や汚れなし
+        %tr
+          %th 発送料の負担
+          %td
+            送料込み(出品者負担)
+        %tr
+          %th 発送の方法
+          %td
+            ゆうゆうメルカリ便
+        %tr
+          %th 発送元地域
+          %td
+            = link_to "長崎県" 
+        %tr
+          %th 発送日の目安
+          %td
+            1~2日で発送
+  .product__details__price
+    .product__details__price-en
+      ¥ 700
+    .product__details__price-tax
+      (税込)
+    .product__details__price-cost
+      送料込み
+  .product__details__btn
+    %button 購入画面に進む
+  .product__details__text
+    %p.product__details__text-inner
+      Tシャツをご覧いただきありがとうございます。
+      こちらはTシャツです。
+
+      ご不明点があればコメントよろしくお願いいたします。
+
+      BONCILIE
+      トップス 伸縮性があります。殆ど使用していないので、
+      状態は良好です。首と腕回りのビーズが上品です。
+
+      サイズ＞M
+
+      自宅保管なので神経質な方はご遠慮下さい
+
+      \#BONCILIE #トップス
+  .product__details__bottom
+    .product__details__bottom-left
+      %button
+        %i.far.fa-heart
+        %span
+          いいね!
+        %span
+          0
+      = link_to do
+        %i.far.fa-flag
+        不適切な商品の報告
+    .product__details__bottom-right
+      = link_to do
+        %i.fas.fa-lock
+        あんしん・あんぜんへの取り組み
+.comment
+  .comment__content
+    .comment__content__show
+      %ul.comment__content__show-list
+        -# -# 買う人のコメント
+        -# %li.comment__content__show-list-left
+        -#   = link_to do
+        -#     %figure
+        -#       .div
+        -#         = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
+        -#       %figcaption name
+        -#   .con
+        -#     .con-text
+        -#       コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
+        -#     .con-bottom
+        -#       .con-bottom-time
+        -#         %i.far.fa-clock
+        -#         74 日前
+        -#       .con-bottom-icon
+        -#         .delete-comment
+        -#           %i.fas.fa-trash-alt
+        -#         %form
+        -#           %button
+        -#             %i.far.fa-flag
+        -# %li.comment__content__show-list-left
+        -#   = link_to do
+        -#     %figure
+        -#       .div
+        -#         = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
+        -#       %figcaption name
+        -#   .con
+        -#     .con-text
+        -#       コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
+        -#     .con-bottom
+        -#       .con-bottom-time
+        -#         %i.far.fa-clock
+        -#         74 日前
+        -#       .con-bottom-icon
+        -#         .delete-comment
+        -#           %i.fas.fa-trash-alt
+        -#         %form
+        -#           %button
+        -#             %i.far.fa-flag
+        -# -# 売る人のコメント
+        -# %li.comment__content__show-list-right
+        -#   = link_to do
+        -#     %figure
+        -#   .con
+        -#     .con-text
+        -#     .con-bottom
+        -#       .con-bottom-time
+        -#       .con-bottom-icon
+    .comment__content__form
+      %form.comment__content__form__comment
+        %p.comment__content__form__comment-caution
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.comment__content__form__comment-text
+        %button.comment__content__form__comment-btn
+          コメントする
+%main
+  .container.backgroundf5f5f5
+    .content-mypage-detail
+      .social-media-box
+        %ul.social-media-box__lists
+          %li.social-media-box__lists__icon.social-media-box__lists__icon--facebook
+            = link_to "#" do
+              %i.fab.fa-facebook-square
+          %li.social-media-box__lists__icon.social-media-box__lists__icon--twitter
+            = link_to "#" do
+              %i.fab.fa-twitter
+          %li.social-media-box__lists__icon.social-media-box__lists__icon--line
+            = link_to "#" do
+              %i.fab.fa-line
+      .item-box-container.backgroundf5f5f5
+        %h2.item-box-head.padding24px
+          この出品者の商品
+        .item-box-content
+          .item-box.backgroundfff
+            = link_to "#", class: 'item-box__link' do
+              %figure.item-box__link__photo
+                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
+              .item-box__link__body
+                %h2.item-box__link__body__name
+                  johnbull カーキカーゴパンツ
+                .item-box__link__body__number
+                  .item-box__link__body__number__price
+                    ¥1,200
+                  %i.far.fa-heart
+                  %span.item-box__link__body__number__like
+                    2
+                .item-box__link__body__tax
+                  (税込)
+          .item-box.backgroundfff
+            = link_to "#", class: 'item-box__link' do
+              %figure.item-box__link__photo
+                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
+              .item-box__link__body
+                %h2.item-box__link__body__name
+                  johnbull カーキカーゴパンツ
+                .item-box__link__body__number
+                  .item-box__link__body__number__price
+                    ¥1,200
+                  %i.far.fa-heart
+                  %span.item-box__link__body__number__like
+                    2
+                .item-box__link__body__tax
+                  (税込)
+          .item-box.backgroundfff
+            = link_to "#", class: 'item-box__link' do
+              %figure.item-box__link__photo
+                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
+              .item-box__link__body
+                %h2.item-box__link__body__name
+                  johnbull カーキカーゴパンツ
+                .item-box__link__body__number
+                  .item-box__link__body__number__price
+                    ¥1,200
+                  %i.far.fa-heart
+                  %span.item-box__link__body__number__like
+                    2
+                .item-box__link__body__tax
+                  (税込)
+          .item-box.backgroundfff
+            = link_to "#", class: 'item-box__link' do
+              %figure.item-box__link__photo
+                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
+              .item-box__link__body
+                %h2.item-box__link__body__name
+                  johnbull カーキカーゴパンツ
+                .item-box__link__body__number
+                  .item-box__link__body__number__price
+                    ¥1,200
+                  %i.far.fa-heart
+                  %span.item-box__link__body__number__like
+                    2
+                .item-box__link__body__tax
+                  (税込)
+          .item-box.backgroundfff
+            = link_to "#", class: 'item-box__link' do
+              %figure.item-box__link__photo
+                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
+              .item-box__link__body
+                %h2.item-box__link__body__name
+                  johnbull カーキカーゴパンツ
+                .item-box__link__body__number
+                  .item-box__link__body__number__price
+                    ¥1,200
+                  %i.far.fa-heart
+                  %span.item-box__link__body__number__like
+                    2
+                .item-box__link__body__tax
+                  (税込)
+          .item-box.backgroundfff
+            = link_to "#", class: 'item-box__link' do
+              %figure.item-box__link__photo
+                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
+              .item-box__link__body
+                %h2.item-box__link__body__name
+                  johnbull カーキカーゴパンツ
+                .item-box__link__body__number
+                  .item-box__link__body__number__price
+                    ¥1,200
+                  %i.far.fa-heart
+                  %span.item-box__link__body__number__like
+                    2
+                .item-box__link__body__tax
+                  (税込)

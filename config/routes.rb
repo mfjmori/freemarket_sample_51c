@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :index] do
     resource :profiles, only: [:show, :edit]
     resource :addresses, only: [:edit]
+    resource :cards, only: [:index, :new, :create]
     collection do
       get 'address'
       get 'card'
@@ -15,7 +16,6 @@ Rails.application.routes.draw do
       get 'complete'
     end
   end
-  resources :cards, only: [:index, :new, :create]
   get "users/logout" => "users#logout"
   resources :items do
     resources :buy_orders, only: :new
