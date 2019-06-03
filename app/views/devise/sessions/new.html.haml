@@ -2,8 +2,8 @@
   %main.devise__container
     %header.devise__header
       %h1
-        %a{:href => "/"}
-          %img.img__devise__header{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340"}/
+        =link_to new_user_session do
+          %img.img__devise__header{alt:"mercari",src:"//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340"}/
   %main.devise__main
     %section.l__devise__login
       .l__devise__login-no-account
@@ -26,10 +26,10 @@
           .l__devise__field
             = f.email_field :password, autocomplete: "current-password",placeholder:"パスワード",class: "input-default"
           .l__devise__field
-            %img#devise{:src => "https://i.gyazo.com/b0d29a0c1794b33b491699e3b36c2c44.png"}/
+            %img#devise{src:"https://i.gyazo.com/b0d29a0c1794b33b491699e3b36c2c44.png"}/
           .actions
             = f.submit "ログイン", :class=>'btn btn-info btn-default btn-red'
             - if devise_mapping.rememberable?
               .field
-                = f.label :パスワードを忘れた方, :class=>"l__devise__right-text"
-  = render partial: "/devise/shared/footer"
+                = f.label :パスワードを忘れた方, class:"l__devise__right-text"
+  = render "/devise/shared/footer"
