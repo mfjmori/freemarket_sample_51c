@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_112003) do
+ActiveRecord::Schema.define(version: 2019_06_03_103612) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "post_code", null: false
@@ -79,18 +79,18 @@ ActiveRecord::Schema.define(version: 2019_06_02_112003) do
     t.bigint "buyer_id"
     t.bigint "saler_id"
     t.string "brand"
-    t.bigint "categories_id", null: false
-    t.string "size"
+    t.bigint "category_id", null: false
+    t.integer "size"
     t.integer "price", null: false
     t.integer "postage", null: false
     t.integer "shipping_method", null: false
-    t.string "region", null: false
+    t.integer "region", null: false
     t.integer "shipping_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "condition", null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
-    t.index ["categories_id"], name: "index_items_on_categories_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["saler_id"], name: "index_items_on_saler_id"
   end
 
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 2019_06_02_112003) do
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "categories", column: "categories_id"
+  add_foreign_key "items", "categories"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "buy_orders"
