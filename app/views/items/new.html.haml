@@ -56,7 +56,7 @@
       .set-page__fourth__mark
         必須
       .set-page__fourth__pull-down
-        = f.select( :size, Item.sizes.keys, {prompt: "---"})
+        = f.select( :size, Item.sizes_i18n.invert , {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
       = f.label :brand, "ブランド", class: "set-page__fourth__brand"
       .set-page__fourth__mark.set-page__fourth__mark--gray
@@ -68,7 +68,7 @@
       .set-page__fourth__mark
         必須
       .set-page__fourth__pull-down
-        = f.select( :condition, Item.conditions.keys, {prompt: "---"})
+        = f.select( :condition, Item.conditions_i18n.invert , {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
     .set-page__fifth
@@ -80,27 +80,27 @@
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down
-        = f.select( :postage, Item.postages.keys, {prompt: "---"})
+        = f.select( :postage, Item.postages_i18n.invert, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
       = f.label :shipping_method, "配送の方法", class: "set-page__fifth__method"
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down2
-        = f.select( :shipping_method, Item.shipping_methods.keys, {prompt: "---"})
+        = f.select( :shipping_method, Item.shipping_methods_i18n.invert, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
       = f.label :region, "発送元の地域", class: "set-page__fifth__address"
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down2
-        = f.select( :region, Item.regions.keys, {prompt: "---"})
+        = f.select( :region, Item.regions_i18n.invert, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
       = f.label :shipping_date, "発送までの日数", class: "set-page__fifth__date"
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down2
-        = f.select( :shipping_date, Item.shipping_dates.keys, {prompt: "---"})
+        = f.select( :shipping_date, Item.shipping_dates_i18n.invert, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
     .set-page__sixth
@@ -162,3 +162,4 @@
       .buy-page__mypage-footer__date
         %p
           © 2019 Mercari
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
