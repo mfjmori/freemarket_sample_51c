@@ -8,7 +8,7 @@
     %section.l__devise__login
       .l__devise__login-no-account
         %p アカウントをお持ちでない方はこちら
-        = link_to users_path, class:'l__devise__login-no-account-button' do
+        = link_to new_user_path, class:'l__devise__login-no-account-button' do
           新規会員登録
       .l__devise__inner__login
         .l__devise__link__black
@@ -24,7 +24,7 @@
             %br/
             = f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder:"メールアドレス",class: "input-default"
           .l__devise__field
-            = f.email_field :password, autocomplete: "current-password",placeholder:"パスワード",class: "input-default"
+            = f.password_field :password, autocomplete: "current-password",placeholder:"パスワード",class: "input-default"
           .l__devise__field
             = image_tag 'https://i.gyazo.com/b0d29a0c1794b33b491699e3b36c2c44.png'
           .actions
