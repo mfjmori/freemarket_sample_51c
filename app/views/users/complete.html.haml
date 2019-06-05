@@ -24,7 +24,7 @@
     %main.devise__main
       %section.l__devise__container
         %h2.l__devise__head 会員登録完了
-        = form_with model: @user do |f|
+        = form_for @user,:url => {:action => :complete} do |f|
           .l__devise__content.finish_content
             %p.l-single-text
               ありがとうございます。

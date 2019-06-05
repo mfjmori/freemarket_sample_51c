@@ -24,7 +24,7 @@
     %main.devise__main
       %section.l__devise__container
         %h2.l__devise__head 支払い方法
-        = form_with model: @user do |f|
+        = form_for @user,:url => {:action => :card} do |f|
           .l__devise__content
             .field
               = f.label :email,"カード番号", class:"form-group-label"
@@ -52,11 +52,11 @@
               %br/
               .birthday-select-wrap
                 .select-wrap.select-wrap__month
-                  = f.select :exp_month,[["--",""],["1","01"],["2","02"],["3","03"],["4","04"],["5","05"],["6","06"],["7","07"],["8","08"],["9","09"],["10","10"],["11","11"],["12","12"]],{}, {class:"select-default" ,id:"payment-card-exp-month", name:"exp_month"}
+                  = f.select :email,[["--",""],["1","01"],["2","02"],["3","03"],["4","04"],["5","05"],["6","06"],["7","07"],["8","08"],["9","09"],["10","10"],["11","11"],["12","12"]],{}, {class:"select-default" ,id:"payment-card-exp-month", name:"exp_month"}
                   %i.icon-arrow-bottom
                 %span 月
                 .select-wrap.select-wrap__day
-                  = f.select :exp_year ,[["--",""],["19","2019"],["20","2020"],["21","2021"],["22","2022"],["23","2023"],["24","2024"],["25","2025"],["26","2026"],["27","2027"],["28","2028"],["29","2029"]],{},{class:"select-default", id:"payment-card-exp-year", name:"exp-year"}
+                  = f.select :email ,[["--",""],["19","2019"],["20","2020"],["21","2021"],["22","2022"],["23","2023"],["24","2024"],["25","2025"],["26","2026"],["27","2027"],["28","2028"],["29","2029"]],{},{class:"select-default", id:"payment-card-exp-year", name:"exp-year"}
                   %i.icon-arrow-bottom
                 %span 年
             .field

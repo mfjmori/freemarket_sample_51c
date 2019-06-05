@@ -57,7 +57,7 @@
               .header__box__bottom__hosoji__bottan__font
                 やることリスト
           .header__box__bottom__hosoji__bottan
-            %a{href: ""}
+            =link_to user_path(current_user.id) do
               %img.header__box__bottom__hosoji__bottan__mypage{alt: "マイページ", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}/
               .header__box__bottom__hosoji__bottan__font
                 マイページ

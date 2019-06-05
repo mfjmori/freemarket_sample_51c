@@ -5,11 +5,11 @@ ja:
       item: 商品情報
     attributes:
       user:
-        email: 都道府県
+        email: メール
      
   enums:
     user:
-      email:
+      Prefecture:
         unanswered: ーーー
         hokkaido: 北海道
         aomori: 青森県
