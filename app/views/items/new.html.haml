@@ -13,14 +13,16 @@
         必須
       .set-page__secound__text
         最大10枚までアップロードできます
+      
+      %ul.set-page__secound__preview
+
       .set-page__secound__form
         = f.fields_for :images do |image|
-          = image.label :image do
-            = image.file_field :image, multiple: true, class: "set-page__secound__form__drop"
-            .set-page__secound__form__text
-              ドラッグアンドドロップ
-              %br/
-              またはクリックしてファイルをアップロード
+          %div{class: "set-page__secound__form__text set-page__secound__form__text--#{image.index}"}
+            ドラッグアンドドロップ
+            %br/
+            またはクリックしてファイルをアップロード
+            = image.file_field :image, class: "set-page__secound__form__text__drop", id: "preview-#{image.index}",  data: {preview: image.index}
 
     .set-page__third
       = f.label :name, "商品名", class: "set-page__third__title"
@@ -54,7 +56,7 @@
       .set-page__fourth__mark
         必須
       .set-page__fourth__pull-down
-        = f.select( :size, [["XXS以下", 0], ["XS(SS)", 1], ["S", 2], ["M", 3], ["L", 4], ["XL(LL)", 5]], {prompt: "---"})
+        = f.select( :size, Item.sizes.keys, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
       = f.label :brand, "ブランド", class: "set-page__fourth__brand"
       .set-page__fourth__mark.set-page__fourth__mark--gray
@@ -66,7 +68,7 @@
       .set-page__fourth__mark
         必須
       .set-page__fourth__pull-down
-        = f.select( :condition, [["新品・未使用", 0], ["未使用に近い", 1], ["目立った傷や汚れなし", 2], ["やや傷や汚れあり", 3], ["傷や汚れあり", 4], ["全体的に状態が悪い", 5]], {prompt: "---"})
+        = f.select( :condition, Item.conditions.keys, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
     .set-page__fifth
@@ -78,27 +80,27 @@
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down
-        = f.select( :postage, [["送料込み(出品者負担)", 0],["着払い(購入者負担)", 1]], {prompt: "---"})
+        = f.select( :postage, Item.postages.keys, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
       = f.label :shipping_method, "配送の方法", class: "set-page__fifth__method"
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down2
-        = f.select( :shipping_method, [["未定", 0],["らくらくメルカリ便", 1]], {prompt: "---"})
+        = f.select( :shipping_method, Item.shipping_methods.keys, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
       = f.label :region, "発送元の地域", class: "set-page__fifth__address"
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down2
-        = f.select( :region, [["北海道", 0],["青森県", 1],["岩手県", 2]], {prompt: "---"})
+        = f.select( :region, Item.regions.keys, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
       = f.label :shipping_date, "発送までの日数", class: "set-page__fifth__date"
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down2
-        = f.select( :shipping_date, [["1~2日で発送", 0],["2~3日で発送", 1],["4~7日で発送", 2]], {prompt: "---"})
+        = f.select( :shipping_date, Item.shipping_dates.keys, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
     .set-page__sixth
