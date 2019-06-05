@@ -84,7 +84,7 @@
   }
 
   &__block{
-    width:1000px;
+    width:935px;
     height:442px;
     display: block;
     margin-right: auto;
@@ -100,14 +100,19 @@
     }
 
     &__items{
-
+      margin-right: auto;
+      margin-left: auto;
+      padding-right:0;
+      padding-left: 0;
 
       &__item{
         width:213px;
-        height:400px;
-        margin-left:20px;
+        height:330px;
+        margin-left:10px;
+        margin-right: 10px;
         margin-top:20px;
         float:left;
+
 
         &__image{
           width:213px;
@@ -115,17 +120,51 @@
           background-color: aquamarine;
         }
 
-        &__name{
+        &__box{
           width:213px;
           height:110px;
           background-color: #fff;
+          &__name{
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+          }
+          
+
+          &__price{
+            font-size: 16px;
+            padding-top: 17px;
+            padding-left: 16px;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            font-weight: 900;
+            display: inline-block;
+          }
+
+          &__iine{
+            display: inline-block;
+            color: #ccc;
+            font-size: 20px;
+            margin-left: 100px;
+          }
+      
+
+          &__tax-word{
+            padding-top: 0;
+            margin-top: 0;
+            padding-left: 10px;
+            font-size: 10px;
+          }
         }
       }
       &__all{
-        margin-top: 10px;
         float:right;
         color: #0099e8;
         font-size:14px;
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-bottom: 50px;
       }
     }
   }
