@@ -156,3 +156,4 @@ ActiveRecord::Schema.define(version: 2019_06_03_103612) do
   add_foreign_key "messages", "users"
   add_foreign_key "user_reviews", "users"
 end
+
