@@ -1,6 +1,5 @@
 .set-page{
   width:700px;
-  height: 2080px;
   background: #fff;
   margin-left: auto;
   margin-right: auto;
@@ -155,6 +154,9 @@
       vertical-align: top;
       display: inline-block;
     }
+    &__mark--gray {
+      background: #ccc;
+    }
 
     &__pull-down{
       margin-left: 210px;
@@ -175,6 +177,16 @@
         margin-bottom: 40px;
         color:gray;
       }
+      &__input {
+        width: 400px;
+        margin-top: 2px;
+        border-radius:6px;
+        text-indent: 1em;
+        border: 1px solid #ccc;
+        height:50px;
+        margin-bottom:40px;
+        box-sizing: border-box;
+      }
 
       #select-arrow{
         position: absolute;
@@ -185,7 +197,46 @@
         margin-left: 190px;
       }  
     }
-    &__condition{
+    &__box {
+      margin-bottom: 40px;
+      &__pull-down {
+        margin-left: 210px;
+        position: relative;
+        select {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          margin: 8px 0;
+          display: block;
+          width: 400px;
+          height: 50px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          background: #fff;
+          font-size: 16px;
+          line-height: 1.5;
+          color:gray;
+        }
+        &__input {
+          width: 400px;
+          margin-top: 2px;
+          border-radius:6px;
+          text-indent: 1em;
+          border: 1px solid #ccc;
+          height:50px;
+          margin-bottom:40px;
+          box-sizing: border-box;
+        }
+        #select-arrow{
+          position: absolute;
+          font-size: 18px;
+          right: 22px;
+          top: 17px;
+          color: #888;
+          margin-left: 190px;
+        }  
+      }
+    }
+    &__condition, &__size, &__brand{
       font-size: 14px;
       float: left;
       font-weight: 600;
@@ -281,7 +332,7 @@
         margin-left: 190px;
       }  
     }
-    &__address{
+    &__address, &__method, &__date{
       font-size: 14px;
       float: left;
       font-weight: 600;
@@ -316,12 +367,6 @@
         color: #888;
         margin-left: 190px;
       }  
-    }
-    &__date{
-      font-size: 14px;
-      float: left;
-      font-weight: 600;
-      margin-left: 210px;
     }
   }
   &__sixth{

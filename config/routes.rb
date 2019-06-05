@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :new] do
     resource :profiles, only: [:show, :edit]
     resource :addresses, only: [:edit]
+    resource :cards, only: [:index, :new, :create]
     collection do
       get 'address'
       get 'card'
@@ -16,11 +17,8 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-<<<<<<< Updated upstream
+
   resources :cards, only: [:index, :new, :create]
-  get "users/logout" => "users#logout"
-=======
->>>>>>> Stashed changes
   resources :items do
     resources :buy_orders, only: :new
   end

@@ -16,7 +16,7 @@
       .set-page__secound__form
         = f.fields_for :images do |image|
           = image.label :image do
-            = image.file_field :image, multiple: true,  class: "set-page__secound__form__drop"
+            = image.file_field :image, multiple: true, class: "set-page__secound__form__drop"
             .set-page__secound__form__text
               ドラッグアンドドロップ
               %br/
@@ -35,14 +35,33 @@
         = f.text_area :description, class: "set-page__third__text-form__input", placeholder: ">商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
     .set-page__fourth
-      = f.label :categories_id, "商品の詳細", class: "set-page__fourth__title"
+      = f.label :category_id, "商品の詳細", class: "set-page__fourth__title"
       .set-page__fourth__category
         カテゴリー
       .set-page__fourth__mark
         必須
+      .set-page__fourth__box
+        .set-page__fourth__box__pull-down
+          = f.select( :category_id, [["レディース", 0],["メンズ", 1],["ベビーキッズ", 2]], {prompt: "---"})
+          %i.fas.fa-chevron-down#select-arrow
+        .set-page__fourth__box__pull-down
+          = f.select( :category_id, [["レディース", 0],["メンズ", 1],["ベビーキッズ", 2]], {prompt: "---"})
+          %i.fas.fa-chevron-down#select-arrow
+        .set-page__fourth__box__pull-down
+          = f.select( :category_id, [["レディース", 0],["メンズ", 1],["ベビーキッズ", 2]], {prompt: "---"})
+          %i.fas.fa-chevron-down#select-arrow
+      = f.label :size, "サイズ", class: "set-page__fourth__size"
+      .set-page__fourth__mark
+        必須
       .set-page__fourth__pull-down
-        = f.select( :categories_id, [["レディース", 0],["メンズ", 1],["ベビーキッズ", 2]], {prompt: "---"})
+        = f.select( :size, [["XXS以下", 0], ["XS(SS)", 1], ["S", 2], ["M", 3], ["L", 4], ["XL(LL)", 5]], {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
+      = f.label :brand, "ブランド", class: "set-page__fourth__brand"
+      .set-page__fourth__mark.set-page__fourth__mark--gray
+        任意
+      .set-page__fourth__pull-down
+        = f.text_field :brand, placeholder: "例）シャネル", class: "set-page__fourth__pull-down__input"
+
       = f.label :condition, "商品の状態", class: "set-page__fourth__condition"
       .set-page__fourth__mark
         必須
@@ -61,6 +80,14 @@
       .set-page__fifth__pull-down
         = f.select( :postage, [["送料込み(出品者負担)", 0],["着払い(購入者負担)", 1]], {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
+
+      = f.label :shipping_method, "配送の方法", class: "set-page__fifth__method"
+      .set-page__fifth__mark
+        必須
+      .set-page__fifth__pull-down2
+        = f.select( :shipping_method, [["未定", 0],["らくらくメルカリ便", 1]], {prompt: "---"})
+        %i.fas.fa-chevron-down#select-arrow
+
       = f.label :region, "発送元の地域", class: "set-page__fifth__address"
       .set-page__fifth__mark
         必須
@@ -71,7 +98,7 @@
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down2
-        = f.select( :shipping_method, [["1~2日で発送", 0],["2~3日で発送", 1],["4~7日で発送", 2]], {prompt: "---"})
+        = f.select( :shipping_date, [["1~2日で発送", 0],["2~3日で発送", 1],["4~7日で発送", 2]], {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
     .set-page__sixth
