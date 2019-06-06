@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only: [:index, :new, :create]
   resources :items do
     resources :buy_orders, only: :new
   end
