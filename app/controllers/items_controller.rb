@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     10.times do 
       @item.images.build
     end
+    @parent_categories = Category.where(parent_id: 0)
   end
   def create
     item_parameter = item_params
