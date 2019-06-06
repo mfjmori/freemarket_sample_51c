@@ -10,6 +10,8 @@ $(function() {
     $('.set-page__fourth__mark--size').hide();
     $('#cloth_size_select').hide();
     $('#shoe_size_select').hide();
+    $('#cloth_size_select').children('select').val("unanswered");
+    $('#shoe_size_select').children('select').val("unanswered");
   }
 
   // 選択されたparent_categoryをコントローラーに送り、child_categoryを表示する
@@ -31,6 +33,7 @@ $(function() {
       grandchild_category_select.empty();
       grandchild_category_select.append(`<option value>---</option>`);
       grandchild_category_select.hide();
+      $(".select-arrow--grandchild").hide();
       delete_size_input();
       // child_categoryをselectに表示する
       child_category_select.show();
@@ -59,6 +62,8 @@ $(function() {
         // grandchild_categoryのselectをからにする
         grandchild_category_select.empty();
         grandchild_category_select.append(`<option value>---</option>`);
+        grandchild_category_select.hide();
+        $(".select-arrow--grandchild").hide();
         // grandchild_categoryをselectに表示する
         grandchild_category_select.show();
         $('.select-arrow--grandchild').show();
