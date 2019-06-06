@@ -1,0 +1,24 @@
+.breadcrumbs {
+  z-index: 50;
+  width: 100%;
+  background: #fff;
+  &__style {
+    width: 1020px;
+    padding: 16px 0;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1;
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+    i {
+      color: #888;
+      font-size: 12px;
+    }
+  }
+}
+.solideee {
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+}

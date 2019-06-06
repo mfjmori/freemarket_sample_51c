@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    layout 'user_application'
+    layout 'user_application', except: :show
     def index
     end
     def show

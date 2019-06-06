@@ -6,7 +6,7 @@ ja:
     attributes:
       user:
         email: 都道府県
-     
+
   enums:
     user:
       email:
