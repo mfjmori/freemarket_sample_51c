@@ -18,9 +18,9 @@ enum region: {unanswered:47, hokkaido: 0,aomori: 1,iwate: 2,miyagi:3,akita: 4,ya
 enum shipping_date: {unanswered:0, two:1, three:2, seven:3
 }
 
-  belongs_to :saler, class_name: "User"
-  belongs_to :buyer, class_name: "User"
-  belongs_to :category
+  belongs_to :saler, class_name: "User", optional: true
+  belongs_to :buyer, class_name: "User", optional: true
+  belongs_to :category, optional: true
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
