@@ -4,7 +4,7 @@ $(function() {
   var cloth_size_list = [14, 15, 16, 17, 18, 20, 21, 29, 30, 31, 33, 34, 35, 38, 43, 44, 45, 47, 48, 49, 50, 51, 52]
   var shoe_size_list =[19, 36, 53]
 
-  // サイズのinputを消す
+  // サイズのselectと選択内容を消す
   function delete_size_input() {
     $('.set-page__fourth__size').hide();
     $('.set-page__fourth__mark--size').hide();
@@ -14,7 +14,7 @@ $(function() {
     $('#shoe_size_select').children('select').val("unanswered");
   }
 
-  // 選択されたparent_categoryをコントローラーに送り、child_categoryを表示する
+  // 親カテゴリーが選択された時、選択されたparent_categoryをコントローラーに送り、child_categoryを表示する
   $('#parent_category_select').change(function() {
     var parent_category_id = $(this).val();
     var url = '/api/categories';
@@ -47,8 +47,8 @@ $(function() {
     })
   })
 
-  // 選択されたchild_categoryをコントローラーに送り、grandchild_categoryを表示する
-  $('#child_category_select').change(function() {
+  // 小カテゴリーが選択された時、選択されたchild_categoryをコントローラーに送り、grandchild_categoryを表示する
+  child_category_select.change(function() {
     var child_category_id = $(this).val();
     var url = '/api/categories';
     $.ajax({
@@ -62,8 +62,6 @@ $(function() {
         // grandchild_categoryのselectをからにする
         grandchild_category_select.empty();
         grandchild_category_select.append(`<option value>---</option>`);
-        grandchild_category_select.hide();
-        $(".select-arrow--grandchild").hide();
         // grandchild_categoryをselectに表示する
         grandchild_category_select.show();
         $('.select-arrow--grandchild').show();
@@ -77,9 +75,9 @@ $(function() {
       alert('error');
     })
 
-    // grandchild_categoryが選択された時, 服サイズ、靴サイズを表示する
+    // grandchild_categoryが選択された時, 服サイズあるいは靴サイズを表示する
     // サイズがない商品は表示しない
-    $('#grandchild_category_select').change(function() {
+    grandchild_category_select.change(function() {
       var grandchild_category_id = $(this).val();
       var url = '/api/categories';
       $.ajax({
@@ -90,10 +88,12 @@ $(function() {
       })
       .done(function(grandchild_category_parent_id) {
         delete_size_input();
+        // 服カテゴリーが選ばれた時
         if ($.inArray(grandchild_category_parent_id, cloth_size_list) >= 0) {
           $('.set-page__fourth__size').show();
           $('.set-page__fourth__mark--size').css('display', 'inline-block');
           $('#cloth_size_select').show();
+        // 靴カテゴリーが選ばれた時
         } else if ($.inArray(grandchild_category_parent_id, shoe_size_list) >= 0) {
           $('.set-page__fourth__size').show();
           $('.set-page__fourth__mark--size').css('display', 'inline-block');
