@@ -74,35 +74,55 @@ $(function() {
     .fail(function() {
       alert('error');
     })
+  })
+  // grandchild_categoryが選択された時, 服サイズあるいは靴サイズを表示する
+  // サイズがない商品は表示しない
+  grandchild_category_select.change(function() {
+    var grandchild_category_id = $(this).val();
+    var url = '/api/categories';
+    $.ajax({
+      url: url,
+      type: 'get',
+      dataType : 'json',
+      data: {grandchild_category_id: grandchild_category_id}
+    })
+    .done(function(grandchild_category_parent_id) {
+      delete_size_input();
+      // 服カテゴリーが選ばれた時
+      if ($.inArray(grandchild_category_parent_id, cloth_size_list) >= 0) {
+        $('.set-page__fourth__size').show();
+        $('.set-page__fourth__mark--size').css('display', 'inline-block');
+        $('#cloth_size_select').show();
+      // 靴カテゴリーが選ばれた時
+      } else if ($.inArray(grandchild_category_parent_id, shoe_size_list) >= 0) {
+        $('.set-page__fourth__size').show();
+        $('.set-page__fourth__mark--size').css('display', 'inline-block');
+        $('#shoe_size_select').show();
+      }
+    })
+    .fail(function() {
+      alert('error');
+    })
+  });
 
-    // grandchild_categoryが選択された時, 服サイズあるいは靴サイズを表示する
-    // サイズがない商品は表示しない
-    grandchild_category_select.change(function() {
-      var grandchild_category_id = $(this).val();
-      var url = '/api/categories';
-      $.ajax({
-        url: url,
-        type: 'get',
-        dataType : 'json',
-        data: {grandchild_category_id: grandchild_category_id}
-      })
-      .done(function(grandchild_category_parent_id) {
-        delete_size_input();
-        // 服カテゴリーが選ばれた時
-        if ($.inArray(grandchild_category_parent_id, cloth_size_list) >= 0) {
-          $('.set-page__fourth__size').show();
-          $('.set-page__fourth__mark--size').css('display', 'inline-block');
-          $('#cloth_size_select').show();
-        // 靴カテゴリーが選ばれた時
-        } else if ($.inArray(grandchild_category_parent_id, shoe_size_list) >= 0) {
-          $('.set-page__fourth__size').show();
-          $('.set-page__fourth__mark--size').css('display', 'inline-block');
-          $('#shoe_size_select').show();
-        }
-      })
-      .fail(function() {
-        alert('error');
-      })
-    });
+  // 配送料の負担を選択した時、配送の方法を表示させる
+  $('#postage_select').change(function() {
+    var postage_select = $(this).val();
+    if (postage_select != "") {
+      $("#seller_cost_shipping_method").hide();
+      $("#buyer_cost_shipping_method").hide();
+    }
+    $("#seller_cost_shipping_method").children('select').val('');
+    $("#buyer_cost_shipping_method").children('select').val('');
+    // ラベルと必須マークを表示する
+    $('.set-page__fifth__method').show();
+    $('.set-page__fifth__mark--method').css('display', 'inline-block');
+    // 出品者負担の配送方法を表示
+    if (postage_select == 'seller_cost') {
+      $("#seller_cost_shipping_method").show();
+    // 購入者負担の配送方法を表示
+    } else if (postage_select == 'buyer_cost') {
+      $("#buyer_cost_shipping_method").show();
+    }
   })
 })

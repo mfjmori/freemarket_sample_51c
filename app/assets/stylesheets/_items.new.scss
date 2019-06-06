@@ -364,6 +364,9 @@
       font-size: 12px;
       vertical-align: top;
       display: inline-block;
+      &--method {
+        display: none;
+      }
     }
     &__pull-down{
       margin-left: 210px;
@@ -391,9 +394,16 @@
         top: 17px;
         color: #888;
         margin-left: 190px;
-      }  
+      }
     }
-    &__address, &__method, &__date{
+    &__method {
+      font-size: 14px;
+      float: left;
+      font-weight: 600;
+      margin-left: 210px;
+      display: none;
+    }
+    &__address, &__date{
       font-size: 14px;
       float: left;
       font-weight: 600;
@@ -428,6 +438,9 @@
         color: #888;
         margin-left: 190px;
       }  
+    }
+    #seller_cost_shipping_method, #buyer_cost_shipping_method {
+      display: none;
     }
   }
   &__sixth{

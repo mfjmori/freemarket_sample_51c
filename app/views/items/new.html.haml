@@ -54,11 +54,11 @@
       .set-page__fourth__mark.set-page__fourth__mark--size
         必須
       .set-page__fourth__pull-down#cloth_size_select
-        = f.select( :size, cloth_size(Item.sizes_i18n).invert)
+        = f.select( :size, set_cloth_size(Item.sizes_i18n).invert)
         %i.fas.fa-chevron-down#select-arrow
 
       .set-page__fourth__pull-down#shoe_size_select
-        = f.select( :size, shoe_size(Item.sizes_i18n).invert)
+        = f.select( :size, set_shoe_size(Item.sizes_i18n).invert)
         %i.fas.fa-chevron-down#select-arrow
 
       = f.label :brand, "ブランド", class: "set-page__fourth__brand"
@@ -83,14 +83,18 @@
       .set-page__fifth__mark
         必須
       .set-page__fifth__pull-down
-        = f.select( :postage, Item.postages_i18n.invert, {prompt: "---"})
+        = f.select( :postage, Item.postages_i18n.invert, {prompt: "---"}, id: "postage_select")
         %i.fas.fa-chevron-down#select-arrow
 
       = f.label :shipping_method, "配送の方法", class: "set-page__fifth__method"
-      .set-page__fifth__mark
+      .set-page__fifth__mark.set-page__fifth__mark--method
         必須
-      .set-page__fifth__pull-down2
+      .set-page__fifth__pull-down2#seller_cost_shipping_method
         = f.select( :shipping_method, Item.shipping_methods_i18n.invert, {prompt: "---"})
+        %i.fas.fa-chevron-down#select-arrow
+
+      .set-page__fifth__pull-down2#buyer_cost_shipping_method
+        = f.select( :shipping_method, buyer_cost_shipping_method(Item.shipping_methods_i18n).invert, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
       = f.label :region, "発送元の地域", class: "set-page__fifth__address"

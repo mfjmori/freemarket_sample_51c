@@ -9,11 +9,15 @@ module ApplicationHelper
         doc.to_html.html_safe
     end
 
-    def cloth_size(sizes)
+    def set_cloth_size(sizes)
       sizes.slice(:unanswered, :XXS, :XS, :S, :M, :L, :XL, :"2XL", :"3XL", :"4XL")
     end
 
-    def shoe_size(sizes)
+    def set_shoe_size(sizes)
       sizes.except(:XXS, :XS, :S, :M, :L, :XL, :"2XL", :"3XL", :"4XL")
+    end
+
+    def buyer_cost_shipping_method(shipping_methods)
+      shipping_methods.slice(:mitei, :yuu, :cat, :pack)
     end
 end
