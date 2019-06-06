@@ -15,8 +15,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require activestorage
-//= require item_new_preview
-//= require item_new_category_select
 //= require_tree .
 
 
