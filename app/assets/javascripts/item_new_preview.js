@@ -35,21 +35,19 @@ $(function(){
   }
 
   $lists = $('.set-page__secound__preview');
+  // ファイルが登録された時
   $('form').on('change', '.set-page__secound__form__text__drop', function(e) {
     var file = e.target.files[0],
         reader = new FileReader(),
         t = this;
     // ファイルがドロップされたインデックスを取得
     var preview_index = $(this).data('preview');
-
     // ドロップされたインデックスのドロップエリアを隠す
     $('.set-page__secound__form').hide();
     $(this).parent().hide();
     $(this).parent().addClass('file-full');
-
     // 全ドロップゾーンを取得
     $all_drop_zone = $('.set-page__secound__form__text');
-
     // ファイルが保存されていないドロップゾーンを１つだけ表示する
     $all_drop_zone.each(function(i, drop_zone) {
       if ($(drop_zone).hasClass('file-full') == false) {
@@ -62,15 +60,9 @@ $(function(){
         return false;
       }
     });
-
-    // 画像ファイル以外の場合は何もしない
-    if(file.type.indexOf("image") < 0){
-      return false;
-    }
     // ファイル読み込みが完了した際のイベント登録
     reader.onload = (function(file) {
       return function(e) {
-
         //liとfigureと削除ボタンを追加
         $('.set-page__secound__form').before(`<div class="set-page__secound__preview__list" id="preview-${preview_index}"><figure class="set-page__secound__preview__list__figure"></figure><div class="set-page__secound__preview__list__delete-button" data-preview="${preview_index}">削除</div></div>`);
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
@@ -85,6 +77,7 @@ $(function(){
     })(file);
     reader.readAsDataURL(file);
   });
+
   // 削除ボタンが押されたとき
   $lists.on('click', '.set-page__secound__preview__list__delete-button' ,function() {
     // 削除ボタンのインデックスデータを取得する
