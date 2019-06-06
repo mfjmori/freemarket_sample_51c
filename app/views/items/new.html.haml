@@ -13,16 +13,14 @@
         必須
       .set-page__secound__text
         最大10枚までアップロードできます
-      
-      %ul.set-page__secound__preview
-
-      .set-page__secound__form
-        = f.fields_for :images do |image|
-          %div{class: "set-page__secound__form__text set-page__secound__form__text--#{image.index}"}
-            ドラッグアンドドロップ
-            %br/
-            またはクリックしてファイルをアップロード
-            = image.file_field :image, class: "set-page__secound__form__text__drop", id: "preview-#{image.index}",  data: {preview: image.index}
+        %ul.set-page__secound__preview
+          .set-page__secound__form
+            = f.fields_for :images do |image|
+              %div{class: "set-page__secound__form__text set-page__secound__form__text--#{image.index}"}
+                ドラッグアンドドロップ
+                %br/
+                またはクリックしてファイルをアップロード
+                = image.file_field :image, class: "set-page__secound__form__text__drop", id: "preview-#{image.index}",  data: {preview: image.index}
 
     .set-page__third
       = f.label :name, "商品名", class: "set-page__third__title"
