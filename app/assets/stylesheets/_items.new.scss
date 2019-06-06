@@ -199,6 +199,12 @@
       font-size: 12px;
       vertical-align: top;
       display: inline-block;
+      &--size {
+        display: none;
+      }
+    }
+    &__size {
+      display: none;
     }
     &__mark--gray {
       background: #ccc;
@@ -241,6 +247,9 @@
         color: #888;
         margin-left: 190px;
       }  
+    }
+    #cloth_size_select, #shoe_size_select {
+      display: none;
     }
     &__box {
       margin-bottom: 40px;

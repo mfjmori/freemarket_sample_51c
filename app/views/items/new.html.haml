@@ -51,11 +51,16 @@
           = f.select( :category_id, "", {prompt: "---"}, {id: "grandchild_category_select", class: "set-page__fourth__box__pull-down__select set-page__fourth__box__pull-down__select--grandchild"})
           %i.fas.fa-chevron-down.select-arrow--grandchild#select-arrow
       = f.label :size, "サイズ", class: "set-page__fourth__size"
-      .set-page__fourth__mark
+      .set-page__fourth__mark.set-page__fourth__mark--size
         必須
-      .set-page__fourth__pull-down
-        = f.select( :size, Item.sizes_i18n.invert , {prompt: "---"})
+      .set-page__fourth__pull-down#cloth_size_select
+        = f.select( :size, cloth_size(Item.sizes_i18n).invert)
         %i.fas.fa-chevron-down#select-arrow
+
+      .set-page__fourth__pull-down#shoe_size_select
+        = f.select( :size, shoe_size(Item.sizes_i18n).invert)
+        %i.fas.fa-chevron-down#select-arrow
+
       = f.label :brand, "ブランド", class: "set-page__fourth__brand"
       .set-page__fourth__mark.set-page__fourth__mark--gray
         任意
