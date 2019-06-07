@@ -9,7 +9,7 @@ ja:
 
   enums:
     user:
-      Prefecture:
+      prefecture:
         unanswered: ーーー
         hokkaido: 北海道
         aomori: 青森県
