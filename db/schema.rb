@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_06_02_112003) do
-ActiveRecord::Schema.define(version: 2019_06_05_063201) do
-ActiveRecord::Schema.define(version: 2019_06_03_103612) do
-
+ActiveRecord::Schema.define(version: 2019_06_06_122636) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "post_code", null: false
@@ -25,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_103612) do
     t.string "building_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "buy_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -125,6 +122,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_103612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.date "birthday"
   end
 
   create_table "user_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -146,6 +144,9 @@ ActiveRecord::Schema.define(version: 2019_06_03_103612) do
     t.string "nickname", null: false
     t.integer "point", default: 0, null: false
     t.integer "sum_sales", default: 0, null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "payjp_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -161,4 +162,3 @@ ActiveRecord::Schema.define(version: 2019_06_03_103612) do
   add_foreign_key "messages", "users"
   add_foreign_key "user_reviews", "users"
 end
-

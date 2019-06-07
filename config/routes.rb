@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    }
   resources :users, only: [:show, :edit, :new] do
     resource :profiles, only: [:show, :edit]
-    resource :addresses, only: [:edit]
+    resource :addresses, only: [:new,:edit,:create]
     resource :cards, only: [:show, :new, :create]
     collection do
       get 'address'
