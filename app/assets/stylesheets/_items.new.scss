@@ -540,17 +540,17 @@
       }
     }
 
-    &__fee{
+    &__comission{
     padding-top: 20px;
     padding-bottom: 20px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     margin-left: 190px;
     font-size: 14px;
+    display: flex;
 
       &__content{
-        margin-left: 300px;
-        display: inline-block;
+        margin-left: auto;
       }
     }
 
@@ -564,10 +564,10 @@
       margin-left: 190px;
       font-size: 16px;
       font-weight: bold;
+      display: flex;
 
       &__content{
-        margin-left: 350px;
-        display: inline-block;
+        margin-left: auto;
       }
     }
   }
