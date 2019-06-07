@@ -91,14 +91,14 @@
       &__text{
         width: 620px;
         height: 152px;
-        padding-top: 55px;
+        padding-top: 50px;
         text-align: center;
         font-size: 14px;
         color: #333;
         box-sizing: border-box;
         position: relative;
         display: none;
-        &--0 {
+        &:first-child {
           display: block;
         }
         &__drop{
@@ -529,11 +529,10 @@
       &__box{
         margin-left:150px;
         &__input{
-          margin-top: 2px;
+          margin: 2px 0 40px 0;
           border-radius:6px;
           text-indent: 1em;
           height:50px;
-          margin-bottom:40px;
           display: inline;
           text-align: right;
           border: 1px solid #ccc;
