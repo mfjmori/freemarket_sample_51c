@@ -1,10 +1,12 @@
 $(function() {
   var child_category_select = $('#child_category_select');
   var grandchild_category_select = $('#grandchild_category_select');
+  // 服サイズを持つ子カテゴリー
   var cloth_size_list = [14, 15, 16, 17, 18, 20, 21, 29, 30, 31, 33, 34, 35, 38, 43, 44, 45, 47, 48, 49, 50, 51, 52]
+  // 靴サイズを持つ子カテゴリー
   var shoe_size_list =[19, 36, 53]
 
-  // サイズのselectと選択内容を消す
+  // サイズのselectを消して選択状況をリセット
   function delete_size_input() {
     $('.set-page__fourth__size').hide();
     $('.set-page__fourth__mark--size').hide();
@@ -29,7 +31,7 @@ $(function() {
       // child_categoryのselectをからにする
       child_category_select.empty();
       child_category_select.append(`<option value>---</option>`);
-      // grandchild_categoryのselectをからにする
+      // grandchild_categoryのselectをからにして隠す
       grandchild_category_select.empty();
       grandchild_category_select.append(`<option value>---</option>`);
       grandchild_category_select.hide();
@@ -108,10 +110,12 @@ $(function() {
   // 配送料の負担を選択した時、配送の方法を表示させる
   $('#postage_select').change(function() {
     var postage_select = $(this).val();
+    // 配送料の負担が選択された時、配送方法を隠す
     if (postage_select != "") {
       $("#seller_cost_shipping_method").hide();
       $("#buyer_cost_shipping_method").hide();
     }
+    // 配送方法の選択状況をリセット
     $("#seller_cost_shipping_method").children('select').val('');
     $("#buyer_cost_shipping_method").children('select').val('');
     // ラベルと必須マークを表示する
