@@ -54,11 +54,11 @@
       .set-page__fourth__mark.set-page__fourth__mark--size
         必須
       .set-page__fourth__pull-down#cloth_size_select
-        = f.select( :size, set_cloth_size(Item.sizes_i18n).invert)
+        = f.select( :size_cloth, Item.set_coloth_size)
         %i.fas.fa-chevron-down#select-arrow
 
       .set-page__fourth__pull-down#shoe_size_select
-        = f.select( :size, set_shoe_size(Item.sizes_i18n).invert)
+        = f.select( :size_shoe, Item.set_shoe_size)
         %i.fas.fa-chevron-down#select-arrow
 
       = f.label :brand, "ブランド", class: "set-page__fourth__brand"
@@ -90,11 +90,11 @@
       .set-page__fifth__mark.set-page__fifth__mark--method
         必須
       .set-page__fifth__pull-down2#seller_cost_shipping_method
-        = f.select( :shipping_method, Item.shipping_methods_i18n.invert, {prompt: "---"})
+        = f.select( :shipping_method_seller_cost, Item.shipping_methods_i18n.invert, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
       .set-page__fifth__pull-down2#buyer_cost_shipping_method
-        = f.select( :shipping_method, buyer_cost_shipping_method(Item.shipping_methods_i18n).invert, {prompt: "---"})
+        = f.select( :shipping_method_buyer_cost, Item.set_buyer_cost_shipping_method, {prompt: "---"})
         %i.fas.fa-chevron-down#select-arrow
 
       = f.label :region, "発送元の地域", class: "set-page__fifth__address"
@@ -169,4 +169,3 @@
       .buy-page__mypage-footer__date
         %p
           © 2019 Mercari
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
