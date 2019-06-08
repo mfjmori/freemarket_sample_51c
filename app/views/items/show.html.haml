@@ -1,9 +1,9 @@
 .product__details
   %h1.product__details-name
-    トップス ブラウン BONCILIE
+    = @items.name
   .product__details__item
     .product__details__item__image
-      .product__details__item__image-overflow
+      .product__d.etails__item__image-overflow
         .product__details__item__image-overflow-img
           = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
       .product__details__item__image-show
@@ -21,7 +21,7 @@
         %tr
           %th 出品者
           %td
-            = link_to "name" 
+            =link_to "#{@users.nickname}","user_profiles"
             .like
               .like-good
                 %i.fas.fa-laugh
@@ -31,71 +31,62 @@
                 3
               .like-bad
                 %i.fas.fa-frown
-                0
+                1000
         %tr
           %th カテゴリー
           %td.font
-            = link_to "レディース"
+            = link_to @theparent.name
             %br
             = link_to do
               %i.fas.fa-chevron-right
-              トップス
+              = @child.name
             %br
             = link_to do
               %i.fas.fa-chevron-right
-              Tシャツ/カットソー(半袖/袖なし)
+              = @groundchild.name
         %tr
-          %th ブランド
+          %th
+            ブルゾン
           %td
+            = @items.brand
         %tr
           %th 商品のサイズ
-          %td 
-            M
+          %td
+            = @items.size
         %tr
           %th 商品の状態
           %td
-            目立った傷や汚れなし
+            = @items.condition
         %tr
           %th 発送料の負担
           %td
-            送料込み(出品者負担)
+            = @items.postage
         %tr
           %th 発送の方法
           %td
-            ゆうゆうメルカリ便
+            = @items.shipping_method
         %tr
           %th 発送元地域
           %td
-            = link_to "長崎県" 
+            = @items.region
         %tr
           %th 発送日の目安
           %td
-            1~2日で発送
-  .product__details__price
-    .product__details__price-en
-      ¥ 700
-    .product__details__price-tax
-      (税込)
-    .product__details__price-cost
-      送料込み
+            = @items.shipping_date
+    .product__details__price
+      .product__details__price__box
+        .product__details__price-en
+          = "¥#{@items.price}"
+        .product__details__price-tax
+          (税込)
+        .product__details__price-cost
+          送料込み
   .product__details__btn
-    %button 購入画面に進む
+    %button
+      =link_to '購入画面に進む',"new_item_buy_order"
   .product__details__text
     %p.product__details__text-inner
-      Tシャツをご覧いただきありがとうございます。
-      こちらはTシャツです。
-
-      ご不明点があればコメントよろしくお願いいたします。
-
-      BONCILIE
-      トップス 伸縮性があります。殆ど使用していないので、
-      状態は良好です。首と腕回りのビーズが上品です。
-
-      サイズ＞M
-
-      自宅保管なので神経質な方はご遠慮下さい
-
-      \#BONCILIE #トップス
+      = @items.description
   .product__details__bottom
     .product__details__bottom-left
       %button
