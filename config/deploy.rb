@@ -1,5 +1,6 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
+set :branch, ENV['BRANCH'] || "master"
 set :application, "freemarket_sample_51c"
 set :repo_url, "git@github.com:mfjmori/freemarket_sample_51c.git"
 
