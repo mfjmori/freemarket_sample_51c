@@ -28,10 +28,10 @@
           .l__devise__content
             = render "devise/shared/error_messages", resource: resource
             .field
-              = f.label :ニックネーム, class:"form-group-label"
+              = f.label :nickname,"ニックネーム", class:"form-group-label"
               %span.form-require 必須
               %br/
-              = f.email_field :email, autofocus: true, autocomplete: "nickname" ,placeholder:"例）メルカリ太郎",class: "input-default"
+              = f.text_field :nickname, autofocus: true, autocomplete: "nickname" ,placeholder:"例）メルカリ太郎",class: "input-default"
             .field
               = f.label :email,"メールアドレス", class:"form-group-label"
               %span.form-require 必須
@@ -50,32 +50,34 @@
             .field
               %h3.form-group-label 本人確認
               %p.l__devise__l-single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-            .field
-              = f.label :email,"姓（全角）", class:"form-group-label"
-              %span.form-require 必須
-              %br/
-              = f.email_field :email, autofocus: true, autocomplete: "nickname" ,placeholder:"例）山田",class: "input-default"
-            .field
-              = f.label :email ,"名（全角）", class:"form-group-label"
-              %span.form-require 必須
-              %br/
-              = f.email_field :email, autofocus: true, autocomplete: "nickname" ,placeholder:"例）彩",class: "input-default"
-            .field
-              = f.label :email ,"姓カナ（全角）", class:"form-group-label"
-              %span.form-require 必須
-              %br/
-              = f.email_field :email, autofocus: true, autocomplete: "nickname" ,placeholder:"例）ヤマダ",class: "input-default"
-            .field
-              = f.label :email ,"名カナ（全角）", class:"form-group-label"
-              %span.form-require 必須
-              %br/
-              = f.email_field :email, autofocus: true, autocomplete: "nickname" ,placeholder:"例）アヤ",class: "input-default"
-            .field
-              = f.label :email,"生年月日", class:"form-group-label"
-              %span.form-require 必須
-              %br/
-              .birthday-select-wrap
-                = raw sprintf(f.date_select(:password, use_month_numbers: true,start_year: 1900,end_year:(Time.now.year),include_blank: true,date_separator: '%s'), '年', '月') + '日'
+              .l__devise__link__white
+              = f.fields_for :profile, Profile.create do |pf|
+                .field
+                  = pf.label :first_name,"姓（全角）", class:"form-group-label"
+                  %span.form-require 必須
+                  %br/
+                  = pf.text_field :first_name, autofocus: true, autocomplete: "nickname" ,placeholder:"例）山田",class: "input-default"
+                .field
+                  = pf.label :last_name ,"名（全角）", class:"form-group-label"
+                  %span.form-require 必須
+                  %br/
+                  = pf.text_field :last_name, autofocus: true, autocomplete: "nickname" ,placeholder:"例）彩",class: "input-default"
+                .field
+                  = pf.label :first_name_kana ,"姓カナ（全角）", class:"form-group-label"
+                  %span.form-require 必須
+                  %br/
+                  = pf.text_field :first_name_kana, autofocus: true, autocomplete: "nickname" ,placeholder:"例）ヤマダ",class: "input-default"
+                .field
+                  = pf.label :last_name_kana ,"名カナ（全角）", class:"form-group-label"
+                  %span.form-require 必須
+                  %br/
+                  = pf.text_field :last_name_kana, autofocus: true, autocomplete: "nickname" ,placeholder:"例）アヤ",class: "input-default"
+                .field
+                  = pf.label :birthday,"生年月日", class:"form-group-label"
+                  %span.form-require 必須
+                  %br/
+                  .birthday-select-wrap
+                    = raw sprintf(pf.date_select(:birthday, use_month_numbers: true,start_year: 1900,end_year:(Time.now.year),include_blank: true,date_separator: '%s'), '年', '月') + '日'
             %p.l__devise__form-info-text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
             .field
               = image_tag 'https://i.gyazo.com/b0d29a0c1794b33b491699e3b36c2c44.png'
