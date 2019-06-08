@@ -24,7 +24,7 @@
     %main.devise__main
       %section.l__devise__container
         %h2.l__devise__head 会員情報入力
-        = form_with model: @user do |f|
+        = form_for @user,:url => {:action => :telephone} do |f|
           .l__devise__content
             .field
               = f.label :電話番号, class:"form-group-label"

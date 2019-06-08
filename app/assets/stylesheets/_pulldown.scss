@@ -3,6 +3,7 @@
   height: 400px;
   width: 224px;
   background: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
   
   &-box {
     a {
@@ -13,6 +14,7 @@
   }
   li {
     text-indent: 1em;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
     h3 {
       font-weight: 400;
       font-size: 14px;
@@ -23,6 +25,7 @@
       
       a {
         text-decoration: none;
+        color: #333;
       }
     a:link { 
       color: black;
@@ -46,6 +49,7 @@
       height: 615px;
       
       li {
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
         padding-top:0;
         padding-bottom:10px;
         height: 24px;
@@ -55,7 +59,7 @@
           color: black; 
           background-color: #eee;
         }
-        
+
         ul {
           top: 0px;
         }

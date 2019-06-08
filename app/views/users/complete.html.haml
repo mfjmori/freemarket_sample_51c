@@ -24,12 +24,12 @@
     %main.devise__main
       %section.l__devise__container
         %h2.l__devise__head 会員登録完了
-        = form_with model: @user do |f|
+        = form_for @user,:url => {:action => :complete} do |f|
           .l__devise__content.finish_content
             %p.l-single-text
               ありがとうございます。
               %br>/
               会員登録が完了しました。
               .l__devise__link__white
-                = f.submit '完了' ,class: 'btn-default btn-red '
+                = link_to '完了',root_path ,class: 'btn-default btn-red '
   = render  "/devise/shared/footer"

@@ -1,10 +1,13 @@
+.breadcrumbs.solideee
+  .breadcrumbs__style
+    - breadcrumb :logout
+    = breadcrumbs separator: " #{content_tag(:i, '', class:'fas fa-chevron-right')} "
 %main
   .container
     .content
       %form.form
         .content__logout
           .content__logout-btn
-            %button ログアウト
-        
+            = link_to 'ログアウト' ,destroy_user_session_path, method: :delete,class:"content__logout-btn"
     .side
       = render "layouts/side"

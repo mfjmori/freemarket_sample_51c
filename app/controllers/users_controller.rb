@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
-    layout 'user_application'
+    layout 'user_application', except: :show
     def index
     end
     def show
+        @user = User.find(params[:id])
     end
     def new
+        @user=User.new
     end
     def create
+        user = User.new(user_params)
+        user.save
     end
     def edit
     end
@@ -14,12 +18,7 @@ class UsersController < ApplicationController
     end
     def destroy
     end
-    def show
-    end
-    def cardadd
-    end
-    def cardappend
-    end
+
     def logout
     end
     def address
