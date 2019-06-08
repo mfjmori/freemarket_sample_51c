@@ -27,16 +27,4 @@ class Item < ApplicationRecord
   validates :shipping_date, presence: true
   validates :price, presence: true, numericality: {only_integer: true, greater_than: 299, less_than: 10000000}
   validates :images, presence: true
-
-  def self.set_coloth_size
-    self.sizes_i18n.slice(:unanswered, :XXS, :XS, :S, :M, :L, :XL, :"2XL", :"3XL", :"4XL").invert
-  end
-
-  def self.set_shoe_size
-    self.sizes_i18n.except(:XXS, :XS, :S, :M, :L, :XL, :"2XL", :"3XL", :"4XL").invert
-  end
-
-  def self.set_buyer_cost_shipping_method
-    self.shipping_methods_i18n.slice(:mitei, :yuu, :cat, :pack).invert
-  end
 end
