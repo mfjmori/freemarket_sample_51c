@@ -3,9 +3,6 @@ class ItemsController < ApplicationController
   before_action :move_to_sign_in, only: [:new]
   layout 'user_application', only: :new
 
-  def index
-  end
-
   def new
     @item = Item.new
     10.times do 
@@ -22,14 +19,6 @@ class ItemsController < ApplicationController
       @parent_categories = Category.where(parent_id: 0)
       redirect_to action: 'new'
     end
-  end
-  def edit
-  end
-  def update
-  end
-  def destroy
-  end
-  def show
   end
 
   private
