@@ -1,4 +1,7 @@
 $(function(){
+  // $(document).ready(function(){
+  //   $('form')[0].reset();
+  // });
   // ファイルが登録されているドロップゾーンの数を取得して、次に表示するドロップゾーンのwidthの値を返す
   function get_drop_zone_width() {
     // 全ドロップゾーンを取得
@@ -64,14 +67,22 @@ $(function(){
     reader.onload = (function(file) {
       return function(e) {
         //liとfigureと削除ボタンを追加
-        $('.set-page__secound__form').before(`<div class="set-page__secound__preview__list" id="preview-img-${preview_index}"><figure class="set-page__secound__preview__list__figure"></figure><div class="set-page__secound__preview__list__delete-button" data-preview="${preview_index}">削除</div></div>`);
+        $('.set-page__secound__form').before(`
+          <div class="set-page__secound__preview__list" id="preview-img-${preview_index}">
+            <figure class="set-page__secound__preview__list__figure">
+            </figure>
+            <div class="set-page__secound__preview__list__delete-button" data-preview="${preview_index}">
+              削除
+            </div>
+          </div>
+        `);
         // .figureの中に画像を表示するimageタグを追加
         $preview = $(".set-page__secound__preview__list" + `#preview-img-${preview_index}`).children('figure');
         $preview.append($('<img>').attr({
-                  src: e.target.result,
-                  width: "150px",
-                  class: "set-page__secound__preview__list__figure__image",
-                  title: file.name
+          src: e.target.result,
+          width: "150px",
+          class: "set-page__secound__preview__list__figure__image",
+          title: file.name
         }));
       };
     })(file);

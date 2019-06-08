@@ -213,6 +213,9 @@
     &__pull-down{
       margin-left: 210px;
       position: relative;
+      &--size {
+        display: none;
+      }
       select{
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -247,9 +250,6 @@
         color: #888;
         margin-left: 190px;
       }  
-    }
-    #cloth_size_select, #shoe_size_select {
-      display: none;
     }
     &__box {
       margin-bottom: 40px;
@@ -413,6 +413,9 @@
     &__pull-down2{
       margin-left: 210px;
       position: relative;
+      &--shipping-method {
+        display: none;
+      }
 
       select{
         -webkit-appearance: none;
@@ -438,9 +441,6 @@
         color: #888;
         margin-left: 190px;
       }  
-    }
-    #seller_cost_shipping_method, #buyer_cost_shipping_method {
-      display: none;
     }
   }
   &__sixth{
