@@ -17,20 +17,24 @@
               %i.fas.fa-list-ul.header__box__bottom__nav-futoji__icon
               カテゴリーから探す
           %ul.nav
-            %li
-              %h3.person
-                = link_to "メンズ"
-              %ul
-                %li.liperson
-                  %h3.btn-person
-                    = link_to "メンズ"
-                  %ul
-                    %li
-                      %h3.btn-child
-                        = link_to "メンズ"
+            - @all_categories.each do |parent|
+              %li
+                %h3
+                  = link_to parent.name
+                  %ul.btn-person
+                    - parent.children.first(14).each do |child|
+                      %li.liperson
+                        %h3
+                          = link_to child.name
+                          %ul.btn-child
+                            - child.children.first(14).each do |grandchild|
+                              %li
+                                %h3
+                                  = link_to grandchild.name
             %li
               %h3
-                = link_to "レディース"
+                = link_to "カテゴリ一覧"
+
         .header__box__bottom__nav-futoji
           .header__box__bottom__nav-futoji-box
             %a{href: "", style: "text-decoration:none"}
@@ -39,11 +43,27 @@
           %ul.nav
             %li
               %h3
-                = link_to "メンズ"
+                = link_to "シャネル"
               
             %li
               %h3
-                = link_to "レディース"
+                = link_to "ナイキ"
+
+            %li
+              %h3
+                = link_to "ルイ ヴィトン"
+              
+            %li
+              %h3
+                = link_to "シュプリーム"
+
+            %li
+              %h3
+                = link_to "アディダス"
+              
+            %li
+              %h3
+                = link_to "ブランド一覧"
       - if user_signed_in?
         .header__box__bottom__hosoji
           .header__box__bottom__hosoji__bottan
@@ -67,3 +87,4 @@
             = link_to "新規会員登録",new_user_registration_path, class: 'get', style: "text-decoration:none"
           .header__box__bottom__button__signin
             = link_to "ログイン",new_user_session_path , class: 'get', style: "text-decoration:none"
+            

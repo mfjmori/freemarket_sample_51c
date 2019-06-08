@@ -27,3 +27,4 @@ class Item < ApplicationRecord
     has_one :buy_order
     accepts_nested_attributes_for :images
   end
+
