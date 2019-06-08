@@ -23,6 +23,7 @@
         line-height: 0;
         text-align: center;
         &-img {
+          text-align: center;
           width: 100%;
           img {
             width: auto;
@@ -32,7 +33,7 @@
       }
       &-show {
         line-height: 0;
-        
+        text-align: center;
         &-image {
           display: inline;
           opacity: 0.4;
@@ -112,8 +113,11 @@
   &__price {
     margin: 24px 0 0;
     text-align: center;
+    &__box{
+      margin: 24px 0 0;
+      text-align: center;
+    }
     &-en {
-      
       font-size: 50px;
       margin: 16px 0 0 16px;
       display: inline-block;
@@ -138,6 +142,9 @@
       color: #fff;
       border: 1px solid #ea352f;
       cursor: pointer;
+      a{
+        color: #fff
+      }
     }
   }
   &__text {
@@ -145,7 +152,9 @@
     line-height: 1.5;
     font-size: 18px;
     &-inner {
+      width: 620px;
       white-space: pre-wrap;
+      word-wrap: break-word;
     }
   }
   &__bottom {
