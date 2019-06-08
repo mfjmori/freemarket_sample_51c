@@ -5,14 +5,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   layout 'user_application'
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+def new
+  super
+  @user = User.new
+  @user.build_profile
+end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+def create
+  super
+  user=User.new(configure_sign_up_params)
+  user.save
+end
 
   # GET /resource/edit
   # def edit
@@ -51,17 +55,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    new_user_addresses_path(current_user.id)
+  end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    new_user_addresses_path(current_user.id)
+  end
   private
 
-      def sign_up_params
-        params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
-      end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:次に進む, keys: [:nickname,profile_attributes: [:first_name, :last_name,:first_name_kana,:last_name_kana,:birthday] ])
+  end
 end
