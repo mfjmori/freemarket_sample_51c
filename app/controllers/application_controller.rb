@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
+  before_action :get_category
+
+  def get_category
+
+    @all_categories = Category.all.limit(14)
+ 
+  end
 
   private
   
