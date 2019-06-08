@@ -22,16 +22,18 @@
                 %h3
                   = link_to parent.name
                   %ul.btn-person
-                    - parent.children.each do |child|
+                    - parent.children.first(14).each do |child|
                       %li.liperson
                         %h3
                           = link_to child.name
                           %ul.btn-child
-                            - child.children.each do |grandchild|
+                            - child.children.first(14).each do |grandchild|
                               %li
                                 %h3
                                   = link_to grandchild.name
-
+            %li
+              %h3
+                = link_to "カテゴリ一覧"
 
         .header__box__bottom__nav-futoji
           .header__box__bottom__nav-futoji-box

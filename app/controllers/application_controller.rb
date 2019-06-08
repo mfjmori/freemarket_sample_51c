@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def get_category
 
-    @all_categories = Category.all.limit(14)
+    @all_categories = Category.all.limit(13)
  
   end
 
