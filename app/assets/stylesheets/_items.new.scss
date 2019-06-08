@@ -38,32 +38,78 @@
       line-height: 1.5;
       font-size: 13px;
     }
+    #flex-box {
+      display: flex;
+      flex-wrap: wrap;
+      height: 162px;
+    }
+    &__preview {
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      &__list {
+        width: 114px;
+        height: 152px;
+        border: 1px solid #eee;
+        margin: 10px 0 0 10px;
+        box-sizing: border-box;
+        &:nth-of-type(5n + 1) {
+          margin: 10px 0 0 0;
+        }
+        &__figure {
+          height: 105px;
+          margin: 0;
+          &__image {
+            height: 105px;
+            width: 114px;
+          }
+        }
+        &__delete-button {
+          width: 114px;
+          height: 45px;
+          line-height: 44px;
+          text-align: center;
+          color: #0099e8;
+          background-color: #f5f5f5;
+          box-sizing: border-box;
+          &:hover {
+            cursor: pointer;
+            opacity: 0.7;
+          }
+        }
+      }
+    }
     &__form{
       position: relative;
       width: 620px;
       background: #f5f5f5;
       border: 1px dashed #ccc;
-      min-height: 162px;
-      margin-top: 15px;
-      
-      &__drop{
-        width: 620px;
-        height: 162px;
-        font-size: 0;
-        text-align: center;
-        touch-action: manipulation;
-        color: black;
-        display: none;
-      }
+      height: 152px;
+      margin-top: 10px;
+      box-sizing: border-box;
 
       &__text{
         width: 620px;
-        height: 162px;
-        padding-top: 65px;
+        height: 152px;
+        padding-top: 50px;
         text-align: center;
         font-size: 14px;
         color: #333;
         box-sizing: border-box;
+        position: relative;
+        display: none;
+        &:first-child {
+          display: block;
+        }
+        &__drop{
+          width: 620px;
+          height: 152px;
+          position: absolute;
+          top:0;
+          right:0;
+          opacity: 0;
+          box-sizing: border-box;
+        }
       }
     }
   }
@@ -153,6 +199,12 @@
       font-size: 12px;
       vertical-align: top;
       display: inline-block;
+      &--size {
+        display: none;
+      }
+    }
+    &__size {
+      display: none;
     }
     &__mark--gray {
       background: #ccc;
@@ -161,7 +213,9 @@
     &__pull-down{
       margin-left: 210px;
       position: relative;
-      
+      &--size {
+        display: none;
+      }
       select{
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -202,7 +256,7 @@
       &__pull-down {
         margin-left: 210px;
         position: relative;
-        select {
+        &__select {
           -webkit-appearance: none;
           -moz-appearance: none;
           margin: 8px 0;
@@ -215,7 +269,11 @@
           font-size: 16px;
           line-height: 1.5;
           color:gray;
+          &--child, &--grandchild {
+            display: none;
+          }
         }
+
         &__input {
           width: 400px;
           margin-top: 2px;
@@ -233,7 +291,10 @@
           top: 17px;
           color: #888;
           margin-left: 190px;
-        }  
+        }
+        .select-arrow--child, .select-arrow--grandchild {
+          display: none;
+        }
       }
     }
     &__condition, &__size, &__brand{
@@ -303,6 +364,9 @@
       font-size: 12px;
       vertical-align: top;
       display: inline-block;
+      &--method {
+        display: none;
+      }
     }
     &__pull-down{
       margin-left: 210px;
@@ -330,9 +394,16 @@
         top: 17px;
         color: #888;
         margin-left: 190px;
-      }  
+      }
     }
-    &__address, &__method, &__date{
+    &__method {
+      font-size: 14px;
+      float: left;
+      font-weight: 600;
+      margin-left: 210px;
+      display: none;
+    }
+    &__address, &__date{
       font-size: 14px;
       float: left;
       font-weight: 600;
@@ -342,6 +413,9 @@
     &__pull-down2{
       margin-left: 210px;
       position: relative;
+      &--shipping-method {
+        display: none;
+      }
 
       select{
         -webkit-appearance: none;
@@ -455,11 +529,10 @@
       &__box{
         margin-left:150px;
         &__input{
-          margin-top: 2px;
+          margin: 2px 0 40px 0;
           border-radius:6px;
           text-indent: 1em;
           height:50px;
-          margin-bottom:40px;
           display: inline;
           text-align: right;
           border: 1px solid #ccc;
@@ -467,17 +540,17 @@
       }
     }
 
-    &__fee{
+    &__comission{
     padding-top: 20px;
     padding-bottom: 20px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     margin-left: 190px;
     font-size: 14px;
+    display: flex;
 
       &__content{
-        margin-left: 300px;
-        display: inline-block;
+        margin-left: auto;
       }
     }
 
@@ -491,10 +564,10 @@
       margin-left: 190px;
       font-size: 16px;
       font-weight: bold;
+      display: flex;
 
       &__content{
-        margin-left: 350px;
-        display: inline-block;
+        margin-left: auto;
       }
     }
   }
