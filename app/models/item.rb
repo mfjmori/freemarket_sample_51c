@@ -16,15 +16,17 @@ class Item < ApplicationRecord
   has_one :buy_order
   accepts_nested_attributes_for :images
 
-  validates :name, presence: true
-  validates :description, presence: true
-  validates :category_id, presence: true
-  validates :condition, presence: true
-  validates :saler, presence: true
-  validates :postage, presence: true
-  validates :shipping_method, presence: true
-  validates :region, presence: true
-  validates :shipping_date, presence: true
+  with_options presence: true do
+    validates :name
+    validates :description
+    validates :category_id
+    validates :condition
+    validates :saler
+    validates :postage
+    validates :shipping_method
+    validates :region
+    validates :shipping_date
+    validates :images
+  end
   validates :price, presence: true, numericality: {only_integer: true, greater_than: 299, less_than: 10000000}
-  validates :images, presence: true
 end
