@@ -5,13 +5,13 @@
   margin-left: auto;
   margin-top: 50px;
 
-  .category-main__lineup{
+  &__lineup{
     font-size: 22px;
     line-height: 1.4;
     margin-bottom: 17px;
   }
 
-  .category-buttons{
+  &__buttons{
     margin-left: 8px;
     margin-bottom: 30px;
 
@@ -55,7 +55,7 @@
     }
   }
 
-  .category__ladies{
+  &__ladies{
     a:link { 
       color: #0099e8; 
       text-decoration:none;
@@ -71,12 +71,12 @@
       text-decoration: underline;
     }
 
-    .category__ladies__main{
+    &__main{
       background-color: #fff;
       margin-bottom: 50px;
       border-radius: 5px;
 
-      .category__ladies__main__title{
+      &__title{
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
         padding: 7px 30px 0 30px;
@@ -87,32 +87,32 @@
         display:block;
       }
 
-      .category__ladies__main__all{
+      &__all{
         margin-left: 35px;
         margin-top: 30px;
         display:inline-block;
       }
 
-      .category__ladies__main__title__lineup{     
+      &__lineup{     
           line-height: 40px;
           margin-top: 20px;
           padding-left: 35px;
           margin-right: 40px;
           display:block;
-        .category__ladies__main__title__lineup__title{
+        &__title{
           display:block;
           font-weight: bold;
           font-size: 14px;
           line-height: 20px;
         }
-        .category__ladies__main__title__all{
+        &__all{
           margin-left:18px;
           display:inline-block;
           width: 290px;
           font-size: 16px;
           line-height: 20px;
         }
-        .category__ladies__main__title__each{
+        &__each{
           margin-left:18px;
           display:inline-block;
           width: 290px;
