@@ -15,9 +15,9 @@ class BuyOrdersController < ApplicationController
   def pay
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-      :amount => @item.price, 
-      :customer => @card.customer_id,
-      :currency => 'jpy',
+      amount: @item.price, 
+      customer: @card.customer_id,
+      currency: 'jpy',
     )
   end
 
