@@ -13,33 +13,33 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end
-
-set :linked_files, 'config/master.key'
-
 # after 'deploy:publishing', 'deploy:restart'
 # namespace :deploy do
 #   task :restart do
 #     invoke 'unicorn:restart'
 #   end
-
-#   desc 'upload master.key'
-#   task :upload do
-#     on roles(:app) do |host|
-#       if test "[ ! -d #{current_path}/config ]"
-#         execute "mkdir -p #{current_path}/config"
-#       end
-#       upload!('config/master.key', "#{current_path}/config/master.key")
-#     end
-#   end
-#   before :starting, 'deploy:upload'
-#   after :finishing, 'deploy:cleanup'
 # end
+
+set :linked_files, %w{ config/master.key }
+
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{current_path}/config ]"
+        execute "mkdir -p #{current_path}/config"
+      end
+      upload!('config/master.key', "#{current_path}/config/master.key")
+    end
+  end
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
+end
 
 set :default_env, {
   BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
