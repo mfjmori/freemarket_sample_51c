@@ -31,10 +31,10 @@ namespace :deploy do
   desc 'upload master.key'
   task :upload do
     on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
+      if test "[ ! -d #{curent_path}/config ]"
+        execute "mkdir -p #{current_path}/config"
       end
-      upload!('config/master.key', "#{shared_path}/config/master.key")
+      upload!('config/master.key', "#{current_path}/config/master.key")
     end
   end
   before :starting, 'deploy:upload'
