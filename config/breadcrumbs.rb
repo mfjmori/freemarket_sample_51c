@@ -28,7 +28,8 @@ crumb :logout do
 end
 
 crumb :user_show do
-  link current_user.nickname
+  users = User.find_by(params[:id])
+  link users.nickname
   parent :root
 end
 
