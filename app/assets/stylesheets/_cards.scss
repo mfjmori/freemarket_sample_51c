@@ -68,7 +68,6 @@ html{
             }
           }
           &-b {
-            border-bottom: 1px solid #eee;
             &-btn {
               padding: 24px 0;
               max-width: 320px;
@@ -79,20 +78,24 @@ html{
                 a {
                   display: inline-block;
                   vertical-align: middle;
+                  color: #fff;
                 }
                 line-height: 48px;
                 width: 100%;
                 font-size: 14px;
-                color: #fff;
                 cursor: pointer;
                 background: #ea352d;
                 border: 1px solid #ea352d;
               }
+              button:hover {
+                opacity: 0.7;
+              }
             }
           }
           &-link {
+            border-top: 1px solid #eee;
             text-align: right;
-            margin: 40px 0 0 0;
+            padding: 40px 0 0 0;
           a {
             text-decoration: none;
             font-size: 14px;
@@ -233,6 +236,9 @@ html{
             &-btn {
               max-width: 320px;
               margin: 40px 0 0 0;
+              button:hover {
+                opacity: 0.7;
+              }
               button {
                 width: 100%;
                 padding: 0;

@@ -60,12 +60,13 @@
       }
 
       &__image{
-        width: 100px;
-        height: 148px;
-        background-color: yellow;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 10px;
+        img {
+          height: 148px;
+          width: auto;
+        }
       }
 
       &__name{
@@ -134,28 +135,22 @@
 
       &__button{
         margin: 16px 0 0;
-        border: 1px solid #888;
-        background: #888;
-        color: #fff;
         display: inline-block;
-        width: 320px;
-        line-height: 48px;
-        font-size: 14px;
-
-        a:link { 
+        button {
+          width: 320px;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid #888;
+          background: #888;
           color: #fff;
-          text-decoration: none;
         }
-        a:visited { 
-          color: #fff;
-          text-decoration: none;
+        .ok {
+          border: 1px solid #ea352d;
+          background: #ea352d;
+          cursor: pointer;
         }
-        a:hover { 
-          color: #fff;
-          text-decoration: none;
-        }
-        a:active { 
-          color: none; 
+        .ok:hover {
+          opacity: 0.7;
         }
       }
 
@@ -250,14 +245,22 @@
       }
 
       &__input{
-      left:0;
-      display: block;
-      width: 320px;
-      text-align: left;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 14px;
-      margin-top: 20px;
+        left:0;
+        display: block;
+        width: 320px;
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 14px;
+        margin-top: 20px;
+        figure {
+          margin: 0;
+          float: left;
+          img {
+            width: 49px;
+            height: 15px;
+          }
+        }
       }
 
       &__change{
