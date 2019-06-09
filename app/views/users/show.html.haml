@@ -6,7 +6,7 @@
   .container
     .content-mypage
       .maypage-user-icon
-        = link_to '1/profiles', class: 'user-detail-link' do
+        = link_to '/users/:user_id/profiles', class: 'user-detail-link' do
           %figure.user-detail-link__image
             = image_tag "//static.mercdn.net/thumb/members/710038589.jpg?1552921963"
           %h2.user-detail-link__name
