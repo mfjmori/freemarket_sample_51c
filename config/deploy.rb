@@ -20,7 +20,7 @@ namespace :deploy do
   end
 end
 
-# set :linked_files, %w{ config/master.key }
+set :linked_files, 'config/master.key'
 
 # after 'deploy:publishing', 'deploy:restart'
 # namespace :deploy do
