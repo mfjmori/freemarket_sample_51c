@@ -9,20 +9,12 @@ class ItemsController < ApplicationController
     end
 
 
-<<<<<<< HEAD
-        @theparent = Category.find(params[:id])
-        category = Item.find(params[:id])
-        groundchild_id = category.category_id
-        @groundchild = Category.find_by(id: groundchild_id)
-        child_id = @groundchild.parent_id
-        @child= Category.find_by(id: child_id)
-=======
+
 
   def new
     @item = Item.new
     10.times do 
       @item.images.build
->>>>>>> 0b7309c1d5824f7889f3f395df847b9004c35510
     end
     @parent_categories = Category.where(parent_id: 0)
   end
