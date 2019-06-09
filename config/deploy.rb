@@ -31,6 +31,7 @@ namespace :deploy do
     on roles(:app) do |host|
       if test "[ ! -d #{current_path}/config ]"
         execute "mkdir -p #{current_path}/config"
+      end
       upload!('config/master.key', "#{current_path}/config/master.key")
     end
   end
