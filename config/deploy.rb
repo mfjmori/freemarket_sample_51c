@@ -20,6 +20,8 @@ set :keep_releases, 5
 #   end
 # end
 
+set :linked_files, %w{ config/master.key }
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
