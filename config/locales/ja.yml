@@ -72,7 +72,8 @@ ja:
         3XL: 3XL(4L)
         4XL: 4XL(5L)以上
         FREE: FREE SIZE
-        two_tree_five: 23.5cm以下
+        two_three: 23.0cm以下
+        two_three_five: 23.5cm
         two_four: 24cm
         two_four_five: 24.5cm
         two_five: 25cm
@@ -114,7 +115,7 @@ ja:
 
       condition:
         unanswered: ---
-        new: 新品、未使用
+        new_item: 新品、未使用
         new_like: 未使用に近い
         no_dirt: 目立った傷や汚れなし
         less_dirt: やや傷や汚れあり
