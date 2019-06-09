@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   resources :items do
     resources :buy_orders, only: :new
   end
+  namespace :api do
+    resources :categories, only: :index, defaults: { format: 'json' }
+  end
 end
