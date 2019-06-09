@@ -1,0 +1,125 @@
+.category-main{
+  display: inline-block;
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+
+  .category-main__lineup{
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 17px;
+  }
+
+  .category-buttons{
+    margin-left: 8px;
+    margin-bottom: 30px;
+
+    button{
+      line-height:40px;
+      background-color:#fff;
+      box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+      border-radius: 5px;
+      font-size: 16px;
+      line-height: 40px;
+      color: #333;
+      border-style: solid;
+      border-width: 0;
+      a{
+        color:black;
+        padding: 0 30px;
+        display:inline-block;
+        text-decoration: none;
+      }
+    }
+  
+      button:hover { 
+        color: #fff;
+        background-color: #ea352d;
+        a { 
+          color: #fff;
+          text-decoration:none;
+        }
+      }
+      
+      a:hover{
+        color: #fff;
+      }
+      
+    &__button{
+    display:inline-block;
+    background-color: #fff;
+    color:#333;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    }
+  }
+
+  .category__ladies{
+    a:link { 
+      color: #0099e8; 
+      text-decoration:none;
+    }
+    a:visited { 
+      color: #0099e8;  
+      text-decoration:none;
+    }
+
+    a:hover { 
+      color: #0099e8;
+      opacity: 0.6;
+      text-decoration: underline;
+    }
+
+    .category__ladies__main{
+      background-color: #fff;
+      margin-bottom: 50px;
+      border-radius: 5px;
+
+      .category__ladies__main__title{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 7px 30px 0 30px;
+        height: 40px;
+        color: #fff;
+        background-color: #ea352d;
+        font-size: 22px;
+        display:block;
+      }
+
+      .category__ladies__main__all{
+        margin-left: 35px;
+        margin-top: 30px;
+        display:inline-block;
+      }
+
+      .category__ladies__main__title__lineup{     
+          line-height: 40px;
+          margin-top: 20px;
+          padding-left: 35px;
+          margin-right: 40px;
+          display:block;
+        .category__ladies__main__title__lineup__title{
+          display:block;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 20px;
+        }
+        .category__ladies__main__title__all{
+          margin-left:18px;
+          display:inline-block;
+          width: 290px;
+          font-size: 16px;
+          line-height: 20px;
+        }
+        .category__ladies__main__title__each{
+          margin-left:18px;
+          display:inline-block;
+          width: 290px;
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}

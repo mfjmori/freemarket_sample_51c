@@ -1,0 +1,62 @@
+.category-main
+  .category-main__lineup
+    カテゴリー一覧
+  .category-buttons
+    .category-buttons__button
+      %button
+        = link_to "レディース", "#category-buttons__button2"
+    .category-buttons__button
+      %button
+        = link_to "メンズ", "#category-buttons__button2"
+    .category-buttons__button
+      %button
+        = link_to "ベビー・キッズ", "#category-buttons__button3"
+    .category-buttons__button
+      %button
+        = link_to "インテリア・住まい・小物", "#category-buttons__button4"
+    .category-buttons__button
+      %button
+        = link_to "本・音楽・ゲーム", "#category-buttons__button5"
+    .category-buttons__button
+      %button
+        = link_to "おもちゃ・ホビー・グッズ", "#category-buttons__button6"
+    .category-buttons__button
+      %button
+        = link_to "コスメ・香水・美容", "#category-buttons__button7"
+    .category-buttons__button
+      %button
+        = link_to "家電・スマホ・カメラ", "#category-buttons__button8"
+    .category-buttons__button
+      %button
+        = link_to "スポーツ・レジャー", "#category-buttons__button9"
+    .category-buttons__button
+      %button
+        = link_to "ハンドメイド", "#category-buttons__button10"
+    .category-buttons__button
+      %button
+        = link_to "チケット", "#category-buttons__button11"
+    .category-buttons__button
+      %button
+        = link_to "自動車・オートバイ", "#category-buttons__button12"
+    .category-buttons__button
+      %button
+        = link_to "その他", "#category-buttons__button13"
+
+  .category__ladies
+    - @categories.each do |parent, i|
+      - i = parent.id
+      .category__ladies__main
+        .category__ladies__main__title
+          %div{id: "category-buttons__button#{i}"}
+            = parent.name
+        .category__ladies__main__all
+          =link_to "すべて"
+        - parent.children.each do |child|
+          .category__ladies__main__title__lineup
+            .category__ladies__main__title__lineup__title
+              =child.name
+            .category__ladies__main__title__all
+              =link_to "すべて"
+            - child.children.each do |grand_child|
+              .category__ladies__main__title__each
+                =link_to grand_child.name

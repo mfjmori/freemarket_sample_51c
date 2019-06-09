@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   resources :items do
     resources :buy_orders, only: :new
   end
+
+  resources :categories, only: :index
 end
