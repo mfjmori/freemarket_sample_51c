@@ -1,13 +1,11 @@
 $(function(){
-  // $(document).ready(function(){
-  //   $('form')[0].reset();
-  // });
+
   // ファイルが登録されているドロップゾーンの数を取得して、次に表示するドロップゾーンのwidthの値を返す
   function get_drop_zone_width() {
     // 全ドロップゾーンを取得
-    $all_drop_zone = $('.set-page__secound__form__text__drop');
+    var all_drop_zone = $('.set-page__secound__form__text__drop');
     var file_full_number = 0;
-    $all_drop_zone.each(function(i, drop_zone) {
+    all_drop_zone.each(function(i, drop_zone) {
       // ファイルが登録されているドロップゾーンをカウント
       if ($(drop_zone).hasClass('file-full')) {
         file_full_number++;
@@ -39,6 +37,45 @@ $(function(){
     return width;
   }
 
+  // ファイルが保存されていないドロップゾーンを一つだけ表示してwidthを設定する
+  function show_drop_zone_file_empty() {
+    // 全ドロップゾーンを取得
+    var all_drop_zone = $('.set-page__secound__form__text__drop');
+    // ファイルが保存されていないドロップゾーンを１つだけ表示する、widthも設定する
+    all_drop_zone.each(function(i, drop_zone) {
+      if ($(drop_zone).hasClass('file-full') == false) {
+        var drop_zone_width = get_drop_zone_width();
+        $('.set-page__secound__form').show().css('width', `${drop_zone_width}px`);
+        $(drop_zone).show().css('width', `${drop_zone_width}px`);
+        $(drop_zone).parent().show().css('width', `${drop_zone_width}px`);
+        return false;
+      }
+    });
+  }
+
+  // ページを読み込んだ時
+  $(document).ready(function(){
+    // キャッシュのvalueがからの場合はキャッシュを削除
+    var image_caches = $('.set-page__secound__form__text').children('input[type="hidden"]');
+    $.each(image_caches, function(index, image_cache){
+      if ($(image_cache).val() == "") {
+        $(image_cache).remove();
+      }
+    });
+    // 全ドロップゾーンを取得
+    var all_drop_zone = $('.set-page__secound__form__text__drop');
+    // carrierwaveで生成されたキャッシュをカウント
+    var image_cache = $('.set-page__secound__form').children('input[type="hidden"]').length;
+    // 0番目のドロップゾーンからキャッシュの数だけclass="file-full"をセット
+    for(var i = 0; i < image_cache; i++){
+      $(all_drop_zone[i]).addClass('file-full').hide();
+      $(all_drop_zone[i]).parent().hide();
+    };
+    // ファイルが保存されていないドロップゾーンを一つだけ表示してwidthを設定する
+    $('.set-page__secound__form').hide();
+    show_drop_zone_file_empty();
+  });
+
   $lists = $('.set-page__secound__preview');
   // ファイルが登録された時
   $('form').on('change', '.set-page__secound__form__text__drop', function(e) {
@@ -51,18 +88,10 @@ $(function(){
     $('.set-page__secound__form').hide();
     $(this).parent().hide();
     $(this).addClass('file-full');
-    // 全ドロップゾーンを取得
-    $all_drop_zone = $('.set-page__secound__form__text__drop');
-    // ファイルが保存されていないドロップゾーンを１つだけ表示する、widthも設定する
-    $all_drop_zone.each(function(i, drop_zone) {
-      if ($(drop_zone).hasClass('file-full') == false) {
-        var drop_zone_width = get_drop_zone_width();
-        $('.set-page__secound__form').show().css('width', `${drop_zone_width}px`);;
-        $(drop_zone).show().css('width', `${drop_zone_width}px`);;
-        $(drop_zone).parent().show().css('width', `${drop_zone_width}px`);;
-        return false;
-      }
-    });
+
+    // ファイルが保存されていないドロップゾーンを一つだけ表示してwidthを設定する
+    show_drop_zone_file_empty();
+
     // ファイル読み込みが完了した時
     reader.onload = (function(file) {
       return function(e) {
@@ -84,6 +113,7 @@ $(function(){
           class: "set-page__secound__preview__list__figure__image",
           title: file.name
         }));
+        $(`#item_images_attributes_${preview_index}_image_cache`).remove();
       };
     })(file);
     reader.readAsDataURL(file);
@@ -96,6 +126,8 @@ $(function(){
     $(`#preview-img-${delete_preview_index}`).remove();
     // 同じインデックスのフォームデータを空にする
     $(`#preview-${delete_preview_index}`).val("");
+    // キャッシュも消す(キャッシュがない画像はupdate時に削除される)
+    $(`#item_images_attributes_${delete_preview_index}_image_cache`).remove();
     // 同じインデックスのフォームのクラスを削除する
     $(`#preview-${delete_preview_index}`).removeClass('file-full');
     // 表示されているドロップエリアを隠す
@@ -104,6 +136,6 @@ $(function(){
     var drop_zone_width = get_drop_zone_width();
     $('.set-page__secound__form').show().css('width', `${drop_zone_width}px`);
     $(`#preview-${delete_preview_index}`).parent().show().css('width', `${drop_zone_width}px`);
-    $(`#preview-${delete_preview_index}`).css('width', `${drop_zone_width}px`);
+    $(`#preview-${delete_preview_index}`).show().css('width', `${drop_zone_width}px`);
   })
 })
