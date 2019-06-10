@@ -6,10 +6,10 @@ class AddressesController < ApplicationController
 end
 
 def create
- address=Address.new(address_params)
- if address.save
-  redirect_to complete_users_path
- else
+  address=Address.new(address_params)
+  if address.save
+    redirect_to complete_users_path
+  else
   render :action => 'new' 
 end
 end

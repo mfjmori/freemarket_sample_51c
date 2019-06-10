@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  
+  before_action :set_item, only: [:show, :destroy, :edit]
 
   before_action :move_to_sign_in, only: [:new]
   layout 'user_application', only: :new
@@ -7,9 +7,6 @@ class ItemsController < ApplicationController
     def index
         @items = Item.all
     end
-
-
-
 
   def new
     @item = Item.new
@@ -31,14 +28,21 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
-    @users = @items.saler
-    # @image = Image.find(params[:id])
 
-
-    @groundchild = Category.find(@items.category_id)
+    @users = @item.saler
+    @groundchild = Category.find(@item.category_id)
     @child = Category.find(@groundchild.parent_id)
     @theparent = Category.find(@child.parent_id)
   end
+
+  def destroy
+    if @item.saler_id == current_user.id
+      @item.destroy
+    end
+    redirect_to action: :index
+  end
+
+
   private
   def move_to_sign_in
     redirect_to new_user_session_path unless user_signed_in?
@@ -46,6 +50,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :brand, :size, :category_id, :price, :postage, :shipping_method, :region, :shipping_date, :condition, images_attributes: [:image]).merge(saler: current_user)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
 
