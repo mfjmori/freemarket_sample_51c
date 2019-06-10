@@ -27,6 +27,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.find(params[:id])
+
     @users = @item.saler
     @groundchild = Category.find(@item.category_id)
     @child = Category.find(@groundchild.parent_id)
