@@ -4,19 +4,17 @@
     = @items.name
   .product__details__item
     .product__details__item__image
-      .product__d.etails__item__image-overflow
-        .product__details__item__image-overflow-img
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+      .product__details__item__image__big
+        .product__d.etails__item__image__big-overflow
+          .product__details__item__image__big-overflow-img
+            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
       .product__details__item__image-show
-        .product__details__item__image-show-image
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_2.jpg?1559182445"
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_3.jpg?1559182445"
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_4.jpg?1559182445"
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_5.jpg?1559182445"
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_6.jpg?1559182445"
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_7.jpg?1559182445"
-          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_8.jpg?1559182445"
+        .product__details__item__image-show__box
+          .product__details__item__image-show__box-image
+            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+        .product__details__item__image-show__box
+          .product__details__item__image-show__box-image
+            = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"
     %table.product__details__item__table
       %tbody.product__details__item__table-t
         %tr
@@ -74,14 +72,14 @@
           %th 発送日の目安
           %td
             = @items.shipping_date_i18n
-    .product__details__price
-      .product__details__price__box
-        .product__details__price-en
-          = "¥#{@items.price}"
-        .product__details__price-tax
-          (税込)
-        .product__details__price-cost
-          送料込み
+  .product__details__price
+    .product__details__price__box
+      .product__details__price-en
+        = "¥#{@items.price}"
+      .product__details__price-tax
+        (税込)
+      .product__details__price-cost
+        送料込み
   .product__details__btn
     %button
       =link_to '購入画面に進む',new_item_buy_order_path(@items.id)
@@ -103,10 +101,20 @@
       = link_to do
         %i.fas.fa-lock
         あんしん・あんぜんへの取り組み
+-if @users.id == current_user.id
+  .chang-box
+    .chang-box__btn-item-red
+      = link_to "商品の編集", edit_item_path(@items.id)
+    %p.chang-box__text-center
+      or
+    %button.chang-box__btn-item-gray{type: "submit"}
+      = link_to "出品を停止する"
+    %button.chang-box__btn-item__gray
+      = link_to "この商品を削除する"
 .comment
   .comment__content
-    .comment__content__show
-      %ul.comment__content__show-list
+    -# .comment__content__show
+    -#   %ul.comment__content__show-list
         -# -# 買う人のコメント
         -# %li.comment__content__show-list-left
         -#   = link_to do
