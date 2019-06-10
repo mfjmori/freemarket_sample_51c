@@ -33,12 +33,12 @@
               ¥
               = @item.price.to_s(:delimited)
         .buy-page__body__main-content__item__announce
-          - if @default_card_information.blank?
+          - if (@default_card_information && @address).blank?
             %p
               配送先と支払い方法の入力を完了してください。
         .buy-page__body__main-content__item__button
           = form_tag(action: :pay, method: :post) do
-            - if @default_card_information.blank?
+            - if (@default_card_information && @address).blank?
               %button{disabled: "disabled"} 購入する
             - else
               %button.ok 購入する
@@ -68,8 +68,20 @@
           %p
             配送先
         .buy-page__body__secound-content__address__input
-          %p
-            〒- 
+          - if @address.blank?
+            %p
+              〒-
+          - else
+            %p
+              〒- 
+              = @address.post_code
+            %p
+              = @address.prefecture + " "
+              = @address.municipality + " "
+              = @address.house_number + " "
+              = @address.building_name
+            %p
+              = current_user.nickname
         .buy-page__body__secound-content__address__chage
           = link_to "変更する >", "", class: 'get'
     .buy-page__body__third-content
