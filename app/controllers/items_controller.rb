@@ -32,16 +32,13 @@ class ItemsController < ApplicationController
   def show
     @items = Item.find(params[:id])
     @users = @items.saler
+    # @image = Image.find(params[:id])
 
 
-    @theparent =Category.find(params[:id])
-    category = Item.find(params[:id])
-    groundchild_id =category.category_id
-    @groundchild =Category.find_by(id: groundchild_id)
-    child_id =@groundchild.parent_id
-    @child=Category.find_by(id: child_id)
+    @groundchild = Category.find(@items.category_id)
+    @child = Category.find(@groundchild.parent_id)
+    @theparent = Category.find(@child.parent_id)
   end
-
   private
   def move_to_sign_in
     redirect_to new_user_session_path unless user_signed_in?
