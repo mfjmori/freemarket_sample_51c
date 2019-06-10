@@ -45,9 +45,9 @@ $(function(){
     all_drop_zone.each(function(i, drop_zone) {
       if ($(drop_zone).hasClass('file-full') == false) {
         var drop_zone_width = get_drop_zone_width();
-        $('.set-page__secound__form').show().css('width', `${drop_zone_width}px`);;
-        $(drop_zone).show().css('width', `${drop_zone_width}px`);;
-        $(drop_zone).parent().show().css('width', `${drop_zone_width}px`);;
+        $('.set-page__secound__form').show().css('width', `${drop_zone_width}px`);
+        $(drop_zone).show().css('width', `${drop_zone_width}px`);
+        $(drop_zone).parent().show().css('width', `${drop_zone_width}px`);
         return false;
       }
     });
