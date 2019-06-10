@@ -14,7 +14,16 @@ class Item < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :buy_order
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :reject_image
+
+  def reject_image(attributes)
+    if attributes[:id]
+      attributes.merge!(_destroy: "1") if attributes[:image_cache].blank?
+      false
+    else
+      false
+    end
+  end
 
   with_options presence: true do
     validates :name
