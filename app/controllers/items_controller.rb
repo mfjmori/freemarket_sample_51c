@@ -54,13 +54,9 @@ class ItemsController < ApplicationController
     if @item.update!(item_params)
       redirect_to action: 'index'
     else
-      grandchild_category = Category.find(@item.category_id)
-      child_category = Category.find(grandchild_category.parent_id)
-      parent_category = Category.find(child_category.parent_id)
-  
-      @parent_category_id = parent_category.id
-      @child_category_id = child_category.id
-      @grandchild_category_id = grandchild_category.id
+      @parent_category_id = Category.find(child_category.parent_id).id
+      @child_category_id = Category.find(grandchild_category.parent_id).id
+      @grandchild_category_id = Category.find(@item.category_id).id
   
       @grandchild_categories = Category.where(parent_id: child_category.id)
       @child_categories = Category.where(parent_id: parent_category.id)
@@ -84,7 +80,6 @@ class ItemsController < ApplicationController
     end
     redirect_to action: :index
   end
-
 
   private
   def move_to_sign_in
