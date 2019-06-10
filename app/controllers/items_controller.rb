@@ -5,10 +5,33 @@ class ItemsController < ApplicationController
   layout 'user_application', only: :new
   
     def index
-        @items = Item.all
+    
+      @ladies_child_category = Category.where(parent_id:1)
+      @ladies_grand_child_category = Category.where(parent_id: @ladies_child_category.each do |child| child.id end)
+      @items_lady =  Item.where(category_id:@ladies_grand_child_category.each do |grand_child| grand_child.id end).order('id ASC').limit(4)
+
+      @mens_child_category = Category.where(parent_id:2)
+      @mens_grand_child_category = Category.where(parent_id: @mens_child_category.each do |child| child.id end)
+      @items_men =  Item.where(category_id:@mens_grand_child_category.each do |grand_child| grand_child.id end).order('id ASC').limit(4)
+      
+      @baby_child_category = Category.where(parent_id:3)
+      @baby_grand_child_category = Category.where(parent_id: @baby_child_category.each do |child| child.id end)
+      @items_baby =  Item.where(category_id:@baby_grand_child_category.each do |grand_child| grand_child.id end).order('id ASC').limit(4)
+
+      @cosmes_child_category = Category.where(parent_id:7)
+      @cosmes_grand_child_category = Category.where(parent_id: @cosmes_child_category.each do |child| child.id end)
+      @items_cosme =  Item.where(category_id:@cosmes_grand_child_category.each do |grand_child| grand_child.id end).order('id ASC').limit(4)
+
+
+      @items_Chanel = Item.where(brand: "シャネル").order('id ASC').limit(4)
+
+      @items_Louis_Vuitton = Item.where(brand: "ルイヴィトン").order('id ASC').limit(4)
+
+      @items_Supream= Item.where(brand: "シュプリーム").order('id ASC').limit(4)
+
+      @items_Nike= Item.where(brand: "ナイキ").order('id ASC').limit(4)
+
     end
-
-
 
 
   def new
