@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  
 
   before_action :move_to_sign_in, only: [:new]
   layout 'user_application', only: :new
@@ -7,9 +6,6 @@ class ItemsController < ApplicationController
     def index
         @items = Item.all
     end
-
-
-
 
   def new
     @item = Item.new
@@ -34,19 +30,17 @@ class ItemsController < ApplicationController
     @users = @items.saler
 
 
-    @theparent =Category.find(params[:id])
+    @theparent = Category.find(params[:id])
     category = Item.find(params[:id])
-    groundchild_id =category.category_id
-    @groundchild =Category.find_by(id: groundchild_id)
-    child_id =@groundchild.parent_id
-    @child=Category.find_by(id: child_id)
+    groundchild_id = category.category_id
+    @groundchild = Category.find_by(id: groundchild_id)
+    child_id = @groundchild.parent_id
+    @child = Category.find_by(id: child_id)
   end
 
   def destroy
-    item = Item.find(params[:id])
-    
-    if item.saler_id == current_user.id
-      item.destroy
+    if @item.saler_id == current_user.id
+      @item.destroy
     end
     redirect_to action: :index
   end
@@ -59,6 +53,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :brand, :size, :category_id, :price, :postage, :shipping_method, :region, :shipping_date, :condition, images_attributes: [:image]).merge(saler: current_user)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
 
