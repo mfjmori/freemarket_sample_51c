@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   layout 'user_application', only: :new
   
     def index
-        @items = Item.all
+        @items = Item.all.where.not(status: false)
     end
 
   def new
