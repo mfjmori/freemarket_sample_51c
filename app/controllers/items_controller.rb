@@ -78,6 +78,14 @@ class ItemsController < ApplicationController
     @theparent = Category.find(@child.parent_id)
   end
 
+  def destroy
+    if @item.saler_id == current_user.id
+      @item.destroy
+    end
+    redirect_to action: :index
+  end
+
+
   private
   def move_to_sign_in
     redirect_to new_user_session_path unless user_signed_in?
@@ -91,3 +99,4 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 end
+

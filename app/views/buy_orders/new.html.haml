@@ -9,17 +9,18 @@
           購入内容の確認
       .buy-page__body__main-content__item
         .buy-page__body__main-content__item__image
-          %img{src:""}
+          = image_tag Item.find(@item.id).images[0].image.url
         .buy-page__body__main-content__item__name
           %p
-            テーラードジャケット
+            = @item.name
         .buy-page__body__main-content__item__price-box
           .buy-page__body__main-content__item__price-box__price
             %p
-              ¥ 1,900
+              ¥
+              = @item.price.to_s(:delimited)
           .buy-page__body__main-content__item__price-box__fare
             %p
-              送料込み
+              = @item.postage_i18n
         .buy-page__body__main-content__item__point
           %p
             ポイントはありません
@@ -29,12 +30,18 @@
               支払い金額
           .buy-page__body__main-content__item__total__price
             %p
-              ¥ 1,900
+              ¥
+              = @item.price.to_s(:delimited)
         .buy-page__body__main-content__item__announce
-          %p
-            配送先と支払い方法の入力を完了してください。
+          - if (@default_card_information && @address).blank?
+            %p
+              配送先と支払い方法の入力を完了してください。
         .buy-page__body__main-content__item__button
-          = link_to "購入する", "", class: 'get'
+          = form_tag(action: :pay, method: :post) do
+            - if (@default_card_information && @address).blank?
+              %button{disabled: "disabled"} 購入する
+            - else
+              %button.ok 購入する
 
         -# ゆうゆうメルカリ便を使用する場合は以下を使用
         -# .buy-page__body__main-content__item__announce
@@ -61,8 +68,20 @@
           %p
             配送先
         .buy-page__body__secound-content__address__input
-          %p
-            〒- 
+          - if @address.blank?
+            %p
+              〒-
+          - else
+            %p
+              〒- 
+              = @address.post_code
+            %p
+              = @address.prefecture + " "
+              = @address.municipality + " "
+              = @address.house_number + " "
+              = @address.building_name
+            %p
+              = current_user.nickname
         .buy-page__body__secound-content__address__chage
           = link_to "変更する >", "", class: 'get'
     .buy-page__body__third-content
@@ -71,8 +90,19 @@
           %p
             支払い方法
         .buy-page__body__third-content__payment__input
-          %p
-            &= "/"
+          - if @default_card_information.blank?
+            %p
+              &= "/"
+          - else
+            %p
+              = "**** **** **** " + @default_card_information.last4
+            %p
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+            %p
+              %figure
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3856598694"
             
         .buy-page__body__third-content__payment__change
           = link_to "変更する >", "", class: 'get'
