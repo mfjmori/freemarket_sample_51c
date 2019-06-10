@@ -10,6 +10,13 @@
       .set-page__secound__text
         最大10枚までアップロードできます
         %ul.set-page__secound__preview
+          - item.images.each_with_index do |image, index|
+            - if image.image.url
+              .set-page__secound__preview__list{id: "preview-img-#{index}"}
+                .set-page__secound__preview__list__figure
+                  = image_tag image.image.url, {class: "set-page__secound__preview__list__figure__image"}
+                %div{class: "set-page__secound__preview__list__delete-button" ,data: { preview: index } }
+                  削除
           .set-page__secound__form
             = f.fields_for :images do |image|
               %div{class: "set-page__secound__form__text"}
@@ -38,13 +45,13 @@
         必須
       .set-page__fourth__box
         .set-page__fourth__box__pull-down
-          = f.collection_select( :category_id, @parent_categories, :id, :name, {prompt: "---"}, {id: "parent_category_select", class: "set-page__fourth__box__pull-down__select set-page__fourth__box__pull-down__select--parent"})
+          = f.collection_select( :category_id, @parent_categories, :id, :name ,{prompt: "---", selected: @parent_category_id}, { id: "parent_category_select", class: "set-page__fourth__box__pull-down__select set-page__fourth__box__pull-down__select--parent"} )
           %i.fas.fa-chevron-down.select-arrow--parent#select-arrow
         .set-page__fourth__box__pull-down
-          = f.select( :category_id, "", {prompt: "---"}, {id: "child_category_select", class: "set-page__fourth__box__pull-down__select set-page__fourth__box__pull-down__select--child"})
+          = f.collection_select( :category_id, @child_categories, :id, :name, {prompt: "---", selected: @child_category_id}, {id: "child_category_select", class: "set-page__fourth__box__pull-down__select set-page__fourth__box__pull-down__select--child"})
           %i.fas.fa-chevron-down.select-arrow--child#select-arrow
         .set-page__fourth__box__pull-down
-          = f.select( :category_id, "", {prompt: "---"}, {id: "grandchild_category_select", class: "set-page__fourth__box__pull-down__select set-page__fourth__box__pull-down__select--grandchild"})
+          = f.collection_select( :category_id, @grandchild_categories, :id, :name, {prompt: "---", selected: @grandchild_category_id}, {id: "grandchild_category_select", class: "set-page__fourth__box__pull-down__select set-page__fourth__box__pull-down__select--grandchild"})
           %i.fas.fa-chevron-down.select-arrow--grandchild#select-arrow
       = f.label :size, "サイズ", class: "set-page__fourth__size"
       .set-page__fourth__mark.set-page__fourth__mark--size

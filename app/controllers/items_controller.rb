@@ -1,15 +1,11 @@
 class ItemsController < ApplicationController
   
-
-  before_action :move_to_sign_in, only: [:new]
-  layout 'user_application', only: :new
+  before_action :move_to_sign_in, only: [:new, :edit]
+  layout 'item_application', only: [:new, :edit]
   
-    def index
-        @items = Item.all
-    end
-
-
-
+  def index
+    @items = Item.all
+  end
 
   def new
     @item = Item.new
@@ -17,6 +13,7 @@ class ItemsController < ApplicationController
       @item.images.build
     end
     @parent_categories = Category.where(parent_id: 0)
+    @child_categories, @grandchild_categories = [], []
   end
 
   def create
@@ -29,17 +26,41 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+
+    grandchild_category = Category.find(@item.category_id)
+    child_category = Category.find(grandchild_category.parent_id)
+    parent_category = Category.find(child_category.parent_id)
+
+    @parent_category_id = parent_category.id
+    @child_category_id = child_category.id
+    @grandchild_category_id = grandchild_category.id
+
+    @grandchild_categories = Category.where(parent_id: child_category.id)
+    @child_categories = Category.where(parent_id: parent_category.id)
+    @parent_categories = Category.where(parent_id: 0)
+    
+    @item.images.each do |image|
+      image.image.cache!
+    end
+    empty_drop_zone = 10 - @item.images.length
+    empty_drop_zone.times do 
+      @item.images.build
+    end
+  end
+
+  def update
+  end
+
   def show
     @items = Item.find(params[:id])
     @users = @items.saler
 
+    @groundchild = Category.find(@items.category_id)
+    @child = Category.find(@groundchild.parent_id)
+    @theparent = Category.find(@child.parent_id)
 
-    @theparent =Category.find(params[:id])
-    category = Item.find(params[:id])
-    groundchild_id =category.category_id
-    @groundchild =Category.find_by(id: groundchild_id)
-    child_id =@groundchild.parent_id
-    @child=Category.find_by(id: child_id)
   end
 
   private
@@ -48,7 +69,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :brand, :size, :category_id, :price, :postage, :shipping_method, :region, :shipping_date, :condition, images_attributes: [:image]).merge(saler: current_user)
+    params.require(:item).permit(:name, :description, :brand, :size, :category_id, :price, :postage, :shipping_method, :region, :shipping_date, :condition, images_attributes: [:image, :image_cache]).merge(saler: current_user)
   end
 end
-
