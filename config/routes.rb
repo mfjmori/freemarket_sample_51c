@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
-   }
+  }
   resources :users, only: [:show, :edit, :new] do
     resource :profiles, only: [:show, :edit]
     resource :addresses, only: [:new,:edit,:create]
@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    resources :images
+    resources :likes
+    resources :comments
     resources :buy_orders, only: :new do
       collection do
         post 'index', to: 'buy_orders#pay'

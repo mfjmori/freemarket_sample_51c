@@ -24,7 +24,8 @@ class BuyOrdersController < ApplicationController
   private
 
   def set_item_card
-    @item = Item.where(saler_id: params[:item_id]).first
+    @item = Item.where(id: params[:item_id]).first
     @card = Card.where(user_id: current_user.id).first
+    @address = Address.where(user_id: current_user.id).first
   end
 end

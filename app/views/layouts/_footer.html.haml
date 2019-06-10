@@ -86,7 +86,7 @@
       = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3160895340'), root_path, class: 'get',width:"124",height:"33"
     .footer__bottom__log
       © 2019 Mercari
-    %a{href: "new_item_path"}
+    = link_to new_item_path do
       .camera
         .camera__font
           出品
