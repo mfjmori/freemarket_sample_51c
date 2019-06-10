@@ -69,28 +69,49 @@ $(function() {
     })
   }
 
-    // ページを読み込んだ時
-    $(document).ready(function(){
-      // カテゴリーが選択されていれば表示する
-      if (child_category_select.children('option:selected').val()) {
-        child_category_select.show();
-        child_category_select.next('.select-arrow--child').show();
-      };
-      if (grandchild_category_select.children('option:selected').val()) {
-        grandchild_category_select.show();
-        grandchild_category_select.next('.select-arrow--grandchild').show();
-      };
-      // サイズが選択されていればサイズを取得して表示する
-      if ($('#size_select').children('option:selected').val() !== 'unanswered') {
-        set_size_select();
-      };
+  // 配送料の負担を取得して配送方法を取得して表示する
+  function set_shipping_method_select() {
+    var postage_select = $('#postage_select').val();
+    // 配送料の負担がからになった時、配送方法を隠す
+    if (postage_select != "") {
+      $("#shipping_method").hide();
+    }
+    // 配送方法の選択状況をリセット
+    $("#shipping_method_select").empty();
+    // selectとラベルと必須マークを表示する
+    $(".set-page__fifth__pull-down2--shipping-method").show();
+    $('.set-page__fifth__method').show();
+    $('.set-page__fifth__mark--method').css('display', 'inline-block');
+    // 出品者負担の配送方法を表示
+    if (postage_select == 'seller_cost') {
+      $("#shipping_method_select").append(shipping_methods_select_options);
+    // 購入者負担の配送方法を表示
+    } else if (postage_select == 'buyer_cost') {
+      $("#shipping_method_select").append(buyer_cost_shipping_methods_select_options);
+    }
+  }
 
-      $(".set-page__fifth__pull-down2--shipping-method").show();
-      $('.set-page__fifth__method').show();
-      $('.set-page__fifth__mark--method').css('display', 'inline-block');
+  // ページを読み込んだ時
+  $(document).ready(function(){
+    // カテゴリーが選択されていれば表示する
+    if (child_category_select.children('option:selected').val()) {
+      child_category_select.show();
+      child_category_select.next('.select-arrow--child').show();
+    };
+    if (grandchild_category_select.children('option:selected').val()) {
+      grandchild_category_select.show();
+      grandchild_category_select.next('.select-arrow--grandchild').show();
+    };
+    // サイズが選択されていればサイズを取得して表示する
+    if ($('#size_select').children('option:selected').val() !== 'unanswered') {
+      set_size_select();
+    };
 
-
-    });
+    // 配送方法が選択されていれば配送方法を取得して表示する
+    if ($('#shipping_method_select').children('option:selected').val()) {
+      set_shipping_method_select();
+    };
+  });
 
   // 親カテゴリーが選択された時、選択されたparent_categoryをコントローラーに送り、child_categoryを表示する
   $('#parent_category_select').change(function() {
@@ -163,23 +184,6 @@ $(function() {
 
   // 配送料の負担を選択した時、配送の方法を表示させる
   $('#postage_select').change(function() {
-    var postage_select = $(this).val();
-    // 配送料の負担が選択された時、配送方法を隠す
-    if (postage_select != "") {
-      $("#shipping_method").hide();
-    }
-    // 配送方法の選択状況をリセット
-    $("#shipping_method_select").empty();
-    // selectとラベルと必須マークを表示する
-    $(".set-page__fifth__pull-down2--shipping-method").show();
-    $('.set-page__fifth__method').show();
-    $('.set-page__fifth__mark--method').css('display', 'inline-block');
-    // 出品者負担の配送方法を表示
-    if (postage_select == 'seller_cost') {
-      $("#shipping_method_select").append(shipping_methods_select_options);
-    // 購入者負担の配送方法を表示
-    } else if (postage_select == 'buyer_cost') {
-      $("#shipping_method_select").append(buyer_cost_shipping_methods_select_options);
-    }
+    set_shipping_method_select();
   })
 })
