@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :destroy, :edit]
 
   before_action :move_to_sign_in, only: [:new]
   layout 'user_application', only: :new
@@ -26,16 +27,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = Item.find(params[:id])
-    @users = @items.saler
-
-
-    @theparent = Category.find(params[:id])
-    category = Item.find(params[:id])
-    groundchild_id = category.category_id
-    @groundchild = Category.find_by(id: groundchild_id)
-    child_id = @groundchild.parent_id
-    @child = Category.find_by(id: child_id)
+    @users = @item.saler
+    @groundchild = Category.find(@item.category_id)
+    @child = Category.find(@groundchild.parent_id)
+    @theparent = Category.find(@child.parent_id)
   end
 
   def destroy

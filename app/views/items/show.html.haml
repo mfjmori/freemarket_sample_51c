@@ -1,7 +1,7 @@
 
 .product__details
   %h1.product__details-name
-    = @items.name
+    = @item.name
   .product__details__item
     .product__details__item__image
       .product__d.etails__item__image-overflow
@@ -49,45 +49,45 @@
           %th
             ブルゾン
           %td
-            = @items.brand
+            = @item.brand
         %tr
           %th 商品のサイズ
           %td
-            = @items.size
+            = @item.size
         %tr
           %th 商品の状態
           %td
-            = @items.condition_i18n
+            = @item.condition_i18n
         %tr
           %th 発送料の負担
           %td
-            = @items.postage_i18n
+            = @item.postage_i18n
         %tr
           %th 発送の方法
           %td
-            = @items.shipping_method_i18n
+            = @item.shipping_method_i18n
         %tr
           %th 発送元地域
           %td
-            = @items.region_i18n
+            = @item.region_i18n
         %tr
           %th 発送日の目安
           %td
-            = @items.shipping_date_i18n
+            = @item.shipping_date_i18n
     .product__details__price
       .product__details__price__box
         .product__details__price-en
-          = "¥#{@items.price}"
+          = "¥#{@item.price}"
         .product__details__price-tax
           (税込)
         .product__details__price-cost
           送料込み
   .product__details__btn
     %button
-      =link_to '購入画面に進む',new_item_buy_order_path(@items.id)
+      =link_to '購入画面に進む',new_item_buy_order_path(@item.id)
   .product__details__text
     %p.product__details__text-inner
-      = @items.description
+      = @item.description
   .product__details__bottom
     .product__details__bottom-left
       %button
@@ -162,7 +162,7 @@
         %textarea.comment__content__form__comment-text
         %button.comment__content__form__comment-btn
           コメントする
--# = link_to 'Destroy Page', item_path(@items.id), method: :delete
+-# = link_to 'Destroy Page', item_path(@item.id), method: :delete
 
 
 %main
