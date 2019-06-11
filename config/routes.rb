@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    get "search", on: :collection
     resources :images
     resources :likes
     resources :comments
