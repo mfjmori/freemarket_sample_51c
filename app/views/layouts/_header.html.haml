@@ -4,9 +4,9 @@
       .header__box__top__mainicon
         = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340'), root_path, class: 'get'
       .header__box__top__form
-        = form_tag('/items', method: :post) do
+        = form_tag('/', method: :get) do
           .header__box__top__form__tag
-            %input.header__box__top__form__tag__main{name: "text", placeholder: "何かお探しですか？", size: "88"}/
+            %input.header__box__top__form__tag__main{placeholder: "何かお探しですか？", size: "88", name: "search"}
             %button.header__box__top__form__submit{type: "submit"}
               %i.fas.fa-search
     .header__box__bottom

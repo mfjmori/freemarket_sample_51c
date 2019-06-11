@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_item, only: [:show, :destroy, :edit, :update, :stop]
   
-  before_action :move_to_sign_in, only: [:new, :edit]
+  before_action :move_to_sign_in, only: [:new, :edit, :destroy, :stop]
   layout 'item_application', only: [:new, :edit]
   
   def index
-    @items = Item.all
+    @items = Item.all.where.not(status: true)
   end
 
   def new
@@ -67,7 +67,6 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
-
     @users = @item.saler
     @groundchild = Category.find(@item.category_id)
     @child = Category.find(@groundchild.parent_id)
@@ -78,7 +77,16 @@ class ItemsController < ApplicationController
     if @item.saler_id == current_user.id
       @item.destroy
     end
-    redirect_to action: :index
+    redirect_to action: :show
+  end
+
+  def stop
+    @item.update(status: params[:status])
+    redirect_to action: :show
+  end
+
+  def search
+    @items = Item.search(params[:search])
   end
 
   private

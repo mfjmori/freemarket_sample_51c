@@ -166,6 +166,9 @@
         color: #fff
       }
     }
+    button:hover {
+      opacity: 0.7;
+    }
   }
   &__text {
     padding: 32px 0 0;
@@ -183,6 +186,9 @@
     &-left {
       float: left;
       color: #333;
+      button:hover {
+        opacity: 0.7;
+      }
       button {
         padding: 8px 16px;
         border-radius: 40px;
@@ -228,12 +234,15 @@
     width: 100%;
     line-height: 48px;
     text-align: center;
-    background: red;
+    background: #ea352d;
     cursor: pointer;
     border: 1px solid #ea352d;
     a{
       color: #fff;
       font-size: 14px;
+      display: inline-block;
+      width: 100%;
+      line-height: 48px;
       border: 1px solid #ea352d;
       text-decoration: none;
     }
@@ -243,29 +252,51 @@
     color: #333;
     text-align: center;
   }
-  &__btn-item-gray{
-    margin: 16px 0;
-    background: #AAAAAA;
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    font-size: 14px;
-    color: #fff;
-    cursor: pointer;
+  button:hover {
+    opacity: 0.7;
   }
-  button{
-    margin: 16px 0;
-    background: #AAAAAA;
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    cursor: pointer;
-    &__btn-item-gray{
-    }
-    a{
+  .wakeru {
+    .chang-box__btn-item-gray{
+      margin: 16px 0;
+      background: #AAAAAA;
+      display: block;
+      width: 100%;
+      line-height: 48px;
       font-size: 14px;
       color: #fff;
-      text-decoration: none;
+      cursor: pointer;
+      a{
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+    .chang-box__btn-item-red {
+      margin: 16px 0;
+      background: #ea352d;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  .wakeru2 {
+    button{
+      margin: 16px 0;
+      background: #AAAAAA;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      cursor: pointer;
+      &__btn-item-gray{
+      }
+      a{
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+      }
     }
   }
 }
