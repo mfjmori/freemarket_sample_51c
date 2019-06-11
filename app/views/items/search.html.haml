@@ -1,0 +1,25 @@
+%main
+  .search-container
+    .result-content
+      .item-box-container
+        %h2.item-box-head
+          検索結果
+        .search-result-number
+          1-48件表示
+        .item-box-content
+          - 48.times do
+            .item-box
+              = link_to "#", class: 'item-box__link' do
+                %figure.item-box__link__photo
+                  = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
+                .item-box__link__body
+                  %h2.item-box__link__body__name
+                    johnbullカーキカーゴパンツ 未使用品
+                  .item-box__link__body__number
+                    .item-box__link__body__number__price
+                      ¥1,200
+                    %i.far.fa-heart
+                    %span.item-box__link__body__number__like
+                      2
+                  .item-box__link__body__tax
+                    (税込)
