@@ -39,6 +39,7 @@ class Item < ApplicationRecord
   end
   validates :price, presence: true, numericality: {only_integer: true, greater_than: 299, less_than: 10000000}
 
-  scope :item_num, -> {order('id ASC').limit(4)}
+  scope :item_num, -> (num) {where(category_id: num).order('id ASC').limit(4)}
+  scope :item_brand, -> (name) {where(brand: name).order('id ASC').limit(4)}
   
 end
