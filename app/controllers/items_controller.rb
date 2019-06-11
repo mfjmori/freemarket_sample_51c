@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :edit]
-
-  before_action :move_to_sign_in, only: [:new]
-  layout 'user_application', only: :new
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
+    before_action :move_to_sign_in, only: [:new, :edit]
+  layout 'item_application', only: [:new, :edit]
   
     def index
+      @items = Item.all
     
       @ladies_child_category = Category.where(parent_id:1)
       ladies_child_ids = @ladies_child_category.map{|child| child.id}
@@ -41,12 +41,15 @@ class ItemsController < ApplicationController
 
     end
 
+  
+ 
   def new
     @item = Item.new
     10.times do 
       @item.images.build
     end
     @parent_categories = Category.where(parent_id: 0)
+    @child_categories, @grandchild_categories = [], []
   end
 
   def create
@@ -56,6 +59,44 @@ class ItemsController < ApplicationController
     else
       @parent_categories = Category.where(parent_id: 0)
       redirect_to action: 'new'
+    end
+  end
+
+  def edit
+    grandchild_category = Category.find(@item.category_id)
+    child_category = Category.find(grandchild_category.parent_id)
+    parent_category = Category.find(child_category.parent_id)
+
+    @parent_category_id = parent_category.id
+    @child_category_id = child_category.id
+    @grandchild_category_id = grandchild_category.id
+
+    @grandchild_categories = Category.where(parent_id: child_category.id)
+    @child_categories = Category.where(parent_id: parent_category.id)
+    @parent_categories = Category.where(parent_id: 0)
+    
+    @item.images.each do |image|
+      image.image.cache!
+    end
+
+    empty_drop_zone = 10 - @item.images.length
+    empty_drop_zone.times do 
+      @item.images.build
+    end
+  end
+
+  def update
+    if @item.update!(item_params)
+      redirect_to action: 'index'
+    else
+      @parent_category_id = Category.find(child_category.parent_id).id
+      @child_category_id = Category.find(grandchild_category.parent_id).id
+      @grandchild_category_id = Category.find(@item.category_id).id
+  
+      @grandchild_categories = Category.where(parent_id: child_category.id)
+      @child_categories = Category.where(parent_id: parent_category.id)
+      @parent_categories = Category.where(parent_id: 0)
+      redirect_to action: 'edit'
     end
   end
 
@@ -75,14 +116,13 @@ class ItemsController < ApplicationController
     redirect_to action: :index
   end
 
-
   private
   def move_to_sign_in
     redirect_to new_user_session_path unless user_signed_in?
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :brand, :size, :category_id, :price, :postage, :shipping_method, :region, :shipping_date, :condition, images_attributes: [:image]).merge(saler: current_user)
+    params.require(:item).permit(:name, :description, :brand, :size, :category_id, :price, :postage, :shipping_method, :region, :shipping_date, :condition, images_attributes: [:image, :image_cache, :id, :_destroy]).merge(saler: current_user)
   end
 
   def set_item
