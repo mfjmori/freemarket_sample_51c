@@ -38,4 +38,7 @@ class Item < ApplicationRecord
     validates :images
   end
   validates :price, presence: true, numericality: {only_integer: true, greater_than: 299, less_than: 10000000}
+
+  scope :item_num, -> {order('id ASC').limit(4)}
+  
 end
