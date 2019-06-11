@@ -28,20 +28,7 @@
         %p
           = link_to "レディース 新着アイテム","" , class: 'get'
       .secound-section__block__items
-        - @items_lady.each do |item|
-          .secound-section__block__items__item
-            .secound-section__block__items__item__image
-              -item.images.each do |image|
-                = image_tag image.image.url
-            .secound-section__block__items__item__box  
-              .secound-section__block__items__item__box__name
-                =item.name
-              .secound-section__block__items__item__box__price
-                ="¥"
-                =item.price
-              %i.far.fa-heart.secound-section__block__items__item__box__iine
-              .secound-section__block__items__item__box__tax-word
-                （税込）
+        = render partial: "layouts/item_lineup", collection: @items_lady
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
       
@@ -51,20 +38,7 @@
         %p
           = link_to "メンズ 新着アイテム","" , class: 'get'
       .secound-section__block__items
-        - @items_men.each do |item|
-          .secound-section__block__items__item
-            .secound-section__block__items__item__image
-              -item.images.each do |image|
-                = image_tag image.image.url
-            .secound-section__block__items__item__box  
-              .secound-section__block__items__item__box__name
-                =item.name
-              .secound-section__block__items__item__box__price
-                ="¥"
-                = item.price
-              %i.far.fa-heart.secound-section__block__items__item__box__iine
-              .secound-section__block__items__item__box__tax-word
-                （税込）
+        = render partial: "layouts/item_lineup", collection: @items_men
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
     .secound-section__block
@@ -72,20 +46,7 @@
         %p
           = link_to "ベビー・キッズ 新着アイテム","" , class: 'get'
       .secound-section__block__items
-        - @items_baby.each do |item|
-          .secound-section__block__items__item
-            .secound-section__block__items__item__image
-              -item.images.each do |image|
-                = image_tag image.image.url
-            .secound-section__block__items__item__box  
-              .secound-section__block__items__item__box__name
-                =item.name
-              .secound-section__block__items__item__box__price
-                ="¥"
-                = item.price
-              %i.far.fa-heart.secound-section__block__items__item__box__iine
-              .secound-section__block__items__item__box__tax-word
-                （税込）
+        = render partial: "layouts/item_lineup", collection: @items_baby
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
     .secound-section__block
@@ -93,20 +54,7 @@
         %p
           = link_to "コスメ・香水・美容 新着アイテム","" , class: 'get'
       .secound-section__block__items
-        - @items_cosme.each do |item|
-          .secound-section__block__items__item
-            .secound-section__block__items__item__image
-              -item.images.each do |image|
-                = image_tag image.image.url
-            .secound-section__block__items__item__box  
-              .secound-section__block__items__item__box__name
-                =item.name
-              .secound-section__block__items__item__box__price
-                ="¥"
-                = item.price
-              %i.far.fa-heart.secound-section__block__items__item__box__iine
-              .secound-section__block__items__item__box__tax-word
-                （税込）
+        = render partial: "layouts/item_lineup", collection: @items_cosme
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
 
@@ -118,20 +66,7 @@
         %p
           = link_to "シャネル 新着アイテム","" , class: 'get'
       .secound-section__block__items
-        - @items_Chanel.each do |item|
-          .secound-section__block__items__item
-            .secound-section__block__items__item__image
-              -item.images.each do |image|
-                = image_tag image.image.url
-            .secound-section__block__items__item__box  
-              .secound-section__block__items__item__box__name
-                =item.name
-              .secound-section__block__items__item__box__price
-                ="¥"
-                = item.price
-              %i.far.fa-heart.secound-section__block__items__item__box__iine
-              .secound-section__block__items__item__box__tax-word
-                （税込）
+        = render partial: "layouts/item_lineup", collection: @items_Chanel
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
 
@@ -140,20 +75,7 @@
         %p
           = link_to "ルイ ヴィトン 新着アイテム","" , class: 'get'
       .secound-section__block__items
-        - @items_Louis_Vuitton.each do |item|
-          .secound-section__block__items__item
-            .secound-section__block__items__item__image
-              -item.images.each do |image|
-                = image_tag image.image.url
-            .secound-section__block__items__item__box  
-              .secound-section__block__items__item__box__name
-                =item.name
-              .secound-section__block__items__item__box__price
-                ="¥"
-                = item.price
-              %i.far.fa-heart.secound-section__block__items__item__box__iine
-              .secound-section__block__items__item__box__tax-word
-                （税込）
+        = render partial: "layouts/item_lineup", collection: @items_Louis_Vuitton
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
 
@@ -162,20 +84,7 @@
         %p
           = link_to "シュプリーム 新着アイテム","" , class: 'get'
       .secound-section__block__items
-        - @items_Supream.each do |item|
-          .secound-section__block__items__item
-            .secound-section__block__items__item__image
-              -item.images.each do |image|
-                = image_tag image.image.url
-            .secound-section__block__items__item__box  
-              .secound-section__block__items__item__box__name
-                =item.name
-              .secound-section__block__items__item__box__price
-                ="¥"
-                = item.price
-              %i.far.fa-heart.secound-section__block__items__item__box__iine
-              .secound-section__block__items__item__box__tax-word
-                （税込）
+        = render partial: "layouts/item_lineup", collection: @items_Supream
       .secound-section__block__items__all
         = link_to "すべての商品を見る","" , class: 'get'
 
@@ -184,19 +93,6 @@
         %p
           = link_to "ナイキ 新着アイテム","" , class: 'get'
       .secound-section__block__items
-        - @items_Nike.each do |item|
-          .secound-section__block__items__item
-            .secound-section__block__items__item__image
-              -item.images.each do |image|
-                = image_tag image.image.url
-            .secound-section__block__items__item__box  
-              .secound-section__block__items__item__box__name
-                =item.name
-              .secound-section__block__items__item__box__price
-                ="¥"
-                = item.price
-              %i.far.fa-heart.secound-section__block__items__item__box__iine
-              .secound-section__block__items__item__box__tax-word
-                （税込）
+        = render partial: "layouts/item_lineup", collection: @items_Nike
       .secound-section__block__items__all
         = link_to "すべての商品を見る","" , class: 'get'

@@ -1,0 +1,13 @@
+.secound-section__block__items__item
+  .secound-section__block__items__item__image
+    -item_lineup.images.each do |image|
+      = image_tag image.image.url
+  .secound-section__block__items__item__box  
+    .secound-section__block__items__item__box__name
+      =item_lineup.name
+    .secound-section__block__items__item__box__price
+      ="¥"
+      =item_lineup.price
+    %i.far.fa-heart.secound-section__block__items__item__box__iine
+    .secound-section__block__items__item__box__tax-word
+      （税込）
