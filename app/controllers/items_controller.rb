@@ -107,7 +107,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @search = Item.search(params[:q])
+    @search = Item.ransack(params[:q])
   end
 
   private
