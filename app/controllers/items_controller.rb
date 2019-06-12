@@ -2,31 +2,20 @@ class ItemsController < ApplicationController
 
   include CommonActions
   before_action :set_item, only: [:show, :destroy, :edit, :update, :stop]
-    before_action :move_to_sign_in, only: [:new, :edit, :destroy, :stop]
+  before_action :move_to_sign_in, only: [:new, :edit, :destroy, :stop]
   layout 'item_application', only: [:new, :edit]
   
     def index
       @items = Item.all.where.not(status: true)
-      
       @items_lady =  @items.item_num(ladies_category)
-      
       @items_men =  @items.item_num(mens_category)
-      
       @items_baby =  @items.item_num(baby_category)
-      
       @items_cosme =  @items.item_num(cosmes_category)
-
       @items_Chanel = @items.item_brand("シャネル")
-
       @items_Louis_Vuitton = @items.item_brand("ルイヴィトン")
-
       @items_Supream= @items.item_brand("シュプリーム")
-
       @items_Nike= @items.item_brand("ナイキ")
-
     end
-
-  
 
   def new
     @item = Item.new
@@ -122,7 +111,6 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
   
 end
 
