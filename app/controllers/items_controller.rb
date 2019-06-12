@@ -106,6 +106,10 @@ class ItemsController < ApplicationController
     redirect_to action: :show
   end
 
+  def search
+    @search = Item.search(params[:q])
+  end
+
   private
   def move_to_sign_in
     redirect_to new_user_session_path unless user_signed_in?
