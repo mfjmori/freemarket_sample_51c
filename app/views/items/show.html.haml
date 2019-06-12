@@ -4,21 +4,16 @@
   .product__details__item
     .product__details__item__image
       .product__details__item__image__big
-        .slider
-          .product__d.etails__item__image__big-overflow
-            .product__details__item__image__big-overflow-img
-              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
-          .product__d.etails__item__image__big-overflow
-            .product__details__item__image__big-overflow-img
-              = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"
+        .product__d.etails__item__image__big-overflow
+          .slider
+            - @items.images.each do |img|
+              .product__details__item__image__big-overflow-img
+                = image_tag img.image.url
       .product__details__item__image-show
-        .slider-nav
+        - @items.images.each do |img|
           .product__details__item__image-show__box
             .product__details__item__image-show__box-image
-              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
-          .product__details__item__image-show__box
-            .product__details__item__image-show__box-image
-              = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"
+              = image_tag img.image.url
     %table.product__details__item__table
       %tbody.product__details__item__table-t
         %tr

@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
  
   def new
     @item = Item.new
-    10.times do 
+    10.times do
       @item.images.build
     end
     @parent_categories = Category.where(parent_id: 0)
@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to action: 'index'
     else
       @parent_categories = Category.where(parent_id: 0)
