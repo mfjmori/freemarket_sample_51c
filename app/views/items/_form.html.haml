@@ -144,6 +144,8 @@
         また、出品をもちまして
         %span>= link_to "加盟店規約","#" , class: 'get'
         に同意したことになります。
-      = f.submit "出品する", class: "set-page__seventh__button"
+      = f.submit "出品する", class: "set-page__seventh__button" if controller.action_name == "new"
+      = f.submit "変更する", class: "set-page__seventh__button" if controller.action_name == "edit"
       .set-page__seventh__return-button
-        = link_to "もどる", :back
+        = link_to "もどる", :back if controller.action_name == "new"
+        = link_to "キャンセル", :back if controller.action_name == "edit"
