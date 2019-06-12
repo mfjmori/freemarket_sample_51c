@@ -75,4 +75,115 @@
       }
     }
   }
+  .search-content {
+    width: 280px;
+    margin-right: 40px;
+    .search-form {
+      &__item-sort {
+        &__pull-down {
+          position: relative;
+          &__select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            display: block;
+            width: 280px;
+            height: 48px;
+            padding: 0 16px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+            color:gray;
+          }
+          &__icon{
+            position: absolute;
+            font-size: 18px;
+            right: 22px;
+            top: 17px;
+            color: #888;
+            margin-left: 190px;
+          }  
+        }
+      }
+      &__detail {
+        padding: 16px;
+        margin-top: 40px;
+        box-sizing: border-box;
+        background-color: #fff;
+        &__head {
+          color: #333;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__keyword {
+          @include search-input-form;
+          margin-top: 24px;
+        }
+        &__category {
+          @include search-select-form;
+          @include collection-check-boxes;
+        }
+        &__brand {
+          @include search-input-form;
+        }
+        &__size {
+          @include search-select-form;
+        }
+        &__price {
+          @include search-select-form;
+          &__inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            &__min {
+              display: block;
+              height: 48px;
+              width: 45%;
+              padding: 10px 16px 8px;
+              box-sizing: border-box;
+              border: 1px solid #ccc;
+              border-radius:6px;
+            }
+            &__wave {
+              align-self: center;
+            }
+            &__max {
+              display: block;
+              height: 48px;
+              width: 45%;
+              padding: 10px 16px 8px;
+              box-sizing: border-box;
+              border: 1px solid #ccc;
+              border-radius:6px;
+            }
+          }
+        }
+        &__condition {
+          @include search-label;
+          @include collection-check-boxes;
+        }
+        &__postage {
+          @include search-label;
+          @include collection-check-boxes;
+        }
+        &__sale {
+          @include search-label;
+          @include collection-check-boxes;
+        }
+        &__button {
+          padding-top: 40px;
+          display: flex;
+          justify-content: space-between;
+          &__clear {
+            @include search-clear-button;
+          }
+          &__submit {
+            @include search-clear-button;
+            background-color: #ea352d;
+            border: 1px solid #ea352d;
+          }
+        }
+      }
+    }
+  }
 }
