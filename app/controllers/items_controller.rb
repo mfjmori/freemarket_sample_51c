@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   before_action :set_item, only: [:show, :destroy, :edit, :update, :stop]
   
   before_action :move_to_sign_in, only: [:new, :edit, :destroy, :stop]
@@ -8,6 +9,42 @@ class ItemsController < ApplicationController
     @items = Item.all.where.not(status: true)
   end
 
+      @ladies_child_category = Category.where(parent_id:1)
+      ladies_child_ids = @ladies_child_category.map{|child| child.id}
+      @ladies_grand_child_category = Category.child_num(ladies_child_ids)
+      ladies_grand_child_ids = @ladies_grand_child_category.map{|grand_child| grand_child.id}
+      @items_lady =  Item.item_num(ladies_grand_child_ids)
+
+      @mens_child_category = Category.where(parent_id:2)
+      mens_child_ids = @mens_child_category.map{|child| child.id}
+      @mens_grand_child_category = Category.child_num(mens_child_ids)
+      mens_grand_child_ids = @mens_grand_child_category.map{|grand_child| grand_child.id}
+      @items_men =  Item.item_num(mens_grand_child_ids)
+      
+      @baby_child_category = Category.where(parent_id:3)
+      baby_child_ids = @baby_child_category.map{|child| child.id}
+      @baby_grand_child_category = Category.child_num(baby_child_ids)
+      baby_grand__child_ids = @baby_grand_child_category.map{|grand_child| grand_child.id}
+      @items_baby =  Item.item_num(baby_grand__child_ids)
+
+      @cosmes_child_category = Category.where(parent_id:7)
+      cosmes_child_ids = @cosmes_child_category.map{|child| child.id}
+      @cosmes_grand_child_category = Category.child_num(cosmes_child_ids)
+      cosmes_grand__child_ids = @cosmes_grand_child_category.map{|grand_child| grand_child.id}
+      @items_cosme =  Item.item_num(cosmes_grand__child_ids)
+
+      @items_Chanel = Item.item_brand("シャネル")
+
+      @items_Louis_Vuitton = Item.item_brand("ルイヴィトン")
+
+      @items_Supream= Item.item_brand("シュプリーム")
+
+      @items_Nike= Item.item_brand("ナイキ")
+
+   end
+
+  
+ 
   def new
     @item = Item.new
     10.times do 

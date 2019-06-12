@@ -7,10 +7,13 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{rel:"stylesheet", type:"text/css", href:"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{href: "https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css", rel: "stylesheet"}/
     %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
     %script{src: "https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"}
+    %script{type:"text/javascript", src:"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}
+
     :javascript
       $(document).ready(function(){
         $('.slider').bxSlider();
@@ -19,4 +22,3 @@
     = render partial: "layouts/header"
     = yield
     = render partial: "layouts/footer"
-    

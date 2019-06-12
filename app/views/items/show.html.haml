@@ -2,22 +2,28 @@
   .breadcrumbs__style
     - breadcrumb :products, @item
     = breadcrumbs separator: " #{content_tag(:i, '', class:'fas fa-chevron-right')} "
+
 .product__details
   %h1.product__details-name
     = @item.name
   .product__details__item
     .product__details__item__image
       .product__details__item__image__big
-        .product__d.etails__item__image__big-overflow
-          .product__details__item__image__big-overflow-img
-            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+        .slider
+          .product__d.etails__item__image__big-overflow
+            .product__details__item__image__big-overflow-img
+              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+          .product__d.etails__item__image__big-overflow
+            .product__details__item__image__big-overflow-img
+              = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"
       .product__details__item__image-show
-        .product__details__item__image-show__box
-          .product__details__item__image-show__box-image
-            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
-        .product__details__item__image-show__box
-          .product__details__item__image-show__box-image
-            = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"
+        .slider-nav
+          .product__details__item__image-show__box
+            .product__details__item__image-show__box-image
+              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+          .product__details__item__image-show__box
+            .product__details__item__image-show__box-image
+              = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"
     %table.product__details__item__table
       %tbody.product__details__item__table-t
         %tr
@@ -84,8 +90,6 @@
         (税込)
       .product__details__price-cost
         送料込み
-
-            
   .product__details__btn
     %button
       =link_to '購入画面に進む',new_item_buy_order_path(@item.id)
@@ -295,3 +299,14 @@
                     2
                 .item-box__link__body__tax
                   (税込)
+
+.slick-box
+  .slick-box__big.as
+    .slick-box__big-img
+      = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+  .slick-box__small.vs
+    .slick-box__small-image
+      = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+    .slick-box__small-image
+      = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"
+
