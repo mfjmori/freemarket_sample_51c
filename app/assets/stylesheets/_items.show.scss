@@ -139,7 +139,7 @@
     }
     &-en {
       font-size: 50px;
-      margin: 16px 0 0 16px;
+      margin: 0 16px 0 0 ;
       display: inline-block;
     }
     &-tax {
@@ -351,8 +351,6 @@
             background: #eef0f4;
             box-sizing: border-box;
             font-size: 15px;
-            &-text {
-            }
             &-bottom {
               margin-top: 8px;
               &-time {
@@ -434,338 +432,31 @@
   background: #fff;
 }
 
-.product__details {
-  padding: 24px 40px 40px;
-  background: #fff;
-  margin: 40px auto 0;
+
+.slick-box{
   width: 700px;
-  box-sizing: border-box;
-  &-name {
-    font-size: 24px;
-    text-align: center;
-    line-height: 1.4px;
-    line-height: 33px;
-  }
-  &__item {
-    margin: 16px 0 0;
-    &__image {
-      background: #f5f5f5;
-      float: left;
-      min-width: 300px;
-      max-width: 300px;
-      min-height: 375px;
-      &-overflow {
-        overflow: hidden;
-        line-height: 0;
-        text-align: center;
-        &-img {
-          text-align: center;
-          width: 100%;
-          img {
-            width: auto;
-            height: 300px;
-          }
-        }
-      }
-      &-show {
-        line-height: 0;
-        text-align: center;
-        &-image {
-          display: inline;
-          opacity: 0.4;
-          cursor: pointer;
-          img {
-            width: 60px;
-            height: 60px;
-          }
-        }
-      }
-    }
-    &__table {
-      float: right;
-      width: 300px;
-      height: 420px;
-      margin: 0 auto;
-      box-sizing: border-box;
-      &-t {
-        margin: 8px auto 0;
-        border: 1px solid #f5f5f5;
-        tr {
-          border: 1px solid #f5f5f5;
-          th {
-            width: 39%;
-            text-align: left;
-            font-weight: 400;
-            background: #fafafa;
-            padding: 8px;
-            font-size: 14px;
-            color: #333;
-          }
-          td {
-            width: 61%;
-            background: #fff;
-            padding: 8px;
-            font-size: 14px;
-            a {
-              text-decoration: none;
-              color: #0099e8;
-              width: 100%;
-            }
-            .like {
-              vertical-align: middle;
-              &-good {
-                display: inline-block;
-                i {
-                  color: #ef5185;
-                  font-size: 16px;
-                }
-              }
-              &-normal {
-                display: inline-block;
-                margin-left: 16px;
-                i {
-                  color: #fba933;
-                  font-size: 16px;
-                }
-              }
-              &-bad {
-                display: inline-block;
-                margin-left: 16px;
-                i {
-                  color: #6ab5d8;
-                  font-size: 16px;
-                }
-              }
-            }
-          }
-          .font {
-            font-size: 12px;
-            line-height: 1;
-          }
-        }
-      }
-    }
-  }
-  &__price {
-    margin: 24px 0 0;
-    text-align: center;
-    &__box{
-      margin: 24px 0 0;
+  height: 700px;
+  &__big{
+    width: 100%;
+    height: 420px;
+    margin: 24px auto ;
+    overflow: hidden;
+    &-img{
       text-align: center;
-    }
-    &-en {
-      font-size: 50px;
-      margin: 16px 0 0 16px;
-      display: inline-block;
-    }
-    &-tax {
-      font-size: 10px;
-      display: inline-block;
-    }
-    &-cost {
-      font-size: 16px;
-      display: inline-block;
-    }
-  }
-  &__btn {
-    button {
       width: 100%;
+      height: 300px;
+    }
+  }
+  &__small{
+    &-image{
       height: 60px;
-      line-height: 60px;
-      margin: 16px 0 0;
-      background: #ea352f;
-      font-size: 24px;
-      color: #fff;
-      border: 1px solid #ea352f;
-      cursor: pointer;
-      a{
-        color: #fff;
-        text-decoration: none;
-      }
-    }
-  }
-  &__text {
-    padding: 32px 0 0;
-    line-height: 1.5;
-    font-size: 18px;
-    &-inner {
-      width: 620px;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-  }
-  &__bottom {
-    margin: 16px 0 0;
-    font-size: 14px;
-
-    &-left {
-      float: left;
-      color: #333;
-      button {
-        padding: 8px 16px;
-        border-radius: 40px;
-        background: #f5f5f5;
-        border: 1px solid #f5f5f5;
-        cursor: pointer;
-        span {
-          margin-left: 8px;
-        }
-      }
-      a {
-        margin-left: 16px;
-        padding: 8px 16px;
-        border-radius: 40px;
-        background: #f5f5f5;
-        text-decoration: none;
-        color: #333;
-      }
-      a:hover {
-        opacity: 0.7;
-      }
-    }
-    &-right {
-      float: right;
-      margin: 8px 0 0;
-      a {
-        text-decoration: none;
-        color: #0099e8;
+      width: 50%;
+      vertical-align: bottom;
+      img{
+      height: 60px;
+      width: 50%;
+      vertical-align: bottom;
       }
     }
   }
 }
-.comment {
-  margin: 8px auto;
-  min-height: 100%;
-  width: 700px;
-  background: #fff;
-  &__content {
-    &__show {
-      padding: 24px;
-      &-list {
-        li:first-child {
-          margin: 1.5em 0 0;
-        }
-        &-left {
-          clear: both;
-          margin: 60px 0 0;
-          a {
-            display: inline-block;
-            position: relative;
-            top: -20px;
-            figure {
-              margin: 0;
-              width: 40px;
-              height: 40px;
-              line-height: 1;
-              .div {
-                img {
-                  width: 40px;
-                  height: 40px;
-                  border-radius: 50%;
-                }
-              }
-              figcaption {
-                width: 600px;
-                min-width: 600px;
-                position: absolute;
-                top: 0;
-                left: 56px;
-                max-width: 100%;
-                height: 1em;
-                color: #333;
-              }
-            }
-          }
-          .con {
-            width: 600px;
-            float: right;
-            padding: 16px;
-            border-radius: 15px;
-            background: #eef0f4;
-            box-sizing: border-box;
-            font-size: 15px;
-            &-text {
-            }
-            &-bottom {
-              margin-top: 8px;
-              &-time {
-                float: left;
-                color: #aaa;
-                font-size: 14px;
-              }
-              &-icon {
-                float: right;
-                cursor: pointer;
-                color: #aaa;
-                text-decoration: none;
-                form {
-                  float: right;
-                  button {
-                    cursor: pointer;
-                    background: #eef0f4;
-                    border: 1px solid #eef0f4;
-                    color: #aaa;
-                    margin-right: 8px;
-                  }
-                }
-                .delete-comment {
-                  float: right;
-                  color: #aaa;
-                }
-              }
-            }
-          }
-        }
-        &-right {
-          margin: 60px 0 0;
-        }
-      }
-    }
-    &__form {
-      padding:24px;
-      &__comment {
-        &-caution {
-          padding: 8px;
-          font-size: 14px;
-          background: #fff6de;
-          line-height: 1;
-        }
-        &-text {
-          margin-top: 8px;
-          width: 100%;
-          min-height: 104px;
-          padding: 10px;
-          border: 1px solid #ccc;
-          background: #fff;
-          line-height: 1.5;
-          box-sizing: border-box;
-        }
-        &-btn {
-          width: 100%;
-          margin-top: 8px;
-          text-align: center;
-          background: #aaa;
-          border: 1px solid #aaa;
-          line-height: 48px;
-          color: #fff;
-          font-size: 14px;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-}
-
-
-.padding24px {
-  padding-top: 24px;
-  margin: 0 0 8px;
-}
-
-.backgroundf5f5f5 {
-  background: #f5f5f5;
-}
-.backgroundfff {
-  background: #fff;
-}
-
