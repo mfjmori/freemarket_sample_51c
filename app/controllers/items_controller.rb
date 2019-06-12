@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   include CommonActions
   before_action :set_item, only: [:show, :destroy, :edit, :update, :stop]
-    before_action :move_to_sign_in, only: [:new, :edit, :destroy, :stop]
+    before_action :move_to_sign_in, only: [:new, :edit, :create, :update, :destroy, :stop]
   layout 'item_application', only: [:new, :edit]
   
     def index
