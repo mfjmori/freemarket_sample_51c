@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    member do
+      patch 'stop'
+    end
     resources :images
     resources :likes
     resources :comments
