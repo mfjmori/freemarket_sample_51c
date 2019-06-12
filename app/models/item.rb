@@ -18,7 +18,7 @@ class Item < ApplicationRecord
 
   def reject_image(attributes)
     if attributes[:id]
-      attributes.merge!(_destroy: "1") if attributes[:image_cache].blank?
+      attributes.merge!(_destroy: "1") if attributes[:image_cache].blank? && attributes[:image].blank?
       false
     else
       false
