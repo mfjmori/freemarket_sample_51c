@@ -33,8 +33,8 @@ crumb :user_show do
   parent :root
 end
 
-crumb :products do
-  link "item.name"
+crumb :products do |item|
+  link item.name
   parent :root
 end
 

@@ -1,11 +1,22 @@
-$('.product__details__item__image__big-overflow-img').slick({
-  arrows:false,
-  asNavFor:'.product__details__item__image-show__box-image',
+$(function() {
+  $('.slider').slick({
+    arrowa: false,
+    dots: true,
+  });
+  $('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.slider-nav'
+  });
+  $('.slider-nav').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: '.slider-for',
+    dots: true,
+    centerMode: true,
+    focusOnSelect: true
+  });
 });
-$('.product__details__item__image-show__box-image').slick({
-  asNavFor:'.product__details__item__image__big-overflow-img',
-  focusOnSelect: true,
-  slidesToShow:3,
-  slidesToScroll:1,
-  centerMode: true,
-});
+

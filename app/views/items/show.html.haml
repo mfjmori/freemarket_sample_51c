@@ -1,3 +1,7 @@
+.breadcrumbs.solideee
+  .breadcrumbs__style
+    - breadcrumb :products, @item
+    = breadcrumbs separator: " #{content_tag(:i, '', class:'fas fa-chevron-right')} "
 
 .product__details
   %h1.product__details-name
@@ -6,15 +10,15 @@
     .product__details__item__image
       .product__details__item__image__big
         .product__d.etails__item__image__big-overflow
-          .product__details__item__image__big-overflow-img
-            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+          .slider
+            - @items.images.each do |img|
+              .product__details__item__image__big-overflow-img
+                = image_tag img.image.url
       .product__details__item__image-show
-        .product__details__item__image-show__box
-          .product__details__item__image-show__box-image
-            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
-        .product__details__item__image-show__box
-          .product__details__item__image-show__box-image
-            = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"
+        - @items.images.each do |img|
+          .product__details__item__image-show__box
+            .product__details__item__image-show__box-image
+              = image_tag img.image.url
     %table.product__details__item__table
       %tbody.product__details__item__table-t
         %tr
@@ -51,7 +55,8 @@
         %tr
           %th 商品のサイズ
           %td
-            = @item.size
+            - unless @item.size == "unanswered"
+              = @item.size
         %tr
           %th 商品の状態
           %td
@@ -80,8 +85,6 @@
         (税込)
       .product__details__price-cost
         送料込み
-
-            
   .product__details__btn
     %button
       =link_to '購入画面に進む',new_item_buy_order_path(@item.id)
@@ -105,14 +108,24 @@
         あんしん・あんぜんへの取り組み
 -if @users.id == current_user.id
   .chang-box
-    .chang-box__btn-item-red
+    %button.chang-box__btn-item-red
       = link_to "商品の編集", edit_item_path(@items.id)
     %p.chang-box__text-center
       or
-    %button.chang-box__btn-item-gray{type: "submit"}
-      = link_to "出品を停止する"
-    %button.chang-box__btn-item__gray
-      = link_to "この商品を削除する"
+    .wakeru
+      = form_tag(stop_item_path(@item.id), method: :patch) do
+        - if @item.status == false
+          %input{type: "hidden",name: "status", value: 1}
+          %button.chang-box__btn-item-gray{type: "submit"}
+            出品を停止する
+        - elsif @item.status == true
+          %input{type: "hidden", name: "status", value: 0}
+          %button.chang-box__btn-item-red{type: "submit"}
+            出品停止中
+    .wakeru2
+      %button.chang-box__btn-item__gray
+        = link_to 'この商品を削除する', item_path(@item.id), method: :delete
+
 .comment
   .comment__content
     -# .comment__content__show
@@ -172,9 +185,7 @@
         %textarea.comment__content__form__comment-text
         %button.comment__content__form__comment-btn
           コメントする
--# = link_to 'Destroy Page', item_path(@item.id), method: :delete
-
-
+          
 %main
   .container.backgroundf5f5f5
     .content-mypage-detail
@@ -283,3 +294,14 @@
                     2
                 .item-box__link__body__tax
                   (税込)
+
+.slick-box
+  .slick-box__big.as
+    .slick-box__big-img
+      = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+  .slick-box__small.vs
+    .slick-box__small-image
+      = image_tag "https://static.mercdn.net/item/detail/orig/photos/m18568276167_1.jpg?1559182445"
+    .slick-box__small-image
+      = image_tag "https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"
+
