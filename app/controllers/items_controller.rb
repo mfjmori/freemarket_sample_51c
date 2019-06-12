@@ -87,7 +87,7 @@ class ItemsController < ApplicationController
     if @item.saler_id == current_user.id
       @item.destroy
     end
-    redirect_to action: :show
+    redirect_to action: :index
   end
 
   def stop
