@@ -1,3 +1,8 @@
+.breadcrumbs.solideee
+  .breadcrumbs__style
+    - breadcrumb :products, @item
+    = breadcrumbs separator: " #{content_tag(:i, '', class:'fas fa-chevron-right')} "
+
 .product__details
   %h1.product__details-name
     = @item.name
@@ -50,7 +55,8 @@
         %tr
           %th 商品のサイズ
           %td
-            = @item.size
+            - unless @item.size == "unanswered"
+              = @item.size
         %tr
           %th 商品の状態
           %td
@@ -102,14 +108,24 @@
         あんしん・あんぜんへの取り組み
 -if @users.id == current_user.id
   .chang-box
-    .chang-box__btn-item-red
+    %button.chang-box__btn-item-red
       = link_to "商品の編集", edit_item_path(@items.id)
     %p.chang-box__text-center
       or
-    %button.chang-box__btn-item-gray{type: "submit"}
-      = link_to "出品を停止する"
-    %button.chang-box__btn-item__gray
-      = link_to "この商品を削除する"
+    .wakeru
+      = form_tag(stop_item_path(@item.id), method: :patch) do
+        - if @item.status == false
+          %input{type: "hidden",name: "status", value: 1}
+          %button.chang-box__btn-item-gray{type: "submit"}
+            出品を停止する
+        - elsif @item.status == true
+          %input{type: "hidden", name: "status", value: 0}
+          %button.chang-box__btn-item-red{type: "submit"}
+            出品停止中
+    .wakeru2
+      %button.chang-box__btn-item__gray
+        = link_to 'この商品を削除する', item_path(@item.id), method: :delete
+
 .comment
   .comment__content
     -# .comment__content__show
@@ -169,9 +185,7 @@
         %textarea.comment__content__form__comment-text
         %button.comment__content__form__comment-btn
           コメントする
--# = link_to 'Destroy Page', item_path(@item.id), method: :delete
-
-
+          
 %main
   .container.backgroundf5f5f5
     .content-mypage-detail
