@@ -32,13 +32,18 @@
       &__form{
         margin-left:45px;
         top:5px;
-
+        input {
+          height: 40px;
+          background: #f5f5f5;
+          border: 1px solid #ccc;
+          text-indent: 1em;
+        }
           input::placeholder{
             color:gray;
           }
 
           input:placeholder-shown{
-            background-color:#EEEEEE;
+            background-color:#f5f5f5;
             border-radius:6px 0 0 6px;
             text-indent: 1em;
             border: 1px solid #ccc;
