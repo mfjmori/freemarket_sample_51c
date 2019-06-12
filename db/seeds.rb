@@ -12,3 +12,4 @@
   .each do |name,parent_id|
     Category.create!(name: name , parent_id: parent_id)
   end
+
