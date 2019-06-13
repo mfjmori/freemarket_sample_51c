@@ -1,7 +1,7 @@
 = link_to "/items/#{item_lineup.id}", class: 'get' do
   .secound-section__block__items__item
     .secound-section__block__items__item__image
-      -item_lineup.images.each do |image|
+      -item_lineup.images.first(1).each do |image|
         = image_tag image.image.url
     .secound-section__block__items__item__box  
       .secound-section__block__items__item__box__name

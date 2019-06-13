@@ -1,156 +1,458 @@
-.footer{
+@media (min-width: 1070px){
+  .fader{
+    display:none;
+  }
+  .footer{
   margin-top: auto;
   padding-top:0;
 
 
-  a:link { 
-    color: #ccc; 
-    text-decoration: none;
-  }
-  a:visited { 
-    color: #ccc; 
-    text-decoration: none;
-  }
-  a:hover { 
-    text-decoration: underline;
-  }
-  a:active {  
-  }
-
-  &__top{
-    height:260px;
-    background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?6643835);
-    background-position: center;
-    background-size: cover;
-    padding-bottom: 0;
-    position: relative;
-
-    &__text{
-      color: #fff;
-      padding-left: 23%;
-      padding-top: 65px;
-      display: inline-block;
-      position: absolute;
-
-      &__small{
-        font-size: 23px;
-        font-weight: bold;
-      }
-
-      &__big{
-        font-size: 33px;
-      }
-    }
-    &__logo{
-      padding-left:10%;
-      padding-top:160px;
-      display : inline-block;
-      position: absolute;
-      left:13%;
-    }
-
-    &__app{
-      display:inline-block;
-      bottom:60px;
-      left: 32%;
-      padding-left:34%;
-      padding-top:173px;
-    }
-
-    &__google{
-      display:inline-block;
-      bottom:60px;
-      margin-left:8px;
-      padding-top:173px;
-    }
-
-    &__phone{
-      display : inline;
-      position: absolute;
-      padding-left:50px;
-      top:0;
-    }
-  }
-
-  &__bottom{
-    height:400px;
-    background: #212121;
-    color: #fff;
-    position: relative;
-
-    h1{
-      color: #fff;
-      font-size: 16px;
-      font-weight: 100;
-      line-height: 33px;
-    }
-
-    li{
+    a:link { 
       color: #ccc; 
-      font-size: 12px;
-      font-weight: 100;
-      line-height: 33px;
+      text-decoration: none;
+    }
+    a:visited { 
+      color: #ccc; 
+      text-decoration: none;
+    }
+    a:hover { 
+      text-decoration: underline;
+    }
+    a:active {  
     }
 
-    &__tw-icon{
-      // position: relative;
-      margin-left:14%;
-      margin-top: 230px;
-      font-size: 30px;
-      padding-right: 20px;
+    &__top{
+      height:260px;
+      background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?6643835);
+      background-position: center;
+      background-size: cover;
+      padding-bottom: 0;
+      position: relative;
+
+      &__text{
+        color: #fff;
+        padding-left: 23%;
+        padding-top: 65px;
+        display: inline-block;
+        position: absolute;
+
+        &__small{
+          font-size: 23px;
+          font-weight: bold;
+        }
+
+        &__big{
+          font-size: 33px;
+        }
+      }
+      &__logo{
+        padding-left:10%;
+        padding-top:160px;
+        display : inline-block;
+        position: absolute;
+        left:13%;
+      }
+
+      &__app{
+        display:inline-block;
+        bottom:60px;
+        left: 32%;
+        padding-left:34%;
+        padding-top:173px;
+      }
+
+      &__google{
+        display:inline-block;
+        bottom:60px;
+        margin-left:8px;
+        padding-top:173px;
+      }
+
+      &__phone{
+        display : inline;
+        position: absolute;
+        padding-left:50px;
+        top:0;
+      }
     }
 
-    &__fb-icon{
-      // position: relative;
-      margin-top: 230px;
-      font-size: 30px;
-      padding-right: 20px;
-      font-size: 30px;
-    }
-    
-    &__company{
-      position: absolute;
-      padding-top: 12px;
-      padding-left: 14%;
-    }
+    &__bottom{
+      height:400px;
+      background: #212121;
+      color: #fff;
+      position: relative;
 
-    &__privacy{
-      position: absolute;
-      padding-top: 12px;
-      padding-left: 44%;
-    }
+      h1{
+        color: #fff;
+        font-size: 16px;
+        font-weight: 100;
+        line-height: 33px;
+      }
 
-    &__data{
-      padding-top: 43px;
-      padding-left: 58%;
-      position: absolute;
-    }
+      li{
+        color: #ccc; 
+        font-size: 12px;
+        font-weight: 100;
+        line-height: 33px;
+      }
 
-    &__guide{
-      padding-top: 12px;
-      padding-left: 28%;
-      position: absolute;
-    }
+      &__tw-icon{
+        margin-left:14%;
+        margin-top: 230px;
+        font-size: 30px;
+        padding-right: 20px;
+      }
 
-    &__country{
-      padding-top: 12px;
-      padding-left: 75%;
-      position: absolute;
-    }
+      &__fb-icon{
+        margin-top: 230px;
+        font-size: 30px;
+        padding-right: 20px;
+        font-size: 30px;
+      }
+      
+      &__company{
+        position: absolute;
+        padding-top: 12px;
+        padding-left: 14%;
+      }
 
-    &__logo{
-      padding-top: 73px;
-      padding-left: 14%;
-      position: absolute;
-    }
+      &__privacy{
+        position: absolute;
+        padding-top: 12px;
+        padding-left: 44%;
+      }
 
-    &__log{
-      display: inline-block;
-      position:absolute;
-      left: 48%;
-      bottom:44px;
-      font-size:10px;
+      &__data{
+        padding-top: 43px;
+        padding-left: 58%;
+        position: absolute;
+      }
+
+      &__guide{
+        padding-top: 12px;
+        padding-left: 28%;
+        position: absolute;
+      }
+
+      &__country{
+        padding-top: 12px;
+        padding-left: 75%;
+        position: absolute;
+      }
+
+      &__logo{
+        padding-top: 73px;
+        padding-left: 14%;
+        position: absolute;
+      }
+
+      &__log{
+        display: inline-block;
+        position:absolute;
+        left: 48%;
+        bottom:44px;
+        font-size:10px;
+      }
     }
   }
 }
 
+@media (max-width: 1069px){
+
+  .footer{
+    display:none;
+  }
+  .fader{
+  margin-top: auto;
+  padding-top:0;
+
+
+    a:link { 
+      color: #ccc; 
+      text-decoration: none;
+    }
+    a:visited { 
+      color: #ccc; 
+      text-decoration: none;
+    }
+    a:hover { 
+      text-decoration: underline;
+    }
+    a:active {  
+    }
+
+    &__top{
+      height:260px;
+      background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?6643835);
+      background-position: center;
+      background-size: cover;
+      padding-bottom: 0;
+      
+
+      &__block{
+        width: 700px;
+        height: 260px;
+        margin:0 auto;
+        position: relative;
+
+        &__text{
+          color: #fff;
+          padding-top: 65px;
+          display: inline-block;
+          position: absolute;
+
+          &__small{
+            font-size: 15px;
+            font-weight: bold;
+          }
+
+          &__big{
+            font-size: 23px;
+          }
+        }
+        
+        &__logo{
+          padding-top:140px;
+          display : inline-block;
+          position: absolute;
+        }
+
+        &__app{
+          display:inline-block;
+          margin-left:80px;
+          padding-top:150px;
+        }
+
+        &__google{
+          display:inline-block;
+          margin-left:8px;
+          padding-top:150px;
+        }
+
+        &__phone{
+          display : inline;
+          position: absolute;
+          padding-left:60px;
+          top:0;
+        }
+      }
+    }
+
+    &__bottom{
+      height:730px;
+      background: #212121;
+      color: #fff;
+      position: relative;
+
+      h1{
+        color: #fff;
+        font-size: 16px;
+        font-weight: 100;
+        line-height: 33px;
+      }
+
+      li{
+        color: #ccc; 
+        font-size: 12px;
+        font-weight: 100;
+        line-height: 33px;
+      }
+
+
+      &__block{
+        margin: 0 auto;
+        width: 700px;
+
+        &__first{
+          float:left;
+          position: relative;
+          width: 300px;
+      
+          &__company{
+            padding-top: 12px;
+            padding-left: 14%;
+          }
+
+          &__tw-icon{
+            margin-left:14%;
+            margin-top: 20px;
+            font-size: 30px;
+            padding-right: 20px;
+          }
+    
+          &__fb-icon{
+            margin-top: 20px;
+            font-size: 30px;
+            padding-right: 20px;
+            font-size: 30px;
+          }
+
+          &__privacy{
+            padding-top: 60px;
+            padding-left: 14%;
+          }
+
+          &__country{
+            padding-top: 60px;
+            padding-left: 14%;
+
+            li{
+              margin-right: 25px;
+              display: inline-block;
+            }
+          }
+    
+          &__logo{
+            padding-top: 50px;
+            padding-left: 14%;
+            float:left;
+            
+          }
+
+          &__log{
+            font-size:10px;
+            padding-left: 170px;
+            padding-top: 58px;
+          }
+        }
+
+        &__secound{
+          position: absolute;
+          padding-left: 400px;
+
+          &__guide{
+            padding-top: 12px;
+            top:0;
+          }
+
+          &__data{
+            padding-top: 47px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 836px){
+
+  .footer{
+    display:none;
+  }
+  .fader{
+  margin-top: auto;
+  padding-top:0;
+
+
+    a:link { 
+      color: #ccc; 
+      text-decoration: none;
+    }
+    a:visited { 
+      color: #ccc; 
+      text-decoration: none;
+    }
+    a:hover { 
+      text-decoration: underline;
+    }
+    a:active {  
+    }
+
+    &__top{
+      display:none;
+    }
+
+    &__bottom{
+      height:730px;
+      background: #212121;
+      color: #fff;
+      position: relative;
+
+      h1{
+        color: #fff;
+        font-size: 16px;
+        font-weight: 100;
+        line-height: 33px;
+      }
+
+      li{
+        color: #ccc; 
+        font-size: 12px;
+        font-weight: 100;
+        line-height: 33px;
+      }
+
+
+      &__block{
+        width: 700px;
+
+        &__first{
+          float:left;
+          position: relative;
+          width: 300px;
+      
+          &__company{
+            padding-top: 12px;
+            padding-left: 14%;
+          }
+
+          &__tw-icon{
+            margin-left:14%;
+            margin-top: 20px;
+            font-size: 30px;
+            padding-right: 20px;
+          }
+    
+          &__fb-icon{
+            margin-top: 20px;
+            font-size: 30px;
+            padding-right: 20px;
+            font-size: 30px;
+          }
+
+          &__privacy{
+            padding-top: 60px;
+            padding-left: 14%;
+          }
+
+          &__country{
+            padding-top: 60px;
+            padding-left: 14%;
+
+            li{
+              margin-right: 25px;
+              display: inline-block;
+            }
+          }
+    
+          &__logo{
+            padding-top: 50px;
+            padding-left: 14%;
+            float:left;
+            
+          }
+
+          &__log{
+            font-size:10px;
+            padding-left: 170px;
+            padding-top: 58px;
+          }
+        }
+
+        &__secound{
+          position: absolute;
+          padding-left: 50%;
+
+          &__guide{
+            padding-top: 12px;
+            top:0;
+          }
+
+          &__data{
+            padding-top: 47px;
+          }
+        }
+      }
+    }
+  }
+}
