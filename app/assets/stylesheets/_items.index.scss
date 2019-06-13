@@ -144,36 +144,45 @@
         width:213px;
         height:110px;
         background-color: #fff;
+        position: relative;
 
           &__name{
-            padding: 16px;
+            padding-top: 16px;
+            padding-left: 16px;
+            padding-right: 16px;
             font-size: 16px;
             font-weight: 400;
             line-height: 1.5;
           }
 
-          &__price{
-            font-size: 16px;
-            padding-top: 17px;
-            padding-left: 16px;
-            padding-bottom: 0;
-            margin-bottom: 0;
-            font-weight: 900;
-            display: inline-block;
-          }
+          &__block{
+            position: absolute;
+            bottom:0;
+            width:213px;
+            height: 40px;
 
-          &__iine{
-            display: inline-block;
-            color: #ccc;
-            font-size: 20px;
-            margin-left: 100px;
-          }
+            &__price{
+              font-size: 16px;
+              padding-left: 16px;
+              top:0;
+              font-weight: 900;
+              display:inline-block;
+            }
 
-          &__tax-word{
-            padding-top: 0;
-            margin-top: 0;
-            padding-left: 10px;
-            font-size: 10px;
+            &__iine{
+              display: inline-block;
+              color: #ccc;
+              font-size: 20px;
+              margin-left: 100px;
+              top:0;
+            }
+
+            &__tax-word{
+              padding-top: 0;
+              margin-top: 0;
+              padding-left: 10px;
+              font-size: 10px;
+            }
           }
         }
       }
