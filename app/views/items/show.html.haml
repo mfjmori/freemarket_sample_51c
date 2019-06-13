@@ -181,7 +181,7 @@
         %textarea.comment__content__form__comment-text
         %button.comment__content__form__comment-btn
           コメントする
-          
+
 %main
   .container.backgroundf5f5f5
     .content-mypage-detail
@@ -200,93 +200,19 @@
         %h2.item-box-head.padding24px
           この出品者の商品
         .item-box-content
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
+          - @slaer_items.each do |item|
+            .item-box.backgroundfff
+              = link_to "#", class: 'item-box__link' do
+                %figure.item-box__link__photo
+                  = image_tag item.images[0].image.url
+                .item-box__link__body
+                  %h2.item-box__link__body__description
+                    = item.description
+                  .item-box__link__body__number
+                    .item-box__link__body__number__price
+                      = "¥#{item.price}"
+                    %i.far.fa-heart
+                    %span.item-box__link__body__number__like
+                      2
+                  .item-box__link__body__tax
+                    (税込)
