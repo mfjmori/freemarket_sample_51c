@@ -1,5 +1,5 @@
 text = []
-File.open('konoko','r') do |file|
+File.open("bb.text","r") do |file|
   file.each_line do |line|
      text << line.chomp
   end
