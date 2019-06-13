@@ -144,6 +144,10 @@
         border: 1px solid #ccc;
         height:50px;
         margin-bottom:40px;
+        color: #333;
+        &::placeholder {
+          color: grey;
+        }
       }
     }
     &__exp-title{
@@ -166,7 +170,10 @@
         font-size: 16px;
         line-height: 1.5;
         margin-bottom: 40px;
-        color:gray;
+        color:#333;
+        &::placeholder {
+          color: grey;
+        }
       }
     }
   }
@@ -229,7 +236,10 @@
         font-size: 16px;
         line-height: 1.5;
         margin-bottom: 40px;
-        color:gray;
+        color:#333;
+        &::placeholder {
+          color: grey;
+        }
       }
       &__input {
         width: 400px;
@@ -268,7 +278,10 @@
           background: #fff;
           font-size: 16px;
           line-height: 1.5;
-          color:gray;
+          color: #333;
+          &::placeholder {
+            color: grey;
+          }
           &--child, &--grandchild {
             display: none;
           }
@@ -283,6 +296,7 @@
           height:50px;
           margin-bottom:40px;
           box-sizing: border-box;
+          color: #333;
         }
         #select-arrow{
           position: absolute;
@@ -384,7 +398,10 @@
         font-size: 16px;
         line-height: 1.5;
         margin-bottom: 40px;
-        color:gray;
+        color:#333;
+        &::placeholder {
+          color: grey;
+        }
       }
 
       #select-arrow{
@@ -430,7 +447,10 @@
         font-size: 16px;
         line-height: 1.5;
         margin-bottom: 40px;
-        color:gray;
+        color:#333;
+        &::placeholder {
+          color: grey;
+        }
       }
 
       #select-arrow{
