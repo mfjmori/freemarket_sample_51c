@@ -124,56 +124,56 @@
 
 .comment
   .comment__content
-    -# .comment__content__show
-    -#   %ul.comment__content__show-list
-        -# -# 買う人のコメント
-        -# %li.comment__content__show-list-left
-        -#   = link_to do
-        -#     %figure
-        -#       .div
-        -#         = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
-        -#       %figcaption name
-        -#   .con
-        -#     .con-text
-        -#       コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
-        -#     .con-bottom
-        -#       .con-bottom-time
-        -#         %i.far.fa-clock
-        -#         74 日前
-        -#       .con-bottom-icon
-        -#         .delete-comment
-        -#           %i.fas.fa-trash-alt
-        -#         %form
-        -#           %button
-        -#             %i.far.fa-flag
-        -# %li.comment__content__show-list-left
-        -#   = link_to do
-        -#     %figure
-        -#       .div
-        -#         = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
-        -#       %figcaption name
-        -#   .con
-        -#     .con-text
-        -#       コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
-        -#     .con-bottom
-        -#       .con-bottom-time
-        -#         %i.far.fa-clock
-        -#         74 日前
-        -#       .con-bottom-icon
-        -#         .delete-comment
-        -#           %i.fas.fa-trash-alt
-        -#         %form
-        -#           %button
-        -#             %i.far.fa-flag
-        -# -# 売る人のコメント
-        -# %li.comment__content__show-list-right
-        -#   = link_to do
-        -#     %figure
-        -#   .con
-        -#     .con-text
-        -#     .con-bottom
-        -#       .con-bottom-time
-        -#       .con-bottom-icon
+    .comment__content__show
+      %ul.comment__content__show-list
+        -# 買う人のコメント
+        %li.comment__content__show-list-left
+          = link_to do
+            %figure
+              .div
+                = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
+              %figcaption name
+          .con
+            .con-text
+              コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
+            .con-bottom
+              .con-bottom-time
+                %i.far.fa-clock
+                74 日前
+              .con-bottom-icon
+                .delete-comment
+                  %i.fas.fa-trash-alt
+                %form
+                  %button
+                    %i.far.fa-flag
+        %li.comment__content__show-list-left
+          = link_to do
+            %figure
+              .div
+                = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
+              %figcaption name
+          .con
+            .con-text
+              コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
+            .con-bottom
+              .con-bottom-time
+                %i.far.fa-clock
+                74 日前
+              .con-bottom-icon
+                .delete-comment
+                  %i.fas.fa-trash-alt
+                %form
+                  %button
+                    %i.far.fa-flag
+        -# 売る人のコメント
+        %li.comment__content__show-list-right
+          = link_to do
+            %figure
+          .con
+            .con-text
+            .con-bottom
+              .con-bottom-time
+              .con-bottom-icon
     .comment__content__form
       %form.comment__content__form__comment
         %p.comment__content__form__comment-caution
