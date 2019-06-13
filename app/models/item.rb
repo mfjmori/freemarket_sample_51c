@@ -25,6 +25,10 @@ class Item < ApplicationRecord
     end
   end
 
+  def like_user(id)
+    likes.find_by(user_id: id)
+  end
+
   with_options presence: true do
     validates :name
     validates :description
