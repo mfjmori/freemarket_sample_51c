@@ -99,21 +99,21 @@
     .result-content
       .item-box-container
         %h2.item-box-head
-          検索結果
+          = params[:keyword].present? ? "#{params[:keyword]}の検索結果" : "新着商品"
         .search-result-number
-          1-48件表示
+          = @items.length.zero? ? "該当する商品が見つかりません。検索条件を変えて、再度お試しください。" : "1-#{@items.length}件表示"
         .item-box-content
-          - 48.times do
+          - @items.each do |item|
             .item-box
-              = link_to "#", class: 'item-box__link' do
+              = link_to item , class: 'item-box__link' do
                 %figure.item-box__link__photo
-                  = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
+                  = image_tag item.images[0].image.url
                 .item-box__link__body
                   %h2.item-box__link__body__name
-                    johnbullカーキカーゴパンツ 未使用品
+                    = item.name
                   .item-box__link__body__number
                     .item-box__link__body__number__price
-                      ¥1,200
+                      = "¥#{item.price.to_s(:delimited)}"
                     %i.far.fa-heart
                     %span.item-box__link__body__number__like
                       2
