@@ -93,15 +93,7 @@
       = @item.description
   .product__details__bottom
     .product__details__bottom-left
-      %button
-        %i.far.fa-heart
-        %span
-          いいね!
-        %span
-          0
-      = link_to do
-        %i.far.fa-flag
-        不適切な商品の報告
+      = render @item
     .product__details__bottom-right
       = link_to do
         %i.fas.fa-lock
