@@ -1,37 +1,563 @@
 
-.header{
-  z-index: 100;
-  height:100px;
-  border-bottom: medium solid #eee;
-  background-color: #fff;
-  border-width: 0.5px;
-  margin-top:0;
-  margin-bottom:0;
-  padding-top:0;
-  display:block;
-
-  &__box{
+@media (min-width: 1070px){
+  .hider{
+    display:none;
+  }
+  .header{
+    z-index: 100;
+    height:100px;
+    border-bottom: medium solid #eee;
+    background-color: #fff;
+    border-width: 0.5px;
+    margin-top:0;
+    margin-bottom:0;
+    padding-top:0;
     display:block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    width:1019px;
-    height: 76px;
 
-    &__top{
+    &__box{
+      display:block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      width:1019px;
+      height: 76px;
 
-      &__mainicon{
-        width:134px;
-        height:36px;
-        float: left;
-        margin-right:43px;
-        padding:0;
-        margin-top:0;
+      &__top{
+
+        &__mainicon{
+          width:134px;
+          height:36px;
+          float: left;
+          margin-right:43px;
+          padding:0;
+          margin-top:0;
+        }
+
+        &__form{
+          margin-left:45px;
+          top:5px;
+
+            &__tag{
+              &__main{
+                width:800px;
+              }
+            }
+
+            input::placeholder{
+              color:gray;
+            }
+
+            input:placeholder-shown{
+              background-color:#EEEEEE;
+              border-radius:6px 0 0 6px;
+              text-indent: 1em;
+              border: 1px solid #ccc;
+              height:40px;
+            }
+
+          &__submit{
+            width:42px;
+            height:42px;
+            vertical-align: middle;
+            font-size:20px;	
+            position: absolute;
+            border-radius:0 6px 6px 0;
+          }
+        }
       }
 
-      &__form{
-        margin-left:45px;
-        top:5px;
+      &__bottom{
+        width:1040px;
+        margin-top: 5px;
+        margin-left:0;
+        height:44px;
+        display: block;
+        font-size: 14px;
+        &__nav {
+          position: relative;
+          height: 100%;
+          display: inline-block;
+          &-futoji{
+            float: left;
+            font-family: 'メイリオ';
+            font-weight: bold;
+            margin-right:20px;
+            margin-top: 7px;
+            height: 37px;
+            max-width: 144.67px;
+
+            &-box {
+              height: 37px;
+              a:link { 
+                color: black;
+              }
+              a:visited { 
+                color: black; 
+              }
+              a:hover { 
+                color: #0099e8;
+              }
+              a:active { 
+                color: none; 
+              }
+              a {
+                i {
+                  color: red;
+                }
+              }
+            }
+          }
+        }
+
+        &__button{
+          float:right;
+          margin-right: 20px;
+
+          &__new{
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right:15px;
+            float:left;
+            a:link { 
+              color: white; 
+              text-decoration:none;
+            }
+            a:visited { 
+              color: white; 
+              text-decoration:none;
+            }
+          }
+
+          &__signin{
+            background: #fff;
+            border: 1px solid #0099e8;
+            color: #0099e8;
+            transition: all ease-out .3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+            float:left;
+          
+            a:link { 
+              color: #0099e8; 
+              text-decoration:none;
+            }
+            a:visited { 
+              color: #0099e8;  
+              text-decoration:none;
+            }
+
+            a:hover { 
+              background: #0099e8;
+              color: white;
+            }
+          }
+        }
+
+        &__hosoji{
+          color: #333;
+          font-family:'游ゴシック体';
+          display: block;
+          float:right;
+          
+          &__bottan{
+            float: left;
+            padding: 0 ;
+            a {
+              color: #333;
+            }
+            &__icon{
+              float: left;
+              font-size: 20px;
+              margin-right:8px;
+              margin-top:8px;
+              color: #ccc;
+            }
+
+            &__font{
+              font-size: 14px;
+              padding: 0;
+              margin-right:22px;
+              margin-top:7px;
+              float:right;
+            }
+            &__mypage{
+              width:32px;
+              height:32px;
+              float:left;
+              margin-right:8px;
+              margin-top:0px;
+              margin-top:0px;
+              padding-top: 0;
+              border-radius:50%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .icon__edit{
+    color:red;
+  }
+
+  .place--announce{
+    padding-top: 0;
+    width: 100%;
+    height:49px;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  }
+}
+
+
+
+@media (max-width: 1069px){
+  .hider{
+    display:none;
+  }
+  .header{
+    z-index: 100;
+    height:100px;
+    border-bottom: medium solid #eee;
+    background-color: #fff;
+    border-width: 0.5px;
+    margin-top:0;
+    margin-bottom:0;
+    padding-top:0;
+    display:block;
+
+    &__box{
+      display:block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      width:700px;
+      height: 76px;
+
+      &__top{
+
+        &__mainicon{
+          width:134px;
+          height:36px;
+          float: left;
+          margin-right:43px;
+          padding:0;
+          margin-top:0;
+        }
+
+        &__form{
+          margin-left:45px;
+          top:5px;
+
+            &__tag{
+              &__main{
+                width:500px;
+              }
+            }
+
+            input::placeholder{
+              color:gray;
+            }
+
+            input:placeholder-shown{
+              background-color:#EEEEEE;
+              border-radius:6px 0 0 6px;
+              text-indent: 1em;
+              border: 1px solid #ccc;
+              height:40px;
+            }
+
+          &__main{
+            height:40px;
+            float:left;
+            font-family: FontAwesome;
+            position: relative;
+          }
+
+          &__submit{
+            width:42px;
+            height:42px;
+            vertical-align: middle;
+            font-size:20px;	
+            position: absolute;
+            border-radius:0 6px 6px 0;
+          }
+        }
+      }
+
+      &__bottom{
+        width:738px;
+        margin-top: 5px;
+        margin-left:0;
+        height:44px;
+        display: block;
+        font-size: 14px;
+        &__nav {
+          position: relative;
+          height: 100%;
+          display: inline-block;
+          &-futoji{
+            float: left;
+            font-family: 'メイリオ';
+            font-weight: bold;
+            margin-right:20px;
+            margin-top: 7px;
+            height: 37px;
+            max-width: 144.67px;
+
+            &-box {
+              height: 37px;
+              a:link { 
+                color: black;
+              }
+              a:visited { 
+                color: black; 
+              }
+              a:hover { 
+                color: #0099e8;
+              }
+              a:active { 
+                color: none; 
+              }
+              a {
+                i {
+                  color: red;
+                }
+              }
+            }
+          }
+        }
+
+        &__button{
+          float:right;
+          margin-right: 18px;
+
+          &__new{
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right:15px;
+            float:left;
+            a:link { 
+              color: white; 
+              text-decoration:none;
+            }
+            a:visited { 
+              color: white; 
+              text-decoration:none;
+            }
+          }
+
+          &__signin{
+            background: #fff;
+            border: 1px solid #0099e8;
+            color: #0099e8;
+            transition: all ease-out .3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+            float:left;
+          
+            a:link { 
+              color: #0099e8; 
+              text-decoration:none;
+            }
+            a:visited { 
+              color: #0099e8;  
+              text-decoration:none;
+            }
+
+            a:hover { 
+              background: #0099e8;
+              color: white;
+            }
+          }
+        }
+
+        &__hosoji{
+          color: #333;
+          font-family:'游ゴシック体';
+          display: block;
+          float:right;
+          
+          &__bottan{
+            float: left;
+            padding: 0 ;
+            a {
+              color: #333;
+            }
+            &__icon{
+              float: left;
+              font-size: 20px;
+              margin-right:8px;
+              margin-top:8px;
+              color: #ccc;
+            }
+
+            &__font{
+              font-size: 14px;
+              padding: 0;
+              margin-right:22px;
+              margin-top:7px;
+              float:right;
+            }
+            &__mypage{
+              width:32px;
+              height:32px;
+              float:left;
+              margin-right:8px;
+              margin-top:0px;
+              margin-top:0px;
+              padding-top: 0;
+              border-radius:50%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .icon__edit{
+    color:red;
+  }
+
+  .place--announce{
+    padding-top: 0;
+    width: 100%;
+    height:49px;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  }
+}
+
+@media (max-width: 760px){
+  .header{
+    display:none;
+  }
+  .hider{
+    z-index: 100;
+    border-bottom: medium solid #eee;
+    background-color: #fff;
+    border-width: 0.5px;
+    margin-top:0;
+    padding-top:0;
+    display:block;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &__box{
+      display:inline-block;
+      margin-top: 10px;
+      width:100%;
+
+      &__top{
+        width:100%;
+        display:inline-block;
+        margin-bottom: 5px;
+
+        &__button{
+          float:right;
+
+          &__new{
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right:15px;
+            float:left;
+            a:link { 
+              color: white; 
+              text-decoration:none;
+            }
+            a:visited { 
+              color: white; 
+              text-decoration:none;
+            }
+          }
+
+          &__signin{
+            background: #fff;
+            border: 1px solid #0099e8;
+            color: #0099e8;
+            transition: all ease-out .3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+            float:left;
+          
+            a:link { 
+              color: #0099e8; 
+              text-decoration:none;
+            }
+            a:visited { 
+              color: #0099e8;  
+              text-decoration:none;
+            }
+
+            a:hover { 
+              background: #0099e8;
+              color: white;
+            }
+          }
+        }
+        
+
+        &__mainicon{
+          width:134px;
+          height:36px;
+          padding:0;
+          margin-top:0;
+          display: block;
+          float:left;
+        }
+
+        &__hosoji{
+          color: #333;
+          font-family:'游ゴシック体';
+          display: block;
+          height: 30px;
+          float: right;
+          top:0;
+          text-align: right;
+          
+          
+          &__bottan{
+            float: left;
+            padding: 0 ;
+            a {
+              color: #333;
+            }
+            &__icon{
+              float: left;
+              font-size: 20px;
+              margin-right:8px;
+              margin-top:8px;
+              color: #ccc;
+              margin-left: 20px;
+            }
+
+            &__mypage{
+              width:32px;
+              height:32px;
+              float:left;
+              margin-right:8px;
+              margin-top:0px;
+              margin-top:0px;
+              padding-top: 0;
+              border-radius:50%;
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+    
+
+      &__middle{
+
+        &__form{
+          left:0;
 
           input::placeholder{
             color:gray;
@@ -45,163 +571,110 @@
             height:40px;
           }
 
-        &__main{
-          height:40px;
-          float:left;
-          font-family: FontAwesome;
-          position: relative;
-        }
+          &__tag{
+            position: relative;
+            &__main{
+              height:40px;
+              float:left;
+              font-family: FontAwesome;
+              width:98%;
+              flex: 1;
+            }  
+          }
 
-        &__submit{
-          width:42px;
-          height:42px;
-          vertical-align: middle;
-          font-size:20px;	
-          position: absolute;
-          border-radius:0 6px 6px 0;
+          &__submit{
+            width:42px;
+            height:42px;
+            vertical-align: middle;
+            font-size:20px;	
+            position: absolute;
+            border-radius:0 6px 6px 0;
+            right:0;
+          }
         }
       }
-    }
 
-    &__bottom{
-      width:1040px;
-      margin-top: 5px;
-      margin-left:0;
-      height:44px;
-      display: block;
-      font-size: 14px;
-      &__nav {
-        position: relative;
-        height: 100%;
-        display: inline-block;
-        &-futoji{
-          float: left;
-          font-family: 'メイリオ';
-          font-weight: bold;
-          margin-right:20px;
-          margin-top: 7px;
-          height: 37px;
-          max-width: 144.67px;
+      &__bottom{
+        width: 100%;
+        text-align: center;
+        display: block;
+        font-size: 14px;
+        &__nav {
+          position: relative;
+          width: 100%;
+          display: inline-block;
+          padding-top: 10px;
+          &-futoji1{
+            float: left;
+            font-family: 'メイリオ';
+            font-weight: bold;
+            margin-left:15%;
+            margin-top: 7px;
+            max-width: 144.67px;
 
-          &-box {
-            height: 37px;
-            a:link { 
-              color: black;
-            }
-            a:visited { 
-              color: black; 
-            }
-            a:hover { 
-              color: #0099e8;
-            }
-            a:active { 
-              color: none; 
-            }
-            a {
-              i {
-                color: red;
+            &-box {
+              a:link { 
+                color: black;
+              }
+              a:visited { 
+                color: black; 
+              }
+              a:hover { 
+                color: #0099e8;
+              }
+              a:active { 
+                color: none; 
+              }
+              a {
+                i {
+                  color: red;
+                }
               }
             }
           }
-        }
-      }
+          &-futoji2{
+            float: right;
+            font-family: 'メイリオ';
+            font-weight: bold;
+            margin-right:15%;
+            margin-top: 7px;
+            max-width: 144.67px;
 
-      &__button{
-        float:right;
+            &-box {
 
-        &__new{
-          background: #ea352d;
-          border: 1px solid #ea352d;
-          color: #fff;
-          padding: 5px 10px;
-          border-radius: 5px;
-          margin-right:15px;
-          float:left;
-          a:link { 
-            color: white; 
-            text-decoration:none;
+              a:link { 
+                color: black;
+              }
+              a:visited { 
+                color: black; 
+              }
+              a:hover { 
+                color: #0099e8;
+              }
+              a:active { 
+                color: none; 
+              }
+              a {
+                i {
+                  color: red;
+                }
+              }
+            }
           }
-          a:visited { 
-            color: white; 
-            text-decoration:none;
-          }
-        }
-
-        &__signin{
-          background: #fff;
-          border: 1px solid #0099e8;
-          color: #0099e8;
-          transition: all ease-out .3s;
-          padding: 5px 10px;
-          border-radius: 5px;
-          float:left;
-         
-          a:link { 
-            color: #0099e8; 
-            text-decoration:none;
-          }
-          a:visited { 
-            color: #0099e8;  
-            text-decoration:none;
-          }
-
-          a:hover { 
-            background: #0099e8;
-            color: white;
-          }
-        }
-      }
-
-      &__hosoji{
-        color: #333;
-        font-family:'游ゴシック体';
-        display: block;
-        float:right;
-        
-        &__bottan{
-          float: left;
-          padding: 0 ;
-          a {
-            color: #333;
-          }
-          &__icon{
-            float: left;
-            font-size: 20px;
-            margin-right:8px;
-            margin-top:8px;
-            color: #ccc;
-          }
-
-          &__font{
-            font-size: 14px;
-            padding: 0;
-            margin-right:22px;
-            margin-top:7px;
-            float:right;
-          }
-          &__mypage{
-            width:32px;
-            height:32px;
-            float:left;
-            margin-right:8px;
-            margin-top:0px;
-            margin-top:0px;
-            padding-top: 0;
-            border-radius:50%;
-          }
+          
         }
       }
     }
   }
-}
 
-.icon__edit{
-  color:red;
-}
+  .icon__edit{
+    color:red;
+  }
 
-.place--announce{
-  padding-top: 0;
-  width: 100%;
-  height:49px;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  .place--announce{
+    padding-top: 0;
+    width: 100%;
+    height:49px;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  }
 }

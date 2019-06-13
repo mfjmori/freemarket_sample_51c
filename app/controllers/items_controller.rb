@@ -12,6 +12,12 @@ class ItemsController < ApplicationController
       ladies_grand_child_ids = @ladies_grand_child_category.map{|grand_child| grand_child.id}
       @items_lady =  Item.item_num(ladies_grand_child_ids)
 
+      @ladies_child_category = Category.where(parent_id:1)
+      ladies_child_ids = @ladies_child_category.map{|child| child.id}
+      @ladies_grand_child_category = Category.child_num(ladies_child_ids)
+      ladies_grand_child_ids = @ladies_grand_child_category.map{|grand_child| grand_child.id}
+      @items_lady =  Item.item_num(ladies_grand_child_ids)
+
       @mens_child_category = Category.where(parent_id:2)
       mens_child_ids = @mens_child_category.map{|child| child.id}
       @mens_grand_child_category = Category.child_num(mens_child_ids)

@@ -1,3 +1,4 @@
+
 .header
   .header__box
     .header__box__top
@@ -6,7 +7,7 @@
       .header__box__top__form
         = form_tag('/items', method: :post) do
           .header__box__top__form__tag
-            %input.header__box__top__form__tag__main{name: "text", placeholder: "何かお探しですか？", size: "88"}/
+            %input.header__box__top__form__tag__main{name: "text", placeholder: "何かお探しですか？"}/
             %button.header__box__top__form__submit{type: "submit"}
               %i.fas.fa-search
     .header__box__bottom
@@ -87,4 +88,94 @@
             = link_to "新規会員登録",new_user_registration_path, class: 'get', style: "text-decoration:none"
           .header__box__bottom__button__signin
             = link_to "ログイン",new_user_session_path , class: 'get', style: "text-decoration:none"
+
+
+.hider
+  .hider__box
+    .hider__box__top
+      .hider__box__top__mainicon
+        = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340'), root_path, class: 'get'
+      - if user_signed_in?
+        .hider__box__top__hosoji
+          .hider__box__top__hosoji__bottan
+            %a{href: ""}
+              %i.far.fa-bell.hider__box__top__hosoji__bottan__icon
+          .hider__box__top__hosoji__bottan
+            %a{href: ""}
+              %i.fas.fa-check.hider__box__top__hosoji__bottan__icon
+          .hider__box__top__hosoji__bottan
+            =link_to user_path(current_user.id) do
+              %img.hider__box__top__hosoji__bottan__mypage{alt: "マイページ", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}/
+      - else
+        .hider__box__top__button
+          .hider__box__top__button__new
+            = link_to "新規会員登録",new_user_registration_path, class: 'get', style: "text-decoration:none"
+          .hider__box__top__button__signin
+            = link_to "ログイン",new_user_session_path , class: 'get', style: "text-decoration:none"
             
+      
+      
+      
+    .hider__box__middle
+      .hider__box__middle__form
+        = form_tag('/items', method: :post) do
+          .hider__box__middle__form__tag
+            %input.hider__box__middle__form__tag__main{name: "text", placeholder: "何かお探しですか？"}/
+            %button.hider__box__middle__form__submit{type: "submit"}
+              %i.fas.fa-search
+    .hider__box__bottom
+      .hider__box__bottom__nav
+        %ul.hider__box__bottom__nav-futoji1
+          %li.hider__box__bottom__nav-futoji1-box
+            %a{href: "/categories", style: "text-decoration:none"}
+              %i.fas.fa-list-ul.header__box__bottom__nav-futoji__icon
+              カテゴリーから探す
+          %ul.nav
+            - @all_categories.each do |parent|
+              %li
+                %h3
+                  = link_to parent.name
+                  %ul.btn-person
+                    - parent.children.first(14).each do |child|
+                      %li.liperson
+                        %h3
+                          = link_to child.name
+                          %ul.btn-child
+                            - child.children.first(14).each do |grandchild|
+                              %li
+                                %h3
+                                  = link_to grandchild.name
+            %li
+              %h3
+                = link_to "カテゴリ一覧"
+
+        .hider__box__bottom__nav-futoji2
+          .hider__box__bottom__nav-futoji2-box
+            %a{href: "", style: "text-decoration:none"}
+              %i.fas.fa-tag.hider__box__bottom__futoji-box__icon
+              ブランドから探す
+          %ul.nav
+            %li
+              %h3
+                = link_to "シャネル"
+              
+            %li
+              %h3
+                = link_to "ナイキ"
+
+            %li
+              %h3
+                = link_to "ルイ ヴィトン"
+              
+            %li
+              %h3
+                = link_to "シュプリーム"
+
+            %li
+              %h3
+                = link_to "アディダス"
+              
+            %li
+              %h3
+                = link_to "ブランド一覧"
+     
