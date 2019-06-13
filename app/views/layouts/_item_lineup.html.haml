@@ -9,7 +9,7 @@
       .secound-section__block__items__item__box__block
         .secound-section__block__items__item__box__block__price
           ="¥"
-          =item_lineup.price
+          =item_lineup.price.to_s.gsub(/(\d)(?=(\d{3})+(?!\d))/, '\1,')
         %i.far.fa-heart.secound-section__block__items__item__box__block__iine
         .secound-section__block__items__item__box__block__tax-word
           （税込）
