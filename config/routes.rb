@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    get "search", on: :collection
+    member do
+      patch 'stop'
+    end
     resources :images
     resources :likes
     resources :comments

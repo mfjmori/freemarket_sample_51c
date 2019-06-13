@@ -1,0 +1,121 @@
+%main
+  .search-container
+    .search-content
+      = search_form_for @search, html: {class: 'search-form'} do |f|
+        .search-form__item-sort
+          .search-form__item-sort__pull-down
+            =f.select( :created_at, ['価格の安い順', '価格の高い順', '出品の古い順', '出品の新しい順', 'いいね！の多い順'] ,{prompt: "並び替え"}, {class: "search-form__item-sort__pull-down__select"} )
+            %i.fas.fa-chevron-down.search-form__item-sort__pull-down__icon
+        .search-form__detail
+          %h3.search-form__detail__head
+            詳細検索
+          .search-form__detail__keyword
+            = f.label :name, class: "search-form__detail__keyword__label" do
+              %i.fas.fa-plus.search-form__detail__keyword__label__icon
+              .search-form__detail__keyword__label__text
+                キーワードを追加する
+            = f.text_field :name, placeholder: "例）値下げ", class: "search-form__detail__keyword__input"
+          .search-form__detail__category
+            = f.label :category_id, class: "search-form__detail__category__label" do
+              %i.fas.fa-list-ul.search-form__detail__category__label__icon
+              .search-form__detail__category__label__text
+                カテゴリーを選択する
+            .search-form__detail__category__pull-down
+              = f.collection_select( :category_id, Category.where(parent_id: 0), :id, :name ,{prompt: "---"}, { class: "search-form__detail__category__pull-down__select"} )
+              %i.fas.fa-chevron-down.search-form__detail__category__pull-down__icon
+            .search-form__detail__category__pull-down
+              = f.collection_select( :category_id, Category.where(parent_id: 1), :id, :name ,{prompt: "---"}, { class: "search-form__detail__category__pull-down__select"} )
+              %i.fas.fa-chevron-down.search-form__detail__category__pull-down__icon
+            .search-form__detail__category__block
+              = f.collection_check_boxes( :category_id, Category.where(parent_id: 1), :id, :name ,{prompt: "---"}, { class: "search-form__detail__category__block__check-boxes"} ) do |b|
+                = b.label(class: "search-form__detail__category__block__check-boxes__label") do
+                  = b.check_box(class: "search-form__detail__category__block__check-boxes__label__input")
+                  %i.fas.fa-check.check-icon.search-form__detail__category__block__check-boxes__label__icon
+                  = b.label(class: "search-form__detail__category__block__check-boxes__label__text")
+          .search-form__detail__brand
+            = f.label :brnad, class: "search-form__detail__brand__label" do
+              %i.fas.fa-tags.search-form__detail__brand__label__icon
+              .search-form__detail__brand__label__text
+                ブランド名から探す
+            = f.text_field :brand, placeholder: "例）シャネル", class: "search-form__detail__brand__input"
+          .search-form__detail__size
+            = f.label :sizd, class: "search-form__detail__size__label" do
+              %i.fas.fa-vector-square.search-form__detail__size__label__icon
+              .search-form__detail__size__label__text
+                サイズを選択する
+            .search-form__detail__size__pull-down
+              = f.select( :size, Item.sizes_i18n.invert, {}, { class: "search-form__detail__size__pull-down__select"} )
+              %i.fas.fa-chevron-down.search-form__detail__size__pull-down__icon
+          .search-form__detail__price
+            = f.label :size, class: "search-form__detail__price__label" do
+              %i.fas.fa-coins.search-form__detail__price__label__icon
+              .search-form__detail__price__label__text
+                価格
+            .search-form__detail__price__pull-down
+              = f.select( :price, ["300~1000", "1000~5000", "5000~10000", "10000~30000", "30000~50000", "50000~"], {prompt: "選択して下さい"}, { class: "search-form__detail__price__pull-down__select"} )
+              %i.fas.fa-chevron-down.search-form__detail__price__pull-down__icon
+            .search-form__detail__price__inputs
+              = f.text_field :price_gteq, placeholder: "¥ Min", class: "search-form__detail__price__inputs__min"
+              %span.search-form__detail__price__inputs__wave
+                &= "~"
+              = f.text_field :price_lteq, placeholder: "¥ Max", class: "search-form__detail__price__inputs__max"
+          .search-form__detail__condition
+            = f.label :condition, class: "search-form__detail__condition__label" do
+              %i.fas.fa-star.search-form__detail__condition__label__icon
+              .search-form__detail__condition__label__text
+                商品の状態
+            .search-form__detail__condition__block
+              = f.collection_check_boxes( :condition, Item.conditions_i18n.invert, :last , :first , { class: "search-form__detail__condition__block__check-boxes"} ) do |b|
+                = b.label(class: "search-form__detail__condition__block__check-boxes__label") do
+                  = b.check_box(class: "search-form__detail__condition__block__check-boxes__label__input")
+                  %i.fas.fa-check.check-icon.search-form__detail__condition__block__check-boxes__label__icon
+                  = b.label(class: "search-form__detail__condition__block__check-boxes__label__text")
+          .search-form__detail__postage
+            = f.label :postage, class: "search-form__detail__postage__label" do
+              %i.fas.fa-truck.search-form__detail__postage__label__icon
+              .search-form__detail__postage__label__text
+                配送料の負担
+            .search-form__detail__postage__block
+              = f.collection_check_boxes( :postage, Item.postages_i18n.invert, :last , :first , { class: "search-form__detail__postage__block__check-boxes"} ) do |b|
+                = b.label(class: "search-form__detail__postage__block__check-boxes__label") do
+                  = b.check_box(class: "search-form__detail__postage__block__check-boxes__label__input")
+                  %i.fas.fa-check.check-icon.search-form__detail__postage__block__check-boxes__label__icon
+                  = b.label(class: "search-form__detail__postage__block__check-boxes__label__text")
+          .search-form__detail__sale
+            = f.label :buyer_id, class: "search-form__detail__postage__label" do
+              %i.fas.fa-shopping-cart.search-form__detail__sale__label__icon
+              .search-form__detail__sale__label__text
+                販売状況
+            .search-form__detail__sale__block
+              = f.collection_check_boxes( :buyer_id, [["全て", 0], ["販売中", 1], ["売り切れ", 2]], :last , :first , { class: "search-form__detail__sale__block__check-boxes"} ) do |b|
+                = b.label(class: "search-form__detail__sale__block__check-boxes__label") do
+                  = b.check_box(class: "search-form__detail__sale__block__check-boxes__label__input")
+                  %i.fas.fa-check.check-icon.search-form__detail__sale__block__check-boxes__label__icon
+                  = b.label(class: "search-form__detail__sale__block__check-boxes__label__text")
+          .search-form__detail__button
+            = button_tag 'クリア', class: "search-form__detail__button__clear"
+            = f.submit '完了', class: "search-form__detail__button__submit"
+
+    .result-content
+      .item-box-container
+        %h2.item-box-head
+          = params[:keyword].present? ? "#{params[:keyword]}の検索結果" : "新着商品"
+        .search-result-number
+          = @items.length.zero? ? "該当する商品が見つかりません。検索条件を変えて、再度お試しください。" : "1-#{@items.length}件表示"
+        .item-box-content
+          - @items.each do |item|
+            .item-box
+              = link_to item , class: 'item-box__link' do
+                %figure.item-box__link__photo
+                  = image_tag item.images[0].image.url
+                .item-box__link__body
+                  %h2.item-box__link__body__name
+                    = item.name
+                  .item-box__link__body__number
+                    .item-box__link__body__number__price
+                      = "¥#{item.price.to_s(:delimited)}"
+                    %i.far.fa-heart
+                    %span.item-box__link__body__number__like
+                      2
+                  .item-box__link__body__tax
+                    (税込)

@@ -18,7 +18,7 @@ class Item < ApplicationRecord
 
   def reject_image(attributes)
     if attributes[:id]
-      attributes.merge!(_destroy: "1") if attributes[:image_cache].blank?
+      attributes.merge!(_destroy: "1") if attributes[:image_cache].blank? && attributes[:image].blank?
       false
     else
       false
@@ -39,7 +39,9 @@ class Item < ApplicationRecord
   end
   validates :price, presence: true, numericality: {only_integer: true, greater_than: 299, less_than: 10000000}
 
-  scope :item_num, -> (num) {where(category_id: num).order('id DESC').limit(4)}
-  scope :item_brand, -> (name) {where(brand: name).order('id DESC').limit(4)}
-  
+
+  scope :item_num, -> (num) {where(category_id: num).order('id ASC').limit(4)}
+  scope :item_brand, -> (name) {where(brand: name).order('id ASC').limit(4)}
+  scope :recent, -> {order('id ASC')}
+  scope :on_sale, -> {where(status: 0)}
 end
