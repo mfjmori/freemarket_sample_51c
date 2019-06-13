@@ -483,3 +483,12 @@
     }
   }
 }
+
+main{
+  .item-box__link__body__description{
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
