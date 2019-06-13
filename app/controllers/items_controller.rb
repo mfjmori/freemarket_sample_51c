@@ -97,6 +97,11 @@ class ItemsController < ApplicationController
 
   def search
     @search = Item.search(params[:q])
+    if params[:keyword].present?
+      @items = Item.ransack(name_cont: params[:keyword]).result.on_sale 
+    else
+      @items = Item.on_sale.recent
+    end
   end
 
   private
