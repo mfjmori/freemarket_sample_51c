@@ -14,7 +14,8 @@
             - if image.image.url
               .set-page__secound__preview__list{id: "preview-img-#{index}"}
                 .set-page__secound__preview__list__figure
-                  = image_tag image.image.url, {class: "set-page__secound__preview__list__figure__image"}
+                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/#{image.image.fog_directory}/#{image.image.store_path}", {class: "set-page__secound__preview__list__figure__image"} if Rails.env.production?
+                  = image_tag image.image.url, {class: "set-page__secound__preview__list__figure__image"} if Rails.env.development?
                 %div{class: "set-page__secound__preview__list__delete-button" ,data: { preview: index } }
                   削除
           .set-page__secound__form
