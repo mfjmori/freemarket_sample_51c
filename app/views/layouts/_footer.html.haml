@@ -93,3 +93,112 @@
         .camera__icon
           %i.fa.fa-camera
     %div
+
+.fader
+  .fader__top
+    .fader__top__block
+      .fader__top__block__text
+        .fader__top__block__text__small スマホでかんたんフリマアプリ
+        .fader__top__block__text__big 今すぐ無料ダウンロード！
+      .fader__top__block__logo
+        %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?3160895340", width: "68"}/
+      .fader__top__block__app
+        = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'
+      .fader__top__block__google
+        = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1204800476'), 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'get'
+      .fader__top__block__phone
+        %img{height: "260", src: "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?3160895340", width: "300"}/
+  .fader__bottom
+    .fader__bottom__block
+      .fader__bottom__block__first
+        .fader__bottom__block__first__company
+          %h1
+            メルカリについて
+          %ul
+            %li
+              = link_to "会社概要（運営会社）","" , class: 'get'
+            %li
+              = link_to "採用情報","" , class: 'get'
+            %li
+              = link_to "プレスリリース","" , class: 'get'
+            %li
+              = link_to "公式ブログ","" , class: 'get'
+            %li
+              = link_to "メルカリロゴ用ガイドライン","" , class: 'get'
+        %a{href: "https://twitter.com/mercari_jp"}
+          %i.fab.fa-twitter.fader__bottom__block__first__tw-icon
+        %a{alt: "フェイスブック", href: "https://www.facebook.com/mercarijp"}
+          %i.fab.fa-facebook-square.fader__bottom__block__first__fb-icon
+
+        .fader__bottom__block__first__privacy
+          %h1
+            プライバシーと利用規約
+          %ul
+            %li
+              = link_to "プライバシーポリシー","" , class: 'get'
+            %li
+              = link_to "メルカリ利用規約","" , class: 'get'
+            %li
+              = link_to "あんしんスマホサポート制度に関する利用特約","" , class: 'get'
+            %li
+              = link_to "コンプライアンスポリシー","" , class: 'get'
+
+        .fader__bottom__block__first__country
+          %h1
+            国
+          %ul
+            %li
+              = link_to "日本","" , class: 'get'
+            %li
+              = link_to "United States","" , class: 'get'
+
+        .fader__bottom__block__first__logo
+          = link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3160895340'), root_path, class: 'get',width:"124",height:"33"
+        .fader__bottom__block__first__log
+          © 2019 Mercari
+
+      .fader__bottom__block__secound
+        .fader__bottom__block__secound__guide
+          %h1
+            ヘルプ＆ガイド
+          %ul
+            %li
+              = link_to "メルカリガイド","" , class: 'get'
+            %li
+              = link_to "らくらくメルカリ便","" , class: 'get'
+            %li
+              = link_to "ゆうゆうメルカリ便","" , class: 'get'
+            %li
+              = link_to "大型メルカリ便","" , class: 'get'
+            %li
+              = link_to "車体取引便","" , class: 'get'
+            %li
+              = link_to "メルカリあんしん・あんぜん宣言！","" , class: 'get'
+            %li
+              = link_to "偽ブランド品撲滅への取り組み","" , class: 'get'
+            %li
+              = link_to "メルカリボックス","" , class: 'get'
+      
+        .fader__bottom__block__secound__data
+          %ul
+            %li
+              = link_to "個人データの安全管理に係る基本方針","" , class: 'get'
+            %li
+              = link_to "特定商取引に関する表記","" , class: 'get'
+            %li
+              = link_to "資金決済法に基づく表示","" , class: 'get'
+            %li
+              = link_to "法令順守と犯罪抑止のために","" , class: 'get'
+            %li
+              = link_to "返品・返金ポリシー","" , class: 'get'
+    
+    
+
+        = link_to new_item_path do
+          .camera
+            .camera__font
+              出品
+            .camera__icon
+              %i.fa.fa-camera
+        %div
+

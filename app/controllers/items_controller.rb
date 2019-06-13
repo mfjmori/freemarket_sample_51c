@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   layout 'item_application', only: [:new, :edit]
   
     def index
+
       @items = Item.all.where.not(status: true)
       @items_lady =  @items.item_num(ladies_category)
       @items_men =  @items.item_num(mens_category)
@@ -15,6 +16,7 @@ class ItemsController < ApplicationController
       @items_Louis_Vuitton = @items.item_brand("ルイヴィトン")
       @items_Supream= @items.item_brand("シュプリーム")
       @items_Nike= @items.item_brand("ナイキ")
+
     end
 
   def new
