@@ -19,6 +19,11 @@ class BuyOrdersController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy',
     )
+    if @item.update(buyer_id: current_user.id)
+      redirect_to @item
+    else
+      render 'new'
+    end
   end
 
   private
