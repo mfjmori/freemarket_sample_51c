@@ -22,6 +22,7 @@ class AddressesController < ApplicationController
 
   def set_current_user
     @current_user = User.find_by(id: session[:user_id])
+    @user = User.find(params[:user_id])
   end
   def address_params
     params.require(:address).permit(:post_code,:prefecture,:municipality,:house_number,:phone_number,:building_name).merge(user_id: current_user.id)
