@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    layout 'user_application', except: :show
+    before_action :set_user
+    layout 'user_application', except: [:show, :logout]
     def index
     end
     def show
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
     end
 
     def logout
+        @user = User.find(params[:id])
     end
     def address
         @user = User.new
@@ -35,5 +37,11 @@ class UsersController < ApplicationController
     end
     def complete
         @user = User.new
+    end
+
+    private
+
+    def set_user
+        @user = User.find(params[:id])
     end
 end

@@ -13,7 +13,10 @@ Rails.application.routes.draw do
       get 'card'
       get 'telephone'
       get 'complete'
+    end
+    member do
       get 'logout'
+      patch 'logout'
     end
     resource :cards, only: [:show, :new] do
       collection do
