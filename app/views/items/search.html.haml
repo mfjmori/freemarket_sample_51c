@@ -1,11 +1,13 @@
 %main
   .search-container
     .search-content
+      = form_with model: @form, url: search_items_path, method: :get, class: 'search-form-sort' do |f|
+        .search-form-sort__item-sort
+          .search-form-sort__item-sort__pull-down
+            =f.select( :sort, ['並び替え', '価格の安い順', '価格の高い順', '出品の古い順', '出品の新しい順', 'いいね！の多い順'] ,{prompt: "並び替え"}, {class: "search-form-sort__item-sort__pull-down__select", onchange: 'this.form.submit()'} )
+            %i.fas.fa-chevron-down.search-form-sort__item-sort__pull-down__icon
       = search_form_for @search, html: {class: 'search-form'} do |f|
-        .search-form__item-sort
-          .search-form__item-sort__pull-down
-            =f.select( :created_at, ['価格の安い順', '価格の高い順', '出品の古い順', '出品の新しい順', 'いいね！の多い順'] ,{prompt: "並び替え"}, {class: "search-form__item-sort__pull-down__select"} )
-            %i.fas.fa-chevron-down.search-form__item-sort__pull-down__icon
+        = sort_link(@search, :price, "価格の安い順")
         .search-form__detail
           %h3.search-form__detail__head
             詳細検索
