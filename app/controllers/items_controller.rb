@@ -101,7 +101,6 @@ class ItemsController < ApplicationController
 
   def search
 
-    
     if params[:keyword].present?
       @search = Item.ransack(name_cont: params[:keyword])
       @items = @search.result.on_sale
@@ -111,16 +110,6 @@ class ItemsController < ApplicationController
     else
       @search = Item.ransack(params[:q])
       @items = Item.on_sale.recent
-    end
-
-    if params[:form].present?
-      @form = Form.new(form_params)
-      @items = Item.all.order('price ASC') if @form.sort == "価格の安い順"
-      @items = Item.all.order('price DESC') if @form.sort == "価格の高い順"
-      @items = Item.all.order('updated_at ASC') if @form.sort == "出品の古い順"
-      @items = Item.all.order('updated_at DESC') if @form.sort == "出品の新しい順"
-    else
-      @form = Form.new
     end
   end
 
@@ -137,13 +126,4 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def form_params
-    params.require(:form).permit(:sort)
-  end
-  
-end
-
-class Form
-  include ActiveModel::Model
-  attr_accessor :sort
 end

@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   end
 
   resources :items do
-    get "search", on: :collection
+    collection do
+      match 'search' => 'items#search', via: [:get, :post]
+    end
     member do
       patch 'stop'
     end

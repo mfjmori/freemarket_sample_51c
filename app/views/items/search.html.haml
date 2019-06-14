@@ -1,13 +1,11 @@
 %main
   .search-container
     .search-content
-      = form_with model: @form, url: search_items_path, method: :get, class: 'search-form-sort' do |f|
-        .search-form-sort__item-sort
-          .search-form-sort__item-sort__pull-down
-            =f.select( :sort, ['並び替え', '価格の安い順', '価格の高い順', '出品の古い順', '出品の新しい順', 'いいね！の多い順'] ,{prompt: "並び替え"}, {class: "search-form-sort__item-sort__pull-down__select", onchange: 'this.form.submit()'} )
-            %i.fas.fa-chevron-down.search-form-sort__item-sort__pull-down__icon
-      = search_form_for @search, html: {class: 'search-form'} do |f|
-        = sort_link(@search, :price, "価格の安い順")
+      = search_form_for @search, url: search_items_path ,html: {method: :post, class: 'search-form'} do |f|
+        .search-form__item-sort
+          .search-form__item-sort__pull-down
+            = f.collection_select( :sorts, [['並び替え', ''], ['価格の安い順','price asc'], ['価格の高い順', 'price desc'], ['出品の古い順', 'updated_at asc'], ['出品の新しい順', 'updated_at desc'], ['いいね！の多い順', ''] ], :last, :first , {selected: params[:q][:sorts]}, {class: "search-form__item-sort__pull-down__select", onchange: 'this.form.submit()'} )
+            %i.fas.fa-chevron-down.search-form__item-sort__pull-down__icon
         .search-form__detail
           %h3.search-form__detail__head
             詳細検索
@@ -23,13 +21,13 @@
               .search-form__detail__category__label__text
                 カテゴリーを選択する
             .search-form__detail__category__pull-down
-              = f.collection_select( :category_id, Category.where(parent_id: 0), :id, :name ,{prompt: "---"}, { class: "search-form__detail__category__pull-down__select"} )
+              = f.collection_select( :category_id, Category.where(parent_id: 0), :id, :name , {prompt: "---"}, {include_blank: true, class: "search-form__detail__category__pull-down__select"} )
               %i.fas.fa-chevron-down.search-form__detail__category__pull-down__icon
             .search-form__detail__category__pull-down
-              = f.collection_select( :category_id, Category.where(parent_id: 1), :id, :name ,{prompt: "---"}, { class: "search-form__detail__category__pull-down__select"} )
+              = f.collection_select( :category_id, Category.where(parent_id: 1), :id, :name ,{prompt: "---"}, { include_blank: true, class: "search-form__detail__category__pull-down__select"} )
               %i.fas.fa-chevron-down.search-form__detail__category__pull-down__icon
             .search-form__detail__category__block
-              = f.collection_check_boxes( :category_id, Category.where(parent_id: 1), :id, :name ,{prompt: "---"}, { class: "search-form__detail__category__block__check-boxes"} ) do |b|
+              = f.collection_check_boxes( :category_id_in, Category.where(parent_id: 1), :id, :name , { include_blank: '指定なし', class: "search-form__detail__category__block__check-boxes"} ) do |b|
                 = b.label(class: "search-form__detail__category__block__check-boxes__label") do
                   = b.check_box(class: "search-form__detail__category__block__check-boxes__label__input")
                   %i.fas.fa-check.check-icon.search-form__detail__category__block__check-boxes__label__icon

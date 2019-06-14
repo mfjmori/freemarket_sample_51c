@@ -78,7 +78,7 @@
   .search-content {
     width: 280px;
     margin-right: 40px;
-    .search-form-sort {
+    .search-form {
       &__item-sort {
         &__pull-down {
           position: relative;
@@ -105,8 +105,6 @@
           }  
         }
       }
-    }
-    .search-form {
       &__detail {
         padding: 16px;
         margin-top: 40px;
