@@ -86,9 +86,10 @@
       .product__details__price-cost
         送料込み
   - if @items.buyer_id == nil
-    .product__details__btn
-      %button
-        =link_to '購入画面に進む',new_item_buy_order_path(@item.id)
+    -if current_user.id != @items.saler_id
+      .product__details__btn
+        %button
+          =link_to '購入画面に進む',new_item_buy_order_path(@item.id)
   - else
     .product__details__btn-gray
       %button{disabled: "disabled"}売り切れました
@@ -103,24 +104,30 @@
         %i.fas.fa-lock
         あんしん・あんぜんへの取り組み
 -if @users.id == current_user.id
-  .chang-box
-    %button.chang-box__btn-item-red
-      = link_to "商品の編集", edit_item_path(@items.id)
-    %p.chang-box__text-center
-      or
-    .wakeru
-      = form_tag(stop_item_path(@item.id), method: :patch) do
-        - if @item.status == false
-          %input{type: "hidden",name: "status", value: 1}
-          %button.chang-box__btn-item-gray{type: "submit"}
-            出品を停止する
-        - elsif @item.status == true
-          %input{type: "hidden", name: "status", value: 0}
-          %button.chang-box__btn-item-red{type: "submit"}
-            出品停止中
-    .wakeru2
-      %button.chang-box__btn-item__gray
-        = link_to 'この商品を削除する', item_path(@item.id), method: :delete
+  -if @items.buyer_id == nil
+    .chang-box
+      %button.chang-box__btn-item-red
+        = link_to "商品の編集", edit_item_path(@items.id)
+      %p.chang-box__text-center
+        or
+      .wakeru
+        = form_tag(stop_item_path(@item.id), method: :patch) do
+          - if @item.status == false
+            %input{type: "hidden",name: "status", value: 1}
+            %button.chang-box__btn-item-gray{type: "submit"}
+              出品を停止する
+          - elsif @item.status == true
+            %input{type: "hidden", name: "status", value: 0}
+            %button.chang-box__btn-item-red{type: "submit"}
+              出品停止中
+      .wakeru2
+        %button.chang-box__btn-item__gray
+          = link_to 'この商品を削除する', item_path(@item.id), method: :delete
+  -else
+    .chang-box
+      .wakeru2
+        %button.chang-box__btn-item__gray
+          = link_to 'この商品を削除する', item_path(@item.id), method: :delete
 
 .comment
   .comment__content
@@ -202,12 +209,12 @@
         .item-box-content
           - @slaer_items.each do |item|
             .item-box.backgroundfff
-              = link_to "#", class: 'item-box__link' do
+              = link_to items_path(@item.id), class: 'item-box__link' do
                 %figure.item-box__link__photo
                   = image_tag item.images[0].image.url
                 .item-box__link__body
                   %h2.item-box__link__body__description
-                    = item.description
+                    = item.name
                   .item-box__link__body__number
                     .item-box__link__body__number__price
                       = "¥#{item.price}"
