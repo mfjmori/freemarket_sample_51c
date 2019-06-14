@@ -10,11 +10,11 @@
           %h3.search-form__detail__head
             詳細検索
           .search-form__detail__keyword
-            = f.label :name, class: "search-form__detail__keyword__label" do
+            = f.label :name_or_description_cont, class: "search-form__detail__keyword__label" do
               %i.fas.fa-plus.search-form__detail__keyword__label__icon
               .search-form__detail__keyword__label__text
                 キーワードを追加する
-            = f.text_field :name, placeholder: "例）値下げ", class: "search-form__detail__keyword__input"
+            = f.text_field :name_or_description_cont, placeholder: "例）値下げ", class: "search-form__detail__keyword__input"
           .search-form__detail__category
             = f.label :category_id, class: "search-form__detail__category__label" do
               %i.fas.fa-list-ul.search-form__detail__category__label__icon

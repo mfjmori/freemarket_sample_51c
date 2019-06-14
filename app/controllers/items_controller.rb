@@ -102,8 +102,9 @@ class ItemsController < ApplicationController
   def search
 
     if params[:keyword].present?
-      @search = Item.ransack(name_cont: params[:keyword])
+      @search = Item.ransack(name_or_description_cont: params[:keyword])
       @items = @search.result.on_sale
+      params[:q] = {sorts: ''}
     elsif params[:q].present?
       @search = Item.ransack(params[:q])
       @items = @search.result.on_sale
