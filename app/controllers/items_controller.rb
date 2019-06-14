@@ -108,8 +108,9 @@ class ItemsController < ApplicationController
       @search = Item.ransack(params[:q])
       @items = @search.result.on_sale
     else
-      @search = Item.ransack(params[:q])
+      @search = Item.ransack()
       @items = Item.on_sale.recent
+      params[:q] = {sorts: ''}
     end
   end
 
