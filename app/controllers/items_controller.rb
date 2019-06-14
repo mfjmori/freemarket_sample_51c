@@ -30,11 +30,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to action: 'index'
     else
       @parent_categories = Category.where(parent_id: 0)
-      redirect_to action: 'new'
+      @child_categories, @grandchild_categories = [], []
+      redirect_to action: :new
     end
   end
 
@@ -99,11 +100,27 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @search = Item.ransack(name_cont: params[:keyword])
+
+    
     if params[:keyword].present?
-      @items = @search.result.on_sale 
+      @search = Item.ransack(name_cont: params[:keyword])
+      @items = @search.result.on_sale
+    elsif params[:q].present?
+      @search = Item.ransack(params[:q])
+      @items = @search.result.on_sale
     else
+      @search = Item.ransack(params[:q])
       @items = Item.on_sale.recent
+    end
+
+    if params[:form].present?
+      @form = Form.new(form_params)
+      @items = Item.all.order('price ASC') if @form.sort == "価格の安い順"
+      @items = Item.all.order('price DESC') if @form.sort == "価格の高い順"
+      @items = Item.all.order('updated_at ASC') if @form.sort == "出品の古い順"
+      @items = Item.all.order('updated_at DESC') if @form.sort == "出品の新しい順"
+    else
+      @form = Form.new
     end
   end
 
@@ -119,6 +136,14 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def form_params
+    params.require(:form).permit(:sort)
+  end
   
 end
 
+class Form
+  include ActiveModel::Model
+  attr_accessor :sort
+end
