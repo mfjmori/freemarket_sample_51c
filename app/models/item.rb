@@ -46,6 +46,6 @@ class Item < ApplicationRecord
 
   scope :item_num, -> (num) {where(category_id: num).order('id ASC').limit(4)}
   scope :item_brand, -> (name) {where(brand: name).order('id ASC').limit(4)}
-  scope :recent, -> {order('id ASC')}
+  scope :recent, -> {order('updated_at DESC')}
   scope :on_sale, -> {where(status: 0)}
 end
