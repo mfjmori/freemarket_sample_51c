@@ -86,6 +86,7 @@ gem 'dropzonejs-rails'
 gem 'gretel'
 gem 'ransack'
 gem 'omniauth'
+gem "omniauth-rails_csrf_protection"
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

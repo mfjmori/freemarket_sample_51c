@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get 'address'
       get 'card'
+      post "pay"
       get 'telephone'
       get 'complete'
     end
