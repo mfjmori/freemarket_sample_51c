@@ -30,10 +30,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to action: 'index'
     else
       @parent_categories = Category.where(parent_id: 0)
+      @child_categories, @grandchild_categories = [], []
       redirect_to action: 'new'
     end
   end
