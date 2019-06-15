@@ -39,12 +39,12 @@
                 ブランド名から探す
             = f.text_field :brand_cont, placeholder: "例）シャネル", class: "search-form__detail__brand__input"
           .search-form__detail__size
-            = f.label :sizd, class: "search-form__detail__size__label" do
+            = f.label :size, class: "search-form__detail__size__label" do
               %i.fas.fa-vector-square.search-form__detail__size__label__icon
               .search-form__detail__size__label__text
                 サイズを選択する
             .search-form__detail__size__pull-down
-              = f.select( :size, Item.sizes_i18n.invert, {}, { class: "search-form__detail__size__pull-down__select"} )
+              = f.select( :size_eq, Item.sizes.map{|k, v| [Item.sizes_i18n[k], v]}, {prompt: "すべて"}, { class: "search-form__detail__size__pull-down__select"} )
               %i.fas.fa-chevron-down.search-form__detail__size__pull-down__icon
           .search-form__detail__price
             = f.label :size, class: "search-form__detail__price__label" do
