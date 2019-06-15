@@ -76,7 +76,7 @@
               .search-form__detail__postage__label__text
                 配送料の負担
             .search-form__detail__postage__block
-              = f.collection_check_boxes( :postage, Item.postages_i18n.invert, :last , :first , { class: "search-form__detail__postage__block__check-boxes"} ) do |b|
+              = f.collection_check_boxes( :postage_eq_any, Item.postages.map{|k, v| [Item.postages_i18n[k], v]}, :last , :first , { class: "search-form__detail__postage__block__check-boxes"} ) do |b|
                 = b.label(class: "search-form__detail__postage__block__check-boxes__label") do
                   = b.check_box(class: "search-form__detail__postage__block__check-boxes__label__input")
                   %i.fas.fa-check.check-icon.search-form__detail__postage__block__check-boxes__label__icon
