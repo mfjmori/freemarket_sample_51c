@@ -136,7 +136,7 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:sorts, :name_or_description_cont, :brand_cont, :size_eq, :price_gteq, :price_lteq, :condition_eq_any, :postage_eq_any, :buyer_id_eq_any).merge(search_categories_params)
+    params.require(:q).permit(:sorts, :name_or_description_cont, :brand_cont, :size_eq, :price_gteq, :price_lteq, { condition_eq_any: [] }, :postage_eq_any, :buyer_id_eq_any).merge(search_categories_params)
   end
 
   def search_categories_params

@@ -65,7 +65,7 @@
               .search-form__detail__condition__label__text
                 商品の状態
             .search-form__detail__condition__block
-              = f.collection_check_boxes( :condition, Item.conditions_i18n.invert, :last , :first , { class: "search-form__detail__condition__block__check-boxes"} ) do |b|
+              = f.collection_check_boxes( :condition_eq_any, Item.conditions.map{|k, v| [Item.conditions_i18n[k], v]}, :last , :first , {include_hidden: false, class: "search-form__detail__condition__block__check-boxes"} ) do |b|
                 = b.label(class: "search-form__detail__condition__block__check-boxes__label") do
                   = b.check_box(class: "search-form__detail__condition__block__check-boxes__label__input")
                   %i.fas.fa-check.check-icon.search-form__detail__condition__block__check-boxes__label__icon
