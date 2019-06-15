@@ -140,18 +140,15 @@ class ItemsController < ApplicationController
   end
 
   def search_categories_params
-    categories_params = params[:q].permit(:parent_category_id, :child_category_id, category_id_eq_any: [])
-    if categories_params[:category_id_eq_any].present?
-      return {category_id_eq_any: categories_params[:category_id_eq_any]}
-    elsif categories_params[:child_category_id].present?
-      child_category_id = categories_params[:child_category_id]
-      grandchild_category_ids = Category.where(parent_id: child_category_id).map(&:id)
-      return {category_id_eq_any: grandchild_category_ids}
-    elsif categories_params[:parent_category_id].present?
-      parent_category_id = categories_params[:parent_category_id]
-      child_category_ids = Category.where(parent_id: parent_category_id).map(&:id)
+    if params[:q][:category_id_eq_any].present?
+      return { category_id_eq_any: params[:q][:category_id_eq_any] }
+    elsif params[:q][:child_category_id].present?
+      grandchild_category_ids = Category.where(parent_id: params[:q][:child_category_id]).map(&:id)
+      return { category_id_eq_any: grandchild_category_ids }
+    elsif params[:q][:parent_category_id].present?
+      child_category_ids = Category.where(parent_id: params[:q][:parent_category_id]).map(&:id)
       grandchild_category_ids = Category.where(parent_id: child_category_ids).map(&:id)
-      return {category_id_eq_any: grandchild_category_ids}
+      return { category_id_eq_any: grandchild_category_ids }
     end
   end
 
