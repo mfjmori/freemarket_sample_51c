@@ -100,19 +100,26 @@ class ItemsController < ApplicationController
   end
 
   def search
-
     if params[:keyword].present?
       @search = Item.ransack(name_or_description_cont: params[:keyword])
       @items = @search.result.on_sale
-      params[:q] = {sorts: ''}
+      params[:q] = {sorts: 'id desc'}
     elsif params[:q].present?
-      @search = Item.ransack(params[:q])
+      @search = Item.ransack(search_params)
       @items = @search.result.on_sale
     else
-      @search = Item.ransack()
       @items = Item.on_sale.recent
-      params[:q] = {sorts: ''}
+      @search = Item.ransack()
+      params[:q] = {sorts: 'id desc'}
     end
+
+    if params[:q].present?
+      params[:q][:parent_category_id].present? ? @parent_category_id = params[:q][:parent_category_id] : @parent_category_id = ''
+      params[:q][:child_category_id].present? ? @child_category_id = params[:q][:child_category_id] : @child_category_id = ''
+      @parent_category_id.present? ? @child_categories = Category.where(parent_id: @parent_category_id) : @child_categories = []
+      @child_category_id.present? ? @grandchild_categories = Category.where(parent_id: @child_category_id) : @grandchild_categories = []
+    end
+    @parent_categories = Category.where(parent_id: 0)
   end
 
   private
@@ -126,6 +133,26 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def search_params
+    @params = params.require(:q).permit(:sorts, :name_or_description_cont, :brand_cont, :size_eq_any, :price_gteq, :price_lteq, :condition_eq_any, :postage_eq_any, :buyer_id_eq_any).merge(search_categories_params)
+  end
+
+  def search_categories_params
+    categories_params = params[:q].permit(:parent_category_id, :child_category_id, category_id_eq_any: [])
+    if categories_params[:category_id_eq_any].present?
+      return {category_id_eq_any: categories_params[:category_id_eq_any]}
+    elsif categories_params[:child_category_id].present?
+      child_category_id = categories_params[:child_category_id]
+      grandchild_category_ids = Category.where(parent_id: child_category_id).map(&:id)
+      return {category_id_eq_any: grandchild_category_ids}
+    elsif categories_params[:parent_category_id].present?
+      parent_category_id = categories_params[:parent_category_id]
+      child_category_ids = Category.where(parent_id: parent_category_id).map(&:id)
+      grandchild_category_ids = Category.where(parent_id: child_category_ids).map(&:id)
+      return {category_id_eq_any: grandchild_category_ids}
+    end
   end
 
 end
