@@ -14,7 +14,7 @@
       $(document).ready(function(){
         $('.slider').bxSlider();
       });
-  %body
+  %body{ data: { controller: controller_name, action: action_name } }
     = render 'header'
     = yield
     = render 'footer'
