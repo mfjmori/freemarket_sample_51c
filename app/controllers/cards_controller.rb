@@ -45,5 +45,6 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.where(user_id: current_user.id).first
+    @user = User.find(params[:user_id])
   end
 end

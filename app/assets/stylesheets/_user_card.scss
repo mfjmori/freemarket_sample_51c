@@ -1,0 +1,155 @@
+.cardcreate {
+  .content {
+    width: 700px;
+    margin: 0 auto;
+    color: #333;
+    background-color: #fff;
+    h2 {
+      font-size:24px;
+      padding: 8px 24px;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__input {
+      line-height: 1;
+      padding: 64px;
+      &__info {
+        max-width: 320px;
+        margin: 0 auto;
+        label {
+          font-size: 14px;
+        }
+        .required {
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 4px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+        max-width: 320px;
+        margin: 0 auto;
+        }
+        &-num {
+          input { 
+            width: 100%;
+            margin: 8px 0 0;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            line-height: 1.5;
+            text-indent: 1em;
+          }
+          ul {
+            li {
+              float: left;
+              img {
+                width: 45px;
+                height: 20px;
+                margin: 8px 0 0 0;
+              }
+            }
+          }
+        }
+        &-limit {
+          margin: 80px 0 0 0;
+          position: relative;
+          .limit-moth {
+            width: 50%;
+            select {
+              width: 70%;
+              margin: 8px 0 0;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              line-height: 1.5;
+              text-indent: 1em;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              cursor: pointer;
+              background-color: #fff;
+            }
+            #down {
+              position: absolute;
+              font-size: 18px;
+              left: 80px;
+              line-height: 66px;
+              color: #888;
+            }
+            span {
+              margin: 0 8px;
+              font-size: 14px;
+            }
+          }
+          .limit-year {
+            width: 50%;
+            select {
+              width: 70%;
+              margin: 8px 0 0;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              line-height: 1.5;
+              text-indent: 1em;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              cursor: pointer;
+              background-color: #fff;
+            }
+            #down {
+              position: absolute;
+              font-size: 18px;
+              left: 80px;
+              line-height: 66px;
+              color: #888;
+            }
+            span {
+              margin: 0 8px;
+              font-size: 14px;
+            }
+          }
+        }
+        &-security {
+          margin: 40px 0 0 0;
+          input {
+            width: 100%;
+            margin: 8px 0 0;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            line-height: 1.5;
+            text-indent: 1em;
+          }
+          .sec_info {
+            margin: 8px 0 0 0;
+            width: 100%;
+            p {
+              text-align: right;
+              color: #0099e8;
+              font-size: 14px;
+            }
+          }
+        }
+        &-btn {
+          max-width: 320px;
+          margin: 40px 0 0 0;
+          button:hover {
+            opacity: 0.7;
+          }
+          button {
+            width: 100%;
+            padding: 0;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

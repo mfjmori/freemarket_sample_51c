@@ -113,6 +113,9 @@
   @include search-label;
   &__pull-down {
     position: relative;
+    &--child {
+      display: none;
+    }
     &__select {
       -webkit-appearance: none;
       -moz-appearance: none;

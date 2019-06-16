@@ -53,10 +53,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to action: 'index'
     else
       @parent_categories = Category.where(parent_id: 0)
+      @child_categories, @grandchild_categories = [], []
       redirect_to action: 'new'
     end
   end
@@ -101,6 +102,7 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
+    @slaer_items = Item.where(saler_id: @items.saler.id)
 
     @users = @item.saler
     @groundchild = Category.find(@item.category_id)
@@ -121,12 +123,25 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @search = Item.ransack(name_cont: params[:keyword])
     if params[:keyword].present?
-      @items = @search.result.on_sale 
-    else
-      @items = Item.on_sale.recent
+      @search = Item.ransack(name_or_description_cont: params[:keyword])
+      @items = @search.result.on_sale
+    elsif params[:q].present?
+      @search = Item.ransack(search_params)
+      @items = @search.result.on_sale
+      @parent_category_id = params[:q][:parent_category_id]
+      @child_category_id = params[:q][:child_category_id]
+      @child_categories = Category.child_num(@parent_category_id)
+      @grandchild_categories = Category.child_num(@child_category_id)
     end
+    params[:q] ||= {sorts: 'id desc'}
+    @items ||= Item.on_sale.recent
+    @search ||= Item.ransack()
+    @parent_categories = Category.child_num(0)
+    @parent_category_id ||= ''
+    @child_category_id ||= ''
+    @child_categories ||= []
+    @grandchild_categories ||= []
   end
 
   private
@@ -141,6 +156,30 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  
-end
 
+  def search_params
+    params.require(:q).permit(:sorts, :name_or_description_cont, :brand_cont, :size_eq, :price_gteq, :price_lteq, { condition_eq_any: [] }, { postage_eq_any: [] }).merge(search_categories_params).merge(buyer_id_params)
+  end
+
+  def search_categories_params
+    if params[:q][:category_id_eq_any].present?
+      grandchild_category_ids = params[:q][:category_id_eq_any]
+    elsif params[:q][:child_category_id].present?
+      grandchild_category_ids = Category.child_num(params[:q][:child_category_id]).map(&:id)
+    elsif params[:q][:parent_category_id].present?
+      child_category_ids = Category.child_num(params[:q][:parent_category_id]).map(&:id)
+      grandchild_category_ids = Category.child_num(child_category_ids).map(&:id)
+    end
+    { category_id_eq_any: grandchild_category_ids }
+  end
+
+  def buyer_id_params
+    if params[:q][:buyer_id_null].present? && params[:q][:buyer_id_not_null].present?
+      { buyer_id_null: "" }
+    elsif params[:q][:buyer_id_null].present?
+      { buyer_id_null: true }
+    elsif params[:q][:buyer_id_not_null].present?
+      { buyer_id_not_null: true }
+    end
+  end
+end

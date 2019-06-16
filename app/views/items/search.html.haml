@@ -1,33 +1,33 @@
 %main
   .search-container
     .search-content
-      = search_form_for @search, html: {class: 'search-form'} do |f|
+      = search_form_for @search, url: search_items_path ,html: {method: :post, class: 'search-form'} do |f|
         .search-form__item-sort
           .search-form__item-sort__pull-down
-            =f.select( :created_at, ['価格の安い順', '価格の高い順', '出品の古い順', '出品の新しい順', 'いいね！の多い順'] ,{prompt: "並び替え"}, {class: "search-form__item-sort__pull-down__select"} )
+            = f.collection_select( :sorts, [['並び替え', 'id desc'], ['価格の安い順','price asc'], ['価格の高い順', 'price desc'], ['出品の古い順', 'updated_at asc'], ['出品の新しい順', 'updated_at desc'] ], :last, :first , { selected: params[:q][:sorts] }, {class: "search-form__item-sort__pull-down__select", onchange: 'this.form.submit()'} )
             %i.fas.fa-chevron-down.search-form__item-sort__pull-down__icon
         .search-form__detail
           %h3.search-form__detail__head
             詳細検索
           .search-form__detail__keyword
-            = f.label :name, class: "search-form__detail__keyword__label" do
+            = f.label :name_or_description_cont, class: "search-form__detail__keyword__label" do
               %i.fas.fa-plus.search-form__detail__keyword__label__icon
               .search-form__detail__keyword__label__text
                 キーワードを追加する
-            = f.text_field :name, placeholder: "例）値下げ", class: "search-form__detail__keyword__input"
+            = f.text_field :name_or_description_cont, placeholder: "例）値下げ", class: "search-form__detail__keyword__input"
           .search-form__detail__category
             = f.label :category_id, class: "search-form__detail__category__label" do
               %i.fas.fa-list-ul.search-form__detail__category__label__icon
               .search-form__detail__category__label__text
                 カテゴリーを選択する
-            .search-form__detail__category__pull-down
-              = f.collection_select( :category_id, Category.where(parent_id: 0), :id, :name ,{prompt: "---"}, { class: "search-form__detail__category__pull-down__select"} )
-              %i.fas.fa-chevron-down.search-form__detail__category__pull-down__icon
-            .search-form__detail__category__pull-down
-              = f.collection_select( :category_id, Category.where(parent_id: 1), :id, :name ,{prompt: "---"}, { class: "search-form__detail__category__pull-down__select"} )
-              %i.fas.fa-chevron-down.search-form__detail__category__pull-down__icon
+            .search-form__detail__category__pull-down.search-form__detail__category__pull-down--parent
+              = f.collection_select( :parent_category_id, @parent_categories, :id, :name , {prompt: "すべて", selected: @parent_category_id}, { include_blank: true, class: "search-form__detail__category__pull-down__select", id: "parent_category_select-search" } )
+              %i.fas.fa-chevron-down.search-form__detail__category__pull-down__icon.search-form__detail__category__pull-down__icon--parent
+            .search-form__detail__category__pull-down.search-form__detail__category__pull-down--child
+              = f.collection_select( :child_category_id, @child_categories, :id, :name ,{prompt: "すべて", selected: @child_category_id}, { include_blank: true, class: "search-form__detail__category__pull-down__select", id: "child_category_select-search" } )
+              %i.fas.fa-chevron-down.search-form__detail__category__pull-down__icon.search-form__detail__category__pull-down__icon--child
             .search-form__detail__category__block
-              = f.collection_check_boxes( :category_id, Category.where(parent_id: 1), :id, :name ,{prompt: "---"}, { class: "search-form__detail__category__block__check-boxes"} ) do |b|
+              = f.collection_check_boxes( :category_id_eq_any, @grandchild_categories, :id, :name, { include_hidden: false, include_blank: true, class: "search-form__detail__category__block__check-boxes", id: "grandchild_category_select-search" } ) do |b|
                 = b.label(class: "search-form__detail__category__block__check-boxes__label") do
                   = b.check_box(class: "search-form__detail__category__block__check-boxes__label__input")
                   %i.fas.fa-check.check-icon.search-form__detail__category__block__check-boxes__label__icon
@@ -37,14 +37,14 @@
               %i.fas.fa-tags.search-form__detail__brand__label__icon
               .search-form__detail__brand__label__text
                 ブランド名から探す
-            = f.text_field :brand, placeholder: "例）シャネル", class: "search-form__detail__brand__input"
+            = f.text_field :brand_cont, placeholder: "例）シャネル", class: "search-form__detail__brand__input"
           .search-form__detail__size
-            = f.label :sizd, class: "search-form__detail__size__label" do
+            = f.label :size, class: "search-form__detail__size__label" do
               %i.fas.fa-vector-square.search-form__detail__size__label__icon
               .search-form__detail__size__label__text
                 サイズを選択する
             .search-form__detail__size__pull-down
-              = f.select( :size, Item.sizes_i18n.invert, {}, { class: "search-form__detail__size__pull-down__select"} )
+              = f.select( :size_eq, Item.sizes.map{|k, v| [Item.sizes_i18n[k], v]}, {prompt: "すべて"}, { class: "search-form__detail__size__pull-down__select"} )
               %i.fas.fa-chevron-down.search-form__detail__size__pull-down__icon
           .search-form__detail__price
             = f.label :size, class: "search-form__detail__price__label" do
@@ -65,7 +65,7 @@
               .search-form__detail__condition__label__text
                 商品の状態
             .search-form__detail__condition__block
-              = f.collection_check_boxes( :condition, Item.conditions_i18n.invert, :last , :first , { class: "search-form__detail__condition__block__check-boxes"} ) do |b|
+              = f.collection_check_boxes( :condition_eq_any, Item.conditions.map{|k, v| [Item.conditions_i18n[k], v]}, :last , :first , {include_hidden: false, class: "search-form__detail__condition__block__check-boxes"} ) do |b|
                 = b.label(class: "search-form__detail__condition__block__check-boxes__label") do
                   = b.check_box(class: "search-form__detail__condition__block__check-boxes__label__input")
                   %i.fas.fa-check.check-icon.search-form__detail__condition__block__check-boxes__label__icon
@@ -76,7 +76,7 @@
               .search-form__detail__postage__label__text
                 配送料の負担
             .search-form__detail__postage__block
-              = f.collection_check_boxes( :postage, Item.postages_i18n.invert, :last , :first , { class: "search-form__detail__postage__block__check-boxes"} ) do |b|
+              = f.collection_check_boxes( :postage_eq_any, Item.postages.map{|k, v| [Item.postages_i18n[k], v]}, :last , :first , { class: "search-form__detail__postage__block__check-boxes"} ) do |b|
                 = b.label(class: "search-form__detail__postage__block__check-boxes__label") do
                   = b.check_box(class: "search-form__detail__postage__block__check-boxes__label__input")
                   %i.fas.fa-check.check-icon.search-form__detail__postage__block__check-boxes__label__icon
@@ -87,11 +87,14 @@
               .search-form__detail__sale__label__text
                 販売状況
             .search-form__detail__sale__block
-              = f.collection_check_boxes( :buyer_id, [["全て", 0], ["販売中", 1], ["売り切れ", 2]], :last , :first , { class: "search-form__detail__sale__block__check-boxes"} ) do |b|
-                = b.label(class: "search-form__detail__sale__block__check-boxes__label") do
-                  = b.check_box(class: "search-form__detail__sale__block__check-boxes__label__input")
-                  %i.fas.fa-check.check-icon.search-form__detail__sale__block__check-boxes__label__icon
-                  = b.label(class: "search-form__detail__sale__block__check-boxes__label__text")
+              = f.label(:buyer_id_null, class: "search-form__detail__sale__block__check-boxes__label") do
+                = f.check_box( :buyer_id_null, {class: "search-form__detail__sale__block__check-boxes__label__input"}, true, "")
+                %i.fas.fa-check.check-icon.search-form__detail__sale__block__check-boxes__label__icon
+                = f.label(:buyer_id_null, "販売中", class: "search-form__detail__sale__block__check-boxes__label__text")
+              = f.label(:buyer_id_not_null, class: "search-form__detail__sale__block__check-boxes__label") do
+                = f.check_box( :buyer_id_not_null, {class: "search-form__detail__sale__block__check-boxes__label__input"}, true, "")
+                %i.fas.fa-check.check-icon.search-form__detail__sale__block__check-boxes__label__icon
+                = f.label(:buyer_id_not_null, "売り切れ", class: "search-form__detail__sale__block__check-boxes__label__text")
           .search-form__detail__button
             = button_tag 'クリア', class: "search-form__detail__button__clear"
             = f.submit '完了', class: "search-form__detail__button__submit"

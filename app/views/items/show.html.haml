@@ -86,9 +86,10 @@
       .product__details__price-cost
         送料込み
   - if @items.buyer_id == nil
-    .product__details__btn
-      %button
-        =link_to '購入画面に進む',new_item_buy_order_path(@item.id)
+    -if current_user.id != @items.saler_id
+      .product__details__btn
+        %button
+          =link_to '購入画面に進む',new_item_buy_order_path(@item.id)
   - else
     .product__details__btn-gray
       %button{disabled: "disabled"}売り切れました
@@ -103,77 +104,83 @@
         %i.fas.fa-lock
         あんしん・あんぜんへの取り組み
 -if @users.id == current_user.id
-  .chang-box
-    %button.chang-box__btn-item-red
-      = link_to "商品の編集", edit_item_path(@items.id)
-    %p.chang-box__text-center
-      or
-    .wakeru
-      = form_tag(stop_item_path(@item.id), method: :patch) do
-        - if @item.status == false
-          %input{type: "hidden",name: "status", value: 1}
-          %button.chang-box__btn-item-gray{type: "submit"}
-            出品を停止する
-        - elsif @item.status == true
-          %input{type: "hidden", name: "status", value: 0}
-          %button.chang-box__btn-item-red{type: "submit"}
-            出品停止中
-    .wakeru2
-      %button.chang-box__btn-item__gray
-        = link_to 'この商品を削除する', item_path(@item.id), method: :delete
+  -if @items.buyer_id == nil
+    .chang-box
+      %button.chang-box__btn-item-red
+        = link_to "商品の編集", edit_item_path(@items.id)
+      %p.chang-box__text-center
+        or
+      .wakeru
+        = form_tag(stop_item_path(@item.id), method: :patch) do
+          - if @item.status == false
+            %input{type: "hidden",name: "status", value: 1}
+            %button.chang-box__btn-item-gray{type: "submit"}
+              出品を停止する
+          - elsif @item.status == true
+            %input{type: "hidden", name: "status", value: 0}
+            %button.chang-box__btn-item-red{type: "submit"}
+              出品停止中
+      .wakeru2
+        %button.chang-box__btn-item__gray
+          = link_to 'この商品を削除する', item_path(@item.id), method: :delete
+  -else
+    .chang-box
+      .wakeru2
+        %button.chang-box__btn-item__gray
+          = link_to 'この商品を削除する', item_path(@item.id), method: :delete
 
 .comment
   .comment__content
-    -# .comment__content__show
-    -#   %ul.comment__content__show-list
-        -# -# 買う人のコメント
-        -# %li.comment__content__show-list-left
-        -#   = link_to do
-        -#     %figure
-        -#       .div
-        -#         = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
-        -#       %figcaption name
-        -#   .con
-        -#     .con-text
-        -#       コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
-        -#     .con-bottom
-        -#       .con-bottom-time
-        -#         %i.far.fa-clock
-        -#         74 日前
-        -#       .con-bottom-icon
-        -#         .delete-comment
-        -#           %i.fas.fa-trash-alt
-        -#         %form
-        -#           %button
-        -#             %i.far.fa-flag
-        -# %li.comment__content__show-list-left
-        -#   = link_to do
-        -#     %figure
-        -#       .div
-        -#         = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
-        -#       %figcaption name
-        -#   .con
-        -#     .con-text
-        -#       コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
-        -#     .con-bottom
-        -#       .con-bottom-time
-        -#         %i.far.fa-clock
-        -#         74 日前
-        -#       .con-bottom-icon
-        -#         .delete-comment
-        -#           %i.fas.fa-trash-alt
-        -#         %form
-        -#           %button
-        -#             %i.far.fa-flag
-        -# -# 売る人のコメント
-        -# %li.comment__content__show-list-right
-        -#   = link_to do
-        -#     %figure
-        -#   .con
-        -#     .con-text
-        -#     .con-bottom
-        -#       .con-bottom-time
-        -#       .con-bottom-icon
+    .comment__content__show
+      %ul.comment__content__show-list
+        -# 買う人のコメント
+        %li.comment__content__show-list-left
+          = link_to do
+            %figure
+              .div
+                = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
+              %figcaption name
+          .con
+            .con-text
+              コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
+            .con-bottom
+              .con-bottom-time
+                %i.far.fa-clock
+                74 日前
+              .con-bottom-icon
+                .delete-comment
+                  %i.fas.fa-trash-alt
+                %form
+                  %button
+                    %i.far.fa-flag
+        %li.comment__content__show-list-left
+          = link_to do
+            %figure
+              .div
+                = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png"
+              %figcaption name
+          .con
+            .con-text
+              コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
+            .con-bottom
+              .con-bottom-time
+                %i.far.fa-clock
+                74 日前
+              .con-bottom-icon
+                .delete-comment
+                  %i.fas.fa-trash-alt
+                %form
+                  %button
+                    %i.far.fa-flag
+        -# 売る人のコメント
+        %li.comment__content__show-list-right
+          = link_to do
+            %figure
+          .con
+            .con-text
+            .con-bottom
+              .con-bottom-time
+              .con-bottom-icon
     .comment__content__form
       %form.comment__content__form__comment
         %p.comment__content__form__comment-caution
@@ -181,7 +188,7 @@
         %textarea.comment__content__form__comment-text
         %button.comment__content__form__comment-btn
           コメントする
-          
+
 %main
   .container.backgroundf5f5f5
     .content-mypage-detail
@@ -200,93 +207,19 @@
         %h2.item-box-head.padding24px
           この出品者の商品
         .item-box-content
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
-          .item-box.backgroundfff
-            = link_to "#", class: 'item-box__link' do
-              %figure.item-box__link__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m60628150291_1.jpg?1558763907"
-              .item-box__link__body
-                %h2.item-box__link__body__name
-                  johnbull カーキカーゴパンツ
-                .item-box__link__body__number
-                  .item-box__link__body__number__price
-                    ¥1,200
-                  %i.far.fa-heart
-                  %span.item-box__link__body__number__like
-                    2
-                .item-box__link__body__tax
-                  (税込)
+          - @slaer_items.each do |item|
+            .item-box.backgroundfff
+              = link_to items_path(@item.id), class: 'item-box__link' do
+                %figure.item-box__link__photo
+                  = image_tag item.images[0].image.url
+                .item-box__link__body
+                  %h2.item-box__link__body__description
+                    = item.name
+                  .item-box__link__body__number
+                    .item-box__link__body__number__price
+                      = "¥#{item.price}"
+                    %i.far.fa-heart
+                    %span.item-box__link__body__number__like
+                      2
+                  .item-box__link__body__tax
+                    (税込)

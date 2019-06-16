@@ -11,9 +11,13 @@ Rails.application.routes.draw do
     collection do
       get 'address'
       get 'card'
+      post "pay"
       get 'telephone'
       get 'complete'
+    end
+    member do
       get 'logout'
+      patch 'logout'
     end
     resource :cards, only: [:show, :new] do
       collection do
@@ -24,7 +28,9 @@ Rails.application.routes.draw do
   end
 
   resources :items do
-    get "search", on: :collection
+    collection do
+      match 'search' => 'items#search', via: [:get, :post]
+    end
     member do
       patch 'stop'
     end

@@ -1,6 +1,6 @@
 %ul.side__mypage
   %li.side__mypage-top
-    %a{href: ""}
+    = link_to user_path(@user.id) do
       マイページ
       %i.fas.fa-chevron-right
   %li
@@ -68,7 +68,7 @@
 %ul.side__mypage
   %h3 設定
   %li
-    = link_to do
+    = link_to edit_user_profiles_path(@user.id) do
       プロフィール
       %i.fas.fa-chevron-right
   %li
@@ -76,7 +76,7 @@
       発送元・お届け先住所変更
       %i.fas.fa-chevron-right
   %li
-    = link_to do
+    = link_to user_cards_path(@user.id) do
       支払い方法
       %i.fas.fa-chevron-right
   %li
@@ -84,7 +84,7 @@
       メール/パスワード
       %i.fas.fa-chevron-right
   %li
-    = link_to do
+    = link_to edit_user_addresses_path(@user.id) do
       本人情報
       %i.fas.fa-chevron-right
   %li
@@ -92,6 +92,6 @@
       電話番号の確認
       %i.fas.fa-chevron-right
   %li
-    = link_to logout_users_path do
+    = link_to logout_user_path(@user.id) do
       ログアウト
       %i.fas.fa-chevron-right

@@ -12,6 +12,11 @@ crumb :profiles do
   parent :mypages
 end
 
+crumb :addresses do
+  link "本人情報の登録"
+  parent :mypages
+end
+
 crumb :card do
   link "支払い方法", user_cards_path(current_user.id)
   parent :mypages
