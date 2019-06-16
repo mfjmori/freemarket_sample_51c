@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
     else
       @parent_categories = Category.where(parent_id: 0)
       @child_categories, @grandchild_categories = [], []
-      redirect_to action: :new
+      redirect_to action: 'new'
     end
   end
 
