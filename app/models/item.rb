@@ -15,8 +15,6 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one :buy_order
   accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :reject_image
-  attribute :parent_category_id
-  attribute :child_category_id
 
   def reject_image(attributes)
     if attributes[:id]
