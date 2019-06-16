@@ -8,4 +8,13 @@ module ApplicationHelper
         end
         doc.to_html.html_safe
     end
+    def search_result_title
+      if params[:keyword].blank? && params[:q].blank? || @items.length == 0
+        "新着商品"
+      elsif params[:keyword].present?
+        "#{params[:keyword]}の検索結果"
+      elsif params[:q].present?
+        "検索結果"
+      end
+    end
 end
