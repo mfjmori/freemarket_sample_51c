@@ -87,11 +87,14 @@
               .search-form__detail__sale__label__text
                 販売状況
             .search-form__detail__sale__block
-              = f.collection_check_boxes( :buyer_id, [["全て", 0], ["販売中", 1], ["売り切れ", 2]], :last , :first , { class: "search-form__detail__sale__block__check-boxes"} ) do |b|
-                = b.label(class: "search-form__detail__sale__block__check-boxes__label") do
-                  = b.check_box(class: "search-form__detail__sale__block__check-boxes__label__input")
-                  %i.fas.fa-check.check-icon.search-form__detail__sale__block__check-boxes__label__icon
-                  = b.label(class: "search-form__detail__sale__block__check-boxes__label__text")
+              = f.label(:buyer_id_null, class: "search-form__detail__sale__block__check-boxes__label") do
+                = f.check_box( :buyer_id_null, {class: "search-form__detail__sale__block__check-boxes__label__input"}, true, "")
+                %i.fas.fa-check.check-icon.search-form__detail__sale__block__check-boxes__label__icon
+                = f.label(:buyer_id_null, "販売中", class: "search-form__detail__sale__block__check-boxes__label__text")
+              = f.label(:buyer_id_not_null, class: "search-form__detail__sale__block__check-boxes__label") do
+                = f.check_box( :buyer_id_not_null, {class: "search-form__detail__sale__block__check-boxes__label__input"}, true, "")
+                %i.fas.fa-check.check-icon.search-form__detail__sale__block__check-boxes__label__icon
+                = f.label(:buyer_id_not_null, "売り切れ", class: "search-form__detail__sale__block__check-boxes__label__text")
           .search-form__detail__button
             = button_tag 'クリア', class: "search-form__detail__button__clear"
             = f.submit '完了', class: "search-form__detail__button__submit"

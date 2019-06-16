@@ -136,20 +136,31 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:sorts, :name_or_description_cont, :brand_cont, :size_eq, :price_gteq, :price_lteq, { condition_eq_any: [] }, { postage_eq_any: [] }, :buyer_id_eq_any).merge(search_categories_params)
+    params.require(:q).permit(:sorts, :name_or_description_cont, :brand_cont, :size_eq, :price_gteq, :price_lteq, { condition_eq_any: [] }, { postage_eq_any: [] }).merge(search_categories_params).merge(buyer_id_params)
   end
 
   def search_categories_params
     if params[:q][:category_id_eq_any].present?
-      return { category_id_eq_any: params[:q][:category_id_eq_any] }
+      { category_id_eq_any: params[:q][:category_id_eq_any] }
     elsif params[:q][:child_category_id].present?
       grandchild_category_ids = Category.where(parent_id: params[:q][:child_category_id]).map(&:id)
-      return { category_id_eq_any: grandchild_category_ids }
+      { category_id_eq_any: grandchild_category_ids }
     elsif params[:q][:parent_category_id].present?
       child_category_ids = Category.where(parent_id: params[:q][:parent_category_id]).map(&:id)
       grandchild_category_ids = Category.where(parent_id: child_category_ids).map(&:id)
-      return { category_id_eq_any: grandchild_category_ids }
+      { category_id_eq_any: grandchild_category_ids }
     end
   end
+
+  def buyer_id_params
+    if params[:q][:buyer_id_null].present? && params[:q][:buyer_id_not_null].present?
+      { buyer_id_null: "" }
+    elsif params[:q][:buyer_id_null].present?
+      { buyer_id_null: true }
+    elsif params[:q][:buyer_id_not_null].present?
+      { buyer_id_not_null: true }
+    end
+  end
+
 
 end
