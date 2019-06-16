@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     10.times do
       @item.images.build
     end
-    @parent_categories = Category.where(parent_id: 0)
+    @parent_categories = Category.child_num(0)
     @child_categories, @grandchild_categories = [], []
   end
 
@@ -40,18 +40,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    grandchild_category = Category.find(@item.category_id)
-    child_category = Category.find(grandchild_category.parent_id)
-    parent_category = Category.find(child_category.parent_id)
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    parent_category = child_category.parent
 
-    @parent_category_id = parent_category.id
-    @child_category_id = child_category.id
-    @grandchild_category_id = grandchild_category.id
+    @item.parent_category_id = parent_category.id
+    @item.child_category_id = child_category.id
 
-    @grandchild_categories = Category.where(parent_id: child_category.id)
-    @child_categories = Category.where(parent_id: parent_category.id)
-    @parent_categories = Category.where(parent_id: 0)
-    
+    @grandchild_categories = child_category.children
+    @child_categories = parent_category.children
+    @parent_categories = Category.child_num(0)
+
     @item.images.each do |image|
       image.image.cache!
     end
@@ -63,16 +62,9 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update!(item_params)
+    if @item.update(item_params)
       redirect_to action: 'index'
     else
-      @parent_category_id = Category.find(child_category.parent_id).id
-      @child_category_id = Category.find(grandchild_category.parent_id).id
-      @grandchild_category_id = Category.find(@item.category_id).id
-  
-      @grandchild_categories = Category.where(parent_id: child_category.id)
-      @child_categories = Category.where(parent_id: parent_category.id)
-      @parent_categories = Category.where(parent_id: 0)
       redirect_to action: 'edit'
     end
   end
