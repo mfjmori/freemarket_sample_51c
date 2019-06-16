@@ -1,222 +1,735 @@
 
-.main{
-  z-index: 1;
-  background: #f5f5f5;
-  min-height:100%;
-  a:link { 
-    color: #0099e8;
-    text-decoration: none;
-  }
-  a:visited { 
-    color: #0099e8;
-    text-decoration: none;
-  }
-  a:hover { 
-    color: #0099e8;
-    opacity: 0.6;
-    text-decoration: underline;
-  }
-  a:active { 
-    color: none; 
-  }
-}
-
-.first-section{
-  background-size: cover;
-  min-height:390px;
-  margin-bottom:95px;
-
-  &__third-view{
-    position:relative;
-    background-image:url("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg");
-    background-size: cover;
-    height:390px;
-
-    &__main{
-      margin-left: 19%;
-      margin-top: 3%;
-
-
-      &__title{
-        font-size: 60px;
-        font-weight: bold;
-        line-height: 65px;
-
-      }
-
-      &__text{
-        margin-top:18px;
-        font-size: 17px;
-        line-height: 32px;
-        
-      }
-
-      &__apple{
-        margin-top:19px;
-        margin-right: 20px;
-        float: left;
-      }
-
-      &__google{
-        height:440px;
-        margin-top:19px;
-      }
-    }
-
-    &__phone{
-      width:440px;
-      position:absolute;
-      margin-left:48%;
-      top:0; 
-    }
-  }
-}
-
-.secound-section{
-  min-height:2000px;
-  margin-bottom:10px;
-  z-index: 1;
-
-  img{
-    width:213px;
-    height:220px;
-  }
-
-  h1{
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  &__block{
-    width:935px;
-    height:442px;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top:22px;
-    position:relative;
-
-    &__title{
-      font-size: 22px;
+@media (min-width: 1070px){
+  .main{
+    z-index: 1;
+    background: #f5f5f5;
+    min-height:100%;
+    a:link { 
       color: #0099e8;
+      text-decoration: none;
+    }
+    a:visited { 
+      color: #0099e8;
+      text-decoration: none;
+    }
+    a:hover { 
+      color: #0099e8;
+      opacity: 0.6;
+      text-decoration: underline;
+    }
+    a:active { 
+      color: none; 
+    }
+  }
+
+  .first-section{
+    height:390px;
+    margin-bottom:95px;
+    position:relative;
+
+    &__secound-view{
+      height:390px;
+      max-width:100%;
+      position:absolute;
+      background-image:url("https://www.mercari.com/jp/assets/img/common/jp/top/banner-6th-thanks.jpg");
+    }
+  
+
+    &__third-view{
+      position:relative;
+      background-image:url("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg");
+      background-size: cover;
+      height:390px;
+
+      &__main{
+        margin-left: 19%;
+        margin-top: 3%;
+
+
+        &__title{
+          font-size: 60px;
+          font-weight: bold;
+          line-height: 65px;
+        }
+
+        &__text{
+          margin-top:18px;
+          font-size: 17px;
+          line-height: 32px;
+        }
+
+        &__apple{
+          margin-top:19px;
+          margin-right: 20px;
+          float: left;
+        }
+
+        &__google{
+          height:440px;
+          margin-top:19px;
+        }
+      }
+
+      &__phone{
+        width:440px;
+        position:absolute;
+        margin-left:48%;
+        top:0; 
+      }
+    }
+  }
+
+  .secound-section{
+    min-height:2000px;
+    margin-bottom:10px;
+    z-index: 1;
+
+    img{
+      width:213px;
+      height:220px;
+    }
+
+    h1{
+      font-size: 28px;
       font-weight: bold;
       text-align: center;
     }
 
-    &__items{
+    &__block{
+      width:935px;
+      height:442px;
+      display: block;
       margin-right: auto;
       margin-left: auto;
-      padding-right:0;
-      padding-left: 0;
-      a:link { 
-        color: black;
-        text-decoration: none;
-      }
-      a:visited { 
-        color: black;
-        text-decoration: none;
-      }
-      a:hover { 
-        color: black;
-        opacity: 0.6;
-        text-decoration: underline;
-      }
-      a:active { 
-        color: none; 
-      }
+      margin-top:22px;
+      position:relative;
 
-      &__item{
-        width:213px;
-        height:330px;
-        margin-left:10px;
-        margin-right: 10px;
-        margin-top:20px;
-        float:left;
-
-        &__image{
-          width:213px;
-          height:220px;
-          background-color: aquamarine;
-        }
-
-        &__box{
-        width:213px;
-        height:110px;
-        background-color: #fff;
-        position: relative;
-
-          &__name{
-            padding-top: 16px;
-            padding-left: 16px;
-            padding-right: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1.5;
-          }
-
-          &__block{
-            position: absolute;
-            bottom:0;
-            width:213px;
-            height: 40px;
-
-            &__price{
-              font-size: 16px;
-              padding-left: 16px;
-              top:0;
-              font-weight: 900;
-              display:inline-block;
-            }
-
-            &__iine{
-              display: inline-block;
-              color: #ccc;
-              font-size: 20px;
-              margin-left: 100px;
-              top:0;
-            }
-
-            &__tax-word{
-              padding-top: 0;
-              margin-top: 0;
-              padding-left: 10px;
-              font-size: 10px;
-            }
-          }
-        }
-      }
-      &__all{
-        float:right;
+      &__title{
+        font-size: 22px;
         color: #0099e8;
-        font-size:14px;
-        margin-top: 20px;
-        margin-right: 10px;
-        margin-bottom: 50px;
+        font-weight: bold;
+        text-align: center;
+      }
 
+      &__items{
+        margin-right: auto;
+        margin-left: auto;
+        padding-right:0;
+        padding-left: 0;
         a:link { 
-          color: #0099e8;
+          color: black;
           text-decoration: none;
         }
         a:visited { 
-          color: #0099e8;
+          color: black;
           text-decoration: none;
         }
         a:hover { 
-          color: #0099e8;
+          color: black;
           opacity: 0.6;
           text-decoration: underline;
         }
         a:active { 
           color: none; 
         }
+
+        &__item{
+          width:213px;
+          height:330px;
+          margin-left:10px;
+          margin-right: 10px;
+          margin-top:20px;
+          float:left;
+
+          &__image{
+            width:213px;
+            height:220px;
+            background-color: aquamarine;
+          }
+
+          &__box{
+          width:213px;
+          height:110px;
+          background-color: #fff;
+          position: relative;
+
+            &__name{
+              padding-top: 16px;
+              padding-left: 16px;
+              padding-right: 16px;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 1.5;
+            }
+
+            &__block{
+              position: absolute;
+              bottom:0;
+              width:213px;
+              height: 40px;
+
+              &__price{
+                font-size: 16px;
+                padding-left: 16px;
+                top:0;
+                font-weight: 900;
+                display:inline-block;
+              }
+
+              &__iine{
+                display: inline-block;
+                color: #ccc;
+                font-size: 20px;
+                margin-left: 100px;
+                top:0;
+              }
+
+              &__tax-word{
+                padding-top: 0;
+                margin-top: 0;
+                padding-left: 10px;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+        &__all{
+          float:right;
+          color: #0099e8;
+          font-size:14px;
+          margin-top: 20px;
+          margin-right: 10px;
+          margin-bottom: 50px;
+
+          a:link { 
+            color: #0099e8;
+            text-decoration: none;
+          }
+          a:visited { 
+            color: #0099e8;
+            text-decoration: none;
+          }
+          a:hover { 
+            color: #0099e8;
+            opacity: 0.6;
+            text-decoration: underline;
+          }
+          a:active { 
+            color: none; 
+          }
+        }
+      }
+    }
+
+    &__block2{
+      display:none;
+
+      &__items{
+        display:none;
+        &__item{
+          display:none;
+        }
+      }
+    }
+    &__block3{
+      display:none;
+     
+      &__items{
+        display:none;
+
+        &__item{
+          display:none;
+        }
       }
     }
   }
 }
 
+@media (min-width: 701px) and (max-width: 1069px){
 
+  .main{
+    z-index: 1;
+    background: #f5f5f5;
+    min-height:100%;
+    a:link { 
+      color: #0099e8;
+      text-decoration: none;
+    }
+    a:visited { 
+      color: #0099e8;
+      text-decoration: none;
+    }
+    a:hover { 
+      color: #0099e8;
+      opacity: 0.6;
+      text-decoration: underline;
+    }
+    a:active { 
+      color: none; 
+    }
+  }
 
+  .first-section{
+    background-size: cover;
+    min-height:390px;
+    margin-bottom:95px;
 
+    &__secound-view{
+      background-position: center;
+      background-size: cover;
+      height:390px;
+      max-width:100%;
+      position:absolute;
+      background-image:url("https://www.mercari.com/jp/assets/img/common/jp/top/banner-6th-thanks.jpg");
+    }
+  
+    &__third-view{
+      position:relative;
+      background-image:url("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg");
+      background-size: cover;
+      height:390px;
 
+      &__main{
+        margin-left: 19%;
+        margin-top: 5%;
 
+        &__title{
+          font-size: 40px;
+          font-weight: bold;
+          line-height: 45px;
+        }
+
+        &__text{
+          margin-top:18px;
+          font-size: 16px;
+          line-height: 32px;
+        }
+
+        &__apple{
+          margin-top:19px;
+          margin-right: 20px;
+          float: left;
+        }
+
+        &__google{
+          height:440px;
+          margin-top:19px;
+        }
+      }
+
+      &__phone{
+        width:440px;
+        position:absolute;
+        margin-left:55%;
+        top:0; 
+      }
+    }
+  }
+
+  .secound-section{
+    min-height:2000px;
+    margin-bottom:10px;
+    z-index: 1;
+
+    img{
+      width:213px;
+      height:220px;
+    }
+
+    h1{
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__block{
+      display: none;
+
+      &__items{
+        display:none;
+
+        &__item{
+          display:none;
+        }
+      }
+    }
+
+    &__block2{
+      width:700px;
+      height:442px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top:22px;
+      position:relative;
+
+      &__title{
+        font-size: 22px;
+        color: #0099e8;
+        font-weight: bold;
+        text-align: center;
+      }
+      &__items{
+        margin-right: auto;
+        margin-left: auto;
+        padding-right:0;
+        padding-left: 0;
+        a:link { 
+          color: black;
+          text-decoration: none;
+        }
+        a:visited { 
+          color: black;
+          text-decoration: none;
+        }
+        a:hover { 
+          color: black;
+          opacity: 0.6;
+          text-decoration: underline;
+        }
+        a:active { 
+          color: none; 
+        }
+
+        &__item{
+          width:213px;
+          height:330px;
+          margin-left:10px;
+          margin-right: 10px;
+          margin-top:20px;
+          float:left;
+
+          &__image{
+            width:213px;
+            height:220px;
+            background-color: aquamarine;
+          }
+
+          &__box{
+          width:213px;
+          height:110px;
+          background-color: #fff;
+          position: relative;
+
+            &__name{
+              padding-top: 16px;
+              padding-left: 16px;
+              padding-right: 16px;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 1.5;
+            }
+
+            &__block{
+              position: absolute;
+              bottom:0;
+              width:213px;
+              height: 40px;
+
+              &__price{
+                font-size: 16px;
+                padding-left: 16px;
+                top:0;
+                font-weight: 900;
+                display:inline-block;
+              }
+
+              &__iine{
+                display: inline-block;
+                color: #ccc;
+                font-size: 20px;
+                margin-left: 100px;
+                top:0;
+              }
+
+              &__tax-word{
+                padding-top: 0;
+                margin-top: 0;
+                padding-left: 10px;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+        &__all{
+          float:right;
+          color: #0099e8;
+          font-size:14px;
+          bottom:0;
+          margin-top: 20px;
+          margin-right: 20px;
+
+          a:link { 
+            color: #0099e8;
+            text-decoration: none;
+          }
+          a:visited { 
+            color: #0099e8;
+            text-decoration: none;
+          }
+          a:hover { 
+            color: #0099e8;
+            opacity: 0.6;
+            text-decoration: underline;
+          }
+          a:active { 
+            color: none; 
+          }
+        }
+      }
+    }
+    &__block3{
+      display: none;
+
+      &__items{
+        display:none;
+
+        &__item{
+          display:none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px){
+  .main{
+    z-index: 1;
+    background: #f5f5f5;
+    min-height:100%;
+    a:link { 
+      color: #0099e8;
+      text-decoration: none;
+    }
+    a:visited { 
+      color: #0099e8;
+      text-decoration: none;
+    }
+    a:hover { 
+      color: #0099e8;
+      opacity: 0.6;
+      text-decoration: underline;
+    }
+    a:active { 
+      color: none; 
+    }
+  }
+
+  .first-section{
+    background-size: cover;
+    min-height:390px;
+    margin-bottom:95px;
+
+    &__secound-view{
+      height:390px;
+      padding: 0 -50%;
+      background-position: center;
+      background-size: cover;
+      position:absolute;
+      background-image:url("https://www.mercari.com/jp/assets/img/common/jp/top/banner-6th-thanks.jpg");
+    }
+  
+
+    &__third-view{
+      position:relative;
+      background-image:url("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg");
+      background-size: cover;
+      height:390px;
+
+      &__main{
+        margin-left: 19%;
+        margin-top: 3%;
+
+        &__title{
+          font-size: 40px;
+          font-weight: bold;
+          line-height: 45px;
+        }
+
+        &__text{
+          margin-top:14px;
+          font-size: 17px;
+          line-height: 32px;
+        }
+
+        &__apple{
+          margin-top:19px;
+          margin-right: 20px;
+          float: left;
+        }
+
+        &__google{
+          height:440px;
+          margin-top:19px;
+        }
+      }
+
+      &__phone{
+        display:none;
+      }
+    }
+  }
+
+  .secound-section{
+    min-height:2000px;
+    margin-bottom:10px;
+    z-index: 1;
+
+    img{
+      width:213px;
+      height:220px;
+    }
+
+    h1{
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__block{
+      display:none;
+
+      &__items{
+        display:none;
+        &__item{
+          display:none;
+        }
+      }
+    }
+    &__block2{
+      display:none;
+     
+      &__items{
+        display:none;
+
+        &__item{
+          display:none;
+        }
+      }
+    }
+    &__block3{
+      width:500px;
+      height:442px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top:22px;
+      position:relative;
+
+      &__title{
+        font-size: 22px;
+        color: #0099e8;
+        font-weight: bold;
+        text-align: center;
+      }
+      &__items{
+        margin-right: auto;
+        margin-left: auto;
+        padding-right:0;
+        padding-left: 0;
+        a:link { 
+          color: black;
+          text-decoration: none;
+        }
+        a:visited { 
+          color: black;
+          text-decoration: none;
+        }
+        a:hover { 
+          color: black;
+          opacity: 0.6;
+          text-decoration: underline;
+        }
+        a:active { 
+          color: none; 
+        }
+
+        &__item{
+          width:213px;
+          height:330px;
+          margin-left:10px;
+          margin-right: 10px;
+          margin-top:20px;
+          float:left;
+
+          &__image{
+            width:213px;
+            height:220px;
+            background-color: aquamarine;
+          }
+
+          &__box{
+          width:213px;
+          height:110px;
+          background-color: #fff;
+          position: relative;
+
+            &__name{
+              padding-top: 16px;
+              padding-left: 16px;
+              padding-right: 16px;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 1.5;
+            }
+
+            &__block{
+              position: absolute;
+              bottom:0;
+              width:213px;
+              height: 40px;
+
+              &__price{
+                font-size: 16px;
+                padding-left: 16px;
+                top:0;
+                font-weight: 900;
+                display:inline-block;
+              }
+
+              &__iine{
+                display: inline-block;
+                color: #ccc;
+                font-size: 20px;
+                margin-left: 100px;
+                top:0;
+              }
+
+              &__tax-word{
+                padding-top: 0;
+                margin-top: 0;
+                padding-left: 10px;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+        &__all{
+          float:right;
+          color: #0099e8;
+          font-size:14px;
+          bottom:0;
+          margin-top: 20px;
+          margin-right: 20px;
+
+          a:link { 
+            color: #0099e8;
+            text-decoration: none;
+          }
+          a:visited { 
+            color: #0099e8;
+            text-decoration: none;
+          }
+          a:hover { 
+            color: #0099e8;
+            opacity: 0.6;
+            text-decoration: underline;
+          }
+          a:active { 
+            color: none; 
+          }
+        }
+      }
+    }
+  }
+}

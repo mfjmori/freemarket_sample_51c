@@ -89,7 +89,6 @@
           .header__box__bottom__button__signin
             = link_to "ログイン",new_user_session_path , class: 'get', style: "text-decoration:none"
 
-
 .hider
   .hider__box
     .hider__box__top
@@ -112,10 +111,6 @@
             = link_to "新規会員登録",new_user_registration_path, class: 'get', style: "text-decoration:none"
           .hider__box__top__button__signin
             = link_to "ログイン",new_user_session_path , class: 'get', style: "text-decoration:none"
-            
-      
-      
-      
     .hider__box__middle
       .hider__box__middle__form
         = form_tag('/items', method: :post) do
@@ -178,4 +173,4 @@
             %li
               %h3
                 = link_to "ブランド一覧"
-     
+                

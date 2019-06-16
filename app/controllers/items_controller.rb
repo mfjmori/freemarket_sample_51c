@@ -9,13 +9,36 @@ class ItemsController < ApplicationController
 
       @items = Item.all.where.not(status: true)
       @items_lady =  @items.item_num(ladies_category)
+      @items_lady2 =  @items.item_num2(ladies_category)
+      @items_lady3 =  @items.item_num3(ladies_category)
+
       @items_men =  @items.item_num(mens_category)
+      @items_men2 =  @items.item_num2(mens_category)
+      @items_men3 =  @items.item_num3(mens_category)
+
       @items_baby =  @items.item_num(baby_category)
+      @items_baby2 =  @items.item_num2(baby_category)
+      @items_baby3 =  @items.item_num3(baby_category)
+
       @items_cosme =  @items.item_num(cosmes_category)
+      @items_cosme2 =  @items.item_num2(cosmes_category)
+      @items_cosme3 =  @items.item_num3(cosmes_category)
+
       @items_Chanel = @items.item_brand("シャネル")
+      @items_Chanel2 = @items.item_brand2("シャネル")
+      @items_Chanel3 = @items.item_brand3("シャネル")
+
       @items_Louis_Vuitton = @items.item_brand("ルイヴィトン")
+      @items_Louis_Vuitton2 = @items.item_brand2("ルイヴィトン")
+      @items_Louis_Vuitton3 = @items.item_brand3("ルイヴィトン")
+
       @items_Supream= @items.item_brand("シュプリーム")
+      @items_Supream2= @items.item_brand2("シュプリーム")
+      @items_Supream3= @items.item_brand3("シュプリーム")
+
       @items_Nike= @items.item_brand("ナイキ")
+      @items_Nike2= @items.item_brand2("ナイキ")
+      @items_Nike3= @items.item_brand3("ナイキ")
 
     end
 
