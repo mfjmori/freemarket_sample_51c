@@ -102,10 +102,11 @@
     .result-content
       .item-box-container
         %h2.item-box-head
-          = params[:keyword].present? ? "#{params[:keyword]}の検索結果" : "新着商品"
+          = search_result_title
         .search-result-number
           = @items.length.zero? ? "該当する商品が見つかりません。検索条件を変えて、再度お試しください。" : "1-#{@items.length}件表示"
         .item-box-content
+          - @items = Item.limit(48).recent if @items.length == 0
           - @items.each do |item|
             .item-box
               = link_to item , class: 'item-box__link' do
