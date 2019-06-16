@@ -1,9 +1,6 @@
 %main.main
   .slider
-    .first-section
-      = link_to image_tag(src='https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg'), '', class: 'get'
-    %div
-      = link_to image_tag(src="https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg" ), '', class: 'get'
+    .first-section__secound-view
     .first-section__third-view
       .first-section__third-view__main
         .first-section__third-view__main__title
@@ -31,6 +28,24 @@
         = render partial: "layouts/item_lineup", collection: @items_lady
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block2
+      .secound-section__block2__title
+        %p
+          = link_to "レディース 新着アイテム","" , class: 'get'
+      .secound-section__block2__items
+        = render partial: "layouts/item_lineup", collection: @items_lady2
+        .secound-section__block2__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block3
+      .secound-section__block3__title
+        %p
+          = link_to "レディース 新着アイテム","" , class: 'get'
+      .secound-section__block3__items
+        = render partial: "layouts/item_lineup", collection: @items_lady3
+        .secound-section__block3__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
       
 
     .secound-section__block
@@ -41,6 +56,25 @@
         = render partial: "layouts/item_lineup", collection: @items_men
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
+      
+    .secound-section__block2
+      .secound-section__block2__title
+        %p
+          = link_to "メンズ 新着アイテム","" , class: 'get'
+      .secound-section__block2__items
+        = render partial: "layouts/item_lineup", collection: @items_men2
+        .secound-section__block2__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block3
+      .secound-section__block3__title
+        %p
+          = link_to "メンズ 新着アイテム","" , class: 'get'
+      .secound-section__block3__items
+        = render partial: "layouts/item_lineup", collection: @items_men3
+        .secound-section__block3__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
     .secound-section__block
       .secound-section__block__title
         %p
@@ -49,6 +83,25 @@
         = render partial: "layouts/item_lineup", collection: @items_baby
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block2
+      .secound-section__block2__title
+        %p
+          = link_to "ベビー・キッズ 新着アイテム","" , class: 'get'
+      .secound-section__block2__items
+        = render partial: "layouts/item_lineup", collection: @items_baby2
+        .secound-section__block2__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block3
+      .secound-section__block3__title
+        %p
+          = link_to "ベビー・キッズ 新着アイテム","" , class: 'get'
+      .secound-section__block3__items
+        = render partial: "layouts/item_lineup", collection: @items_baby3
+        .secound-section__block3__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
     .secound-section__block
       .secound-section__block__title
         %p
@@ -56,6 +109,24 @@
       .secound-section__block__items
         = render partial: "layouts/item_lineup", collection: @items_cosme
         .secound-section__block__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block2
+      .secound-section__block2__title
+        %p
+          = link_to "コスメ・香水・美容 新着アイテム","" , class: 'get'
+      .secound-section__block2__items
+        = render partial: "layouts/item_lineup", collection: @items_cosme2
+        .secound-section__block2__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block3
+      .secound-section__block3__title
+        %p
+          = link_to "コスメ・香水・美容 新着アイテム","" , class: 'get'
+      .secound-section__block3__items
+        = render partial: "layouts/item_lineup", collection: @items_cosme3
+        .secound-section__block3__items__all
           = link_to "すべての商品を見る","" , class: 'get'
 
   .secound-section
@@ -70,6 +141,24 @@
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
 
+    .secound-section__block2
+      .secound-section__block2__title
+        %p
+          = link_to "シャネル 新着アイテム","" , class: 'get'
+      .secound-section__block2__items
+        = render partial: "layouts/item_lineup", collection: @items_Chanel2
+        .secound-section__block2__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block3
+      .secound-section__block3__title
+        %p
+          = link_to "シャネル 新着アイテム","" , class: 'get'
+      .secound-section__block3__items
+        = render partial: "layouts/item_lineup", collection: @items_Chanel3
+        .secound-section__block3__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
     .secound-section__block
       .secound-section__block__title
         %p
@@ -79,14 +168,50 @@
         .secound-section__block__items__all
           = link_to "すべての商品を見る","" , class: 'get'
 
+    .secound-section__block2
+      .secound-section__block2__title
+        %p
+          = link_to "ルイ ヴィトン 新着アイテム","" , class: 'get'
+      .secound-section__block2__items
+        = render partial: "layouts/item_lineup", collection: @items_Louis_Vuitton2
+        .secound-section__block2__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block3
+      .secound-section__block3__title
+        %p
+          = link_to "ルイ ヴィトン 新着アイテム","" , class: 'get'
+      .secound-section__block3__items
+        = render partial: "layouts/item_lineup", collection: @items_Louis_Vuitton3
+        .secound-section__block3__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
     .secound-section__block
       .secound-section__block__title
         %p
           = link_to "シュプリーム 新着アイテム","" , class: 'get'
       .secound-section__block__items
         = render partial: "layouts/item_lineup", collection: @items_Supream
-      .secound-section__block__items__all
-        = link_to "すべての商品を見る","" , class: 'get'
+        .secound-section__block__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block2
+      .secound-section__block2__title
+        %p
+          = link_to "シュプリーム 新着アイテム","" , class: 'get'
+      .secound-section__block2__items
+        = render partial: "layouts/item_lineup", collection: @items_Supream2
+        .secound-section__block2__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block3
+      .secound-section__block3__title
+        %p
+          = link_to "シュプリーム 新着アイテム","" , class: 'get'
+      .secound-section__block3__items
+        = render partial: "layouts/item_lineup", collection: @items_Supream3
+        .secound-section__block3__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
 
     .secound-section__block
       .secound-section__block__title
@@ -94,5 +219,23 @@
           = link_to "ナイキ 新着アイテム","" , class: 'get'
       .secound-section__block__items
         = render partial: "layouts/item_lineup", collection: @items_Nike
-      .secound-section__block__items__all
-        = link_to "すべての商品を見る","" , class: 'get'
+        .secound-section__block__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block2
+      .secound-section__block2__title
+        %p
+          = link_to "ナイキ 新着アイテム","" , class: 'get'
+      .secound-section__block2__items
+        = render partial: "layouts/item_lineup", collection: @items_Nike2
+        .secound-section__block2__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
+
+    .secound-section__block3
+      .secound-section__block3__title
+        %p
+          = link_to "ナイキ 新着アイテム","" , class: 'get'
+      .secound-section__block3__items
+        = render partial: "layouts/item_lineup", collection: @items_Nike3
+        .secound-section__block3__items__all
+          = link_to "すべての商品を見る","" , class: 'get'
