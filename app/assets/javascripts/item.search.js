@@ -10,7 +10,6 @@ $(function() {
     };
     if (child_category_select.children('option:selected').val()) {
       $('.search-form__detail__category__block').show();
-      // grandchild_category_select.next('.select-arrow--grandchild').show();
     };
   });
 
