@@ -113,10 +113,10 @@
             = link_to "ログイン",new_user_session_path , class: 'get', style: "text-decoration:none"
     .hider__box__middle
       .hider__box__middle__form
-        = form_tag('/items', method: :post) do
+        = form_with(url: search_items_path, method: :get, local: true) do |form|
           .hider__box__middle__form__tag
-            %input.hider__box__middle__form__tag__main{name: "text", placeholder: "何かお探しですか？"}/
-            %button.hider__box__middle__form__submit{type: "submit"}
+            = form.text_field(:keyword, placeholder: "何かお探しですか？", size: "88", class: "hider__box__middle__form__tag__main")
+            = form.button(class: "hider__box__middle__form__submit") do
               %i.fas.fa-search
     .hider__box__bottom
       .hider__box__bottom__nav
