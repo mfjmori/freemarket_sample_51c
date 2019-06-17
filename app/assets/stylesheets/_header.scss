@@ -152,9 +152,12 @@
               color: #0099e8;  
               text-decoration:none;
             }
+          }
 
-            a:hover { 
-              background: #0099e8;
+          &__signin:hover{
+            background: #0099e8;
+            color: white;
+            a{ 
               color: white;
             }
           }
@@ -459,6 +462,7 @@
         width:100%;
         display:inline-block;
         margin-bottom: 5px;
+        font-size: 14px;
 
         &__button{
           float:right;
@@ -498,9 +502,12 @@
               color: #0099e8;  
               text-decoration:none;
             }
+          }
 
-            a:hover { 
-              background: #0099e8;
+          &__signin:hover{
+            background: #0099e8;
+            color: white;
+            a{ 
               color: white;
             }
           }

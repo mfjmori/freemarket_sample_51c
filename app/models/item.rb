@@ -45,12 +45,12 @@ class Item < ApplicationRecord
   end
   validates :price, presence: true, numericality: {only_integer: true, greater_than: 299, less_than: 10000000}
 
-  scope :item_num, -> (num) {where(category_id: num).order('id ASC').limit(4)}
-  scope :item_num2, -> (num) {where(category_id: num).order('id ASC').limit(3)}
-  scope :item_num3, -> (num) {where(category_id: num).order('id ASC').limit(2)}
-  scope :item_brand, -> (name) {where(brand: name).order('id ASC').limit(4)}
-  scope :item_brand2, -> (name) {where(brand: name).order('id ASC').limit(3)}
-  scope :item_brand3, -> (name) {where(brand: name).order('id ASC').limit(2)}
+  scope :item_num, -> (num) {where(category_id: num).order('id DESC').limit(4)}
+  scope :item_num2, -> (num) {where(category_id: num).order('id DESC').limit(3)}
+  scope :item_num3, -> (num) {where(category_id: num).order('id DESC').limit(2)}
+  scope :item_brand, -> (name) {where(brand: name).order('id DESC').limit(4)}
+  scope :item_brand2, -> (name) {where(brand: name).order('id DESC').limit(3)}
+  scope :item_brand3, -> (name) {where(brand: name).order('id DESC').limit(2)}
   scope :recent, -> {order('id ASC')}
   scope :recent, -> {order('updated_at DESC')}
   scope :on_sale, -> {where(status: 0)}
