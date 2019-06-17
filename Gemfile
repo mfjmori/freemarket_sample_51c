@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'rails-controller-testing'
+  gem 'rails-env-credentials'
 end
 
 group :development do
@@ -97,3 +98,4 @@ gem 'rails-i18n', '~> 5.1'
 gem 'rspec-rails'
 gem "factory_bot_rails"
 gem 'faker'
+

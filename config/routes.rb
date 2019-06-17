@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
   devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
     collection do
       get 'address'
       get 'card'
-      post "pay"
       get 'telephone'
       get 'complete'
     end

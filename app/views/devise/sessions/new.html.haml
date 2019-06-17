@@ -13,11 +13,13 @@
       .l__devise__inner__login
         .l__devise__link__black
         %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
-          %i.fab.fa-facebook-square>
-          Facebookで登録
+          = link_to user_facebook_omniauth_authorize_path do
+            %i.fab.fa-facebook-square>
+            Facebookで登録
         %button#google-login.btn-default.btn-sns.btn-sns-google
-          %i>= embedded_svg("Google.svg", class: "good-svg")
-          Googleで登録
+          = link_to user_google_oauth2_omniauth_authorize_path do
+            %i>= embedded_svg("Google.svg", class: "good-svg")
+            Googleで登録
       .l__devise__inner__login
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .l__devise__field
@@ -32,4 +34,5 @@
             - if devise_mapping.rememberable?
               .field
                 = f.label :パスワードを忘れた方, class:"l__devise__right-text"
+
   = render "/devise/shared/footer"
