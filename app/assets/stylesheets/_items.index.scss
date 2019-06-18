@@ -195,7 +195,6 @@
             }
 
             &__block{
-              position: absolute;
               bottom:0;
               width:213px;
               height: 40px;
@@ -209,11 +208,20 @@
               }
 
               &__iine{
-                display: inline-block;
                 color: #ccc;
                 font-size: 20px;
-                margin-left: 100px;
-                top:0;
+                left: 80%;
+                top:63px;
+                position: absolute;
+
+                &__count{
+                  font-size: 14px;
+                  font-weight: 500;
+                  padding-left:0;
+                  margin-left:0;
+                  color: #333;
+                  display:inline-block;
+                }
               }
 
               &__tax-word{
@@ -487,7 +495,6 @@
             }
 
             &__block{
-              position: absolute;
               bottom:0;
               width:213px;
               height: 40px;
@@ -501,11 +508,20 @@
               }
 
               &__iine{
-                display: inline-block;
                 color: #ccc;
                 font-size: 20px;
-                margin-left: 100px;
-                top:0;
+                left: 80%;
+                top:63px;
+                position: absolute;
+
+                &__count{
+                  font-size: 14px;
+                  font-weight: 500;
+                  padding-left:0;
+                  margin-left:0;
+                  color: #333;
+                  display:inline-block;
+                }
               }
 
               &__tax-word{
@@ -674,12 +690,13 @@
       }
     }
     &__block3{
-      width:500px;
-      height:442px;
+      min-width:150px;
+      width:calc(100% - 40px);
       display: block;
       margin-right: auto;
       margin-left: auto;
       margin-top:22px;
+      margin-bottom: 145%;
       position:relative;
 
       &__title{
@@ -693,6 +710,7 @@
         margin-left: auto;
         padding-right:0;
         padding-left: 0;
+        height:auto;
         a:link { 
           color: black;
           text-decoration: none;
@@ -711,28 +729,37 @@
         }
 
          &__item{
-          width:213px;
-          height:330px;
+          height:auto;
+          width: calc(50% - 30px);
           margin-left:10px;
           margin-right: 10px;
           margin-top:20px;
           float:left;
           &__image{
+            overflow: hidden;
             position: relative;
-            width:213px;
-            height:220px;
+            padding-top: 100%;
             z-index: 2;
             img{
               z-index: 1;
+              width: 100%;
+              height:100%;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
             }
+            
             &__mark{
               top:0;
               position: absolute;
-              width:100px;
-              height:100px;
+              width:60%;
+              height:60%;
               z-index: 3;
               display:inline-block;
-              background-image:linear-gradient(135deg, #ea352d 70px, transparent 0);
+              background-image:linear-gradient(135deg, #ea352d 50%, transparent 0);
 
               &__red{
                 color: white;
@@ -744,7 +771,6 @@
           }
 
           &__box{
-          width:213px;
           height:110px;
           background-color: #fff;
           position: relative;
@@ -774,7 +800,6 @@
             }
 
             &__block{
-              position: absolute;
               bottom:0;
               width:213px;
               height: 40px;
@@ -785,14 +810,24 @@
                 top:0;
                 font-weight: 900;
                 display:inline-block;
+                position: relative;
               }
 
               &__iine{
-                display: inline-block;
                 color: #ccc;
                 font-size: 20px;
-                margin-left: 100px;
-                top:0;
+                left: 80%;
+                top:63px;
+                position: absolute;
+
+                &__count{
+                  font-size: 14px;
+                  font-weight: 500;
+                  padding-left:0;
+                  margin-left:0;
+                  color: #333;
+                  display:inline-block;
+                }
               }
 
               &__tax-word{
