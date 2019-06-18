@@ -209,7 +209,7 @@
         .item-box-content
           - @slaer_items.each do |item|
             .item-box.backgroundfff
-              = link_to items_path(@item.id), class: 'item-box__link' do
+              = link_to item_path(item.id), class: 'item-box__link' do
                 %figure.item-box__link__photo
                   = image_tag item.images[0].image.url
                 .item-box__link__body
