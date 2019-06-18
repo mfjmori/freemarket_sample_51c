@@ -25,7 +25,7 @@
                 %br/
                 またはクリックしてファイルをアップロード
                 = image.file_field :image, class: "set-page__secound__form__text__drop", id: "preview-#{image.index}",  data: {preview: image.index}
-                = image.hidden_field :image_cache
+                = image.hidden_field :image_cache if image.object.image.present?
 
     .set-page__third
       = f.label :name, "商品名", class: "set-page__third__title"
