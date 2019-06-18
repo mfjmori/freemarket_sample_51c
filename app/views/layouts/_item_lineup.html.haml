@@ -3,6 +3,10 @@
     .secound-section__block__items__item__image
       -item_lineup.images.first(1).each do |image|
         = image_tag image.image.url
+        -unless item_lineup.buyer_id ==nil then
+          .secound-section__block__items__item__image__mark
+            .secound-section__block__items__item__image__mark__red
+              SOLD
     .secound-section__block__items__item__box  
       .secound-section__block__items__item__box__name
         =item_lineup.name
@@ -19,6 +23,10 @@
     .secound-section__block2__items__item__image
       -item_lineup.images.first(1).each do |image|
         = image_tag image.image.url
+        -if item_lineup.buyer_id ==1 then
+          .secound-section__block2__items__item__image__mark
+            .secound-section__block2__items__item__image__mark__red
+              SOLD
     .secound-section__block2__items__item__box  
       .secound-section__block2__items__item__box__name
         =item_lineup.name
@@ -35,6 +43,10 @@
     .secound-section__block3__items__item__image
       -item_lineup.images.first(1).each do |image|
         = image_tag image.image.url
+        -if item_lineup.buyer_id ==1 then
+          .secound-section__block3__items__item__image__mark
+            .secound-section__block3__items__item__image__mark__red
+              SOLD
     .secound-section__block3__items__item__box  
       .secound-section__block3__items__item__box__name
         =item_lineup.name
