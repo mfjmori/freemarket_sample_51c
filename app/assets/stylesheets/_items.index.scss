@@ -195,7 +195,6 @@
             }
 
             &__block{
-              position: absolute;
               bottom:0;
               width:213px;
               height: 40px;
@@ -209,11 +208,20 @@
               }
 
               &__iine{
-                display: inline-block;
                 color: #ccc;
                 font-size: 20px;
-                margin-left: 100px;
-                top:0;
+                left: 80%;
+                top:63px;
+                position: absolute;
+
+                &__count{
+                  font-size: 14px;
+                  font-weight: 500;
+                  padding-left:0;
+                  margin-left:0;
+                  color: #333;
+                  display:inline-block;
+                }
               }
 
               &__tax-word{
@@ -487,7 +495,6 @@
             }
 
             &__block{
-              position: absolute;
               bottom:0;
               width:213px;
               height: 40px;
@@ -501,11 +508,20 @@
               }
 
               &__iine{
-                display: inline-block;
                 color: #ccc;
                 font-size: 20px;
-                margin-left: 100px;
-                top:0;
+                left: 80%;
+                top:63px;
+                position: absolute;
+
+                &__count{
+                  font-size: 14px;
+                  font-weight: 500;
+                  padding-left:0;
+                  margin-left:0;
+                  color: #333;
+                  display:inline-block;
+                }
               }
 
               &__tax-word{
@@ -803,6 +819,15 @@
                 left: 80%;
                 top:63px;
                 position: absolute;
+
+                &__count{
+                  font-size: 14px;
+                  font-weight: 500;
+                  padding-left:0;
+                  margin-left:0;
+                  color: #333;
+                  display:inline-block;
+                }
               }
 
               &__tax-word{
