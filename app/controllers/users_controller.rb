@@ -2,9 +2,12 @@ class UsersController < ApplicationController
 
     require "payjp"
     layout 'user_application', except: [:show, :logout]
+    before_action :move_to_sign_in, only: :show
     def index
     end
     def show
+        redirect_to new_user_session_path unless user_signed_in?
+        redirect_to user_path(current_user) if current_user.id != params[:id].to_i
         @user = User.find(params[:id])
     end
     def new
@@ -54,6 +57,11 @@ class UsersController < ApplicationController
     end
     def complete
         @user = User.new
+    end
+
+    private
+    def move_to_sign_in
+        redirect_to new_user_session_path unless user_signed_in?
     end
     
 end

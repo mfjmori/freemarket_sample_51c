@@ -6,11 +6,11 @@
   .container
     .content-mypage
       .maypage-user-icon
-        = link_to '/users/:user_id/profiles', class: 'user-detail-link' do
+        = link_to user_profiles_path(params[:id]), class: 'user-detail-link' do
           %figure.user-detail-link__image
             = image_tag "//static.mercdn.net/thumb/members/710038589.jpg?1552921963"
           %h2.user-detail-link__name
-            =current_user.nickname
+            = current_user.try(:nickname)
           .user-detail-link__number
             .user-detail-link__number__reviews
               評価
@@ -108,7 +108,7 @@
             過去の取引
       .list-container
         %ul.buy-item-now-lists
-          %li.buy-item-now-list
+          -# %li.buy-item-now-list
             = link_to '#', class: 'buy-item-now-list__link' do
               %figure.buy-item-now-list__link__image
                 = image_tag '//static.mercdn.net/thumb/photos/m38463463224_1.jpg?1530974582'
@@ -118,7 +118,7 @@
                 .buy-item-now-list__link__body__status
                   取引中
                 %i.fas.fa-chevron-right
-          %li.buy-item-now-list
+          -# %li.buy-item-now-list
             = link_to '#', class: 'buy-item-now-list__link' do
               %figure.buy-item-now-list__link__image
                 = image_tag '//static.mercdn.net/thumb/photos/m44589494282_1.jpg?1529818795'
@@ -128,7 +128,6 @@
                 .buy-item-now-list__link__body__status
                   取引中
                 %i.fas.fa-chevron-right
-        -# TODO サーバーサイド実装時に条件分けして使う
           %li.buy-item-now-list-none
             取引中の商品がありません
       -# TODO サーバーサイド実装時に条件分けして使う
