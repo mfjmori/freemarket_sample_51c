@@ -33,7 +33,7 @@ crumb :logout do
 end
 
 crumb :user_show do
-  users = User.find_by(params[:id])
+  users = User.find(params[:user_id])
   link users.nickname
   parent :root
 end
