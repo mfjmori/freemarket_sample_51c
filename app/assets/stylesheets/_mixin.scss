@@ -224,3 +224,22 @@
     color: none; 
   }
 }
+
+@mixin soldout {
+  &__mark{
+    top:0;
+    position: absolute;
+    width:100px;
+    height:100px;
+    z-index: 3;
+    display:inline-block;
+    background-image:linear-gradient(135deg, #ea352d 70px, transparent 0);
+
+    &__red{
+      color: white;
+      transform: rotate(-45deg);
+      font-size: 24px;
+      text-indent: -0.3em;
+    }
+  }
+}

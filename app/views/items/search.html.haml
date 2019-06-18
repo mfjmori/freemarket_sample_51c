@@ -112,6 +112,10 @@
               = link_to item , class: 'item-box__link' do
                 %figure.item-box__link__photo
                   = image_tag item.images[0].image.url
+                  - if item.buyer_id.present?
+                    .item-box__link__photo__mark
+                      .item-box__link__photo__mark__red
+                        SOLD
                 .item-box__link__body
                   %h2.item-box__link__body__name
                     = item.name
