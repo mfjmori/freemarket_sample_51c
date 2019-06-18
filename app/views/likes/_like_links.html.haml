@@ -1,4 +1,4 @@
-- if item.like_user(current_user.id)
+- if item.like_user(current_user.try(:id))
   = link_to item_like_path(item, item.like_user(current_user)), method: :delete, class: 'heart-icon', remote: true do
     %i.fas.fa-heart
     %span
