@@ -4,7 +4,7 @@
       = search_form_for @search, url: search_items_path ,html: {method: :post, class: 'search-form'} do |f|
         .search-form__item-sort
           .search-form__item-sort__pull-down
-            = f.collection_select( :sorts, [['並び替え', 'id desc'], ['価格の安い順','price asc'], ['価格の高い順', 'price desc'], ['出品の古い順', 'updated_at asc'], ['出品の新しい順', 'updated_at desc'] ], :last, :first , { selected: params[:q][:sorts] }, {class: "search-form__item-sort__pull-down__select", onchange: 'this.form.submit()'} )
+            = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, {class: "search-form__item-sort__pull-down__select", onchange: 'this.form.submit()'} )
             %i.fas.fa-chevron-down.search-form__item-sort__pull-down__icon
         .search-form__detail
           %h3.search-form__detail__head
