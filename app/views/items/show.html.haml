@@ -24,7 +24,7 @@
         %tr
           %th 出品者
           %td
-            =link_to @users.nickname, user_profiles_path(@users.id)
+            =link_to @users.nickname, user_profiles_path(@users)
             .like
               .like-good
                 %i.fas.fa-laugh
@@ -86,7 +86,7 @@
       .product__details__price-cost
         送料込み
   - if @items.buyer_id == nil
-    -if current_user.id != @items.saler_id
+    -if current_user.try(:id) != @items.saler_id
       .product__details__btn
         %button
           =link_to '購入画面に進む',new_item_buy_order_path(@item.id)
@@ -103,7 +103,7 @@
       = link_to do
         %i.fas.fa-lock
         あんしん・あんぜんへの取り組み
--if @users.id == current_user.id
+-if @users.id == current_user.try(:id)
   -if @items.buyer_id == nil
     .chang-box
       %button.chang-box__btn-item-red
@@ -142,7 +142,7 @@
               %figcaption name
           .con
             .con-text
-              コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
+              ここにコメントが入る
             .con-bottom
               .con-bottom-time
                 %i.far.fa-clock
@@ -153,7 +153,7 @@
                 %form
                   %button
                     %i.far.fa-flag
-        %li.comment__content__show-list-left
+        -# %li.comment__content__show-list-left
           = link_to do
             %figure
               .div
