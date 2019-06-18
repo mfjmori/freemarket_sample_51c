@@ -80,13 +80,13 @@
   .product__details__price
     .product__details__price__box
       .product__details__price-en
-        = "¥#{@items.price}"
+        = "¥#{@items.price.to_s(:delimited)}"
       .product__details__price-tax
         (税込)
       .product__details__price-cost
         送料込み
   - if @items.buyer_id == nil
-    -if current_user.try(:id) != @items.saler_id
+    -if user_signed_in? && current_user.id != @items.saler_id
       .product__details__btn
         %button
           =link_to '購入画面に進む',new_item_buy_order_path(@item.id)
@@ -120,11 +120,6 @@
             %input{type: "hidden", name: "status", value: 0}
             %button.chang-box__btn-item-red{type: "submit"}
               出品停止中
-      .wakeru2
-        %button.chang-box__btn-item__gray
-          = link_to 'この商品を削除する', item_path(@item.id), method: :delete
-  -else
-    .chang-box
       .wakeru2
         %button.chang-box__btn-item__gray
           = link_to 'この商品を削除する', item_path(@item.id), method: :delete
@@ -217,7 +212,7 @@
                     = item.name
                   .item-box__link__body__number
                     .item-box__link__body__number__price
-                      = "¥#{item.price}"
+                      = "¥ #{item.price.to_s(:delimited)}"
                     %i.far.fa-heart
                     %span.item-box__link__body__number__like
                       2
