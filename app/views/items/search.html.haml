@@ -122,8 +122,9 @@
                   .item-box__link__body__number
                     .item-box__link__body__number__price
                       = "¥#{item.price.to_s(:delimited)}"
-                    %i.far.fa-heart
-                    %span.item-box__link__body__number__like
-                      2
+                    - unless item.likes.count.zero?
+                      %i.far.fa-heart
+                      %span.item-box__link__body__number__like
+                        = item.likes.count
                   .item-box__link__body__tax
                     (税込)
