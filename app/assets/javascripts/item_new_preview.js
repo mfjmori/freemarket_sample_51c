@@ -55,13 +55,6 @@ $(function(){
 
   // ページを読み込んだ時
   $(document).ready(function(){
-    // キャッシュのvalueがからの場合はキャッシュを削除
-    var image_caches = $('.set-page__secound__form__text').children('input[type="hidden"]');
-    $.each(image_caches, function(index, image_cache){
-      if ($(image_cache).val() == "") {
-        $(image_cache).remove();
-      }
-    });
     // 全ドロップゾーンを取得
     var all_drop_zone = $('.set-page__secound__form__text__drop');
     // carrierwaveで生成されたキャッシュをカウント

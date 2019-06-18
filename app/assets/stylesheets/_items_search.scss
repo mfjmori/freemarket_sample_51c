@@ -27,7 +27,9 @@
             text-decoration: none;
             color: #333;
             &__photo {
+              @include soldout; 
               margin: 0;
+              position: relative;
               img {
                 height: 160px;
                 width: 160px;
