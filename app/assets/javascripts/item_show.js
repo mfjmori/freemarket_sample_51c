@@ -1,11 +1,5 @@
 $(function() {
-  $('.slider').slick({
-    arrowa: false,
-    dots: true,
-  });
   $('.slider-for').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
     arrows: false,
     fade: true,
     asNavFor: '.slider-nav'
@@ -14,7 +8,7 @@ $(function() {
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: '.slider-for',
-    dots: true,
+    arrows: false,
     centerMode: true,
     focusOnSelect: true
   });
