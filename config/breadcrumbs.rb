@@ -48,9 +48,9 @@ crumb :categories do
   parent :root
 end
 
-crumb :categories_1 do
-  link "categories_1"
-  parent :categories
+crumb :search do
+  link 
+  parent :root
 end
 
 crumb :categories_2 do
