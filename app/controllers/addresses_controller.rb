@@ -8,7 +8,7 @@ class AddressesController < ApplicationController
   def create
     address=Address.new(address_params)
     if address.save
-      redirect_to card_users_path
+      redirect_to complete_users_path
     else
     render :action => 'new' 
   end
