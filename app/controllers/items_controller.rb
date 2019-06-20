@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to action: 'index'
+      redirect_to @item
     else
       @parent_categories = Category.where(parent_id: 0)
       @child_categories, @grandchild_categories = [], []
@@ -86,7 +86,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to action: 'index'
+      redirect_to @item
     else
       redirect_to action: 'edit'
     end
