@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     require "payjp"
     layout 'user_application', except: [:show, :logout]
-    before_action :move_to_sign_in, only: :show
+    before_action :move_to_sign_in, only: [:show, :card, :pay]
     def index
     end
     def show
@@ -36,13 +36,10 @@ class UsersController < ApplicationController
         # render "card"
     end
     def card
-
+        @user = current_user
     end
     def pay
         Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-        
-        binding.pry
-        
         if params['payjp-token'].blank?
             redirect_to action: "card"
         else
